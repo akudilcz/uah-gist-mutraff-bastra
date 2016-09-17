@@ -1,8 +1,6 @@
 # MUTRAFF / BASTRA Multi-Map Traffic Simulation Tool
 
-BASTRA is a new traffic simulation tool that extends the well-known traffic simulation tool SUMO.
-
-BASTRA is part of the MUTRAFF Research Project (Multi-Map Route Guidance Systems for Intelligent Optimization of Urban Traffic Flow) at GIST-UAH.
+BASTRA is a new traffic simulation tool that extends the well-known traffic simulation tool SUMO.  Is part of the MUTRAFF Research Project (Multi-Map Route Guidance Systems for Intelligent Optimization of Urban Traffic Flow) at GIST-UAH.
 
 BASTRA enables dynamic route modification according to any routing policy, that is, changing the established routes on the fly. This allows:
 * Implementing dynamic traffic policies from the TRaffic Operation CEnter.
