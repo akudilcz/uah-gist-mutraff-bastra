@@ -2,6 +2,7 @@ tmp/
 data/logs/
 data/dumps/
 data/tmp/
+*.pyc
 
 # Bastra temporary files
 vehicles_trips

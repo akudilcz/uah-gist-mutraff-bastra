@@ -123,7 +123,7 @@ def get_simulation_results():
 
     return
 
-
+# ==========================================================================
 if __name__ == '__main__':
 
     #constants
@@ -131,12 +131,17 @@ if __name__ == '__main__':
     LEVEL2=2
     LEVEL3=3
 
-    #reading parameters
+    # -------------------------------------------------
+    # Config reading parameters
+    # -------------------------------------------------
     param=getConfig()
     config_file=param.config_file
     config=load_config().copy()
     log_file=BastraLog.BastraLog(config)
 
+    # -------------------------------------------------
+    # Check sumo installed
+    # -------------------------------------------------
     try:
         sys.path.append(os.path.join(os.path.dirname(
             __file__), '..', '..', '..', '..', "tools"))
@@ -151,11 +156,22 @@ if __name__ == '__main__':
     else:
         sumoBinary = checkBinary('sumo')
 
+    # -------------------------------------------------
+    # Start sumo and connect to it (traci)
+    # -------------------------------------------------
     commands_sequence=readCommandsSequence(config["commands_file"])
     sumoProcess = subprocess.Popen([sumoBinary, "-c", config["sumo_config"],"--remote-port", str(config["sumoPort"])], stdout=sys.stdout, stderr=sys.stderr)
     traci.init(config["sumoPort"])
 
+    # -------------------------------------------------
+    # Simulation main loop:
+    #	- End condition 1: reach max num simulations
+    #	- End condition 2: do not exceed max time
+    # -------------------------------------------------
     while (traci.simulation.getMinExpectedNumber() > 0) and (int(sim.getCurTime())<int(sim.getEnd())):
+    	# ---------------------------------------------
+	# Each simulation step:
+    	# ---------------------------------------------
         sim.actCurTime()
         log_file.printLog(LEVEL3,"Processing step: " + str(sim.getCurTime()) + "\n")
         sim.processPendings()
@@ -181,6 +197,9 @@ if __name__ == '__main__':
         traci.simulationStep()
         get_simulation_results()
 
+    # -------------------------------------------------
+    # End of simulation
+    # -------------------------------------------------
     traci.close()
     print("Process terminated: step " + str(sim.getCurTime()) + "\n")
     sumoProcess.terminate()
