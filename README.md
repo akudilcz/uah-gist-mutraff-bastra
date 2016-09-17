@@ -1,6 +1,8 @@
-# BASTRA Multi-Map for SUMO simulation
+# MUTRAFF / BASTRA Multi-Map Traffic Simulation Tool
 
 BASTRA is a new traffic simulation tool that extends the well-known traffic simulation tool SUMO.
+
+BASTRA is part of the MUTRAFF Research Project (Multi-Map Route Guidance Systems for Intelligent Optimization of Urban Traffic Flow) at GIST-UAH.
 
 BASTRA enables dynamic route modification according to any routing policy, that is, changing the established routes on the fly. This allows:
 * Implementing dynamic traffic policies from the TRaffic Operation CEnter.
@@ -13,9 +15,9 @@ You should use this package as follows:
 * Clone the *Grid* scene and create your own.
 
 ## License and Contact info 
-Bastra is a research project from the *[GIST Search Group (Telematic Services Engineering Group](https://portal.uah.es/portal/page/portal/grupos_de_investigacion/49/Presentacion/QuienesSomos)* at *[Universidad de Alcala](http://www.uah.es)* developed by:
+Bastra is part of the MUTRAFF traffic research project developed at the *[GIST Search Group (Telematic Services Engineering Group](https://portal.uah.es/portal/page/portal/grupos_de_investigacion/49/Presentacion/QuienesSomos)* at *[Universidad de Alcala](http://www.uah.es)* developed by:
 * Prof. Dr. Miguel Angel Lopez Carmona. Traffic Group Leader. [Contact](mailto://miguellopez.carmona@uah.es)
-* Phd. Alvaro Paricio Garcia. Main Traffic Researcher [Contact](mailto://alvaro.paricio@uah.es).
+* Phd. Alvaro Paricio Garcia. MUTRAFF Traffic Researcher [Contact](mailto://alvaro.paricio@uah.es).
 * Eng. Valentin Alberti. Main developer.
 
 All rights belong to its creators. No total or partial distribution is allowed 
@@ -23,7 +25,7 @@ without previous written consent.
 
 ## Installation and Setup
 
-<< to be written >>
+<< tbd >>
 
 ## Quickstart
 
@@ -52,6 +54,7 @@ Execution results will create several files:
 
 Bastra package is formed by several tools:
 * *bastra.py* : Bastra simulator
+* << tbd >>
 
 Also you will find in the [scripts directory](scripts/) several utilities to manage.
 
