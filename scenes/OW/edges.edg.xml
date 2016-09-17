@@ -1,0 +1,58 @@
+<edges>
+  <edge id="AB" from="A" to="B" speed="69.41"/>
+  <edge id="AC" from="A" to="C" speed="97.18"/>
+  <edge id="AD" from="A" to="D" speed="45.89"/>
+  <edge id="BA" from="B" to="A" speed="69.41"/>
+  <edge id="BD" from="B" to="D" speed="43.77"/>
+  <edge id="BE" from="B" to="E" speed="62.58"/>
+  <edge id="CA" from="C" to="A" speed="97.18"/>
+  <edge id="CD" from="C" to="D" speed="68.76"/>
+  <edge id="CG" from="C" to="G" speed="76.49"/>
+  <edge id="CF" from="C" to="F" speed="44.17"/>
+  <edge id="DC" from="D" to="C" speed="68.76"/>
+  <edge id="DA" from="D" to="A" speed="45.89"/>
+  <edge id="DB" from="D" to="B" speed="43.77"/>
+  <edge id="DE" from="D" to="E" speed="68.76"/>
+  <edge id="DH" from="D" to="H" speed="76.49"/>
+  <edge id="DG" from="D" to="G" speed="68.76"/>
+  <edge id="ED" from="E" to="D" speed="68.76"/>
+  <edge id="EB" from="E" to="B" speed="62.58"/>
+  <edge id="EH" from="E" to="H" speed="69.41"/>
+  <edge id="FC" from="F" to="C" speed="44.17"/>
+  <edge id="FG" from="F" to="G" speed="53.99"/>
+  <edge id="FI" from="F" to="I" speed="37.73"/>
+  <edge id="GF" from="G" to="F" speed="53.99"/>
+  <edge id="GC" from="G" to="C" speed="62.58"/>
+  <edge id="GD" from="G" to="D" speed="68.76"/>
+  <edge id="GH" from="G" to="H" speed="53.48"/>
+  <edge id="GK" from="G" to="K" speed="52.95"/>
+  <edge id="GJ" from="G" to="J" speed="161.97"/>
+  <edge id="HG" from="H" to="G" speed="53.48"/>
+  <edge id="HD" from="H" to="D" speed="76.49"/>
+  <edge id="HE" from="H" to="E" speed="69.41"/>
+  <edge id="HK" from="H" to="K" speed="161.97"/>
+  <edge id="IF" from="I" to="F" speed="37.73"/>
+  <edge id="IJ" from="I" to="J" speed="53.99"/>
+  <edge id="IL" from="I" to="L" speed="243.7"/>
+  <edge id="JI" from="J" to="I" speed="53.99"/>
+  <edge id="JG" from="J" to="G" speed="161.97"/>
+  <edge id="JK" from="J" to="K" speed="53.48"/>
+  <edge id="JM" from="J" to="M" speed="57.49"/>
+  <edge id="JL" from="J" to="L" speed="57.49"/>
+  <edge id="KJ" from="K" to="J" speed="53.48"/>
+  <edge id="KG" from="K" to="G" speed="62.58"/>
+  <edge id="KH" from="K" to="H" speed="161.97"/>
+  <edge id="KM" from="K" to="M" speed="243.7"/>
+  <edge id="LI" from="L" to="I" speed="243.7"/>
+  <edge id="LJ" from="L" to="J" speed="57.49"/>
+  <edge id="MJ" from="M" to="J" speed="57.49"/>
+  <edge id="MK" from="M" to="K" speed="243.7"/>
+  <edge id="A0" from="A" to="0A" speed="300.0" />
+  <edge id="0A" from="0A" to="A" speed="300.0" />
+  <edge id="B0" from="B" to="0B" speed="300.0" />
+  <edge id="0B" from="0B" to="B" speed="300.0" />
+  <edge id="L0" from="L" to="0L" speed="300.0" />
+  <edge id="0L" from="0L" to="L" speed="300.0" />
+  <edge id="M0" from="M" to="0M" speed="300.0" />
+  <edge id="0M" from="0M" to="M" speed="300.0" />
+</edges>

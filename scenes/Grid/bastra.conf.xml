@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<config>
+  <Bastra>
+    <route_file value="./scenes/Grid/grid-scene.rou.xml"/>
+    <commands_file value="./scenes/Grid/commands.xml"/>
+    <verbose value="true"/>
+    <log_dir value="./data/logs/"/>
+    <log_file value="bastra_log_file"/>
+    <log_level value="3"/>
+    <dump_dir value="./data/dumps/"/>
+    <tmp_dir value="./data/tmp/"/>
+    <new_routes_file value="new_routes.xml"/>
+    <logit value="0.5"/>
+    <use_balance value="true"/>
+    <foresight_steps value="1"/>
+    <foresight_tries value="3"/>
+    <foresight_halting value="3"/>
+    <foresight_penalty value="50.0"/>
+    <statistics_file value="statistics.dat" />
+    <begin value="0"/>
+    <end value="10000"/>
+  </Bastra>
+
+  <Sumo>
+    <port value="2081"/>
+    <interactive value="false"/>
+    <sumo_config value="./scenes/Grid/my-grid.sumocfg"/>
+    <net_file value="./scenes/Grid/grid.net.xml"/>
+    <log_file value="sumo_log"/>
+  </Sumo>
+</config>

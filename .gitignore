@@ -1,0 +1,15 @@
+tmp/
+data/logs/
+data/dumps/
+data/tmp/
+
+# Bastra temporary files
+vehicles_trips
+dump_trip_*
+weights_total.xml
+sumo_log
+aux_map.xml
+sumo_log
+jam_routes.xml
+jam_routes.alt.xml
+

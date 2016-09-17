@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/od2tripsConfiguration.xsd">
+
+	<configuration>
+		<configuration-file value="od.conf.xml"/>
+	</configuration>
+
+	<input>
+		<net-file value="grid.net.xml"/>
+		<od-amitran-files value="odmat.xml"/>
+	</input>
+
+	<output>
+		<output-file value="grid.trip.xml"/>
+		<ignore-vehicle-type value="true"/>
+	</output>
+
+	<defaults>
+		<departlane value="best"/>
+		<departspeed value="0"/>
+		<arrivalpos value="free"/>
+	</defaults>
+
+</configuration>

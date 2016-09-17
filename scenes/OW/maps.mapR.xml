@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<meandata>
+	<interval begin="0" end="3600" id="whatever">
+		<edge id="BD" traveltime="10.9963445282"/>
+		<edge id="BE" traveltime="11.0004793864"/>
+		<edge id="BA" traveltime="7.00043221438"/>
+		<edge id="DH" traveltime="9.0"/>
+		<edge id="DG" traveltime="6.99985456661"/>
+		<edge id="DE" traveltime="6.99985456661"/>
+		<edge id="DB" traveltime="10.9963445282"/>
+		<edge id="DC" traveltime="6.99985456661"/>
+		<edge id="DA" traveltime="15.0013074744"/>
+		<edge id="JL" traveltime="11.9744303357"/>
+		<edge id="HK" traveltime="2.99993826017"/>
+		<edge id="FC" traveltime="11.000679194"/>
+		<edge id="JI" traveltime="8.99981478051"/>
+		<edge id="IF" traveltime="13.0002650411"/>
+		<edge id="FG" traveltime="8.99981478051"/>
+		<edge id="FI" traveltime="13.0002650411"/>
+		<edge id="JG" traveltime="2.99993826017"/>
+		<edge id="HG" traveltime="8.99981301421"/>
+		<edge id="HD" traveltime="9.0"/>
+		<edge id="EH" traveltime="7.00043221438"/>
+		<edge id="LJ" traveltime="11.9744303357"/>
+		<edge id="IJ" traveltime="8.99981478051"/>
+		<edge id="LI" traveltime="1.99384489126"/>
+		<edge id="A0" traveltime="0.0341666666667"/>
+		<edge id="GH" traveltime="8.99981301421"/>
+		<edge id="AC" traveltime="5.0"/>
+		<edge id="AB" traveltime="7.00043221438"/>
+		<edge id="AD" traveltime="15.0013074744"/>
+		<edge id="HE" traveltime="7.00043221438"/>
+		<edge id="ED" traveltime="6.99985456661"/>
+		<edge id="CA" traveltime="5.0"/>
+		<edge id="CG" traveltime="9.0"/>
+		<edge id="CF" traveltime="11.000679194"/>
+		<edge id="CD" traveltime="6.99985456661"/>
+		<edge id="0B" traveltime="0.0341666666667"/>
+		<edge id="GF" traveltime="8.99981478051"/>
+		<edge id="0A" traveltime="0.0341666666667"/>
+		<edge id="GC" traveltime="11.0004793864"/>
+		<edge id="IL" traveltime="1.99384489126"/>
+		<edge id="L0" traveltime="0.0405"/>
+		<edge id="JK" traveltime="8.99981301421"/>
+		<edge id="EB" traveltime="11.0004793864"/>
+		<edge id="GK" traveltime="13.0011331445"/>
+		<edge id="GJ" traveltime="2.99993826017"/>
+		<edge id="0L" traveltime="0.0405"/>
+		<edge id="0M" traveltime="0.0405"/>
+		<edge id="KG" traveltime="11.0004793864"/>
+		<edge id="JM" traveltime="11.9744303357"/>
+		<edge id="KJ" traveltime="8.99981301421"/>
+		<edge id="KH" traveltime="2.99993826017"/>
+		<edge id="KM" traveltime="1.99384489126"/>
+		<edge id="MJ" traveltime="11.9744303357"/>
+		<edge id="GD" traveltime="6.99985456661"/>
+		<edge id="B0" traveltime="0.0341666666667"/>
+		<edge id="MK" traveltime="1.99384489126"/>
+		<edge id="M0" traveltime="0.0405"/>
+	</interval>
+</meandata>

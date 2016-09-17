@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<commands>
+    <command time="0" name="Maps" param="./bastra_dat/Scene/OW/maps/maps_file.xml" />
+</commands>

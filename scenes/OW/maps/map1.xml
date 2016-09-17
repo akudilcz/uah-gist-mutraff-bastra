@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<meandata>
+	<interval begin="1" end="3600" id="whatever">
+                <edge id="CG" traveltime="600"/>
+		<edge id="GJ" traveltime="600"/>
+		<edge id="BA" traveltime="600"/>
+	</interval>
+</meandata>

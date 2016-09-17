@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<vTypes>
+  <type id="motorcycle" vClass="motorcycle" weight="1" />
+  <type id="car" vClass="passenger" weight="4" />
+</vTypes>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/netgenerateConfiguration.xsd">
+
+	<configuration>
+		<configuration-file value="grid.conf.xml"/>
+	</configuration>
+
+	<grid_network>
+		<grid value="true"/>
+		<grid.number value="16"/>
+		<grid.length value="150"/>
+		<grid.attach-length value="30"/>
+	</grid_network>
+
+	<output>
+		<output-file value="grid.net.xml"/>
+		<plain-output-prefix value="grid"/>
+	</output>
+
+	<building_defaults>
+		<default.lanenumber value="3"/>
+	</building_defaults>
+
+	<report>
+		<verbose value="true"/>
+	</report>
+
+</configuration>
