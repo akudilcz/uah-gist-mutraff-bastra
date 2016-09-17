@@ -8,9 +8,9 @@ BASTRA enables dynamic route modification according to any routing policy, that 
 
 
 ## License and Contact info 
-Bastra is a research project from the *GIST Search Group* (Telematic Services Engineering Group https://portal.uah.es/portal/page/portal/grupos_de_investigacion/49/Presentacion/QuienesSomos ) at *Universidad de Alcala* (http://www.uah.es) developed by:
-* Prof. Dr. Miguel Angel Lopez Carmona. Traffic Group Leader.
-* Phd. Alvaro Paricio Garcia. Main Traffic Researcher.
+Bastra is a research project from the *[GIST Search Group (Telematic Services Engineering Group](https://portal.uah.es/portal/page/portal/grupos_de_investigacion/49/Presentacion/QuienesSomos)* at *[Universidad de Alcala](http://www.uah.es)* developed by:
+* Prof. Dr. Miguel Angel Lopez Carmona. Traffic Group Leader. [Contact](mailto://miguellopez.carmona@uah.es)
+* Phd. Alvaro Paricio Garcia. Main Traffic Researcher [Contact](mailto://alvaro.paricio@uah.es).
 * Eng. Valentin Alberti. Main developer.
 
 All rights belong to its creators. No total or partial distribution is allowed 
@@ -36,4 +36,4 @@ $ pyenv activate sumo
 
 ## Documentation
 
-Can be found inthe docs directory.
+Can be found in the [docs directory](docs/).
