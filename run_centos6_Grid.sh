@@ -45,7 +45,7 @@ cd ${DATA_ROOT}
 BASTRA_SCENE=Grid
 echo "Selected simulation scene: $BASTRA_SCENE"
 
-BASTRA_SCENE_DIR=./scenes/$BASTRA_SCENE
+BASTRA_SCENE_DIR=../scenes/$BASTRA_SCENE
 
 PYTHON_VERSION=2.7.6
 # CURR_PYTHON="`python -V`"
@@ -56,4 +56,4 @@ echo "PYTHONPATH=$PYTHONPATH"
 
 echo
 set -x
-python bastra.py -c $BASTRA_SCENE_DIR/bastra.conf.xml
+python ../bastra.py -c $BASTRA_SCENE_DIR/bastra.conf.xml
