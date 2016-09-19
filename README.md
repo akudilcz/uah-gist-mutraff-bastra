@@ -3,14 +3,14 @@
 BASTRA is a new traffic simulation tool that extends the well-known traffic simulation tool SUMO.  Is part of the MUTRAFF Research Project (Multi-Map Route Guidance Systems for Intelligent Optimization of Urban Traffic Flow) at GIST-UAH.
 
 BASTRA enables dynamic route modification according to any routing policy, that is, changing the established routes on the fly. This allows:
-* Implementing dynamic traffic policies from the TRaffic Operation CEnter.
+* Implementing dynamic traffic policies from the Traffic Operation Center.
 * Implementing driver-side traffic policies, such as Intention-Aware decisions.
 
 You should use this package as follows:
 * Supported platforms
 * Check the License and Use Terms section.
 * Installation and setup.
-* Quickstart (execute the out-of-the-box *Grid* scene).
+* QuickStart (execute the out-of-the-box *Grid* scene).
 * Clone the *Grid* scene and create your own.
 
 ## Contact info 
@@ -42,11 +42,13 @@ Install the related python and SUMO packages as described in [Installation Pre-R
 To install Bastra, you have to downkload it from the repository:
 ```
 $ git clone https://github.com/uahservtel/uah-gist-mutraff-bastra.git
+$ cd uah-gist-mutraff-bastra
 ```
+You will find the "bastra.py" simulator and the run scripts as described in the QuickStart Guide.
 
-## Quickstart
+## QuickStart
 
-### Create and configure your environment
+### Create and configure your python 2.7 environment
 
 Create a python 2.7 environment:
 ```

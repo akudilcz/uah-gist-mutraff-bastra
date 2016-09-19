@@ -688,13 +688,26 @@ class simulated_traffic:
         self.log_file.printLog(self.LEVEL1,"Calculating new trips - duarouter sec " + str(self.duarouter_sec) + ": " + command + "\n")
         os.system(command)
 
-        if os.path.isfile(output_file):
-            #command="copy " + output_file + " " + self.dump_dir + "router_" + str(cur_time) + "_" + str(self.duarouter_sec) + ".out"
-            command="cd " + self.dump_dir + " & copy " + self.new_routes_file + " " + "router_" + str(cur_time) + "_" + str(self.duarouter_sec) + ".out"
-            self.log_file.printLog(self.LEVEL3,"Copying duarouter results: " + command + "\n")
-            os.system(command)
-        else:
-            self.log_file.printLog(self.LEVEL1, "No output for duarouter " + str(self.duarouter_sec) + ".\n")
+	# ------------------------
+	# 2016-09-19: Alvaro : Check command for operating system WIN/LIN
+	# ------------------------
+	if hasattr(sys, 'getwindowsversion'):
+	    # --- WINDOWS ---
+	    if os.path.isfile(output_file):
+              #command="copy " + output_file + " " + self.dump_dir + "router_" + str(cur_time) + "_" + str(self.duarouter_sec) + ".out"
+              command="cd " + self.dump_dir + " & copy " + self.new_routes_file + " " + "router_" + str(cur_time) + "_" + str(self.duarouter_sec) + ".out"
+              self.log_file.printLog(self.LEVEL3,"Copying duarouter results: " + command + "\n")
+              os.system(command)
+            else:
+              self.log_file.printLog(self.LEVEL1, "No output for duarouter " + str(self.duarouter_sec) + ".\n")
+	else:
+	    # --- LINUX ---
+	    if os.path.isfile(output_file):
+              command="cd " + self.dump_dir + " ; cp " + self.new_routes_file + " " + "router_" + str(cur_time) + "_" + str(self.duarouter_sec) + ".out"
+              self.log_file.printLog(self.LEVEL3,"Copying duarouter results: " + command + "\n")
+              os.system(command)
+            else:
+              self.log_file.printLog(self.LEVEL1, "No output for duarouter " + str(self.duarouter_sec) + ".\n")
 
         self.duarouter_sec=self.duarouter_sec + 1
 

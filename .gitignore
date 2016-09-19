@@ -1,7 +1,5 @@
 tmp/
-data/logs/
-data/dumps/
-data/tmp/
+data*
 *.pyc
 *.swp
 

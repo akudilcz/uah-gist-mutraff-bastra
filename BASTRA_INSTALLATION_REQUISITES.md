@@ -14,7 +14,7 @@ $ python -V
 
 Python 2.7.6
 ```
-If not found, check with oyur administrator how to install it or check your OS distribution help files.
+If not found, check with your administrator how to install it or check your OS distribution help files.
 
 ## pip
 Check the pip v2.7 is installed:
@@ -23,16 +23,16 @@ $ pip -V
 
 pip 8.1.2 from /Library/Python/2.7/site-packages/pip-8.1.2-py2.7.egg (python 2.7)
 ```
-If not found, check with oyur administrator how to install it or check your OS distribution help files.
+If not found, check with your administrator how to install it or check your OS distribution help files.
 
 ## Aditional libraries
 
-After creating the python sumo env, maybe some python packges would be rrequired for installation. You will use pip command.
+After creating the python sumo env, maybe some python packges would be required for installation. You will use pip command *inside the pyenv* (note the sumo prompt):
 
-Bastra requires the lxml python package. Install it with:
+
+*lxml* Bastra requires the lxml python package.
 ```
 	(sumo) $ pip install lxml
-	# !!! NOTE THE (sumo) prompt that indicates the activation of the pyenv !!!
 ```
 
 ## Python Virtual Environments
@@ -42,8 +42,7 @@ To install them, follow the instructions as described in:
 * [pyenv](https://github.com/yyuu/pyenv)
 * [pyenv-virtualenv](https://github.com/yyuu/pyenv-virtualenv)
 
-# Check that your environment is properly installed and configured
-### Create and configure your environment
+# Check your environment
 
 Create a python 2.7 environment:
 ```

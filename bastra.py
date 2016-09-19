@@ -32,6 +32,7 @@ def readOption(option, program):
 def load_config():
     dict_conf={}
     dict_conf["tmp_dir"]=readOption("tmp_dir", "Bastra")
+    dict_conf["results_dir"]=readOption("results_dir", "Bastra")
     dict_conf["log_dir"]=readOption("log_dir", "Bastra")
     dict_conf["log_file"]=readOption("log_file", "Bastra")
     dict_conf["log_level"]=readOption("log_level", "Bastra")
@@ -80,13 +81,16 @@ def load_config():
         sys.exit("Configuration error: wrong value for SumoPort in " + config_file)
 
     if not os.path.isdir(dict_conf["tmp_dir"]):
-        sys.exit("Configuration error: tmp_dir doesn't found")
+        sys.exit("Configuration error: directory pointed by tmp_dir value not found")
 
     if not os.path.isdir(dict_conf["log_dir"]):
-        sys.exit("Configuration error: log_dir doesn't found")
+        sys.exit("Configuration error: directory pointed by log_dir value not found")
 
     if not os.path.isdir(dict_conf["dump_dir"]):
-        sys.exit(("Configuration error: dump_dir doesn't found"))
+        sys.exit("Configuration error: directory pointed by dump_dir value not found")
+
+    if not os.path.isdir(dict_conf["results_dir"]):
+        sys.exit("Configuration error: directory pointed by results_dir value not found")
 
 
     return dict_conf
