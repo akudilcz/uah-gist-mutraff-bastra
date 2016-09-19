@@ -37,24 +37,66 @@ SUMO is licensed [GPL v3](https://gnu.org/licenses/gpl.html) as stated in [Sumo 
 
 ## Installation and Setup
 
-<< tbd >>
+Install the related python and SUMO packages as described in [Installation Pre-Requisites](./BASTRA_INSTALLATION_REQUISITES.md).
+
+To install Bastra, you have to downkload it from the repository:
+```
+$ git clone https://github.com/uahservtel/uah-gist-mutraff-bastra.git
+```
 
 ## Quickstart
 
-The package includes a "run_XXX.sh" script that contains the necessary steps to execute the __Grid__ simulation scene. XXX indicates the operating system version selected.
+### Create and configure your environment
 
-The simulator SHOULD RUN IN A python VIRTUALENV. You will find more info on how to install and use it in the *CREATE_PYTHON_ENVS.md* file.
+Create a python 2.7 environment:
+```
+        $ pyenv install 2.7.6
+```
+
+Define a SUMO env under 2.7 virtual environment:
+```
+        $ pyenv virtualenv 2.7.6 sumo
+```
+
+Check that everything is ok:
+```
+        $ ls -l $HOME/.pyenv/versions/
+        $ pyenv virtualenvs
+```
+
+Activate the sumo environment:
+```
+        $ pyenv activate sumo
+```
+
+You will see the "(sumo) " prompt before your shell cursor:
+```
+        (sumo) $
+```
+
+### Run a BASTRA simulation scene
+
+Simulation scenes are pre-defined traffic scenarios (network maps, demand configurations, traffic policies to adopt) that enable to do a simulation.
+
+The package includes some "run_[OS]_[SCENE].sh" scripts to run the experiment described by
+scene [SCENE] under the [OS] operating system environment. For instance:
+```
+(sumo) $ ./run_darwin_Grid.sh
+```
+will run the "Grid" scene under the OS-X Darwing environment.
+
+Please, note that BASTRA should run in a python VIRTUALENV as described in the *Installation and Setup* section.
 
 Run the default simulation in MAC OS-X Darwin:
 ```
 $ pyenv activate sumo
-(sumo) $ ./run_darwin.sh
+(sumo) $ ./run_darwin_Grid.sh
 ```
 
 Run the default simulation in CentOS.6:
 ```
 $ pyenv activate sumo
-(sumo) $ ./run_centos6.sh
+(sumo) $ ./run_centos6_Grid.sh
 ```
 
 You will check in your screen how simulation is executed using a non-gui SUMO instance (as defined in the *grid* scene). The simulation will take some long time depending on your ecomputing resources and environment.
