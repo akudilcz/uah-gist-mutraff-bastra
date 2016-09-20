@@ -15,8 +15,6 @@ EOF
   export SUMO_HOME="$HOME/traffic/sumo"
   export SUMO_BIN=${SUMO_HOME}/bin
   export PATH=.:$HOME/bin:$PATH:$SUMO_BIN
-
-  export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
 }
 
 [ -z "$PYENV_ROOT" ] && {
@@ -25,7 +23,7 @@ EOF
   export PATH="$PYENV_ROOT/bin:$PATH"
 }
 
-BASTRA_SCENE=Grid
+BASTRA_SCENE=OW
 echo "Selected simulation scene: $BASTRA_SCENE"
 
 # ==================================================================
@@ -51,7 +49,10 @@ PYTHON_VERSION=2.7.6
 # CURR_PYTHON="`python -V`"
 # [ "$PYTHON_VERSION" != "$CURR_PYTHON" ] && { echo "ERROR: incorrect python version $CURR_PYTHON. Expected $PYTHON_VERSION."; exit 1; }
 
-export PYTHONPATH=$PYTHONPATH:$SUMO_HOME/tools:./bastralib
+export PYTHONPATH=$PYTHONPATH:\
+/opt/local/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages:\
+../bastralib
+
 echo "PYTHONPATH=$PYTHONPATH"
 
 echo

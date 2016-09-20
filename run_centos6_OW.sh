@@ -25,7 +25,7 @@ EOF
   export PATH="$PYENV_ROOT/bin:$PATH"
 }
 
-BASTRA_SCENE=Grid
+BASTRA_SCENE=OW
 echo "Selected simulation scene: $BASTRA_SCENE"
 
 # ==================================================================

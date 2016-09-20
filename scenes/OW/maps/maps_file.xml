@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 
 <maps>
-  <map file="./bastra_dat/Scene/OW/maps/map1.xml" prob="0.33" tag="0"/>
-  <map file="./bastra_dat/Scene/OW/maps/map2.xml" prob="0.33" tag="0"/>
-  <map file="./bastra_dat/Scene/OW/maps/map3.xml" prob="0.34" tag="0"/>
+  <map file="../scenes/OW/maps/map1.xml" prob="0.33" tag="0"/>
+  <map file="../scenes/OW/maps/map2.xml" prob="0.33" tag="0"/>
+  <map file="../scenes/OW/maps/map3.xml" prob="0.34" tag="0"/>
 </maps>

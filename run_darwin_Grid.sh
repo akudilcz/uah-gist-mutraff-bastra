@@ -23,10 +23,13 @@ EOF
   export PATH="$PYENV_ROOT/bin:$PATH"
 }
 
+BASTRA_SCENE=Grid
+echo "Selected simulation scene: $BASTRA_SCENE"
+
 # ==================================================================
 DATE=`date +'%y%m%d_%H%M%S'`
 DATA_ROOT=./data
-DATA_DIR=${DATA_ROOT}_${DATE}
+DATA_DIR=${DATA_ROOT}_${BASTRA_SCENE}_${DATE}
 echo "Data dirs setup: ${DATA_DIR}"
 (
   unlink ${DATA_ROOT}
@@ -40,9 +43,6 @@ echo "Data dirs setup: ${DATA_DIR}"
 
 cd ${DATA_ROOT}
 # ==================================================================
-BASTRA_SCENE=Grid
-echo "Selected simulation scene: $BASTRA_SCENE"
-
 BASTRA_SCENE_DIR=../scenes/$BASTRA_SCENE
 
 PYTHON_VERSION=2.7.6
