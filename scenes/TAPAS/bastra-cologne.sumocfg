@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/sumoConfiguration.xsd">
+
+    <input>
+        <net-file value="./TAPASCologne-0.24.0/cologne2.net.xml"/>
+        <route-files value="./TAPASCologne-0.24.0/cologne6to8.rou.xml"/>
+        <additional-files value="./TAPASCologne-0.24.0/vtypes.add.xml ./TAPASCologne-0.24.0/cologne.poly.xml"/>
+    </input>
+
+
+    <processing>
+        <scale value="0.3"/>
+    </processing>
+
+    <begin value="21600"/>
+    <!--
+    <time>
+	<begin value="21600"/>
+	<end   value="22600"/>
+    </time>
+    -->
+
+    <report>
+        <verbose value="true"/>
+        <log value="cologne.log"/>
+    </report>
+
+    <remote-port value="2081"/>
+
+</configuration>

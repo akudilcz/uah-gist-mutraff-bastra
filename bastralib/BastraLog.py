@@ -47,7 +47,7 @@ class BastraLog:
         if int(self.log_level)>=msg_level:
             log_file.write(log)
         if (self.verbose) and (msg_level==1):
-            print log
+            print( log )
         log_file.close()
         return
 

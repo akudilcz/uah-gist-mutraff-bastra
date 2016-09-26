@@ -17,7 +17,7 @@
     <foresight_tries value="3"/>
     <foresight_halting value="3"/>
     <foresight_penalty value="50.0"/>
-    <statistics_file value="statistics.dat" />
+    <statistics_file value="statistics.csv" />
     <begin value="0"/>
     <end value="10000"/>
     <DUA value="true"/>

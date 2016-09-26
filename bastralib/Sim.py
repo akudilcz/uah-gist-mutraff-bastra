@@ -92,8 +92,8 @@ class simulated_traffic:
         l_edges=root.findall("edge")
 
         for edg in l_edges:
-            function=edg.get("function")
-            if function<>"internal":
+            fun_name=edg.get("function")
+            if fun_name != "internal" :
                 edge_id=edg.get("id")
                 l_lane=edg.find("lane")
                 max_speed=l_lane.get("speed")
@@ -118,7 +118,7 @@ class simulated_traffic:
             if last < 0:
                 self.vehicle_list[index].add2Path(cur_edge)
             else:
-                if cur_path[last]<>cur_edge:
+                if cur_path[last] != cur_edge:
                     self.vehicle_list[index].add2Path(cur_edge)
         return
     
@@ -247,7 +247,7 @@ class simulated_traffic:
                 weight_list[tag]=rule[1]
 
         for key in weight_list.keys():
-            if weight_list[key]<>1:
+            if weight_list[key] != 1:
                 self.log_file.printLog(self.LEVEL1,"Error in map definitions. Probability sum of map's probabilities is not 1.\n")
                 return False
 
@@ -679,36 +679,34 @@ class simulated_traffic:
         return
 
     def execDuarouter(self,trip_file, map_file, output_file):
-
         cur_time=traci.simulation.getCurrentTime()/1000
         if len(map_file)>0:
-            command="duarouter -n " + self.net_file + " -t " + trip_file + " -w " + map_file + " -o " + output_file + " --error-log " + self.sumo_log_file + " --ignore-errors --no-warnings"
+          command="duarouter -n " + self.net_file + " -t " + trip_file + " -w " + map_file + " -o " + output_file + " --error-log " + self.sumo_log_file + " --ignore-errors --no-warnings"
         else:
-            command="duarouter -n " + self.net_file + " -t " + trip_file + " -o " + output_file + " --error-log " + self.sumo_log_file + " --ignore-errors --no-warnings"
+          command="duarouter -n " + self.net_file + " -t " + trip_file + " -o " + output_file + " --error-log " + self.sumo_log_file + " --ignore-errors --no-warnings"
         self.log_file.printLog(self.LEVEL1,"Calculating new trips - duarouter sec " + str(self.duarouter_sec) + ": " + command + "\n")
         os.system(command)
 
-	# ------------------------
-	# 2016-09-19: Alvaro : Check command for operating system WIN/LIN
-	# ------------------------
-	if hasattr(sys, 'getwindowsversion'):
-	    # --- WINDOWS ---
-	    if os.path.isfile(output_file):
-              #command="copy " + output_file + " " + self.dump_dir + "router_" + str(cur_time) + "_" + str(self.duarouter_sec) + ".out"
-              command="cd " + self.dump_dir + " & copy " + self.new_routes_file + " " + "router_" + str(cur_time) + "_" + str(self.duarouter_sec) + ".out"
-              self.log_file.printLog(self.LEVEL3,"Copying duarouter results: " + command + "\n")
-              os.system(command)
-            else:
-              self.log_file.printLog(self.LEVEL1, "No output for duarouter " + str(self.duarouter_sec) + ".\n")
-	else:
-	    # --- LINUX ---
-	    if os.path.isfile(output_file):
+        # ------------------------
+        # 2016-09-19: Alvaro : Check command for operating system WIN/LIN
+        # ------------------------
+        if hasattr(sys, 'getwindowsversion'):
+          # --- WINDOWS ---
+          if os.path.isfile(output_file):
+            #command="copy " + output_file + " " + self.dump_dir + "router_" + str(cur_time) + "_" + str(self.duarouter_sec) + ".out"
+            command="cd " + self.dump_dir + " & copy " + self.new_routes_file + " " + "router_" + str(cur_time) + "_" + str(self.duarouter_sec) + ".out"
+            self.log_file.printLog(self.LEVEL3,"Copying duarouter results: " + command + "\n")
+            os.system(command)
+          else:
+            self.log_file.printLog(self.LEVEL1, "No output for duarouter " + str(self.duarouter_sec) + ".\n")
+        else:
+          # --- LINUX ---
+          if os.path.isfile(output_file):
               command="cd " + self.dump_dir + " ; cp " + self.new_routes_file + " " + "router_" + str(cur_time) + "_" + str(self.duarouter_sec) + ".out"
               self.log_file.printLog(self.LEVEL3,"Copying duarouter results: " + command + "\n")
               os.system(command)
-            else:
+          else:
               self.log_file.printLog(self.LEVEL1, "No output for duarouter " + str(self.duarouter_sec) + ".\n")
-
         self.duarouter_sec=self.duarouter_sec + 1
 
 
@@ -762,21 +760,41 @@ class simulated_traffic:
 
     def printStatistics(self, config):
         file_name=config["statistics_f"]
+        sep=config["csv_sep"]
+        route_sep=":"
 
         if os.path.isfile(file_name):
             os.remove(file_name)
         file=open(file_name, "w")
-        file.write("ID@Depart Time@Arrive Time@Origin@Destiny@Path@Is Attended@Has Finished\n")
+        file.write(	"id"+sep+
+                        "t_depart_secs"+sep+
+                        "t_arrival_secs"+sep+
+                        "t_traveltime_secs"+sep+
+                        "origin"+sep+
+                        "destiny"+sep+
+                        "route_detail"+sep+
+                        "route_path_num"+sep+
+                        "is_attended"+sep+
+                        "has_finished" +
+                        "\n")
         for veh in self.vehicle_list:
-            file.write(veh.getId()+"@"+ str(veh.getDepartTime())+"@"+ str(veh.getEndTime()) +"@"+ veh.getOrigin() +"@"+ veh.getDestiny() +"@")
+            file.write(	veh.getId() + sep+
+                        str(veh.getDepartTime())+sep+
+                        str(veh.getEndTime()) +sep+
+                        str(veh.getEndTime()-veh.getDepartTime()) +sep+
+                        veh.getOrigin() +sep+
+                        veh.getDestiny() +sep
+                        )
+            path_num=0
             for edge in veh.getPath():
-                file.write(edge + " ")
-            file.write("@")
+                file.write(edge + route_sep )
+                path_num += 1
+            file.write(sep + str(path_num) + sep )
             if veh.isAttended():
                 file.write("True")
             else:
                 file.write("False")
-            file.write("@")
+            file.write(sep)
             if veh.isFinished():
                 file.write("True")
             else:

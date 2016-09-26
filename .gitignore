@@ -2,6 +2,9 @@ tmp/
 data*
 *.pyc
 *.swp
+.DS_Store
+# TAPASCologne-0.24.0/
+.ipynb_checkpoints/
 
 # Bastra temporary files
 vehicles_trips

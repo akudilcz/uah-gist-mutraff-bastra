@@ -80,10 +80,10 @@ You will see the "(sumo) " prompt before your shell cursor:
 
 Simulation scenes are pre-defined traffic scenarios (network maps, demand configurations, traffic policies to adopt) that enable to do a simulation.
 
-The package includes some "run_[OS]_[SCENE].sh" scripts to run the experiment described by
+The package includes some "run_[OS].sh [SCENE]" scripts to run the experiment described by
 scene [SCENE] under the [OS] operating system environment. For instance:
 ```
-(sumo) $ ./run_darwin_Grid.sh
+(sumo) $ ./run_darwin.sh Grid
 ```
 will run the "Grid" scene under the OS-X Darwing environment.
 
@@ -92,13 +92,13 @@ Please, note that BASTRA should run in a python VIRTUALENV as described in the *
 Run the default simulation in MAC OS-X Darwin:
 ```
 $ pyenv activate sumo
-(sumo) $ ./run_darwin_Grid.sh
+(sumo) $ ./run_darwin.sh Grid
 ```
 
 Run the default simulation in CentOS.6:
 ```
 $ pyenv activate sumo
-(sumo) $ ./run_centos6_Grid.sh
+(sumo) $ ./run_centos6.sh Grid
 ```
 
 You will check in your screen how simulation is executed using a non-gui SUMO instance (as defined in the *grid* scene). The simulation will take some long time depending on your ecomputing resources and environment.

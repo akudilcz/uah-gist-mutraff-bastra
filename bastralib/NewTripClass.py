@@ -11,6 +11,7 @@ class NewTripFile:
     trip_list=""
     file_name=""
     weight_maps=[]
+    sep="@"
     
 
 
@@ -31,7 +32,7 @@ class NewTripFile:
         return
     
     def addTrip(self, id, depart_time, edge, destiny):
-        self.trip_list=self.trip_list + id +" " + str(depart_time) + " " + edge + " " + destiny + "@"
+        self.trip_list=self.trip_list + id +" " + str(depart_time) + " " + edge + " " + destiny + self.sep
         return
     
     def deleteTrips(self):
@@ -64,7 +65,7 @@ class NewTripFile:
         #                   "\" to=\"" + trip[3] + "\" />\n" )
         #    print trip
         
-        line_list=self.trip_list.split("@")
+        line_list=self.trip_list.split(self.sep)
         
         for line in line_list:
             trip_data=line.split(" ")

@@ -48,6 +48,10 @@ def load_config():
     dict_conf["statistics_f"]=readOption("statistics_file", "Bastra")
     dict_conf["begin"]=readOption("begin", "Bastra")
     dict_conf["end"]=readOption("end", "Bastra")
+    try:
+      dict_conf["csv_sep"]=readOption("csv_sep", "Bastra")
+    except:
+       dict_conf["csv_sep"]=','
     str_verbose=readOption("verbose", "Bastra")
     str_verbose.lower()
     if str_verbose=="true":

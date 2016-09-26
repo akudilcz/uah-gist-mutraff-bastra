@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<config>
+  <Bastra>
+    <route_file value="../scenes/TAPAS/TAPASCologne-0.24.0/cologne6to8.rou.xml"/>
+    <commands_file value="../scenes/TAPAS/commands.xml"/>
+    <verbose value="true"/>
+    <log_dir value="../data/logs/"/>
+    <log_file value="bastra_log_file"/>
+    <log_level value="3"/>
+    <dump_dir value="../data/dumps/"/>
+    <tmp_dir value="../data/tmp/"/>
+    <results_dir value="../data/results/"/>
+    <new_routes_file value="new_routes.xml"/>
+    <new_trips_file value="new_trips.xml"/>
+    <logit value="0.0"/>
+    <use_balance value="true"/>
+    <foresight_steps value="0"/>
+    <foresight_tries value="3"/>
+    <foresight_halting value="3"/>
+    <foresight_penalty value="50.0"/>
+    <statistics_file value="statistics.csv" />
+    <begin value="21600"/>
+    <end value="25600"/>
+    <!-- <end value="28800"/> -->
+    <DUA value="true"/>
+  </Bastra>
+
+  <Sumo>
+    <port value="2081"/>
+    <interactive value="false"/>
+    <sumo_config value="../scenes/TAPAS/bastra-cologne.sumocfg"/>
+    <net_file value="../scenes/TAPAS/TAPASCologne-0.24.0/cologne2.net.xml"/>
+    <log_file value="sumo_log"/>
+  </Sumo>
+</config>
