@@ -116,6 +116,8 @@ Execution results will create several files:
 
 Bastra package is formed by several tools:
 * *bastra.py* : Bastra simulator
+* *genmaps.bastra.py* : Map generator for Bastra. See [genmaps.bastra info](tools/genmaps.bastra.md) for more info.
+* *randomVehType.py* : Demand generator based on Random Distribution upon different vehicle types. See [randomVehType info](tools/randomVehType.md) for more info.
 * << tbd >>
 
 Also you will find in the [scripts directory](scripts/) several utilities to manage.
