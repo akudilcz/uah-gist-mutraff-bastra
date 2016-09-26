@@ -33,17 +33,25 @@ When starting the program, it expects to receive as to parameter the location of
 ## Operation modes.
 As we have seen, the attribute <mode> configuration file genmaps.bastra.py determines the mode of operation we expect from the tool. There are three operating modes, which we explain in detail.
 
-###  mode Reference
+###  Reference Mode
 
 Sometimes it is useful to recover the original weight values (by default, to SUMO and tools, such as Duarouter, travel time or traveltime nominal).
 To this end we have designed the operating mode reference map ("map_r"in the attribute <mode>).
 Genmaps.bastra.py generates a map file weights with reference values map selected in the configuration with the name <output_prefix> .mapR.xml. In this mode,other configuration parameters are obviated .
-* **Random mode**: in this mode a series of maps of weights that contains the set of all sections of the network specified in the options is generated, and whose weights correspond toproduct of the traveltime originalof the sections, multiplied by the result of assess the weight function specified in <weight_function>.The number of maps generated corresponds to the value assigned to <num_maps>.The maps are dumped into files with the name <output_prefix> .rand. <N>.xml,where <n> is the sequential number indicating the generated map (1 to <num_maps>).
-** Because the result of genmaps.bastra.py execution will be effective in SUMO and tools to calculate routes, and to the unpredictability of its operation with negative values weights, do not allow thefunction <weight_function> resultsa lower value than 0. if so, the program ends,screen showing this circumstance. The function is evaluated for calculating each section, so that an expression whose result is uncertain provide factors random penalty.
-**  As a corollary to its operation, note that if we want all sections are penalized in the same way, only we assign <weight_function> a constant value. If this value is equal to 1,obtain a map equivalent toreference map (seen in the previous section)Tranches.
-*  **mode Penalty on**  In this mode (activated when <mode> contains the string"penalty")penalties are calculated as only the sections selected in theattribute <pen_edges> and those connected to them at a distance specified by the variable <pen_edges_steps>.
-  Asexample of this calculation, if the variable <pen_edges_steps> is equal to 1, and the section assigned to < pen_edges> is"tramo1"(defined between"node1"and"node2"),the result is a file in which all sections that appear in its definition nodes have as well"node1"good"node2".If the value of <pen_edges_steps> is equal to 0, the resulting filecontain only the sections included in <pen_edges>.The penalty toapplied will be the factor resulting from the evaluation, for each of the function specified in the attribute <weight_function>.As we saw earlier, if we want the sections obtained by the process are penalized by the same percentage, assign the parameter <weight_function> a constant value.
-  Finally, note that the name of the resulting file will be <output_prefix> .pen.map.xml .
+
+### Random mode
+In this mode a series of maps of weights that contains the set of all sections of the network specified in the options is generated, and whose weights correspond toproduct of the traveltime originalof the sections, multiplied by the result of assess the weight function specified in <weight_function>.The number of maps generated corresponds to the value assigned to <num_maps>.The maps are dumped into files with the name <output_prefix> .rand. <N>.xml,where <n> is the sequential number indicating the generated map (1 to <num_maps>).
+
+Because the result of genmaps.bastra.py execution will be effective in SUMO and tools to calculate routes, and to the unpredictability of its operation with negative values weights, do not allow thefunction <weight_function> resultsa lower value than 0. if so, the program ends,screen showing this circumstance. The function is evaluated for calculating each section, so that an expression whose result is uncertain provide factors random penalty.
+
+As a corollary to its operation, note that if we want all sections are penalized in the same way, only we assign <weight_function> a constant value. If this value is equal to 1,obtain a map equivalent toreference map (seen in the previous section)Tranches.
+
+### Penalty Mode on
+In this mode (activated when <mode> contains the string"penalty")penalties are calculated as only the sections selected in theattribute <pen_edges> and those connected to them at a distance specified by the variable <pen_edges_steps>.
+
+As an example of this calculation, if the variable <pen_edges_steps> is equal to 1, and the section assigned to < pen_edges> is"tramo1"(defined between"node1"and"node2"),the result is a file in which all sections that appear in its definition nodes have as well"node1"good"node2".If the value of <pen_edges_steps> is equal to 0, the resulting filecontain only the sections included in <pen_edges>.The penalty toapplied will be the factor resulting from the evaluation, for each of the function specified in the attribute <weight_function>.As we saw earlier, if we want the sections obtained by the process are penalized by the same percentage, assign the parameter <weight_function> a constant value.
+
+Finally, note that the name of the resulting file will be <output_prefix> .pen.map.xml .
 
 ## Maps  fusion
 Genmaps.bastra.py implements functionality as added to the map generation weights, which allows fusion(join)map resulting from its implementation with a previously built in SUMO map format. To do this, the map location we wantmerge with / the resulting / s genmaps.bastra.py the normal operation in the configuration variableshould be included <join_map>.
