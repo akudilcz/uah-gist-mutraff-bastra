@@ -11,6 +11,7 @@ $ randomVehType.py -c<configFile>
 ## Usage
 
  When starting the program, it expects to receive as parameter the name of a file in XML format, very simple that contains the application settings.
+It is usually generated with SUMO's **duarouter**.
 
 ## Configuration File
 ```
@@ -55,6 +56,7 @@ $ randomVehType.py -c<configFile>
 * thetag <type_file> stores the location of the file type definition. Explore the contents of this file below.
 * The <output> stores the location and file name exit routes, which will already type mapping vehicles.
   
+## Types File
 The content of file types <type_file>in xml format is a standard type definition according its semantics in SUMO to which attribute (adds weight to specify the relative probability that the vehicles defined in traffic demand<route-file>)belong to each type.
 We should note that, unlike how the label is named in SUMO(<vtype>),this type definition uses the <type>.The <vTypes> is used to encompass all defined types.
 
