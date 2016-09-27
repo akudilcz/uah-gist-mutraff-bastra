@@ -4,10 +4,10 @@ data*
 *.swp
 .DS_Store
 # TAPASCologne-0.24.0/
-cologne.osm.xml*
-cologne.poly.xml*
-cologne2.net.xml*
-cologne6to8.rou.xml*
+cologne.osm.xml
+cologne.poly.xml
+cologne2.net.xml
+cologne6to8.rou.xml
 .ipynb_checkpoints/
 
 # Bastra temporary files
