@@ -19,6 +19,7 @@
     <foresight_halting value="3"/>
     <foresight_penalty value="50.0"/>
     <statistics_file value="statistics.csv" />
+    <!-- Simulation from/to -->
     <begin value="0"/>
     <end value="10000"/>
   </Bastra>

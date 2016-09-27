@@ -786,9 +786,11 @@ class simulated_traffic:
                         veh.getDestiny() +sep
                         )
             path_num=0
+            path_len=0
             for edge in veh.getPath():
                 file.write(edge + route_sep )
                 path_num += 1
+                path_len += 1
             file.write(sep + str(path_num) + sep )
             if veh.isAttended():
                 file.write("True")
