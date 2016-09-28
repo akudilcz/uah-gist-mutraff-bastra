@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<commands>
+  <!-- AVOID PASSING ANY COMMAND OR MAPS TO THE SIMULATION
+    <command time="0" name="Maps" param="../scenes/Grid/maps/maps_file.xml" />
+  -->
+</commands>

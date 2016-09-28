@@ -12,12 +12,12 @@
     <tmp_dir value="../data/tmp/"/>
     <results_dir value="../data/results/"/>
     <new_routes_file value="new_routes.xml"/>
-    <logit value="0.5"/>
-    <use_balance value="true"/>
-    <foresight_steps value="1"/>
-    <foresight_tries value="3"/>
-    <foresight_halting value="3"/>
-    <foresight_penalty value="50.0"/>
+    <logit value="0"/>
+    <use_balance value="false"/>
+    <foresight_steps value="0"/>
+    <foresight_tries value="0"/>
+    <foresight_halting value="0"/>
+    <foresight_penalty value="1"/>
     <statistics_file value="statistics.csv" />
     <!-- Simulation from/to -->
     <begin value="0"/>

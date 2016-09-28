@@ -2,15 +2,13 @@
 
 <config>
   <Bastra>
-    <route_file value="../scenes/Grid/grid-scene.rou.xml"/>
-    <commands_file value="../scenes/Grid/commands.xml"/>
+    <route_file value="./bastra_dat/Scene/Grid/grid-scene.rou.xml"/>
+    <commands_file value="./bastra_dat/Scene/Grid/commands.xml"/>
     <verbose value="true"/>
-    <log_dir value="../data/logs/"/>
-    <log_file value="bastra.log"/>
+    <log_dir value="./bastra_logs/"/>
+    <log_file value="bastra_log_file"/>
     <log_level value="3"/>
-    <dump_dir value="../data/dumps/"/>
-    <tmp_dir value="../data/tmp/"/>
-    <results_dir value="../data/results/"/>
+    <dump_dir value="./bastra_dat/Scene/Grid/dumps/"/>
     <new_routes_file value="new_routes.xml"/>
     <logit value="0.5"/>
     <use_balance value="true"/>
@@ -19,16 +17,15 @@
     <foresight_halting value="3"/>
     <foresight_penalty value="50.0"/>
     <statistics_file value="statistics.csv" />
-    <!-- Simulation from/to -->
     <begin value="0"/>
     <end value="10000"/>
   </Bastra>
 
   <Sumo>
     <port value="2081"/>
-    <interactive value="false"/>
-    <sumo_config value="../scenes/Grid/my-grid.sumocfg"/>
-    <net_file value="../scenes/Grid/grid.net.xml"/>
-    <log_file value="sumo.log"/>
+    <interactive value="true"/>
+    <sumo_config value="./bastra_dat/Scene/Grid/my-grid.sumocfg"/>
+    <net_file value="./bastra_dat/Scene/Grid/grid.net.xml"/>
+    <log_file value="sumo_log"/>
   </Sumo>
 </config>
