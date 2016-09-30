@@ -1,6 +1,8 @@
 tmp/
 data*
 *.pyc
+*.out
+*.log
 *.swp
 .DS_Store
 # TAPASCologne-0.24.0/

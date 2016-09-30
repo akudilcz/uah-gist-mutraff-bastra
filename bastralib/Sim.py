@@ -767,6 +767,7 @@ class simulated_traffic:
             os.remove(file_name)
         file=open(file_name, "w")
         file.write(	"id"+sep+
+                        "veh_type"+sep+
                         "t_depart_secs"+sep+
                         "t_arrival_secs"+sep+
                         "t_traveltime_secs"+sep+
@@ -779,6 +780,7 @@ class simulated_traffic:
                         "\n")
         for veh in self.vehicle_list:
             file.write(	veh.getId() + sep+
+			veh.getType()+sep+
                         str(veh.getDepartTime())+sep+
                         str(veh.getEndTime()) +sep+
                         str(veh.getEndTime()-veh.getDepartTime()) +sep+
