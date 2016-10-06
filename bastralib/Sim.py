@@ -22,7 +22,8 @@ class simulated_traffic:
 #Son como quien dice auxiliares
     vehicle_list=[]
     dict_index={}
-    edge_list={}
+    edge_weigths={}
+    edge_lengths={}
     pending_vehicles=[]
     incident_list=[]
     trip_file_list=[]
@@ -96,8 +97,8 @@ class simulated_traffic:
             if fun_name != "internal" :
                 edge_id=edg.get("id")
                 l_lane=edg.find("lane")
-                max_speed=l_lane.get("speed")
-                self.edge_list[edge_id]=max_speed
+                self.edge_weigths[edge_id]=l_lane.get("speed")
+                self.edge_lengths[edge_id]=l_lane.get("length")
         return
     
     def add_vehicle(self, id, start, init, end, route, logit, type):
@@ -111,7 +112,7 @@ class simulated_traffic:
 
         index=self.dict_index[id]
         cur_edge=traci.vehicle.getRoadID(id)
-        if self.edge_list.has_key(cur_edge):
+        if self.edge_weigths.has_key(cur_edge):
             cur_path=[]
             cur_path.extend(self.vehicle_list[index].getPath())
             last=len(cur_path)-1
@@ -327,7 +328,7 @@ class simulated_traffic:
 
                         if self.vehicle_list[index].getId() in veh_running:
                             cur_edge=traci.vehicle.getRoadID(self.vehicle_list[index].getId())
-                            if cur_edge in self.edge_list:
+                            if cur_edge in self.edge_weigths:
                                 trip_f.addTrip(self.vehicle_list[index].getId(), self.vehicle_list[index].getDepartTime(), cur_edge, self.vehicle_list[index].getDestiny())
                             else:
                                 self.addPending(self.vehicle_list[index].getId())
@@ -389,7 +390,7 @@ class simulated_traffic:
             vehicles_running=traci.vehicle.getIDList()
             if veh.getId() in vehicles_running:
                 cur_edge=traci.vehicle.getRoadID(veh.getId())
-                if self.edge_list.has_key(cur_edge):
+                if self.edge_weigths.has_key(cur_edge):
                     veh.setCurrent(cur_edge)
 
             if veh.isRerouted():
@@ -416,7 +417,7 @@ class simulated_traffic:
                                 veh.deleteMaps(r_maps)
                                 veh.setRerouted(True)
                                 self.log_file.printLog(self.LEVEL3, " Vehicle " + veh.getId() + " now has the maps: " + str(veh.getCarMaps()) + "\n")
-                    traci.edge.setMaxSpeed(edge, float(self.edge_list[edge]))
+                    traci.edge.setMaxSpeed(edge, float(self.edge_weigths[edge]))
                     self.log_file.printLog(self.LEVEL3, "Service restored in edge ID: " + edge + "\n")
                     #time.sleep(2)
                     done=True
@@ -530,7 +531,7 @@ class simulated_traffic:
 
         check_list=route[pos:pos + steps]
         for an_edge in check_list:
-            if an_edge in self.edge_list:
+            if an_edge in self.edge_weigths:
                 if traci.edge.getLastStepHaltingNumber(an_edge) > max_halting: #Es el numero de vehiculos de velocidad 0 en el tramo
                     jammed_edges.append(an_edge)
             else:
@@ -667,7 +668,7 @@ class simulated_traffic:
                         + self.end + "\" id=\"whatever\">\n")
 
         for edge in pen_edges:
-            xml_file.write("\t\t<edge id=\"" + edge + "\" traveltime=\"" + str(float(self.edge_list[edge]) * penalty) + "\"/>\n")
+            xml_file.write("\t\t<edge id=\"" + edge + "\" traveltime=\"" + str(float(self.edge_weigths[edge]) * penalty) + "\"/>\n")
 
         xml_file.write("\t</interval>\n")
         xml_file.write("</meandata>\n")
@@ -715,7 +716,7 @@ class simulated_traffic:
         result=False
         lane=traci.vehicle.getLaneID(id)
         road=traci.vehicle.getRoadID(id)
-        if road not in self.edge_list:
+        if road not in self.edge_weigths:
             return False
         length=traci.lane.getLength(lane)
         edge_pos=traci.vehicle.getLanePosition(id)
@@ -775,6 +776,7 @@ class simulated_traffic:
                         "destiny"+sep+
                         "route_detail"+sep+
                         "route_path_num"+sep+
+                        "route_distance"+sep+
                         "is_attended"+sep+
                         "has_finished" +
                         "\n")
@@ -788,12 +790,12 @@ class simulated_traffic:
                         veh.getDestiny() +sep
                         )
             path_num=0
-            path_len=0
+            path_distance=0
             for edge in veh.getPath():
                 file.write(edge + route_sep )
                 path_num += 1
-                path_len += 1
-            file.write(sep + str(path_num) + sep )
+                path_distance += float(self.edge_lengths[edge])
+            file.write(sep + str(path_num) + sep + str(path_distance) + sep )
             if veh.isAttended():
                 file.write("True")
             else:
@@ -824,7 +826,7 @@ class simulated_traffic:
 
 
     def processIncident(self, edge):
-        if edge not in self.edge_list:
+        if edge not in self.edge_weigths:
             self.log_file.printLog(self.LEVEL1, "Edge " + edge + " not defined in " + self.net_file +".\n")
         else:
             traci.edge.setMaxSpeed(edge,0)
@@ -832,11 +834,11 @@ class simulated_traffic:
         return
 
     def processRestore(self, edge):
-        if edge not in self.edge_list:
+        if edge not in self.edge_weigths:
             self.log_file.printLog(self.LEVEL1, "Edge " + edge + " not defined in " + self.net_file +".\n")
         else:
-            traci.edge.setMaxSpeed(edge,float(self.edge_list[edge]))
-            self.log_file.printLog(self.LEVEL1, "Speed limited for edge " + edge +" restore to " + self.edge_list[edge] + ".\n")
+            traci.edge.setMaxSpeed(edge,float(self.edge_weigths[edge]))
+            self.log_file.printLog(self.LEVEL1, "Speed limited for edge " + edge +" restore to " + self.edge_weigths[edge] + ".\n")
         return
 # End of class Simulated_traffic    
     
