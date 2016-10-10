@@ -36,6 +36,7 @@ echo "Selected simulation scene: $BASTRA_SCENE"
 DATE=`date +'%y%m%d_%H%M%S'`
 DATA_ROOT=./data
 DATA_DIR=${DATA_ROOT}_${BASTRA_SCENE}_${DATE}
+STATS_FILE=data_${BASTRA_SCENE}_${DATE}.csv
 echo "Data dirs setup: ${DATA_DIR}"
 (
   unlink ${DATA_ROOT}
@@ -48,6 +49,7 @@ echo "Data dirs setup: ${DATA_DIR}"
 ) 2>/dev/null
 
 cd ${DATA_ROOT}
+# cd ${DATA_DIR}
 # ==================================================================
 BASTRA_SCENE_DIR=../scenes/$BASTRA_SCENE
 
@@ -71,11 +73,17 @@ if [ ! -z "${PYTHON_DEBUG}" ]; then
 Type "run" to execute, ctrl-C to stop, "c" to continue, etc.
 ==================================================================
 EOF
-  set -x
   python ${PYTHON_DEBUG} ../bastra.py -c $BASTRA_SCENE_DIR/bastra.conf.xml
 else
   echo
   (
+    echo "................................................"
+    cat $BASTRA_SCENE_DIR/SCENARIO_DESCRIPTION.md 2>/dev/null
+    echo "................................................"
+    cat $BASTRA_SCENE_DIR/bastra.conf.xml
+    echo "................................................"
+    cat $BASTRA_SCENE_DIR/*.odmat.xml
+    echo "................................................"
     DATE_START=`date +%s`
     echo "Simulation Starts on: `date -j -f '%s' ${DATE_START}`"
 
@@ -86,7 +94,9 @@ else
 
     PROCESS_TIME=$(echo "${DATE_END} - ${DATE_START}" | bc)
     echo "Simulation total time: ${PROCESS_TIME}"
-  ) 2>&1 | tee time.out
+  ) 2>&1 | tee experiment.out
 fi
+
+mv statistics.csv $STATS_FILE
 
 

@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<maps>
+  <map file="../scenes/canogrid_Bastra_logit10_nomaps_fulltraffic/maps/map1.pen.map.xml" prob="0.50" tag="motorcycle"/>
+  <map file="../scenes/canogrid_Bastra_logit10_nomaps_fulltraffic/maps/map2.pen.map.xml" prob="0.30" tag="motorcycle"/>
+  <map file="../scenes/canogrid_Bastra_logit10_nomaps_fulltraffic/maps/map3.pen.map.xml" prob="0.20" tag="motorcycle"/>
+  <map file="../scenes/canogrid_Bastra_logit10_nomaps_fulltraffic/maps/map1.pen.map.xml" prob="0.50" tag="car"/>
+  <map file="../scenes/canogrid_Bastra_logit10_nomaps_fulltraffic/maps/map2.pen.map.xml" prob="0.30" tag="car"/>
+  <map file="../scenes/canogrid_Bastra_logit10_nomaps_fulltraffic/maps/map3.pen.map.xml" prob="0.20" tag="car"/>
+</maps>

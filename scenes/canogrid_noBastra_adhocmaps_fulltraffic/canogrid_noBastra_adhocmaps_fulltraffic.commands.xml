@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<commands>
+  <command time="0" name="Maps" param="../scenes/canogrid_noBastra_adhocmaps_fulltraffic/canogrid_noBastra_adhocmaps_fulltraffic.maps.xml" />
+<!--
+-->
+</commands>
