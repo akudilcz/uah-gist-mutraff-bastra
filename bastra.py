@@ -82,8 +82,8 @@ def load_config():
     try:
       dict_conf["edge_stats_sampling"]=int(readOption("edge_stats_sampling", "Bastra"))
     except:
-      # If not defined, use a value enough to take at least 10 samples
-      v = int((int(dict_conf["end"])-int(dict_conf["begin"]))/10)
+      # If not defined, use a value enough to take at least 100 samples
+      v = int((int(dict_conf["end"])-int(dict_conf["begin"]))/100)
       if( v < 0 ):
         v = 1
       dict_conf["edge_stats_sampling"]=v

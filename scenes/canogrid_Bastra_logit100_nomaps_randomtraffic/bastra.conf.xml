@@ -13,6 +13,9 @@
     <results_dir value="./results/"/>
     <new_routes_file value="new_routes.xml"/>
     <statistics_file value="statistics.csv" />
+    <edge_stats_dump value="true" />
+    <!-- <edge_stats_sampling value="10" /> -->
+    <edge_stats_file value="edge_stats.csv" />
 
     <logit value="1"/>
     <use_balance value="true"/>

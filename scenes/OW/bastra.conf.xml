@@ -20,6 +20,9 @@
     <foresight_halting value="3"/>
     <foresight_penalty value="50.0"/>
     <statistics_file value="statistics.csv" />
+    <edge_stats_dump value="true" />
+    <!-- <edge_stats_sampling value="10" /> -->
+    <edge_stats_file value="edge_stats.csv" />
     <begin value="0"/>
     <end value="10000"/>
     <DUA value="true"/>
