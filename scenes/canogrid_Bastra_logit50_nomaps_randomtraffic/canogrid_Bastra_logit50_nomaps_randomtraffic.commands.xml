@@ -2,6 +2,6 @@
 
 <commands>
 <!--
-  <command time="0" name="Maps" param="../scenes/canogrid_Bastra_logit50_nomaps_randomtraffic/canogrid_Bastra_logit50_nomaps_randomtraffic.maps.xml" />
+  <command time="0" name="Maps" param="../../../scenes/canogrid_Bastra_logit50_nomaps_randomtraffic/canogrid_Bastra_logit50_nomaps_randomtraffic.maps.xml" />
 -->
 </commands>

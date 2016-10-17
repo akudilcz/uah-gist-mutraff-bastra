@@ -4,11 +4,11 @@
 # PARAMETERS
 #
 export __ROADLENGTH="50"
-export __PREFIX="canogrid_Bastra_logit10_adhocmaps_fulltraffic"
+export __PREFIX="devFastTest"
 export __TYPE="grid"
 export __GRID_SIZE="16"
 export __SIMUL_TIME_INI="0"
-export __SIMUL_TIME_END="4000"
+export __SIMUL_TIME_END="100"
 
 # Default:
 # export __BASTRA_USE_BALANCE="true"
@@ -16,27 +16,27 @@ export __BASTRA_USE_BALANCE="true"
 
 # Default:
 # export __BASTRA_LOGIT="1"
-export __BASTRA_LOGIT="0.1"
+export __BASTRA_LOGIT="0.5"
 echo "__BASTRA_LOGIT=${__BASTRA_LOGIT} percent of user using Bastra system"
 
 # Default:
-# export __BASTRA_FORESIGHT_STEPS="1"
-export __BASTRA_FORESIGHT_STEPS="0"
+export __BASTRA_FORESIGHT_STEPS="1"
+# export __BASTRA_FORESIGHT_STEPS="0"
 echo "__BASTRA_FORESIGHT_STEPS=${__BASTRA_FORESIGHT_STEPS} foresight, following edges to consider in the planned route"
 
 # Default:
-# export __BASTRA_FORESIGHT_TRIES="3"
-export __BASTRA_FORESIGHT_TRIES="0"
+export __BASTRA_FORESIGHT_TRIES="3"
+# export __BASTRA_FORESIGHT_TRIES="0"
 echo "__BASTRA_FORESIGHT_TRIES=${__BASTRA_FORESIGHT_TRIES} foresight, number of alternative edges to consider"
 
 # Default:
-# export __BASTRA_FORESIGHT_HALTING="3"
-export __BASTRA_FORESIGHT_HALTING="0"
+export __BASTRA_FORESIGHT_HALTING="3"
+# export __BASTRA_FORESIGHT_HALTING="0"
 echo "__BASTRA_FORESIGHT_HALTING=${__BASTRA_FORESIGHT_HALTING} foresight, number of halted vehicles to decide jam occurence"
 
 # Default:
-# export __BASTRA_FORESIGHT_PENALTY="50.0"
-export __BASTRA_FORESIGHT_PENALTY="1"
+export __BASTRA_FORESIGHT_PENALTY="50.0"
+# export __BASTRA_FORESIGHT_PENALTY="1"
 echo "__BASTRA_FORESIGHT_PENALTY=${__BASTRA_FORESIGHT_PENALTY} foresight, x weight multiplier for function cost"
 
 # ----------------------------------------------------------------

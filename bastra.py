@@ -5,7 +5,7 @@ import os
 import subprocess
 import traci
 from bastralib import BastraLog
-from bastralib import Sim
+from bastralib import Sim as Sim
 from bastralib import Command
 from sumolib import checkBinary
 from lxml import etree
@@ -48,10 +48,24 @@ def load_config():
     dict_conf["statistics_f"]=readOption("statistics_file", "Bastra")
     dict_conf["begin"]=readOption("begin", "Bastra")
     dict_conf["end"]=readOption("end", "Bastra")
+
+    # Alvaro Added: 15/09/16
     try:
       dict_conf["csv_sep"]=readOption("csv_sep", "Bastra")
     except:
        dict_conf["csv_sep"]=','
+
+    # Alvaro Added: 10/10/16
+    try:
+      # True / False
+      dict_conf["edge_stats_dump"]=readOption("edge_stats_dump", "Bastra")
+    except:
+       dict_conf["edge_stats_dump"]=False
+    try:
+      dict_conf["edge_stats_file"]=readOption("edge_stats_file", "Bastra")
+    except:
+       dict_conf["edge_stats_file"]='edge_stats.csv'
+
     str_verbose=readOption("verbose", "Bastra")
     str_verbose.lower()
     if str_verbose=="true":
@@ -205,9 +219,12 @@ if __name__ == '__main__':
         traci.simulationStep()
         get_simulation_results()
 
+        sim.edges_stats_add( )
+
     # -------------------------------------------------
     # End of simulation
     # -------------------------------------------------
+    sim.edges_stats_dump( )
     traci.close()
     print("Process terminated: step " + str(sim.getCurTime()) + "\n")
     sumoProcess.terminate()

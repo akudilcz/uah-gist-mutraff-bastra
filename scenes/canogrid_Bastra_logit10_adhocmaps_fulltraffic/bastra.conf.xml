@@ -2,15 +2,15 @@
 
 <config>
   <Bastra>
-    <route_file value="../scenes/canogrid_Bastra_logit10_adhocmaps_fulltraffic/canogrid_Bastra_logit10_adhocmaps_fulltraffic.routes.xml"/>
-    <commands_file value="../scenes/canogrid_Bastra_logit10_adhocmaps_fulltraffic/canogrid_Bastra_logit10_adhocmaps_fulltraffic.commands.xml"/>
+    <route_file value="../../../scenes/canogrid_Bastra_logit10_adhocmaps_fulltraffic/canogrid_Bastra_logit10_adhocmaps_fulltraffic.routes.xml"/>
+    <commands_file value="../../../scenes/canogrid_Bastra_logit10_adhocmaps_fulltraffic/canogrid_Bastra_logit10_adhocmaps_fulltraffic.commands.xml"/>
     <verbose value="true"/>
-    <log_dir value="../data/logs/"/>
+    <log_dir value="./logs/"/>
     <log_file value="bastra.log"/>
     <log_level value="3"/>
-    <dump_dir value="../data/dumps/"/>
-    <tmp_dir value="../data/tmp/"/>
-    <results_dir value="../data/results/"/>
+    <dump_dir value="./dumps/"/>
+    <tmp_dir value="./tmp/"/>
+    <results_dir value="./results/"/>
     <new_routes_file value="new_routes.xml"/>
     <statistics_file value="statistics.csv" />
 
@@ -28,8 +28,8 @@
   <Sumo>
     <port value="2081"/>
     <interactive value="false"/>
-    <sumo_config value="../scenes/canogrid_Bastra_logit10_adhocmaps_fulltraffic/canogrid_Bastra_logit10_adhocmaps_fulltraffic.sumo.conf"/>
-    <net_file value="../scenes/canogrid_Bastra_logit10_adhocmaps_fulltraffic/canogrid_Bastra_logit10_adhocmaps_fulltraffic.net.xml"/>
+    <sumo_config value="../../../scenes/canogrid_Bastra_logit10_adhocmaps_fulltraffic/canogrid_Bastra_logit10_adhocmaps_fulltraffic.sumo.conf"/>
+    <net_file value="../../../scenes/canogrid_Bastra_logit10_adhocmaps_fulltraffic/canogrid_Bastra_logit10_adhocmaps_fulltraffic.net.xml"/>
     <log_file value="sumo.log"/>
   </Sumo>
 </config>

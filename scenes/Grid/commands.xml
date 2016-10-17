@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 
 <commands>
-    <command time="0" name="Maps" param="../scenes/Grid/maps/maps_file.xml" />
+    <command time="0" name="Maps" param="../../../scenes/Grid/maps/maps_file.xml" />
 </commands>

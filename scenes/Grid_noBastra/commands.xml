@@ -2,6 +2,6 @@
 
 <commands>
   <!-- AVOID PASSING ANY COMMAND OR MAPS TO THE SIMULATION
-    <command time="0" name="Maps" param="../scenes/Grid/maps/maps_file.xml" />
+    <command time="0" name="Maps" param="../../../scenes/Grid/maps/maps_file.xml" />
   -->
 </commands>

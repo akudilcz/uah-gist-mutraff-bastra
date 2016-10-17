@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<config>
+  <Bastra>
+    <route_file value="../../../scenes/devFastTest/devFastTest.routes.xml"/>
+    <commands_file value="../../../scenes/devFastTest/devFastTest.commands.xml"/>
+    <verbose value="true"/>
+    <log_dir value="./logs/"/>
+    <log_file value="bastra.log"/>
+    <log_level value="3"/>
+    <dump_dir value="./dumps/"/>
+    <tmp_dir value="./tmp/"/>
+    <results_dir value="./results/"/>
+    <new_routes_file value="new_routes.xml"/>
+    <statistics_file value="statistics.csv" />
+    <edge_stats_dump value="true" />
+    <edge_stats_file value="edge_stats.csv" />
+
+    <logit value="0.5"/>
+    <use_balance value="true"/>
+    <foresight_steps value="1"/>
+    <foresight_tries value="3"/>
+    <foresight_halting value="3"/>
+    <foresight_penalty value="50.0"/>
+    <!-- Simulation from/to -->
+    <begin value="0"/>
+    <end value="100"/>
+  </Bastra>
+
+  <Sumo>
+    <port value="3081"/>
+    <interactive value="false"/>
+    <sumo_config value="../../../scenes/devFastTest/devFastTest.sumo.conf"/>
+    <net_file value="../../../scenes/devFastTest/devFastTest.net.xml"/>
+    <log_file value="sumo.log"/>
+  </Sumo>
+</config>

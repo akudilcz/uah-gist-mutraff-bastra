@@ -12,6 +12,7 @@ EOF
 # ==================================================================
 [ $# -lt 1 ] && { echo "Error. Must provide a simulation scenario name.Check scenes dir for available ones"; exit 1; }
 
+BASTRA_ROOT="../../.."
 SCENE_DIR="./scenes"
 BASTRA_SCENE=$1
 [ -d "${SCENE_DIR}/${BASTRA_SCENE}" ] || { echo "Error. Scenario ${SCENE_DIR}/${BASTRA_SCENE} doesn't exist"; exit 1; }
@@ -34,24 +35,25 @@ echo "Selected simulation scene: $BASTRA_SCENE"
 
 # ==================================================================
 DATE=`date +'%y%m%d_%H%M%S'`
-DATA_ROOT=./data
-DATA_DIR=${DATA_ROOT}_${BASTRA_SCENE}_${DATE}
-STATS_FILE=data_${BASTRA_SCENE}_${DATE}.csv
+DATA_BASENAME=${BASTRA_SCENE}_${DATE}
+DATA_ROOT=./experiments/tmp
+DATA_DIR=${DATA_ROOT}/${DATA_BASENAME}
+STATS_FILE=${BASTRA_SCENE}_${DATE}.csv
 echo "Data dirs setup: ${DATA_DIR}"
 (
-  unlink ${DATA_ROOT}
   unlink ${DATA_DIR}
   mkdir -p ${DATA_DIR}/logs
   mkdir -p ${DATA_DIR}/dumps
   mkdir -p ${DATA_DIR}/tmp
   mkdir -p ${DATA_DIR}/results
-  ln -s ${DATA_DIR} ${DATA_ROOT}
+  cd ${DATA_ROOT}
+  unlink data
+  ln -s ${DATA_BASENAME} data
 ) 2>/dev/null
 
-cd ${DATA_ROOT}
-# cd ${DATA_DIR}
+cd ${DATA_ROOT}/data
 # ==================================================================
-BASTRA_SCENE_DIR=../scenes/$BASTRA_SCENE
+BASTRA_SCENE_DIR=$BASTRA_ROOT/scenes/$BASTRA_SCENE
 
 PYTHON_VERSION=2.7.6
 PYTHON_DEBUG="-m pdb"
@@ -61,7 +63,7 @@ PYTHON_DEBUG=""
 
 export PYTHONPATH=$PYTHONPATH:\
 /opt/local/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages:\
-../bastralib
+$BASTRA_ROOT/bastralib
 
 echo "PYTHONPATH=$PYTHONPATH"
 
@@ -73,7 +75,7 @@ if [ ! -z "${PYTHON_DEBUG}" ]; then
 Type "run" to execute, ctrl-C to stop, "c" to continue, etc.
 ==================================================================
 EOF
-  python ${PYTHON_DEBUG} ../bastra.py -c $BASTRA_SCENE_DIR/bastra.conf.xml
+  python ${PYTHON_DEBUG} $BASTRA_ROOT/bastra.py -c $BASTRA_SCENE_DIR/bastra.conf.xml
 else
   echo
   (
@@ -87,7 +89,7 @@ else
     DATE_START=`date +%s`
     echo "Simulation Starts on: `date -j -f '%s' ${DATE_START}`"
 
-    python ../bastra.py -c $BASTRA_SCENE_DIR/bastra.conf.xml
+    python $BASTRA_ROOT/bastra.py -c $BASTRA_SCENE_DIR/bastra.conf.xml
 
     DATE_END=`date +%s`
     echo "Simulation End    on: `date -j -f '%s' ${DATE_END}`"

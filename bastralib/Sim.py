@@ -7,6 +7,7 @@ Created on 27 de ene. de 2016
 import sys
 import traci
 import os
+import re
 import time
 from lxml import etree
 import Vehicle
@@ -38,8 +39,14 @@ class simulated_traffic:
     logit=""
     cur_time=0
     max_tries=0
-#Para el seguimiento de Duarouter
+    # Para el seguimiento de Duarouter
     duarouter_sec=0
+
+    # Alvaro Added: 10/10/16
+    edge_stats_dump = False
+    edge_stats_file = ""
+    edge_stats = {}
+    edge_desc = {}
     
     def __init__(self, config, bastra_log_file):
         self.log_file=bastra_log_file
@@ -53,6 +60,10 @@ class simulated_traffic:
         self.max_tries=config["f_tries"]
         self.begin=config["begin"]
         self.end=config["end"]
+
+	# Alvaro Added: 10/10/16
+        self.edge_stats_dump = config["edge_stats_dump"]
+        self.edge_stats_file = config["edge_stats_file"]
 
         tree=etree.parse(self.route_file)
         root=tree.getroot()
@@ -92,15 +103,45 @@ class simulated_traffic:
         root=tree.getroot()
         l_edges=root.findall("edge")
 
+	num = 0
         for edg in l_edges:
             fun_name=edg.get("function")
             if fun_name != "internal" :
                 edge_id=edg.get("id")
+                edge_from=edg.get("from")
+                edge_to=edg.get("to")
+                edge_prio=edg.get("priority")
+
                 l_lane=edg.find("lane")
+
                 self.edge_weigths[edge_id]=l_lane.get("speed")
                 self.edge_lengths[edge_id]=l_lane.get("length")
+                [x1, y1, x2, y2 ] = re.split( '[, ]', l_lane.get("shape") )
+		av_x = (float(x1)+float(x2))/2
+		av_y = (float(y1)+float(y2))/2
+		
+		# Alvaro Added: 10/10/16
+		# Inventory the edges
+                self.edge_desc[edge_id]={'id':num, 'name':edge_id, 'priority': edge_prio, 'from':edge_from, 'to': edge_to, 'x1': x1, 'y1': y1, 'x2': x2, 'y2': y2, 'av_x': av_x, 'av_y': av_y }
+                self.edge_stats[edge_id]={}
+		num += 1
+	self.saveEdges()
         return
-    
+
+    def saveEdges(self):
+      # TO BE IMPLEMENTED LATER
+      # file=open(self.edge_stats_file, "a")
+      file=open("./edges.csv", "w")
+      file.write( '{:s},{:s},{:s},{:s},{:s},{:s},{:s},{:s},{:s},{:s},{:s}\n'.format("id","name","priority","from", "to","x1", "y1", "x2", "y2", "av_x", "av_y"))
+      for e in self.edge_desc:
+        file.write( '{:s},{:d},{:s},{:s},{:s},{:s},{:s},{:s},{:s},{:f},{:f}\n'.format(
+          e, self.edge_desc[e]['id'],self.edge_desc[e]['priority'], self.edge_desc[e]['from'], self.edge_desc[e]['to'],
+          self.edge_desc[e]['x1'], self.edge_desc[e]['y1'], self.edge_desc[e]['x2'], self.edge_desc[e]['y2'], 
+          self.edge_desc[e]['av_x'], self.edge_desc[e]['av_y'] ))
+
+      file.close()
+      return
+
     def add_vehicle(self, id, start, init, end, route, logit, type):
         pos=len(self.dict_index)
         self.dict_index[id]=pos
@@ -840,5 +881,54 @@ class simulated_traffic:
             traci.edge.setMaxSpeed(edge,float(self.edge_weigths[edge]))
             self.log_file.printLog(self.LEVEL1, "Speed limited for edge " + edge +" restore to " + self.edge_weigths[edge] + ".\n")
         return
+
+    # -----------------------------------------------
+    # Alvaro added: dump edge statistics
+    # -----------------------------------------------
+    def edges_stats_add( self ):
+      if( not self.edges_stats_dump ):
+        return
+      file=open(self.edge_stats_file, "a")
+      if( self.cur_time == int(self.begin) ):
+        file.write( '{:s},{:s},{:s},{:s},{:s},{:s},{:s},{:s},{:s},{:s},{:s},{:s},{:s},{:s},{:s},{:s},{:s}\n'.format(
+          "time","id","edge",
+          "traf_travel_time","traf_waiting_time","traf_total_veh_num","traf_halted_veh_num","traf_av_occupancy","traf_av_speed",
+          "emission_co2", "emission_co", "emission_hc", "emission_noise", "emission_nox", "emission_PMx",
+          "consum_epower", "consum_fuel",
+          ))
+      for e in self.edge_desc:
+        # Ask traci for edge values
+
+        # Discarded values:
+        # traf_adaptedTravelTime=traci.edge.getAdaptedTravelTime(time)
+	# traf_effort = traci.edge.getEffort(e,time)
+	# traf_veh_mean_len = traci.edge.getEffort(e,time)
+
+        # Considered values:
+        traf_travel_time = traci.edge.getTraveltime(e)
+        traf_waiting_time = traci.edge.getWaitingTime(e)
+        traf_total_veh_num = traci.edge.getLastStepVehicleNumber(e)
+        traf_halted_veh_num = traci.edge.getLastStepHaltingNumber(e)
+        traf_av_occupancy = traci.edge.getLastStepOccupancy(e)
+        traf_av_speed = traci.edge.getLastStepMeanSpeed(e)
+        emission_co2 = traci.edge.getCO2Emission(e)
+        emission_co  = traci.edge.getCOEmission(e)
+        emission_hc = traci.edge.getHCEmission(e)
+        emission_noise = traci.edge.getNoiseEmission(e)
+        emission_nox = traci.edge.getNOxEmission(e)
+        emission_PMx = traci.edge.getPMxEmission(e)
+        consum_epower = traci.edge.getElectricityConsumption(e)
+        consum_fuel = traci.edge.getFuelConsumption(e)
+
+        file.write( '{:d},{:d},{:s},{:f},{:f},{:f},{:f},{:f},{:f},{:f},{:f},{:f},{:f},{:f},{:f},{:f},{:f}\n'.format(
+          self.cur_time,self.edge_desc[e]['id'],e,
+	  traf_travel_time, traf_waiting_time, traf_total_veh_num, traf_halted_veh_num, traf_av_occupancy, traf_av_speed,
+	  emission_co2, emission_co, emission_hc, emission_noise, emission_nox, emission_PMx,
+	  consum_epower, consum_fuel,
+	  ))
+
+      file.close()
+      return
+
 # End of class Simulated_traffic    
     
