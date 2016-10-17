@@ -43,7 +43,7 @@ class simulated_traffic:
     duarouter_sec=0
 
     # Alvaro Added: 10/10/16
-    edge_stats_dump = False
+    edge_stats_onoff = False
     edge_stats_file = ""
     edge_stats = {}
     edge_desc = {}
@@ -62,7 +62,7 @@ class simulated_traffic:
         self.end=config["end"]
 
 	# Alvaro Added: 10/10/16
-        self.edge_stats_dump = config["edge_stats_dump"]
+        self.edge_stats_onoff = config["edge_stats_dump"]
         self.edge_stats_file = config["edge_stats_file"]
 
         tree=etree.parse(self.route_file)
@@ -885,8 +885,16 @@ class simulated_traffic:
     # -----------------------------------------------
     # Alvaro added: dump edge statistics
     # -----------------------------------------------
-    def edges_stats_add( self ):
-      if( not self.edges_stats_dump ):
+    def edge_stats_dump( self ):
+      if( not self.edge_stats_onoff ):
+        return
+      return
+
+    # -----------------------------------------------
+    # Alvaro added: add edge statistics for current timestamp
+    # -----------------------------------------------
+    def edge_stats_add( self ):
+      if( not self.edge_stats_onoff ):
         return
       file=open(self.edge_stats_file, "a")
       if( self.cur_time == int(self.begin) ):
