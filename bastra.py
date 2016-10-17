@@ -41,13 +41,24 @@ def load_config():
     dict_conf["route_file"]=readOption("route_file", "Bastra")
     dict_conf["logit"]=readOption("logit", "Bastra")
     dict_conf["commands_file"]=readOption("commands_file", "Bastra")
-    dict_conf["f_steps"]=readOption("foresight_steps", "Bastra")
-    dict_conf["f_halting"]=readOption("foresight_halting", "Bastra")
-    dict_conf["f_penalty"]=readOption("foresight_penalty", "Bastra")
-    dict_conf["f_tries"]=readOption("foresight_tries", "Bastra")
     dict_conf["statistics_f"]=readOption("statistics_file", "Bastra")
     dict_conf["begin"]=readOption("begin", "Bastra")
     dict_conf["end"]=readOption("end", "Bastra")
+
+    dict_conf["f_tries"]=0
+    try:
+      dict_conf["f_tries"]=int(readOption("foresight_tries", "Bastra"))
+    except:
+      dict_conf["f_tries"]=0
+
+    dict_conf["f_steps"]=0
+    try:
+      dict_conf["f_steps"]=int(readOption("foresight_steps", "Bastra"))
+    except:
+      dict_conf["f_steps"]=0
+
+    dict_conf["f_halting"]=readOption("foresight_halting", "Bastra")
+    dict_conf["f_penalty"]=readOption("foresight_penalty", "Bastra")
 
     # Alvaro Added: 15/09/16
     try:
@@ -56,15 +67,26 @@ def load_config():
        dict_conf["csv_sep"]=','
 
     # Alvaro Added: 10/10/16
+    dict_conf["edge_stats_dump"]=False
     try:
       # True / False
-      dict_conf["edge_stats_dump"]=readOption("edge_stats_dump", "Bastra")
+      if( readOption("edge_stats_dump", "Bastra").lower() == "true" ):
+        dict_conf["edge_stats_dump"]=True
     except:
        dict_conf["edge_stats_dump"]=False
     try:
       dict_conf["edge_stats_file"]=readOption("edge_stats_file", "Bastra")
     except:
-       dict_conf["edge_stats_file"]='edge_stats.csv'
+      dict_conf["edge_stats_file"]='edge_stats.csv'
+
+    try:
+      dict_conf["edge_stats_sampling"]=int(readOption("edge_stats_sampling", "Bastra"))
+    except:
+      # If not defined, use a value enough to take at least 10 samples
+      v = int((int(dict_conf["end"])-int(dict_conf["begin"]))/10)
+      if( v < 0 ):
+        v = 1
+      dict_conf["edge_stats_sampling"]=v
 
     str_verbose=readOption("verbose", "Bastra")
     str_verbose.lower()
@@ -219,12 +241,12 @@ if __name__ == '__main__':
         traci.simulationStep()
         get_simulation_results()
 
-        sim.edges_stats_add( )
+        sim.edge_stats_add( )
 
     # -------------------------------------------------
     # End of simulation
     # -------------------------------------------------
-    sim.edges_stats_dump( )
+    sim.edge_stats_dump( )
     traci.close()
     print("Process terminated: step " + str(sim.getCurTime()) + "\n")
     sumoProcess.terminate()

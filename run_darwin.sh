@@ -58,6 +58,7 @@ BASTRA_SCENE_DIR=$BASTRA_ROOT/scenes/$BASTRA_SCENE
 PYTHON_VERSION=2.7.6
 PYTHON_DEBUG="-m pdb"
 PYTHON_DEBUG=""
+PYTHON_PROFILER_OPTS="-m cProfile -o bastra.profile "
 # CURR_PYTHON="`python -V`"
 # [ "$PYTHON_VERSION" != "$CURR_PYTHON" ] && { echo "ERROR: incorrect python version $CURR_PYTHON. Expected $PYTHON_VERSION."; exit 1; }
 
@@ -89,7 +90,7 @@ else
     DATE_START=`date +%s`
     echo "Simulation Starts on: `date -j -f '%s' ${DATE_START}`"
 
-    python $BASTRA_ROOT/bastra.py -c $BASTRA_SCENE_DIR/bastra.conf.xml
+    python $PYTHON_PROFILER_OPTS $BASTRA_ROOT/bastra.py -c $BASTRA_SCENE_DIR/bastra.conf.xml
 
     DATE_END=`date +%s`
     echo "Simulation End    on: `date -j -f '%s' ${DATE_END}`"
