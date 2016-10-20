@@ -7,8 +7,10 @@
 # -------------------------------------------------------------
 ./run_darwin.sh canogrid_noBastra_nomaps_randomtraffic
 ./run_darwin.sh canogrid_noBastra_nomaps_fulltraffic
+./run_darwin.sh canogrid_noBastra_nomaps_dirtraffic
 ./run_darwin.sh canogrid_noBastra_adhocmaps_randomtraffic
 ./run_darwin.sh canogrid_noBastra_adhocmaps_fulltraffic
+./run_darwin.sh canogrid_noBastra_adhocmaps_dirtraffic
 
 # -------------------------------------------------------------
 # EXPERIMENTS WITH

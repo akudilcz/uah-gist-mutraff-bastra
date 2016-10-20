@@ -2,7 +2,7 @@
 
 <config>
   <Bastra>
-    <route_file value="../../../scenes/canogrid_noBastra_nomaps_fulltraffic/canogrid_noBastra_nomaps_fulltraffic.routes.xml"/>
+    <route_file value="../../../scenes/canogrid_noBastra_nomaps_fulltraffic/canogrid_noBastra_nomaps_fulltraffic.typed-routes.xml"/>
     <commands_file value="../../../scenes/canogrid_noBastra_nomaps_fulltraffic/canogrid_noBastra_nomaps_fulltraffic.commands.xml"/>
     <verbose value="true"/>
     <log_dir value="./logs/"/>
@@ -14,8 +14,8 @@
     <new_routes_file value="new_routes.xml"/>
     <statistics_file value="statistics.csv" />
     <edge_stats_dump value="true" />
-    <!-- <edge_stats_sampling value="10" /> -->
     <edge_stats_file value="edge_stats.csv" />
+    <!-- <edge_stats_sampling value="10" /> -->
 
     <logit value="0"/>
     <use_balance value="false"/>

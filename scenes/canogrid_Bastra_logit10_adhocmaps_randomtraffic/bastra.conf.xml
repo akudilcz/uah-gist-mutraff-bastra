@@ -2,7 +2,7 @@
 
 <config>
   <Bastra>
-    <route_file value="../../../scenes/canogrid_Bastra_logit10_adhocmaps_randomtraffic/canogrid_Bastra_logit10_adhocmaps_randomtraffic.routes.xml"/>
+    <route_file value="../../../scenes/canogrid_Bastra_logit10_adhocmaps_randomtraffic/canogrid_Bastra_logit10_adhocmaps_randomtraffic.typed-routes.xml"/>
     <commands_file value="../../../scenes/canogrid_Bastra_logit10_adhocmaps_randomtraffic/canogrid_Bastra_logit10_adhocmaps_randomtraffic.commands.xml"/>
     <verbose value="true"/>
     <log_dir value="./logs/"/>
@@ -14,8 +14,8 @@
     <new_routes_file value="new_routes.xml"/>
     <statistics_file value="statistics.csv" />
     <edge_stats_dump value="true" />
-    <!-- <edge_stats_sampling value="10" /> -->
     <edge_stats_file value="edge_stats.csv" />
+    <!-- <edge_stats_sampling value="10" /> -->
 
     <logit value="0.1"/>
     <use_balance value="true"/>

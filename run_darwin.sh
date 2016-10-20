@@ -79,6 +79,7 @@ Type "run" to execute, ctrl-C to stop, "c" to continue, etc.
 EOF
   python ${PYTHON_DEBUG} $BASTRA_ROOT/bastra.py -c $BASTRA_SCENE_DIR/bastra.conf.xml
 else
+  cp $BASTRA_SCENE_DIR/SCENARIO_DESCRIPTION.md . 2>/dev/null
   echo
   (
     echo "................................................"
