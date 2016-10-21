@@ -2,7 +2,7 @@
   # Group: global
   # Descr: name of simulation
   # Default: 
-  export __PREFIX="canogrid_Bastra_logit20_nomaps_fulltraffic"
+  export __PREFIX="radial_Bastra_logit20_nomaps_fulltraffic"
 
   # Group: global
   # Descr: commands file to use

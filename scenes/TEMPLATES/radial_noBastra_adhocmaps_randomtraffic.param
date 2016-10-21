@@ -2,7 +2,7 @@
   # Group: global
   # Descr: name of simulation
   # Default: 
-  export __PREFIX="canogrid_noBastra_adhocmaps_randomtraffic"
+  export __PREFIX="radial_noBastra_adhocmaps_randomtraffic"
 
   # Group: global
   # Descr: commands file to use

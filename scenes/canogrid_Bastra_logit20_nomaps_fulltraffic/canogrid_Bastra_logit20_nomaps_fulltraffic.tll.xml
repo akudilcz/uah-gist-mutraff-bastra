@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- generated on Fri Oct 21 15:54:52 2016 by SUMO netgenerate Version 0.27.1
+<!-- generated on Fri Oct 21 16:12:07 2016 by SUMO netgenerate Version 0.27.1
 <?xml version="1.0" encoding="UTF-8"?>
 
 <configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/netgenerateConfiguration.xsd">
 
-    <spider_network>
-        <spider value="true"/>
-        <spider.arm-number value="16"/>
-        <spider.circle-number value="16"/>
-        <spider.space-radius value="100"/>
-        <spider.omit-center value="true"/>
-    </spider_network>
+    <grid_network>
+        <grid value="true"/>
+        <grid.number value="16"/>
+        <grid.length value="100"/>
+        <grid.attach-length value="30"/>
+    </grid_network>
 
     <output>
         <output-file value="canogrid_Bastra_logit20_nomaps_fulltraffic.net.xml"/>
