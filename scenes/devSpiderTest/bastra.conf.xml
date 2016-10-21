@@ -25,7 +25,7 @@
     <foresight_penalty value="50.0"/>
     <!-- Simulation from/to -->
     <begin value="0"/>
-    <end value="100"/>
+    <end value="4000"/>
   </Bastra>
 
   <Sumo>

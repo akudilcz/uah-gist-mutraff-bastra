@@ -408,9 +408,9 @@ class simulated_traffic:
             trip_f.generateFile()
             map_file_name=self.prepareMap(trip_f.getWeightMaps())
             if self.balanced:
-                self.execDuarouter(trip_f.getFileName(), map_file_name, self.dump_dir + self.new_routes_file)
+                self.execDuarouter(trip_f.getFileName(), map_file_name, self.dump_dir, self.new_routes_file, "router_")
             else:
-                self.execDuarouter(trip_f.getFileName(), "", self.dump_dir + self.new_routes_file)
+                self.execDuarouter(trip_f.getFileName(), "", self.dump_dir, self.new_routes_file, "router_")
 
 #           self.log_file.printLog(self.LEVEL1,"Calculating new trips: " + command + "\n")
 #            os.system(command)
@@ -571,7 +571,7 @@ class simulated_traffic:
                 pos=route.index(edge)
             else:
                 result=[]
-                self.log_file.printLog(self.LEVEL3, "El vehiculo " + id + " no sigue la ruta: " + str(route))
+                self.log_file.printLog(self.LEVEL3, "Edge:"+edge+"El vehiculo " + id + " no sigue la nueva ruta: " + str(route) + "\n" )
                 return result
         else:
             pos=0
@@ -619,6 +619,8 @@ class simulated_traffic:
 
 
     def jamReroute(self, pen_edges, veh_id, penalty):
+	# BUG solved by Alvaro: 20/10/2016
+        # jam_routes="jam_routes.xml"
         jam_routes="jam_routes.xml"
         cur_time=traci.simulation.getCurrentTime()/1000
         index=self.dict_index[veh_id]
@@ -636,8 +638,8 @@ class simulated_traffic:
         map_name=self.dump_dir + "jam_map_" + str(cur_time) + "_" + veh_id + ".xml"
         self.genJamMap(pen_edges, map_name, veh_id, penalty)
 
-        self.execDuarouter(trip_f.getFileName(), map_name, jam_routes)
-        result=self.readJamFile(jam_routes)
+        self.execDuarouter(trip_f.getFileName(), map_name, self.dump_dir, jam_routes, "jam_")
+        result=self.readJamFile(self.dump_dir+"/"+jam_routes)
 
         return result
 
@@ -729,12 +731,15 @@ class simulated_traffic:
 
         return
 
-    def execDuarouter(self,trip_file, map_file, output_file):
+    def execDuarouter(self,trip_file, map_file, dump_dir, output_file, dump_prefix ):
         cur_time=traci.simulation.getCurrentTime()/1000
+	xmlfile = dump_dir + "/" + output_file
+	outfile = dump_dir + "/" + dump_prefix + str(cur_time) + "_" + str(self.duarouter_sec) + ".out"
+
         if len(map_file)>0:
-          command="duarouter -n " + self.net_file + " -t " + trip_file + " -w " + map_file + " -o " + output_file + " --error-log " + self.sumo_log_file + " --ignore-errors --no-warnings"
+          command="duarouter -n " + self.net_file + " -t " + trip_file + " -w " + map_file + " -o " + xmlfile + " --error-log " + self.sumo_log_file + " --ignore-errors --no-warnings"
         else:
-          command="duarouter -n " + self.net_file + " -t " + trip_file + " -o " + output_file + " --error-log " + self.sumo_log_file + " --ignore-errors --no-warnings"
+          command="duarouter -n " + self.net_file + " -t " + trip_file + " -o " + xmlfile + " --error-log " + self.sumo_log_file + " --ignore-errors --no-warnings"
         self.log_file.printLog(self.LEVEL1,"Calculating new trips - duarouter sec " + str(self.duarouter_sec) + ": " + command + "\n")
         os.system(command)
 
@@ -743,19 +748,21 @@ class simulated_traffic:
         # ------------------------
         if hasattr(sys, 'getwindowsversion'):
           # --- WINDOWS ---
-          if os.path.isfile(output_file):
-            #command="copy " + output_file + " " + self.dump_dir + "router_" + str(cur_time) + "_" + str(self.duarouter_sec) + ".out"
-            command="cd " + self.dump_dir + " & copy " + self.new_routes_file + " " + "router_" + str(cur_time) + "_" + str(self.duarouter_sec) + ".out"
+          if os.path.isfile(xmlfile):
+            #command="copy " + xmlfile + " " + self.dump_dir + dump_prefix + str(cur_time) + "_" + str(self.duarouter_sec) + ".out"
+            #command="cd " + self.dump_dir + " & copy " + self.new_routes_file + " " + dump_prefix + str(cur_time) + "_" + str(self.duarouter_sec) + ".out"
+            command="copy " + xmlfile + " " + outfile
             self.log_file.printLog(self.LEVEL3,"Copying duarouter results: " + command + "\n")
             os.system(command)
           else:
             self.log_file.printLog(self.LEVEL1, "No output for duarouter " + str(self.duarouter_sec) + ".\n")
         else:
           # --- LINUX ---
-          if os.path.isfile(output_file):
-              command="cd " + self.dump_dir + " ; cp " + self.new_routes_file + " " + "router_" + str(cur_time) + "_" + str(self.duarouter_sec) + ".out"
-              self.log_file.printLog(self.LEVEL3,"Copying duarouter results: " + command + "\n")
-              os.system(command)
+          if os.path.isfile(xmlfile):
+            #command="cd " + self.dump_dir + " ; cp " + self.new_routes_file + " " + dump_prefix + str(cur_time) + "_" + str(self.duarouter_sec) + ".out"
+            command="cp " + xmlfile + " " + outfile
+            self.log_file.printLog(self.LEVEL3,"Copying duarouter results: " + command + "\n")
+            os.system(command)
           else:
               self.log_file.printLog(self.LEVEL1, "No output for duarouter " + str(self.duarouter_sec) + ".\n")
         self.duarouter_sec=self.duarouter_sec + 1

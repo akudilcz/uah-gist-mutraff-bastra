@@ -20,7 +20,7 @@ function default_params() {
 
   # Group: network
   # Descr: type of network to generate
-  # Default: grid
+  # Default: grid, radial
   export __TYPE="grid"
 
   # Group: network

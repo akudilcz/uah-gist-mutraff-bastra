@@ -2,7 +2,7 @@
 
 <config>
   <Bastra>
-    <route_file value="../../../scenes/devFastTest/devFastTest.routes.xml"/>
+    <route_file value="../../../scenes/devFastTest/devFastTest.typed-routes.xml"/>
     <commands_file value="../../../scenes/devFastTest/devFastTest.commands.xml"/>
     <verbose value="true"/>
     <log_dir value="./logs/"/>
@@ -14,8 +14,8 @@
     <new_routes_file value="new_routes.xml"/>
     <statistics_file value="statistics.csv" />
     <edge_stats_dump value="true" />
-    <edge_stats_sampling value="10" />
     <edge_stats_file value="edge_stats.csv" />
+    <!-- <edge_stats_sampling value="10" /> -->
 
     <logit value="0.5"/>
     <use_balance value="true"/>
@@ -29,7 +29,7 @@
   </Bastra>
 
   <Sumo>
-    <port value="3081"/>
+    <port value="2081"/>
     <interactive value="false"/>
     <sumo_config value="../../../scenes/devFastTest/devFastTest.sumo.conf"/>
     <net_file value="../../../scenes/devFastTest/devFastTest.net.xml"/>

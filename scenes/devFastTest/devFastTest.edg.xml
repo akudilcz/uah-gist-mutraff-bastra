@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- generated on Tue Oct 11 13:45:10 2016 by SUMO netgenerate Version 0.27.1
+<!-- generated on Thu Oct 20 12:37:41 2016 by SUMO netgenerate Version 0.27.1
 <?xml version="1.0" encoding="UTF-8"?>
 
 <configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/netgenerateConfiguration.xsd">
@@ -19,7 +19,6 @@
 
     <building_defaults>
         <default.lanenumber value="1"/>
-        <default.speed value="13.9"/>
         <default.priority value="-1"/>
     </building_defaults>
 
