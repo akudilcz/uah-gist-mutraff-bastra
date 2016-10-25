@@ -13,7 +13,7 @@ $ randomVehType.py -c<configFile>
  When starting the program, it expects to receive as parameter the name of a file in XML format, very simple that contains the application settings.
 It is usually generated with SUMO's **duarouter**.
 
-## Configuration File
+** Example Configuration File **
 ```
 <?xml version="1.0" encoding="UTF-8"?>
 
@@ -50,30 +50,32 @@ It is usually generated with SUMO's **duarouter**.
 </routes>
 ```
 
-* The <config> indicates the start of the configuration options.
-* The label <randvt> indicates that from this point the specific settings for the program are defined randVehType.py.
-* the <route_file> stores the value of the location of the file paths that we will use as a data source.
-* thetag <type_file> stores the location of the file type definition. Explore the contents of this file below.
-* The <output> stores the location and file name exit routes, which will already type mapping vehicles.
+## Configuration File
+
+* The \<config\> indicates the start of the configuration options.
+* The label \<randvt\> indicates that from this point the specific settings for the program are defined randVehType.py.
+* the \<route_file\> stores the value of the location of the file paths that we will use as a data source.
+* thetag \<type_file\> stores the location of the file type definition. Explore the contents of this file below.
+* The \<output\> stores the location and file name exit routes, which will already type mapping vehicles.
   
 ## Types File
-The content of file types <type_file>in xml format is a standard type definition according its semantics in SUMO to which attribute (adds weight to specify the relative probability that the vehicles defined in traffic demand<route-file>)belong to each type.
-We should note that, unlike how the label is named in SUMO(<vtype>),this type definition uses the <type>.The <vTypes> is used to encompass all defined types.
+The content of file types \<type_file\>in xml format is a standard type definition according its semantics in SUMO to which attribute (adds weight to specify the relative probability that the vehicles defined in traffic demand\<route-file\>)belong to each type.
+We should note that, unlike how the label is named in SUMO(\<vtype\>),this type definition uses the \<type\>.The \<vTypes\> is used to encompass all defined types.
 
 A list of available attributes (besides the aforementioned weight)can be found in the "Types" section previously discussed in the chapter on traffic demand in this document. The contents of a file sample  is(types.xml)shown.
    
 ```
-<?xml version="1.0" encoding="UTF-8"?>
+\<?xml version="1.0" encoding="UTF-8"?\>
 
-<vTypes>
-  <type id="motorcycle" vClass="motorcycle" weight="1" />
-  <type id="car" vClass="passenger" weight="4" />
-</vTypes>
+\<vTypes\>
+  \<type id="motorcycle" vClass="motorcycle" weight="1" /\>
+  \<type id="car" vClass="passenger" weight="4" /\>
+\</vTypes\>
 ```
 
 ## Notes
 
 We want to remark that the program is designed to assign (defined in a separate) types randomly to traffic demand without established types.
-If the definition file andoriginal routes of vehicles have already types and these are assigned to a vehicle anddefined in thefile, .rou.xml original  the program respect the class assigned to vehicle, but not retrieve the type information file routes. The user could, in any case, edit the file resulting from the implementation of the program to add the type (labeled <vtype>).
+If the definition file andoriginal routes of vehicles have already types and these are assigned to a vehicle anddefined in thefile, .rou.xml original  the program respect the class assigned to vehicle, but not retrieve the type information file routes. The user could, in any case, edit the file resulting from the implementation of the program to add the type (labeled \<vtype\>).
 
 
