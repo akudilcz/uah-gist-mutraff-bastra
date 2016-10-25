@@ -406,14 +406,12 @@ class simulated_traffic:
         cont=0
         for trip_f in self.trip_file_list:
             trip_f.generateFile()
-            map_file_name=self.prepareMap(trip_f.getWeightMaps())
             if self.balanced:
+                map_file_name=self.prepareMap(trip_f.getWeightMaps())
                 self.execDuarouter(trip_f.getFileName(), map_file_name, self.dump_dir, self.new_routes_file, "router_")
             else:
                 self.execDuarouter(trip_f.getFileName(), "", self.dump_dir, self.new_routes_file, "router_")
 
-#           self.log_file.printLog(self.LEVEL1,"Calculating new trips: " + command + "\n")
-#            os.system(command)
             self.saveNewRoutes(self.dump_dir + self.new_routes_file)
             self.recoverPendings(self.sumo_log_file)
 
