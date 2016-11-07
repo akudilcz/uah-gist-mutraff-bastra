@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<maps>
+  <!-- MAP 1 -->
+  <map tag="car" prob="0.50" file="../../../scenes/__PREFIX__/maps/map.radial16.rand05.rand.1.xml" />
+  <map tag="taxi" prob="0.50" file="../../../scenes/__PREFIX__/maps/map.radial16.rand05.rand.1.xml" />
+  <map tag="bus" prob="0.50" file="../../../scenes/__PREFIX__/maps/map.radial16.rand05.rand.1.xml" />
+  <map tag="motorcycle" prob="0.50" file="../../../scenes/__PREFIX__/maps/map.radial16.rand05.rand.1.xml" />
+  <!-- MAP 2 -->
+  <map tag="car" prob="0.50" file="../../../scenes/__PREFIX__/maps/map.radial16.rand05.rand.2.xml" />
+  <map tag="taxi" prob="0.50" file="../../../scenes/__PREFIX__/maps/map.radial16.rand05.rand.2.xml" />
+  <map tag="bus" prob="0.50" file="../../../scenes/__PREFIX__/maps/map.radial16.rand05.rand.2.xml" />
+  <map tag="motorcycle" prob="0.50" file="../../../scenes/__PREFIX__/maps/map.radial16.rand05.rand.2.xml" />
+</maps>

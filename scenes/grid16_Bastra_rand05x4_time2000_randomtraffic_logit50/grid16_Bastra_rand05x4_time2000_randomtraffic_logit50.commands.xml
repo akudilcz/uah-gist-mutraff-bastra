@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<commands>
+  <command time="2000" name="Maps" param="../../../scenes/grid16_Bastra_rand05x4_time2000_randomtraffic_logit50/grid16_Bastra_rand05x4_time2000_randomtraffic_logit50.maps.xml" />
+</commands>

@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on Thu Nov  3 13:49:05 2016 by SUMO netgenerate Version 0.27.1
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/netgenerateConfiguration.xsd">
+
+    <grid_network>
+        <grid value="true"/>
+        <grid.number value="3"/>
+        <grid.length value="100"/>
+        <grid.attach-length value="30"/>
+    </grid_network>
+
+    <output>
+        <output-file value="grid3_Bastra_timeALL_fulltraffic.net.xml"/>
+        <plain-output-prefix value="grid3_Bastra_timeALL_fulltraffic"/>
+    </output>
+
+    <building_defaults>
+        <default.lanenumber value="1"/>
+        <default.speed value="13.9"/>
+        <default.priority value="-1"/>
+    </building_defaults>
+
+    <report>
+        <verbose value="true"/>
+    </report>
+
+</configuration>
+-->
+
+<connections version="0.27" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/connections_file.xsd">
+    <connection from="0/0to0/1" to="0/1to1/1" fromLane="0" toLane="0"/>
+    <connection from="0/0to0/1" to="0/1to0/2" fromLane="0" toLane="0"/>
+    <connection from="0/0to0/1" to="0/1toleft1" fromLane="0" toLane="0"/>
+    <connection from="0/0to0/1" to="0/1to0/0" fromLane="0" toLane="0"/>
+
+    <connection from="0/0to1/0" to="1/0tobottom1" fromLane="0" toLane="0"/>
+    <connection from="0/0to1/0" to="1/0to2/0" fromLane="0" toLane="0"/>
+    <connection from="0/0to1/0" to="1/0to1/1" fromLane="0" toLane="0"/>
+    <connection from="0/0to1/0" to="1/0to0/0" fromLane="0" toLane="0"/>
+
+    <connection from="0/0tobottom0" to="bottom0to0/0" fromLane="0" toLane="0"/>
+
+    <connection from="0/0toleft0" to="left0to0/0" fromLane="0" toLane="0"/>
+
+    <connection from="0/1to0/0" to="0/0toleft0" fromLane="0" toLane="0"/>
+    <connection from="0/1to0/0" to="0/0tobottom0" fromLane="0" toLane="0"/>
+    <connection from="0/1to0/0" to="0/0to1/0" fromLane="0" toLane="0"/>
+    <connection from="0/1to0/0" to="0/0to0/1" fromLane="0" toLane="0"/>
+
+    <connection from="0/1to0/2" to="0/2to1/2" fromLane="0" toLane="0"/>
+    <connection from="0/1to0/2" to="0/2totop0" fromLane="0" toLane="0"/>
+    <connection from="0/1to0/2" to="0/2toleft2" fromLane="0" toLane="0"/>
+    <connection from="0/1to0/2" to="0/2to0/1" fromLane="0" toLane="0"/>
+
+    <connection from="0/1to1/1" to="1/1to1/0" fromLane="0" toLane="0"/>
+    <connection from="0/1to1/1" to="1/1to2/1" fromLane="0" toLane="0"/>
+    <connection from="0/1to1/1" to="1/1to1/2" fromLane="0" toLane="0"/>
+    <connection from="0/1to1/1" to="1/1to0/1" fromLane="0" toLane="0"/>
+
+    <connection from="0/1toleft1" to="left1to0/1" fromLane="0" toLane="0"/>
+
+    <connection from="0/2to0/1" to="0/1toleft1" fromLane="0" toLane="0"/>
+    <connection from="0/2to0/1" to="0/1to0/0" fromLane="0" toLane="0"/>
+    <connection from="0/2to0/1" to="0/1to1/1" fromLane="0" toLane="0"/>
+    <connection from="0/2to0/1" to="0/1to0/2" fromLane="0" toLane="0"/>
+
+    <connection from="0/2to1/2" to="1/2to1/1" fromLane="0" toLane="0"/>
+    <connection from="0/2to1/2" to="1/2to2/2" fromLane="0" toLane="0"/>
+    <connection from="0/2to1/2" to="1/2totop1" fromLane="0" toLane="0"/>
+    <connection from="0/2to1/2" to="1/2to0/2" fromLane="0" toLane="0"/>
+
+    <connection from="0/2toleft2" to="left2to0/2" fromLane="0" toLane="0"/>
+
+    <connection from="0/2totop0" to="top0to0/2" fromLane="0" toLane="0"/>
+
+    <connection from="1/0to0/0" to="0/0to0/1" fromLane="0" toLane="0"/>
+    <connection from="1/0to0/0" to="0/0toleft0" fromLane="0" toLane="0"/>
+    <connection from="1/0to0/0" to="0/0tobottom0" fromLane="0" toLane="0"/>
+    <connection from="1/0to0/0" to="0/0to1/0" fromLane="0" toLane="0"/>
+
+    <connection from="1/0to1/1" to="1/1to2/1" fromLane="0" toLane="0"/>
+    <connection from="1/0to1/1" to="1/1to1/2" fromLane="0" toLane="0"/>
+    <connection from="1/0to1/1" to="1/1to0/1" fromLane="0" toLane="0"/>
+    <connection from="1/0to1/1" to="1/1to1/0" fromLane="0" toLane="0"/>
+
+    <connection from="1/0to2/0" to="2/0tobottom2" fromLane="0" toLane="0"/>
+    <connection from="1/0to2/0" to="2/0toright0" fromLane="0" toLane="0"/>
+    <connection from="1/0to2/0" to="2/0to2/1" fromLane="0" toLane="0"/>
+    <connection from="1/0to2/0" to="2/0to1/0" fromLane="0" toLane="0"/>
+
+    <connection from="1/0tobottom1" to="bottom1to1/0" fromLane="0" toLane="0"/>
+
+    <connection from="1/1to0/1" to="0/1to0/2" fromLane="0" toLane="0"/>
+    <connection from="1/1to0/1" to="0/1toleft1" fromLane="0" toLane="0"/>
+    <connection from="1/1to0/1" to="0/1to0/0" fromLane="0" toLane="0"/>
+    <connection from="1/1to0/1" to="0/1to1/1" fromLane="0" toLane="0"/>
+
+    <connection from="1/1to1/0" to="1/0to0/0" fromLane="0" toLane="0"/>
+    <connection from="1/1to1/0" to="1/0tobottom1" fromLane="0" toLane="0"/>
+    <connection from="1/1to1/0" to="1/0to2/0" fromLane="0" toLane="0"/>
+    <connection from="1/1to1/0" to="1/0to1/1" fromLane="0" toLane="0"/>
+
+    <connection from="1/1to1/2" to="1/2to2/2" fromLane="0" toLane="0"/>
+    <connection from="1/1to1/2" to="1/2totop1" fromLane="0" toLane="0"/>
+    <connection from="1/1to1/2" to="1/2to0/2" fromLane="0" toLane="0"/>
+    <connection from="1/1to1/2" to="1/2to1/1" fromLane="0" toLane="0"/>
+
+    <connection from="1/1to2/1" to="2/1to2/0" fromLane="0" toLane="0"/>
+    <connection from="1/1to2/1" to="2/1toright1" fromLane="0" toLane="0"/>
+    <connection from="1/1to2/1" to="2/1to2/2" fromLane="0" toLane="0"/>
+    <connection from="1/1to2/1" to="2/1to1/1" fromLane="0" toLane="0"/>
+
+    <connection from="1/2to0/2" to="0/2totop0" fromLane="0" toLane="0"/>
+    <connection from="1/2to0/2" to="0/2toleft2" fromLane="0" toLane="0"/>
+    <connection from="1/2to0/2" to="0/2to0/1" fromLane="0" toLane="0"/>
+    <connection from="1/2to0/2" to="0/2to1/2" fromLane="0" toLane="0"/>
+
+    <connection from="1/2to1/1" to="1/1to0/1" fromLane="0" toLane="0"/>
+    <connection from="1/2to1/1" to="1/1to1/0" fromLane="0" toLane="0"/>
+    <connection from="1/2to1/1" to="1/1to2/1" fromLane="0" toLane="0"/>
+    <connection from="1/2to1/1" to="1/1to1/2" fromLane="0" toLane="0"/>
+
+    <connection from="1/2to2/2" to="2/2to2/1" fromLane="0" toLane="0"/>
+    <connection from="1/2to2/2" to="2/2toright2" fromLane="0" toLane="0"/>
+    <connection from="1/2to2/2" to="2/2totop2" fromLane="0" toLane="0"/>
+    <connection from="1/2to2/2" to="2/2to1/2" fromLane="0" toLane="0"/>
+
+    <connection from="1/2totop1" to="top1to1/2" fromLane="0" toLane="0"/>
+
+    <connection from="2/0to1/0" to="1/0to1/1" fromLane="0" toLane="0"/>
+    <connection from="2/0to1/0" to="1/0to0/0" fromLane="0" toLane="0"/>
+    <connection from="2/0to1/0" to="1/0tobottom1" fromLane="0" toLane="0"/>
+    <connection from="2/0to1/0" to="1/0to2/0" fromLane="0" toLane="0"/>
+
+    <connection from="2/0to2/1" to="2/1toright1" fromLane="0" toLane="0"/>
+    <connection from="2/0to2/1" to="2/1to2/2" fromLane="0" toLane="0"/>
+    <connection from="2/0to2/1" to="2/1to1/1" fromLane="0" toLane="0"/>
+    <connection from="2/0to2/1" to="2/1to2/0" fromLane="0" toLane="0"/>
+
+    <connection from="2/0tobottom2" to="bottom2to2/0" fromLane="0" toLane="0"/>
+
+    <connection from="2/0toright0" to="right0to2/0" fromLane="0" toLane="0"/>
+
+    <connection from="2/1to1/1" to="1/1to1/2" fromLane="0" toLane="0"/>
+    <connection from="2/1to1/1" to="1/1to0/1" fromLane="0" toLane="0"/>
+    <connection from="2/1to1/1" to="1/1to1/0" fromLane="0" toLane="0"/>
+    <connection from="2/1to1/1" to="1/1to2/1" fromLane="0" toLane="0"/>
+
+    <connection from="2/1to2/0" to="2/0to1/0" fromLane="0" toLane="0"/>
+    <connection from="2/1to2/0" to="2/0tobottom2" fromLane="0" toLane="0"/>
+    <connection from="2/1to2/0" to="2/0toright0" fromLane="0" toLane="0"/>
+    <connection from="2/1to2/0" to="2/0to2/1" fromLane="0" toLane="0"/>
+
+    <connection from="2/1to2/2" to="2/2toright2" fromLane="0" toLane="0"/>
+    <connection from="2/1to2/2" to="2/2totop2" fromLane="0" toLane="0"/>
+    <connection from="2/1to2/2" to="2/2to1/2" fromLane="0" toLane="0"/>
+    <connection from="2/1to2/2" to="2/2to2/1" fromLane="0" toLane="0"/>
+
+    <connection from="2/1toright1" to="right1to2/1" fromLane="0" toLane="0"/>
+
+    <connection from="2/2to1/2" to="1/2totop1" fromLane="0" toLane="0"/>
+    <connection from="2/2to1/2" to="1/2to0/2" fromLane="0" toLane="0"/>
+    <connection from="2/2to1/2" to="1/2to1/1" fromLane="0" toLane="0"/>
+    <connection from="2/2to1/2" to="1/2to2/2" fromLane="0" toLane="0"/>
+
+    <connection from="2/2to2/1" to="2/1to1/1" fromLane="0" toLane="0"/>
+    <connection from="2/2to2/1" to="2/1to2/0" fromLane="0" toLane="0"/>
+    <connection from="2/2to2/1" to="2/1toright1" fromLane="0" toLane="0"/>
+    <connection from="2/2to2/1" to="2/1to2/2" fromLane="0" toLane="0"/>
+
+    <connection from="2/2toright2" to="right2to2/2" fromLane="0" toLane="0"/>
+
+    <connection from="2/2totop2" to="top2to2/2" fromLane="0" toLane="0"/>
+
+    <connection from="bottom0to0/0" to="0/0to1/0" fromLane="0" toLane="0"/>
+    <connection from="bottom0to0/0" to="0/0to0/1" fromLane="0" toLane="0"/>
+    <connection from="bottom0to0/0" to="0/0toleft0" fromLane="0" toLane="0"/>
+    <connection from="bottom0to0/0" to="0/0tobottom0" fromLane="0" toLane="0"/>
+
+    <connection from="bottom1to1/0" to="1/0to2/0" fromLane="0" toLane="0"/>
+    <connection from="bottom1to1/0" to="1/0to1/1" fromLane="0" toLane="0"/>
+    <connection from="bottom1to1/0" to="1/0to0/0" fromLane="0" toLane="0"/>
+    <connection from="bottom1to1/0" to="1/0tobottom1" fromLane="0" toLane="0"/>
+
+    <connection from="bottom2to2/0" to="2/0toright0" fromLane="0" toLane="0"/>
+    <connection from="bottom2to2/0" to="2/0to2/1" fromLane="0" toLane="0"/>
+    <connection from="bottom2to2/0" to="2/0to1/0" fromLane="0" toLane="0"/>
+    <connection from="bottom2to2/0" to="2/0tobottom2" fromLane="0" toLane="0"/>
+
+    <connection from="left0to0/0" to="0/0tobottom0" fromLane="0" toLane="0"/>
+    <connection from="left0to0/0" to="0/0to1/0" fromLane="0" toLane="0"/>
+    <connection from="left0to0/0" to="0/0to0/1" fromLane="0" toLane="0"/>
+    <connection from="left0to0/0" to="0/0toleft0" fromLane="0" toLane="0"/>
+
+    <connection from="left1to0/1" to="0/1to0/0" fromLane="0" toLane="0"/>
+    <connection from="left1to0/1" to="0/1to1/1" fromLane="0" toLane="0"/>
+    <connection from="left1to0/1" to="0/1to0/2" fromLane="0" toLane="0"/>
+    <connection from="left1to0/1" to="0/1toleft1" fromLane="0" toLane="0"/>
+
+    <connection from="left2to0/2" to="0/2to0/1" fromLane="0" toLane="0"/>
+    <connection from="left2to0/2" to="0/2to1/2" fromLane="0" toLane="0"/>
+    <connection from="left2to0/2" to="0/2totop0" fromLane="0" toLane="0"/>
+    <connection from="left2to0/2" to="0/2toleft2" fromLane="0" toLane="0"/>
+
+    <connection from="right0to2/0" to="2/0to2/1" fromLane="0" toLane="0"/>
+    <connection from="right0to2/0" to="2/0to1/0" fromLane="0" toLane="0"/>
+    <connection from="right0to2/0" to="2/0tobottom2" fromLane="0" toLane="0"/>
+    <connection from="right0to2/0" to="2/0toright0" fromLane="0" toLane="0"/>
+
+    <connection from="right1to2/1" to="2/1to2/2" fromLane="0" toLane="0"/>
+    <connection from="right1to2/1" to="2/1to1/1" fromLane="0" toLane="0"/>
+    <connection from="right1to2/1" to="2/1to2/0" fromLane="0" toLane="0"/>
+    <connection from="right1to2/1" to="2/1toright1" fromLane="0" toLane="0"/>
+
+    <connection from="right2to2/2" to="2/2totop2" fromLane="0" toLane="0"/>
+    <connection from="right2to2/2" to="2/2to1/2" fromLane="0" toLane="0"/>
+    <connection from="right2to2/2" to="2/2to2/1" fromLane="0" toLane="0"/>
+    <connection from="right2to2/2" to="2/2toright2" fromLane="0" toLane="0"/>
+
+    <connection from="top0to0/2" to="0/2toleft2" fromLane="0" toLane="0"/>
+    <connection from="top0to0/2" to="0/2to0/1" fromLane="0" toLane="0"/>
+    <connection from="top0to0/2" to="0/2to1/2" fromLane="0" toLane="0"/>
+    <connection from="top0to0/2" to="0/2totop0" fromLane="0" toLane="0"/>
+
+    <connection from="top1to1/2" to="1/2to0/2" fromLane="0" toLane="0"/>
+    <connection from="top1to1/2" to="1/2to1/1" fromLane="0" toLane="0"/>
+    <connection from="top1to1/2" to="1/2to2/2" fromLane="0" toLane="0"/>
+    <connection from="top1to1/2" to="1/2totop1" fromLane="0" toLane="0"/>
+
+    <connection from="top2to2/2" to="2/2to1/2" fromLane="0" toLane="0"/>
+    <connection from="top2to2/2" to="2/2to2/1" fromLane="0" toLane="0"/>
+    <connection from="top2to2/2" to="2/2toright2" fromLane="0" toLane="0"/>
+    <connection from="top2to2/2" to="2/2totop2" fromLane="0" toLane="0"/>
+
+</connections>

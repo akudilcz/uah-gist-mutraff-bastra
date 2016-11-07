@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on Thu Nov  3 08:49:24 2016 by SUMO netgenerate Version 0.27.1
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/netgenerateConfiguration.xsd">
+
+    <grid_network>
+        <grid value="true"/>
+        <grid.number value="16"/>
+        <grid.length value="100"/>
+        <grid.attach-length value="30"/>
+    </grid_network>
+
+    <output>
+        <output-file value="grid16_Bastra_rand2x4_time2000_randomtraffic_logit50.net.xml"/>
+        <plain-output-prefix value="grid16_Bastra_rand2x4_time2000_randomtraffic_logit50"/>
+    </output>
+
+    <building_defaults>
+        <default.lanenumber value="1"/>
+        <default.speed value="13.9"/>
+        <default.priority value="-1"/>
+    </building_defaults>
+
+    <report>
+        <verbose value="true"/>
+    </report>
+
+</configuration>
+-->
+
+<tlLogics version="0.27" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/tllogic_file.xsd">
+</tlLogics>

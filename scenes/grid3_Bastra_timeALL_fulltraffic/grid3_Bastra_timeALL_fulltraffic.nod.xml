@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on Thu Nov  3 13:49:05 2016 by SUMO netgenerate Version 0.27.1
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/netgenerateConfiguration.xsd">
+
+    <grid_network>
+        <grid value="true"/>
+        <grid.number value="3"/>
+        <grid.length value="100"/>
+        <grid.attach-length value="30"/>
+    </grid_network>
+
+    <output>
+        <output-file value="grid3_Bastra_timeALL_fulltraffic.net.xml"/>
+        <plain-output-prefix value="grid3_Bastra_timeALL_fulltraffic"/>
+    </output>
+
+    <building_defaults>
+        <default.lanenumber value="1"/>
+        <default.speed value="13.9"/>
+        <default.priority value="-1"/>
+    </building_defaults>
+
+    <report>
+        <verbose value="true"/>
+    </report>
+
+</configuration>
+-->
+
+<nodes version="0.27" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/nodes_file.xsd">
+    <location netOffset="0.00,0.00" convBoundary="0.00,0.00,260.00,260.00" origBoundary="0.00,0.00,260.00,260.00" projParameter="!"/>
+
+    <node id="0/0" x="30.00" y="30.00" type="priority"/>
+    <node id="0/1" x="30.00" y="130.00" type="priority"/>
+    <node id="0/2" x="30.00" y="230.00" type="priority"/>
+    <node id="1/0" x="130.00" y="30.00" type="priority"/>
+    <node id="1/1" x="130.00" y="130.00" type="priority"/>
+    <node id="1/2" x="130.00" y="230.00" type="priority"/>
+    <node id="2/0" x="230.00" y="30.00" type="priority"/>
+    <node id="2/1" x="230.00" y="130.00" type="priority"/>
+    <node id="2/2" x="230.00" y="230.00" type="priority"/>
+    <node id="bottom0" x="30.00" y="0.00" type="priority"/>
+    <node id="bottom1" x="130.00" y="0.00" type="priority"/>
+    <node id="bottom2" x="230.00" y="0.00" type="priority"/>
+    <node id="left0" x="0.00" y="30.00" type="priority"/>
+    <node id="left1" x="0.00" y="130.00" type="priority"/>
+    <node id="left2" x="0.00" y="230.00" type="priority"/>
+    <node id="right0" x="260.00" y="30.00" type="priority"/>
+    <node id="right1" x="260.00" y="130.00" type="priority"/>
+    <node id="right2" x="260.00" y="230.00" type="priority"/>
+    <node id="top0" x="30.00" y="260.00" type="priority"/>
+    <node id="top1" x="130.00" y="260.00" type="priority"/>
+    <node id="top2" x="230.00" y="260.00" type="priority"/>
+</nodes>

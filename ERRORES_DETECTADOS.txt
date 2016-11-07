@@ -1,0 +1,51 @@
+ERRORES DETECTADOS EL 1/11/2016
+
+TODOS LOS ERRORES APARECEN EN LOS MAPAS APLICADOS POR CIRTERIO DE TIEMPO:
+
+grid16_Bastra_rand05x2_time2000_fulltraffic_logit50_161101_223149/experiment.out:Quitting (on error).
+grid16_Bastra_rand05x2_time2000_randomtraffic_logit50_161101_223855/experiment.out:Quitting (on error).
+grid16_Bastra_rand05x4_time2000_fulltraffic_logit50_161102_003256/experiment.out:Quitting (on error).
+grid16_Bastra_rand05x4_time2000_randomtraffic_logit50_161102_003949/experiment.out:Quitting (on error).
+grid16_Bastra_rand2x2_time2000_fulltraffic_logit50_161102_015357/experiment.out:Quitting (on error).
+
+grid16_Bastra_rand05x2_time2000_fulltraffic_logit50_161101_223149
+=============================================================================
+2000: Calculating new trips - duarouter sec 0: duarouter -n ../../../scenes/grid16_Bastra_rand05x2_time2000_fulltraffic_logit50/grid16_Bastra_rand05x2_time2000_fulltraffic_logit50.net.xml -t ./dumps/trip_file_I2000_0 -w weights_total.xml -o ./dumps//new_routes.xml --error-log sumo.log --ignore-errors --no-warnings
+
+2000: Calculating new trips - duarouter sec 1: duarouter -n ../../../scenes/grid16_Bastra_rand05x2_time2000_fulltraffic_logit50/grid16_Bastra_rand05x2_time2000_fulltraffic_logit50.net.xml -t ./dumps/trip_file_I2000_1 -w weights_total.xml -o ./dumps//new_routes.xml --error-log sumo.log --ignore-errors --no-warnings
+
+Traceback (most recent call last):
+  File "../../../bastra.py", line 239, in <module>
+    sim.reroute(veh_list)
+  File "/Users/alvaro/Desktop/workspace/mutraff/uah-gist-mutraff-bastra/bastralib/Sim.py", line 809, in reroute
+    traci.vehicle.setRoute(veh_id,new_route)
+  File "/opt/local/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/traci/_vehicle.py", line 681, in setRoute
+    self._connection._sendExact()
+  File "/opt/local/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/traci/connection.py", line 108, in _sendExact
+    raise TraCIException(prefix[1], _RESULTS[prefix[2]], err)
+traci.exceptions.TraCIException: Route replacement failed for 1133
+Error: tcpip::Socket::recvAndCheck @ recv: peer shutdown
+Quitting (on error).
+Simulation End    on: Tue Nov  1 22:38:55 CET 2016
+
+grid16_Bastra_rand05x2_time2000_fulltraffic_logit50_161101_223149
+=============================================================================
+2000: Calculating new trips - duarouter sec 0: duarouter -n ../../../scenes/grid16_Bastra_rand05x2_time2000_fulltraffic_logit50/grid16_Bastra_rand05x2_time2000_fulltraffic_logit50.net.xml -t ./dumps/trip_file_I2000_0 -w weights_total.xml -o ./dumps//new_routes.xml --error-log sumo.log --ignore-errors --no-warnings
+
+2000: Calculating new trips - duarouter sec 1: duarouter -n ../../../scenes/grid16_Bastra_rand05x2_time2000_fulltraffic_logit50/grid16_Bastra_rand05x2_time2000_fulltraffic_logit50.net.xml -t ./dumps/trip_file_I2000_1 -w weights_total.xml -o ./dumps//new_routes.xml --error-log sumo.log --ignore-errors --no-warnings
+
+Traceback (most recent call last):
+  File "../../../bastra.py", line 239, in <module>
+    sim.reroute(veh_list)
+  File "/Users/alvaro/Desktop/workspace/mutraff/uah-gist-mutraff-bastra/bastralib/Sim.py", line 809, in reroute
+    traci.vehicle.setRoute(veh_id,new_route)
+  File "/opt/local/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/traci/_vehicle.py", line 681, in setRoute
+    self._connection._sendExact()
+  File "/opt/local/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages/traci/connection.py", line 108, in _sendExact
+    raise TraCIException(prefix[1], _RESULTS[prefix[2]], err)
+traci.exceptions.TraCIException: Route replacement failed for 1133
+Error: tcpip::Socket::recvAndCheck @ recv: peer shutdown
+Quitting (on error).
+Simulation End    on: Tue Nov  1 22:38:55 CET 2016
+
+[.......]

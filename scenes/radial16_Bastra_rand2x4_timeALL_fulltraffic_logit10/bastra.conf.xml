@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<config>
+  <Bastra>
+    <route_file value="../../../scenes/radial16_Bastra_rand2x4_timeALL_fulltraffic_logit10/radial16_Bastra_rand2x4_timeALL_fulltraffic_logit10.typed-routes.xml"/>
+    <commands_file value="../../../scenes/radial16_Bastra_rand2x4_timeALL_fulltraffic_logit10/radial16_Bastra_rand2x4_timeALL_fulltraffic_logit10.commands.xml"/>
+    <verbose value="true"/>
+    <log_dir value="./logs/"/>
+    <log_file value="bastra.log"/>
+    <log_level value="3"/>
+    <dump_dir value="./dumps/"/>
+    <tmp_dir value="./tmp/"/>
+    <results_dir value="./results/"/>
+    <new_routes_file value="new_routes.xml"/>
+    <statistics_file value="statistics.csv" />
+    <edge_stats_dump value="true" />
+    <edge_stats_file value="edge_stats.csv" />
+    <!-- <edge_stats_sampling value="10" /> -->
+
+    <logit value="10"/>
+    <use_balance value="true"/>
+    <foresight_steps value="0"/>
+    <foresight_tries value="0"/>
+    <foresight_halting value="0"/>
+    <foresight_penalty value="1"/>
+    <!-- Simulation from/to -->
+    <begin value="0"/>
+    <end value="4000"/>
+  </Bastra>
+
+  <Sumo>
+    <port value="2081"/>
+    <interactive value="false"/>
+    <sumo_config value="../../../scenes/radial16_Bastra_rand2x4_timeALL_fulltraffic_logit10/radial16_Bastra_rand2x4_timeALL_fulltraffic_logit10.sumo.conf"/>
+    <net_file value="../../../scenes/radial16_Bastra_rand2x4_timeALL_fulltraffic_logit10/radial16_Bastra_rand2x4_timeALL_fulltraffic_logit10.net.xml"/>
+    <log_file value="sumo.log"/>
+  </Sumo>
+</config>
