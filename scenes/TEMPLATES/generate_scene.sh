@@ -3,15 +3,38 @@
 # ----------------------------------------------------------------
 function default_params() {
 
+  # Group: traffic
+  # Descr: Traffic type
+  # Default: randomtraffic, fulltraffic, dirtraffic
+  export __TRAFFIC_TYPE=randomtraffic
+
   # Group: global
-  # Descr: name of simulation
-  # Default: 
-  export __PREFIX="canogrid_noBastra_adhocmaps_randomtraffic"
+  # Descr: apply Bastra or not
+  # Default: Bastra, noBastra
+  export __USE_BASTRA=noBastra
 
   # Group: global
   # Descr: commands file to use
-  # Default: nomaps, adhocmaps
-  export __CMDS_TYPE="adhocmaps"
+  # Default: nomaps, directedPenalty, reference
+  #	rand05x1_timeALL, random05x2_timeALL, random05x4_timeALL, random05x8_timeALL,
+  #	rand05x2_time2000, random05x4_time2000
+  #	rand2x2_timeALL, random2x4_timeALL, rand2x2_time2000, random2x4_time2000
+  export __MAP_USAGE="adhocmaps"
+
+  # Group: global
+  # Descr: commands time to start application
+  # Default: 0
+  export __MAP_TIME_INI="0"
+
+  # Group: global
+  # Descr: commands time to end application
+  # Default: 10000
+  export __MAP_TIME_END="10000"
+
+  # Group: network
+  # Descr: network name
+  # Default: grid16, radial16, grid32, radial32, etc
+  export __NET_NAME=grid16
 
   # Group: network
   # Descr: length of edges in meters
@@ -21,7 +44,7 @@ function default_params() {
   # Group: network
   # Descr: type of network to generate
   # Default: grid, radial
-  export __TYPE="grid"
+  export __NET_TYPE="grid"
 
   # Group: network
   # Descr: number of lanes per edge
@@ -97,6 +120,12 @@ function default_params() {
   # Descr: weight multiplier for function cost: if congestion is detected increment traveltime x this factor
   # Default: 50
   export __BASTRA_FORESIGHT_PENALTY="1"
+
+  # Group: global
+  # Descr: name of simulation
+  # Default: 
+  # export __PREFIX="canogrid_noBastra_adhocmaps_randomtraffic"
+  export __PREFIX="${__NET_NAME}_${__USE_BASTRA}_${__MAP_USAGE}_${__TRAFFIC_TYPE}"
 }
 
 # ----------------------------------------------------------------
@@ -110,7 +139,7 @@ function load_config() {
 	. $CONF_FILE
   else
 	echo "Configuration file $CONF_FILE not found"
-	return
+	exit
   fi
 }
 
@@ -122,10 +151,16 @@ load_config $*
 # ----------------------------------------------------------------
 cat <<EOF > /tmp/filter.sed
 s/__PREFIX__/${__PREFIX}/g
+s/__MAP_TIME_INI__/${__MAP_TIME_INI}/g
+s/__MAP_TIME_END__/${__MAP_TIME_END}/g
 s/__ROADLENGTH__/${__ROADLENGTH}/g
-s/__TYPE__/${__TYPE}/g
+s/__NET_TYPE__/${__NET_TYPE}/g
 s/__LANES__/${__LANES}/g
 s/__MAX_SPEED__/${__MAX_SPEED}/g
+s/__SIMUL_TIME_INI__/${__SIMUL_TIME_INI}/g
+s/__SIMUL_TIME_END__/${__SIMUL_TIME_END}/g
+s/__TRAFFIC_BASELINE__/${__TRAFFIC_BASELINE}/g
+s/__TRAFFIC_BRANCH__/${__TRAFFIC_BRANCH}/g
 s/__GRID_SIZE__/${__GRID_SIZE}/g
 s/__SPIDER_ARMS__/${__SPIDER_ARMS}/g
 s/__SPIDER_CIRCLES__/${__SPIDER_CIRCLES}/g
@@ -135,27 +170,23 @@ s/__BASTRA_FORESIGHT_STEPS__/${__BASTRA_FORESIGHT_STEPS}/g
 s/__BASTRA_FORESIGHT_TRIES__/${__BASTRA_FORESIGHT_TRIES}/g
 s/__BASTRA_FORESIGHT_HALTING__/${__BASTRA_FORESIGHT_HALTING}/g
 s/__BASTRA_FORESIGHT_PENALTY__/${__BASTRA_FORESIGHT_PENALTY}/g
-s/__SIMUL_TIME_INI__/${__SIMUL_TIME_INI}/g
-s/__SIMUL_TIME_END__/${__SIMUL_TIME_END}/g
-s/__TRAFFIC_BASELINE__/${__TRAFFIC_BASELINE}/g
-s/__TRAFFIC_BRANCH__/${__TRAFFIC_BRANCH}/g
 s/length=".*" /length="${__ROADLENGTH}" /g
 EOF
 
 # ----------------------------------------------------------------
-__BASTRA_FILE="bastra.conf.xml"
-__DUA_FILE="${__PREFIX}.duarouter.conf"
-__CMDS_FILE="${__PREFIX}.commands.xml"
-__MAPSFILE="${__PREFIX}.maps.xml"
-__NET_FILE="${__PREFIX}.net.${__TYPE}.conf"
-__OD_FILE="${__PREFIX}.od.conf"
-__ODMAT_FILE="${__PREFIX}.odmat.xml"
-__SUMO_FILE="${__PREFIX}.sumo.conf"
-__NETGEN_FILE="${__PREFIX}.net.xml"
-__TAZ_FILE="${__PREFIX}.${__TYPE}.taz.xml"
-__VEH_FILE="${__PREFIX}.vehicle_distrib.conf"
+__OUT_BASTRA_FILE="bastra.conf.xml"
+__OUT_DUA_FLE="${__PREFIX}.duarouter.conf"
+__OUT_CMDS_FILE="${__PREFIX}.commands.xml"
+__OUT_MAPS_FILE="${__PREFIX}.maps.xml"
+__OUT_NET_FILE="${__PREFIX}.net.${__NET_TYPE}.conf"
+__OUT_OD_FILE="${__PREFIX}.od.conf"
+__OUT_ODMAT_FILE="${__PREFIX}.odmat.xml"
+__OUT_SUMO_FILE="${__PREFIX}.sumo.conf"
+__OUT_NETGEN_FILE="${__PREFIX}.net.xml"
+__OUT_TAZ_FILE="${__PREFIX}.${__NET_TYPE}.taz.xml"
+__OUT_VEH_FILE="${__PREFIX}.vehicle_distrib.conf"
 
-TMPFILE="/tmp/tmp.net.xml"
+OUT_TMP_FILE="/tmp/tmp.net.xml"
 
 # ----------------------------------------------------------------
 function die() {
@@ -170,19 +201,27 @@ echo "--- GENERATING SCENARIO: ${__PREFIX} --"
 echo "--- Checking necessary TEMPLATES ---"
 [ -r "TEMPLATE.bastra.conf" ]  || die "Cannot find TEMPLATE.bastra.conf"
 [ -r "TEMPLATE.duarouter.conf" ] || die "Cannot find TEMPLATE.duarouter.conf"
-[ -r "TEMPLATE.commands.${__CMDS_TYPE}.xml" ] || die "Cannot find TEMPLATE.commands.${__CMDS_TYPE}.xml"
-[ -r "TEMPLATE.maps.xml" ]     || die "Cannot find TEMPLATE.maps.xml"
-[ -r "TEMPLATE.net.${__TYPE}.conf" ] || die "Cannot find TEMPLATE.net.${__TYPE}.conf"
+[ -r "TEMPLATE.net.${__NET_TYPE}.conf" ] || die "Cannot find TEMPLATE.net.${__NET_TYPE}.conf"
 [ -r "TEMPLATE.od.conf" ]      || die "Cannot find TEMPLATE.od.conf"
 [ -r "TEMPLATE.odmat.xml" ]    || die "Cannot find TEMPLATE.odmat.xml"
 [ -r "TEMPLATE.sumo.conf" ]    || die "Cannot find TEMPLATE.sumo.conf"
-[ -r "TEMPLATE.${__TYPE}.taz.xml" ] || die "Cannot find TEMPLATE.${__TYPE}.taz.xml"
-[ -d "maps" ]                  || die "Cannot find maps dir"
-echo "ok"
+[ -r "TEMPLATE.${__NET_TYPE}.taz.xml" ] || die "Cannot find TEMPLATE.${__NET_TYPE}.taz.xml"
+
+SRC_MAP="maps/TEMPLATE.${__NET_NAME}.${__MAP_USAGE}.maps.xml"
+[ -d "maps" ]           || die "Cannot find maps dir"
+[ -r "${SRC_MAP}" ]     || die "Cannot find ${SRC_MAP}"
+
+SRC_MAP_DIR="maps/${__NET_NAME}.maps"
+[ -d "${SRC_MAP_DIR}" ] || die "Cannot find ${SRC_MAP_DIR} dir"
+
+[ -d "commands" ]                  || die "Cannot find commands dir"
+[ -r "commands/TEMPLATE.commands.${__MAP_USAGE}.xml" ] || die "Cannot find commands/TEMPLATE.commands.${__MAP_USAGE}.xml"
+
+echo "Found all the necessary TEMPLATE FILES"
 
 # ----------------------------------------------------------------
-DIR="../${__PREFIX}"
-mkdir $DIR 2>&1
+OUT_DIR="../${__PREFIX}"
+mkdir $OUT_DIR 2>&1
 
 # ----------------------------------------------------------------
 (
@@ -196,68 +235,66 @@ cat <<EOF
 .............................................
 EOF
 env | sort | grep __
-) > $DIR/SCENARIO_DESCRIPTION.md
+) > $OUT_DIR/SCENARIO_DESCRIPTION.md
 
 # ----------------------------------------------------------------
 echo "--- Adapting conf files ---"
 
-echo "Generating ${__BASTRA_FILE}"
-sed -f /tmp/filter.sed TEMPLATE.bastra.conf > ${DIR}/${__BASTRA_FILE}
+echo "Generating ${__OUT_BASTRA_FILE}"
+sed -f /tmp/filter.sed TEMPLATE.bastra.conf > ${OUT_DIR}/${__OUT_BASTRA_FILE}
 
-echo "Generating ${__DUA_FILE}"
-sed -f /tmp/filter.sed TEMPLATE.duarouter.conf > ${DIR}/${__DUA_FILE}
+echo "Generating ${__OUT_DUA_FLE}"
+sed -f /tmp/filter.sed TEMPLATE.duarouter.conf > ${OUT_DIR}/${__OUT_DUA_FLE}
 
-echo "Generating ${__CMDS_FILE}"
-sed -f /tmp/filter.sed TEMPLATE.commands.${__CMDS_TYPE}.xml > ${DIR}/${__CMDS_FILE}
+echo "Generating ${__OUT_CMDS_FILE}"
+sed -f /tmp/filter.sed commands/TEMPLATE.commands.${__MAP_USAGE}.xml > ${OUT_DIR}/${__OUT_CMDS_FILE}
 
-echo "Generating ${__MAPSFILE}"
-sed -f /tmp/filter.sed TEMPLATE.maps.xml > ${DIR}/${__MAPSFILE}
+echo "Generating ${__OUT_MAPS_FILE}"
+sed -f /tmp/filter.sed ${SRC_MAP} > ${OUT_DIR}/${__OUT_MAPS_FILE}
 
-echo "Generating ${__NET_FILE}"
-sed -f /tmp/filter.sed TEMPLATE.net.${__TYPE}.conf > ${DIR}/${__NET_FILE}
+echo "Generating ${__OUT_NET_FILE}"
+sed -f /tmp/filter.sed TEMPLATE.net.${__NET_TYPE}.conf > ${OUT_DIR}/${__OUT_NET_FILE}
 
-echo "Generating ${__OD_FILE}"
-sed -f /tmp/filter.sed TEMPLATE.od.conf > ${DIR}/${__OD_FILE}
+echo "Generating ${__OUT_OD_FILE}"
+sed -f /tmp/filter.sed TEMPLATE.od.conf > ${OUT_DIR}/${__OUT_OD_FILE}
 
-echo "Generating ${__ODMAT_FILE}"
-sed -f /tmp/filter.sed TEMPLATE.odmat.xml > ${DIR}/${__ODMAT_FILE}
+echo "Generating ${__OUT_ODMAT_FILE}"
+sed -f /tmp/filter.sed TEMPLATE.odmat.xml > ${OUT_DIR}/${__OUT_ODMAT_FILE}
 
-echo "Generating ${__SUMO_FILE}"
-sed -f /tmp/filter.sed TEMPLATE.sumo.conf > ${DIR}/${__SUMO_FILE}
+echo "Generating ${__OUT_SUMO_FILE}"
+sed -f /tmp/filter.sed TEMPLATE.sumo.conf > ${OUT_DIR}/${__OUT_SUMO_FILE}
 
-echo "Generating ${__TAZ_FILE}"
-sed -f /tmp/filter.sed TEMPLATE.${__TYPE}.taz.xml > ${DIR}/${__TAZ_FILE}
+echo "Generating ${__OUT_TAZ_FILE}"
+sed -f /tmp/filter.sed TEMPLATE.${__NET_TYPE}.taz.xml > ${OUT_DIR}/${__OUT_TAZ_FILE}
 
-echo "Generating ${__VEH_FILE}"
-sed -f /tmp/filter.sed TEMPLATE.vehicle_distrib.conf > ${DIR}/${__VEH_FILE}
-cp vehicle_types.xml ${DIR}/vehicle_types.xml
+echo "Generating ${__OUT_VEH_FILE}"
+sed -f /tmp/filter.sed TEMPLATE.vehicle_distrib.conf > ${OUT_DIR}/${__OUT_VEH_FILE}
+cp vehicle_types.xml ${OUT_DIR}/vehicle_types.xml
 
-mkdir ${DIR}/maps
-sed -f /tmp/filter.sed maps/TEMPLATE.gmp1.conf > ${DIR}/maps/gmp1.conf
-sed -f /tmp/filter.sed maps/TEMPLATE.gmp2.conf > ${DIR}/maps/gmp2.conf
-sed -f /tmp/filter.sed maps/TEMPLATE.gmp3.conf > ${DIR}/maps/gmp3.conf
+mkdir ${OUT_DIR}/maps
+cp $SRC_MAP_DIR/* ${OUT_DIR}/maps
 
-cd $DIR
+cd $OUT_DIR
 
 # ----------------------------------------------------------------
 echo "--- Generating the NETWORK ---"
-netgenerate -c ${__NET_FILE}
+netgenerate -c ${__OUT_NET_FILE}
 echo "Adjusting length and speed"
-sed -f /tmp/filter.sed ${__NETGEN_FILE} | grep -v '</net>' > ${TMPFILE}
-cat ${__TAZ_FILE} >> ${TMPFILE}
-cp ${TMPFILE} ${__NETGEN_FILE}
+sed -f /tmp/filter.sed ${__OUT_NETGEN_FILE} | grep -v '</net>' > ${OUT_TMP_FILE}
+cat ${__OUT_TAZ_FILE} >> ${OUT_TMP_FILE}
+cp ${OUT_TMP_FILE} ${__OUT_NETGEN_FILE}
 
 # ----------------------------------------------------------------
 # echo "--- Generating the DEMAND od2trips ---"
-od2trips -c ${__OD_FILE} 
+od2trips -c ${__OUT_OD_FILE} 
 
 # ----------------------------------------------------------------
 # echo "--- Generating the DEMAND duarouter ---"
-duarouter -c ${__DUA_FILE} 
+duarouter -c ${__OUT_DUA_FLE} 
 
 # ----------------------------------------------------------------
 # echo "--- Typing the vehicles generated in the DEMAND file ---"
-python ../../tools/randomVehType.py -c ${__VEH_FILE} 
+python ../../tools/randomVehType.py -c ${__OUT_VEH_FILE} 
 
 # ----------------------------------------------------------------
 cd -

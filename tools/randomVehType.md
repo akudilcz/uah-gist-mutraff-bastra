@@ -65,12 +65,12 @@ We should note that, unlike how the label is named in SUMO(\<vtype\>),this type 
 A list of available attributes (besides the aforementioned weight)can be found in the "Types" section previously discussed in the chapter on traffic demand in this document. The contents of a file sample  is(types.xml)shown.
    
 ```
-\<?xml version="1.0" encoding="UTF-8"?\>
+<?xml version="1.0" encoding="UTF-8"?>
 
-\<vTypes\>
-  \<type id="motorcycle" vClass="motorcycle" weight="1" /\>
-  \<type id="car" vClass="passenger" weight="4" /\>
-\</vTypes\>
+<vTypes>
+  <type id="motorcycle" vClass="motorcycle" weight="1" />
+  <type id="car" vClass="passenger" weight="4" />
+</vTypes>
 ```
 
 ## Notes
