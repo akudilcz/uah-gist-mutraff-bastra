@@ -183,7 +183,7 @@ __OUT_OD_FILE="${__PREFIX}.od.conf"
 __OUT_ODMAT_FILE="${__PREFIX}.odmat.xml"
 __OUT_SUMO_FILE="${__PREFIX}.sumo.conf"
 __OUT_NETGEN_FILE="${__PREFIX}.net.xml"
-__OUT_TAZ_FILE="${__PREFIX}.${__NET_TYPE}.taz.xml"
+__OUT_TAZ_FILE="${__PREFIX}.${__NET_NAME}.taz.xml"
 __OUT_VEH_FILE="${__PREFIX}.vehicle_distrib.conf"
 
 OUT_TMP_FILE="/tmp/tmp.net.xml"
@@ -205,7 +205,7 @@ echo "--- Checking necessary TEMPLATES ---"
 [ -r "TEMPLATE.od.conf" ]      || die "Cannot find TEMPLATE.od.conf"
 [ -r "TEMPLATE.odmat.xml" ]    || die "Cannot find TEMPLATE.odmat.xml"
 [ -r "TEMPLATE.sumo.conf" ]    || die "Cannot find TEMPLATE.sumo.conf"
-[ -r "TEMPLATE.${__NET_TYPE}.taz.xml" ] || die "Cannot find TEMPLATE.${__NET_TYPE}.taz.xml"
+[ -r "TEMPLATE.${__NET_NAME}.taz.xml" ] || die "Cannot find TEMPLATE.${__NET_NAME}.taz.xml"
 
 SRC_MAP="maps/TEMPLATE.${__NET_NAME}.${__MAP_USAGE}.maps.xml"
 [ -d "maps" ]           || die "Cannot find maps dir"
@@ -265,7 +265,7 @@ echo "Generating ${__OUT_SUMO_FILE}"
 sed -f /tmp/filter.sed TEMPLATE.sumo.conf > ${OUT_DIR}/${__OUT_SUMO_FILE}
 
 echo "Generating ${__OUT_TAZ_FILE}"
-sed -f /tmp/filter.sed TEMPLATE.${__NET_TYPE}.taz.xml > ${OUT_DIR}/${__OUT_TAZ_FILE}
+sed -f /tmp/filter.sed TEMPLATE.${__NET_NAME}.taz.xml > ${OUT_DIR}/${__OUT_TAZ_FILE}
 
 echo "Generating ${__OUT_VEH_FILE}"
 sed -f /tmp/filter.sed TEMPLATE.vehicle_distrib.conf > ${OUT_DIR}/${__OUT_VEH_FILE}

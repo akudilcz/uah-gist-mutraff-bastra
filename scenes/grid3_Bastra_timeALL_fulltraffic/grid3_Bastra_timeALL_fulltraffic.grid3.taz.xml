@@ -1,0 +1,36 @@
+    <tazs>
+        <taz id="99" edges="0/0to0/1 0/0to1/0 0/1to0/0 0/1to0/2 0/1to1/1 0/2to0/1 0/2to1/2 1/0to0/0 1/0to1/1 1/0to2/0 1/1to0/1 1/1to1/0 1/1to1/2 1/1to2/1 1/2to0/2 1/2to1/1 1/2to2/2 2/0to1/0 2/0to2/1 2/1to1/1 2/1to2/0 2/1to2/2 2/2to1/2 2/2to2/1" />
+        <taz id="1">
+            <tazSource id="top0to0/2" weight="1"/>
+	    <tazSink id="0/2totop0" weight="1"/>
+        </taz>
+        <taz id="2">
+            <tazSource id="top2to2/2" weight="1"/>
+	    <tazSink id="2/2totop2" weight="1"/>
+        </taz>
+        <taz id="3">
+            <tazSource id="left0to0/0" weight="1"/>
+	    <tazSink id="0/0toleft0" weight="1"/>
+        </taz>
+        <taz id="4">
+            <tazSource id="right0to2/0" weight="1"/>
+	    <tazSink id="2/0toright0" weight="1"/>
+        </taz>
+        <taz id="5">
+            <tazSource id="top1to1/2" weight="1"/>
+	    <tazSink id="1/2totop1" weight="1"/>
+        </taz>
+        <taz id="6">
+            <tazSource id="bottom1to1/0" weight="1"/>
+	    <tazSink id="1/0tobottom1" weight="1"/>
+        </taz>
+        <taz id="7">
+            <tazSource id="left1to0/1" weight="1"/>
+	    <tazSink id="0/1toleft1" weight="1"/>
+        </taz>
+        <taz id="8">
+            <tazSource id="right1to2/1" weight="1"/>
+	    <tazSink id="2/1toright1" weight="1"/>
+        </taz>
+    </tazs>
+</net>

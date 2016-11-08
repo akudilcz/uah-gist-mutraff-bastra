@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<meandata>
+	<interval begin="0" end="10000" id="whatever">
+		<edge id="top1to1/2" traveltime="3.59712230216"/>
+		<edge id="top2to2/2" traveltime="3.59712230216"/>
+		<edge id="1/1to0/1" traveltime="3.59712230216"/>
+		<edge id="2/0to1/0" traveltime="3.59712230216"/>
+		<edge id="bottom2to2/0" traveltime="3.59712230216"/>
+		<edge id="2/1to2/2" traveltime="3.59712230216"/>
+		<edge id="2/2to2/1" traveltime="3.59712230216"/>
+		<edge id="2/0to2/1" traveltime="3.59712230216"/>
+		<edge id="0/1toleft1" traveltime="3.59712230216"/>
+		<edge id="2/2toright2" traveltime="3.59712230216"/>
+		<edge id="2/2totop2" traveltime="3.59712230216"/>
+		<edge id="1/2totop1" traveltime="3.59712230216"/>
+		<edge id="left1to0/1" traveltime="3.59712230216"/>
+		<edge id="left2to0/2" traveltime="3.59712230216"/>
+		<edge id="1/0to1/1" traveltime="3.59712230216"/>
+		<edge id="0/2totop0" traveltime="3.59712230216"/>
+		<edge id="right0to2/0" traveltime="3.59712230216"/>
+		<edge id="1/0to0/0" traveltime="3.59712230216"/>
+		<edge id="1/2to2/2" traveltime="3.59712230216"/>
+		<edge id="2/1toright1" traveltime="3.59712230216"/>
+		<edge id="0/1to0/0" traveltime="3.59712230216"/>
+		<edge id="0/1to0/2" traveltime="3.59712230216"/>
+		<edge id="top0to0/2" traveltime="3.59712230216"/>
+		<edge id="1/0tobottom1" traveltime="3.59712230216"/>
+		<edge id="0/2to0/1" traveltime="3.59712230216"/>
+		<edge id="2/1to2/0" traveltime="3.59712230216"/>
+		<edge id="2/1to1/1" traveltime="3.59712230216"/>
+		<edge id="0/1to1/1" traveltime="3.59712230216"/>
+		<edge id="0/0to0/1" traveltime="3.59712230216"/>
+		<edge id="right2to2/2" traveltime="3.59712230216"/>
+		<edge id="0/2to1/2" traveltime="3.59712230216"/>
+		<edge id="bottom0to0/0" traveltime="3.59712230216"/>
+		<edge id="right1to2/1" traveltime="3.59712230216"/>
+		<edge id="0/0to1/0" traveltime="3.59712230216"/>
+		<edge id="2/0tobottom2" traveltime="3.59712230216"/>
+		<edge id="0/0toleft0" traveltime="3.59712230216"/>
+		<edge id="2/0toright0" traveltime="3.59712230216"/>
+		<edge id="0/0tobottom0" traveltime="3.59712230216"/>
+		<edge id="1/2to1/1" traveltime="3.59712230216"/>
+		<edge id="bottom1to1/0" traveltime="3.59712230216"/>
+		<edge id="1/1to1/2" traveltime="3.59712230216"/>
+		<edge id="1/1to1/0" traveltime="3.59712230216"/>
+		<edge id="1/2to0/2" traveltime="30.59712230216"/>
+		<edge id="0/2toleft2" traveltime="3.59712230216"/>
+		<edge id="1/0to2/0" traveltime="3.59712230216"/>
+		<edge id="2/2to1/2" traveltime="3.59712230216"/>
+		<edge id="1/1to2/1" traveltime="3.59712230216"/>
+		<edge id="left0to0/0" traveltime="3.59712230216"/>
+	</interval>
+</meandata>

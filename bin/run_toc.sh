@@ -7,7 +7,7 @@ cat <<EOF
 			UAH - Universidad de Alcala
 			alvaro.paricio@uah.es
 
-Example: run_toc.sh uah.gist.mutraff.comms.bus_alvaro SCENARIO_A
+Example: run_toc.sh es.uah.gist.mutraff.toc_alvaro SCENARIO_A
 ==================================================================
 EOF
 
