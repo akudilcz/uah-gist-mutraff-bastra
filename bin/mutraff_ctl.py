@@ -10,9 +10,9 @@ from mutraffLib import Controller
 import argparse
 import sys
 import os
+import re
 import time
 from lxml import etree
-from mutraffLib import TrafficCenter
 
 # ----------------------------------
 def printBanner():
@@ -25,17 +25,34 @@ def printBanner():
   print("         | | | | | | |_| | |_| | | (_| | | | |   | (__| |_| |  | |")
   print("         |_| |_| |_|\__,_|\__|_|  \__,_|_| |_|    \___|\__|_|  |_|\n")
   print("                 TRAFFIC OPERATIONS CENTER CONTROLLER")
+  print("")
 
 # ----------------------------------
+flag_exit    = False
 commands = {}
-commands['help'] = { 'group':'GLOBAL', 'callb':'helpCb', 'label':'Help', 'help':'Print Mutraff Controller help' }
+
+commands['help'] = { 'group':'GLOBAL', 'callb':'helpCb', 'label':'Print commands help', 'help':'Args: all|*|command', 'args':1 }
 commands['?'] = commands['help']
-commands['quit'] = { 'group':'GLOBAL', 'callb':'quitCb', 'label':'Quit', 'help':'Quit Mutraff Controller' }
+
+commands['quit'] = { 'group':'GLOBAL', 'callb':'quitCb', 'label':'Quit', 'help':'No args', 'args':0 }
 commands['exit'] = commands['quit']
 commands['.'] = commands['quit']
-commands['about'] = { 'group':'GLOBAL', 'callb':'aboutCb', 'label':'About Mutraff', 'help':'About Mutraff Controller' }
-commands['stopall'] = { 'group':'GLOBAL', 'callb':'stopAllCb', 'label':'STOP ALL', 'help':'STOP all entities (TOC, vehicles, signalling, etc)' }
-commands['map_publish'] = { 'group':'TOC', 'callb':'mapPublishCb', 'label':'Publish MAP', 'help':'Publish MAP' }
+
+commands['verbose'] = { 'group':'GLOBAL', 'callb':'verboseCb', 'label':'Verbose mode', 'help':'Args: entity level. Entity can be all|Controller|TOC|VEHICLES|concreteName. Level is a 0-10 integer.', 'args':2 }
+
+commands['about'] = { 'group':'GLOBAL', 'callb':'aboutCb', 'label':'About Mutraff', 'help':'No args', 'args':0 }
+
+commands['stopall'] = { 'group':'GLOBAL', 'callb':'stopAllCb', 'label':'Stop whole MuTRAFF distributed system: TOC, vehicles, signalling, etc', 'help':'No args', 'args':0 }
+
+commands['map'] = { 'group':'TOC', 'callb':'mapPublishCb', 'label':'Publish changes in TWM (Traffic Weight Maps)', 'help':'Args: mapDistributionFile\n      Example: > map grid16_Bastra_rand05x4_timeALL_fulltraffic_logit50.maps.xml', 'args':1 }
+
+commands['incident'] = { 'group':'TOC', 'callb':'incidentPublishCb', 'label':'Publish traffic incident at edge', 'help':'Args: add|del incidentName edge\n      Example: > incident add ACCIDENT-37 1/2to0/2', 'args':3 }
+
+commands['edge'] = { 'group':'TOC', 'callb':'edgePublishCb', 'label':'Publish changes at edge', 'help':'Args: edgeName feature value\n      Example: > edge 1/2to0/2 weight 30.45', 'args':3 }
+
+commands['globalwarn'] = { 'group':'TOC', 'callb':'globalwarnPublishCb', 'label':'Publish a global warning to disuade demand', 'help':'Args: intensity (0-100)\n      Example: > globalwarn 20', 'args':1 }
+
+commands['edgewarn'] = { 'group':'TOC', 'callb':'edgewarnPublishCb', 'label':'Publish a warning on edge to disuade demand. Used at incoming edges', 'help':'Args: edgeName intensity (0-100)\n      Example: > edgewarn 1/2to0/2 20', 'args':2 }
 
 # ----------------------------------
 def getConfig():
@@ -51,7 +68,34 @@ def getConfig():
 # ----------------------------------
 def quitCb():
   print("Exiting MuTRAFF Controller")
-  sys.exit(0)
+  global flag_exit
+  flag_exit = True
+
+# ----------------------------------
+def verboseCb(entity,level):
+  return Controller.verbosePublish(entity,level)
+
+# ----------------------------------
+def mapPublishCb(mapFile):
+  return Controller.mapPublish(mapFile)
+
+# ----------------------------------
+def incidentPublishCb(action, incName, edgeName):
+  return Controller.incidentPublish(action, incName, edgeName)
+
+# ----------------------------------
+def edgePublishCb(edgeName, feature, value):
+  return Controller.edgePublish(edgeName, feature, value)
+
+# ----------------------------------
+def globalwarnPublishCb(intensity):
+  msg = raw_input("Warn Message > ")
+  return Controller.globalwarnPublish(intensity,msg)
+
+# ----------------------------------
+def edgewarnPublishCb(edgeName, intensity):
+  msg = raw_input("Warn Message > ")
+  return Controller.edgewarnPublish(edgeName, intensity,msg)
 
 # ----------------------------------
 def stopAllCb():
@@ -70,10 +114,19 @@ def aboutCb():
 
 
 # ----------------------------------
-def helpCb():
-  print("Available commands:")
-  for opt in commands:
-    print("  * "+ opt + ": "+ commands[opt]['help'] )
+def helpCb(topic):
+  if( topic == 'all' or topic == '*' ):
+    print("Available commands:")
+    for opt in commands:
+      print("  * "+ opt + ": "+ commands[opt]['label'] )
+      # print("      "+ commands[opt]['help'] )
+    print("For more info type 'help topic'")
+  else:
+    if( topic in commands ):
+      print("  * "+ topic + ": "+ commands[topic]['label'] )
+      print("      "+ commands[topic]['help'] )
+    else:
+      print("  Unknown help topic '{:s}'".format(topic))
   return 0
 
 # ----------------------------------
@@ -82,14 +135,26 @@ def helpCb():
 if __name__ == '__main__':
   # --- Config reading parameters
   args=getConfig()
-  Controller = Controller.Controller( args['amqp_host'], args['amqp_exchange_name'] )
   printBanner();
+
+  Controller = Controller.Controller( args['amqp_host'], args['amqp_exchange_name'] )
+  Controller.connectionsStart()
   print("Check the About option and enter help or ? for commands info.\n")
   opt = ""
-  while( opt != "quit" ):
-    # print("Mutraff >")
-    # opt = sys.stdin.readline()
+  while( not flag_exit ):
     opt = raw_input("Mutraff > ").lower()
-    if( opt in commands ):
-      # print("Calling:",commands[opt]['callb']+"()")
-      result = eval(commands[opt]['callb']+"()")
+    if( opt == "" ):
+      continue
+    opts = re.sub( '^ ','', re.sub(' +',' ',opt)).split(' ')
+    cmd = opts[0]
+    del opts[0]
+    if( cmd in commands ):
+      if( commands[cmd]['args'] != len(opts) ):
+	print( cmd+": Invalid arguments syntax. "+commands[cmd]['help'] )
+      else:
+        # print("Calling:",commands[cmd]['callb']+"()")
+        result = eval(commands[cmd]['callb']+str(tuple(opts)))
+    else:
+      print("* Unknown command. Use ? for help *")
+  Controller.connectionsStop()
+  sys.exit(0)

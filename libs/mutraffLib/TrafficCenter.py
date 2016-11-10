@@ -9,21 +9,34 @@ except ImportError:
   import _thread as thread #Py3K changed it.
 import re
 import time
-import numpy as np
+# import numpy as np
 import sys
 import pika
+import json
 from mutraffLib import MessageCounter
+from mutraffLib import MutraffSimulator
+
+TR_ERROR	= 0
+TR_ALWAYS	= 0
+TR_INFO		= 1
+TR_COMMS	= 2
+TR_DEBUG	= 5
+TR_MAX	= 10
 
 # Traffic Operations Center
 class TrafficCenter:
 
   # -----------------------------------------
-  def __init__(self, id, name, host, exchange):
-    self.id    = id
-    self.strId = "["+str(id)+"]"
-    self.name  = name
-    self.host  = host
-    self.msg_counter = MessageCounter.MessageCounter(id)
+  def __init__(self, args):
+    self.status		= "ALIVE"
+    self.id		= args['amqp_toc_id']
+    self.strId		= "["+str(self.id)+"]"
+    self.name		= args['amqp_toc_name']
+    self.host		= args['amqp_host']
+    self.verbose	= args['verbose']
+    self.conf		= args
+    self.msg_counter = MessageCounter.MessageCounter(self.id)
+    self.simulator	= None
 
     # Frecuency for publishing maps
     self.map_publish_frecuency = 60
@@ -33,7 +46,7 @@ class TrafficCenter:
     self.map_publish_epochs = -1
 
     self.broker_connection = 0
-    self.project_exchange    = exchange
+    self.project_exchange    = args['amqp_exchange_name']
 
     # I haven't fond yet why this routing is not working. TO BE SOLVED !!!
     # self.publish_maps_mq_key= "edu.uah.gist.mutraff.TWM"
@@ -49,8 +62,20 @@ class TrafficCenter:
     # self.subscriber_mq_keys_VROU= [ "#" ]
     # ----------
 
-    print(self.strId, " Created ", name )
-    print(self.strId, " [host:"+host+", exchange:"+exchange+"]" )
+    self.trace(TR_ALWAYS, " Created ", self.name )
+    self.trace(TR_DEBUG, " [host:"+self.host+", exchange:"+self.project_exchange+"]" )
+
+  # -----------------------------------------
+  def isAlive(self):
+    return (self.status == "ALIVE")
+
+  # -----------------------------------------
+  def trace(self, level, *args):
+    if( level <= self.verbose ):
+      if( level == TR_ERROR ):
+        print('{:s}: ERROR: '.format(self.strId)+ ' '.join(args) )
+      else:
+        print('{:s}: '.format(self.strId)+ ' '.join(args) )
 
   # -----------------------------------------
   def getStrId(self):
@@ -102,23 +127,24 @@ class TrafficCenter:
     self.subscriber_channel = self.broker_connection.channel()
     self.subscriber_channel.exchange_declare(exchange=self.project_exchange, type='topic')
 
-    print( self.getStrId(), " comms started" )
+    self.trace(TR_COMMS, " comms started" )
     return out
 
   # -----------------------------------------
   def connectionsStop(self):
     out = True
     self.broker_connection.close();
-    print( self.getStrId(), " comms stopped" )
+    self.trace(TR_COMMS, " comms stopped" )
     return out
 
   # -----------------------------------------
   def terminate(self):
     self.subscriber_channel.stop_consuming()
+    self.status = "TO_DIE"
 
   # -----------------------------------------
   def messageSend(self, msg):
-      print( self.getStrId(), "p:--> [key:"+self.publish_maps_mq_key+"] '"+ msg+ "'" )
+      self.trace(TR_COMMS, "p:--> [key:"+self.publish_maps_mq_key+"] '"+ msg+ "'" )
       sys.stdout.flush()
       fields = { 'type':'TWM', 'format':'TWM_fmt' }
       self.publisher_channel.basic_publish(
@@ -128,45 +154,46 @@ class TrafficCenter:
 
   # -----------------------------------------
   def mapBroadcast(self, epoch, desc):
-      map = np.random.rand(3,2)
-      st_re = re.sub(r'\[ ', '[', str(map))
-      st_re = re.sub(r'[\n| ]+', ',', st_re)
-      msg =  '{"id":"' + str(self.msg_counter.getNewMessageId()) + '", "desc":"' + desc + '", "map":"' + st_re +'"}'
-      self.messageSend( msg )
+#      map = np.random.rand(3,2)
+#      st_re = re.sub(r'\[ ', '[', str(map))
+#      st_re = re.sub(r'[\n| ]+', ',', st_re)
+#      msg =  '{"id":"' + str(self.msg_counter.getNewMessageId()) + '", "desc":"' + desc + '", "map":"' + st_re +'"}'
+#      self.messageSend( msg )
+     return
 
   # ==========================================================================
-  # ASYNCHRONOUS LOOP
-  # BE CAREFULL: THIS FUNCTION RUNS IN A DIFFERENT THREAD
+  # SYNCHRONOUS LOOP
   # ==========================================================================
-  def mapsLoop(self):
+  def mainLoopTOC(self):
   # ==========================================================================
     out = True
-    print( self.getStrId(), "p:publishing maps loop" )
+    self.trace(TR_COMMS, "p:publishing maps loop" )
 
     epoch = self.getMapPublishEpochs()
-    while( epoch != 0 ):
+    while( self.isAlive() and (epoch != 0) ):
       self.mapBroadcast( epoch, 'TWM/Traffic Weighted Map emission ')
       time.sleep( self.getMapPublishFrecuency() )
       epoch = self.decrMapPublishEpochs();
 
-    print( self.getStrId(), "p:leaving publishing maps loop" )
+    self.trace(TR_COMMS, "p:leaving publishing maps loop" )
     # Exit loops to finish
     self.terminate()
     return out
 
 
   # ==========================================================================
-  # SYNCHRONOUS LOOP
-  def receptionLoop(self):
+  # ASYNCHRONOUS LOOP
+  # BE CAREFULL: THIS FUNCTION RUNS IN A DIFFERENT THREAD
+  def asynchReceptionLoop(self):
   # ==========================================================================
     out = True
-    print( self.getStrId(), "r:entering reception loop" )
+    self.trace(TR_COMMS, "r:entering reception loop" )
 
     # -- Subscribe to the ROUTING messages queue
     queue_VROU = "VROU"
     result = self.subscriber_channel.queue_declare(queue=queue_VROU,exclusive=True)
     for binding_key in self.subscriber_mq_keys_VROU:
-      print( self.getStrId(), "r:Listening at queue [exchange:"+self.project_exchange+", key:"+binding_key+", queue:"+queue_VROU+"]" )
+      self.trace(TR_COMMS, "r:Listening at queue [exchange:"+self.project_exchange+", key:"+binding_key+", queue:"+queue_VROU+"]" )
       self.subscriber_channel.queue_bind(exchange=self.project_exchange, queue=queue_VROU, routing_key=binding_key
         )
 
@@ -174,7 +201,7 @@ class TrafficCenter:
     queue_CTRL = "CTRL"
     result = self.subscriber_channel.queue_declare(queue=queue_CTRL,exclusive=True)
     for binding_key in self.subscriber_mq_keys_CTRL:
-      print( self.getStrId(), "r:Listening at queue [exchange:"+self.project_exchange+", key:"+binding_key+", queue:"+queue_CTRL+"]" )
+      self.trace(TR_COMMS, "r:Listening at queue [exchange:"+self.project_exchange+", key:"+binding_key+", queue:"+queue_CTRL+"]" )
       self.subscriber_channel.queue_bind(exchange=self.project_exchange, queue=queue_CTRL, routing_key=binding_key
         )
 
@@ -183,11 +210,11 @@ class TrafficCenter:
     # -----------------------------------------
     # Inline callback for messages commands
     # -----------------------------------------
-    def VROU_rxCallbackback(ch, method, properties, body):
-      print( self.getStrId(), "r:<-- [VROU][key:"+method.routing_key+"] "+str(body) )
-      # print( self.getStrId(), "METHOD:", method)
-      # print( self.getStrId(), "CH:", ch)
-      # print( self.getStrId(), "PROPS:", properties)
+    def VROU_rxCallbackback(ch, method, props, body):
+      self.trace(TR_COMMS, "r:<-- [VROU][key:"+method.routing_key+"] "+str(body) )
+      self.trace(TR_COMMS, "METHOD:", str(method))
+      self.trace(TR_COMMS, "CH:", str(ch))
+      self.trace(TR_COMMS, "PROPS:", str(props))
 
       # xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
       # INCLUDE HERE YOUR MESSAGE PARSING AND REACTION CODE !!!!
@@ -200,15 +227,50 @@ class TrafficCenter:
     # -----------------------------------------
     # Inline callback for CTRL commands
     # -----------------------------------------
-    def CTRL_rxCallbackback(ch, method, properties, body):
-      print( self.getStrId(), "r:<-- [CTRL][key:"+method.routing_key+"] "+str(body) )
-      print( self.getStrId(), "METHOD:", method)
-      print( self.getStrId(), "CH:", ch)
-      print( self.getStrId(), "PROPS:", properties)
+    def CTRL_rxCallbackback(ch, method, props, body):
+      msg = body.decode("utf-8")
+      self.trace(TR_COMMS, "r:<-- [CTRL][key:"+method.routing_key+"] "+msg)
+      self.trace(TR_COMMS, "   METHOD:", str(method))
+      self.trace(TR_COMMS, "   CH:", str(ch))
+      self.trace(TR_COMMS, "   PROPS:", str(props))
 
-      if( body == "STOP".encode() ):
-        print( "Stopping the system" )
-        self.terminate()
+      if( props.headers['format'] == 'json' ):
+        jmsg = json.loads(msg)
+
+      # -----------------------------------------------
+      # CTRL commands
+      # -----------------------------------------------
+      if( props.headers['type'] == 'CTRL' ):
+        if( jmsg['command'] == 'STOP' ):
+          self.trace(TR_ALWAYS, "Stopping the system" )
+          self.terminate()
+        if( jmsg['command'] == 'verbose' ):
+          self.verbose = int(jmsg['level'])
+          self.trace(TR_INFO, "Set verbose level to", str(self.verbose) )
+
+      # -----------------------------------------------
+      # WARN commands
+      # -----------------------------------------------
+      if( props.headers['type'] == 'WARN' ):
+          self.trace(TR_INFO, "=== WARN MESSAGE === ", "scope:", jmsg['entity'], "--> ", jmsg['level'] )
+
+      # -----------------------------------------------
+      # EDGE commands
+      # -----------------------------------------------
+      if( props.headers['type'] == 'EDGE' ):
+          self.trace(TR_INFO, "=== EDGE COMMAND === ", msg )
+
+      # -----------------------------------------------
+      # INCIDENT commands
+      # -----------------------------------------------
+      if( props.headers['type'] == 'INCIDENT' ):
+          self.trace(TR_INFO, "=== INCIDENT RECEIVED === ", msg )
+
+      # -----------------------------------------------
+      # MAP commands
+      # -----------------------------------------------
+      if( props.headers['type'] == 'MAP' ):
+          self.trace(TR_INFO, "=== MAP RECONFIGURATION === ", msg )
 
       # xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
       # INCLUDE HERE YOUR CONTROL-MGT CODE !!!!
@@ -227,8 +289,43 @@ class TrafficCenter:
     except KeyboardInterrupt:
       self.terminate()
 
-    print( self.getStrId(), "r:leaving reception loop" )
+    self.trace(TR_COMMS, "r:leaving reception loop" )
     return out
+
+  # ==========================================================================
+  # SYNCHRONOUS LOOP
+  # ==========================================================================
+  def mainLoopSimulator(self):
+  # ==========================================================================
+    out = True
+
+    self.simulator = MutraffSimulator.MutraffSimulator( self.conf )
+    
+    if( not self.simulator.commandScheduleReadfile( self.conf["commands_file"] )):
+      self.trace(TR_ERROR, "Cannot read commands file", self.conf["commands_file"] )
+
+    err = self.simulator.start()
+    if( err['errCode'] != 0 ):
+      self.trace(TR_ERROR, str(err) )
+      return False
+
+    while( self.simulator.notFinished() ):
+      # Important: do nothing before preStep in the Loop
+      self.simulator.preStep()
+
+      # xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+      # If we have to alter simulation behaviour, it SHOULD BE DONE HERE
+      # If we have to alter simulation behaviour, it SHOULD BE DONE HERE
+      # If we have to alter simulation behaviour, it SHOULD BE DONE HERE
+      # xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+      # Important: do nothing after doSimulationStep in the Loop
+      self.simulator.doSimulationStep()
+
+    self.simulator.stop()
+
+    return out
+
 
   # ==========================================================================
   # MAIN GLOBAL LOOP
@@ -236,14 +333,19 @@ class TrafficCenter:
   def mainLoop(self):
   # ==========================================================================
     out = True
-    print( self.getStrId(), " entering main loop" )
+    self.trace(TR_DEBUG, " entering main loop" )
 
     # This MUST be launched in a different thread
-    thread.start_new_thread( self.mapsLoop, ());
+    thread.start_new_thread( self.asynchReceptionLoop, ());
 
-    # Blocking loop
-    self.receptionLoop();
+    # Blocking sinchronous loop
+    if( self.conf['exec_mode'] == 'SIMULATION' ):
+      self.mainLoopSimulator()
+    elif( self.conf['exec_mode'] == 'STANDARD' ):
+      self.mainLoopTOC();
+    else:
+      self.trace(TR_ALWAYS, "Unknown execution mode", self.conf['exec_mode'] )
 
-    print( self.getStrId(), " leaving main loop" )
+    self.trace(TR_DEBUG, " leaving main loop" )
     return out
 

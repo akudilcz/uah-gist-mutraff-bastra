@@ -12,6 +12,22 @@ from lxml import etree
 from mutraffLib import TrafficCenter
 
 # ----------------------------------
+def printBanner(args):
+  # Take here the banner: http://patorjk.com/software/taag/#p=display&f=Doom&t=mutraff%20ctrl
+  # Font: Doom
+  print("                 _              __  __   _____ _____ _____ ")
+  print("                | |            / _|/ _| |_   _|  _  /  __ \\")
+  print(" _ __ ___  _   _| |_ _ __ __ _| |_| |_    | | | | | | /  \/")
+  print("| '_ ` _ \| | | | __| '__/ _` |  _|  _|   | | | | | | |    ")
+  print("| | | | | | |_| | |_| | | (_| | | | |     | | \ \_/ / \__/\\")
+  print("|_| |_| |_|\__,_|\__|_|  \__,_|_| |_|     \_/  \___/ \____/\n")
+  print("                 TRAFFIC OPERATIONS CENTER \n")
+  print("* Execution Mode: "+ args['exec_mode'])
+  print("* Scenario      : "+ args['scene'])
+  print("")
+
+
+# ----------------------------------
 # Read options under the desired branch (named as "program")
 # ----------------------------------
 def config_file_read_option(l_config, option, section ):
@@ -161,8 +177,9 @@ def getConfig():
   parser.add_argument( "-H","--amqp_host", help='AMQP host DNS name or IP address. Defaul is localhost', default="localhost")
   parser.add_argument( "-I","--amqp_toc_id", help='Traffic Operation Center unique ID. Default is: MAD-1', default="MAD-1")
   parser.add_argument( "-N","--amqp_toc_name", help='Traffic Operation Center name. Default is: MADRID TRAFFIC OPERATIONS CENTER 1', default="MADRID TRAFFIC OPERATIONS CENTER 1")
-  parser.add_argument( "-m","--mode", help='Execution mode. STANDARD, SIMULATION', default="STANDARD")
-  parser.add_argument( "-v","--verbose", help='Verbosity', default=0)
+  parser.add_argument( "-m","--exec_mode", help='Execution mode. STANDARD, SIMULATION', default="SIMULATION")
+  parser.add_argument( "-s","--scene", help='Scene name.', default="None")
+  parser.add_argument( "-v","--verbose", help='Verbosity', default=1)
   options = vars(parser.parse_args())
   options['amqp_control'] = 'toc.control'
 
@@ -174,16 +191,15 @@ def getConfig():
 # MAIN
 # ----------------------------------
 if __name__ == '__main__':
-  # --- define constants
-
   # --- Read config parameters
   args=getConfig()
 
-  # --- Define and launch the Traffic Ops Center
-  TOC = TrafficCenter.TrafficCenter( args['amqp_toc_id'], args['amqp_toc_name'], args['amqp_host'], args['amqp_exchange_name'] )
+  printBanner(args)
 
-  # To use internal amq exchange server, use this line. IT is not recommended though!
-  # TOC = TrafficCenter.TrafficCenter( args['amqp_toc_id'], args['amqp_toc_name'], args['amqp_host'], args['amqp_control'] )
+  # --- define constants
+
+  # --- Define and launch the Traffic Ops Center
+  TOC = TrafficCenter.TrafficCenter( args )
 
   # TOC.setMapPublishEpochs( 10 )
   # TOC.setMapPublishFrecuency( 10 )

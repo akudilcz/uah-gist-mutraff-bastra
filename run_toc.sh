@@ -30,12 +30,12 @@ COMM_OPTS="-x $1"
 BENV_SCENE=`basename $2`
 BENV_SCENE_FILE=$MUTRAFF_ROOT/scenes/$BENV_SCENE/bastra.conf.xml
 [ -d "$2" ] || { echo "Error. Scenario $2 doesn't exist"; exit 1; }
-echo "Selected simulation scene: $BENV_SCENE"
+# echo "Selected simulation scene: $BENV_SCENE"
 
 # ==================================================================
 # Check environment
 [ -z "$PYENV_ROOT" ] && {
-  echo "Setting PYENV vars"
+  # echo "Setting PYENV vars"
   export PYENV_ROOT="$HOME/.pyenv"
   export PATH="$PYENV_ROOT/bin:$PATH"
 }
@@ -62,8 +62,8 @@ DATA_BASENAME=${BENV_SCENE}_${DATE}
 DATA_ROOT=./experiments/tmp
 DATA_DIR=${DATA_ROOT}/${DATA_BASENAME}
 STATS_FILE=${BENV_SCENE}_${DATE}.csv
-cd ..
-echo "Data dirs setup: ${DATA_DIR}"
+# cd ..
+# echo "Data dirs setup: ${DATA_DIR}"
 (
   unlink ${DATA_DIR}
   mkdir -p ${DATA_DIR}/logs
@@ -83,15 +83,15 @@ PYTHON_DEBUG=""
 # CURR_PYTHON="`python -V`"
 # [ "$PYTHON_VERSION" != "$CURR_PYTHON" ] && { echo "ERROR: incorrect python version $CURR_PYTHON. Expected $PYTHON_VERSION."; exit 1; }
 
-# /opt/local/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages:\
 export PYTHONPATH=$PYTHONPATH:\
+/opt/local/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages:\
 $MUTRAFF_ROOT/libs:\
-$MUTRAFF_ROOT/bastralib
+$MUTRAFF_ROOT
 
-echo "PYTHONPATH=$PYTHONPATH"
+# echo "PYTHONPATH=$PYTHONPATH"
 
 # This is your application name
-PYTHON_APP_TOC="mutraff_traffic_op_center.py"
+PYTHON_APP_TOC="mutraff_toc.py"
 PYTHON_APP_VEH="mutraff_e_vehicle.py"
 
 # Add here any arguments your applicaton needs.
@@ -107,7 +107,7 @@ Type "run" to execute, ctrl-C to stop, "c" to continue, etc.
 ==================================================================
 EOF
   set -x
-  python ${PYTHON_DEBUG} $MUTRAFF_ROOT/bin/$PYTHON_APP_TOC $COMM_OPTS PYTHON_ARGS -c $BENV_SCENE_FILE
+  python ${PYTHON_DEBUG} $MUTRAFF_ROOT/bin/$PYTHON_APP_TOC $COMM_OPTS PYTHON_ARGS -c $BENV_SCENE_FILE -s $BENV_SCENE
 else
   echo
 #  (
@@ -115,7 +115,7 @@ else
     echo "Execution Starts on: `date -j -f '%s' ${DATE_START}`"
     echo "=================================================================="
 
-    python $MUTRAFF_ROOT/bin/$PYTHON_APP_TOC $COMM_OPTS $PYTHON_ARGS -c $BENV_SCENE_FILE
+    python $MUTRAFF_ROOT/bin/$PYTHON_APP_TOC $COMM_OPTS $PYTHON_ARGS -c $BENV_SCENE_FILE -s $BENV_SCENE
 
     DATE_END=`date +%s`
     echo "=================================================================="
