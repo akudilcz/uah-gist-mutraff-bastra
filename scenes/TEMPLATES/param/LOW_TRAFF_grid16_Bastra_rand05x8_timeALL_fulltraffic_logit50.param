@@ -1,5 +1,5 @@
 #!/bin/bash
-export __PREFIX="grid16_Bastra_rand05x8_timeALL_fulltraffic_logit50"
+export __PREFIX="LT_grid16_Bastra_rand05x8_timeALL_fulltraffic_logit50"
 export __TRAFFIC_TYPE="fulltraffic"
 export __USE_BASTRA="Bastra"
 export __MAP_USAGE="rand05x8_timeALL"

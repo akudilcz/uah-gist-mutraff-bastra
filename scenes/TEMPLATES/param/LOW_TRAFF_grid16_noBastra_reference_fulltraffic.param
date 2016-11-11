@@ -1,5 +1,5 @@
 #!/bin/bash
-export __PREFIX="grid16_noBastra_reference_fulltraffic"
+export __PREFIX="LT_grid16_noBastra_reference_fulltraffic"
 export __TRAFFIC_TYPE="fulltraffic"
 export __USE_BASTRA="noBastra"
 export __MAP_USAGE="reference"
