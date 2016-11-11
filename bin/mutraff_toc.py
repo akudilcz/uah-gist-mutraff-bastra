@@ -111,9 +111,9 @@ def config_file_load(conf_file):
 
     # Alvaro Added: 11/11/16
     try:
-      f_conf["edge_alerts"]=config_file_read_option(l_config, "edge_alerts", conf_section )
+      f_conf["publish_alerts"]=config_file_read_option(l_config, "publish_alerts", conf_section )
     except:
-       f_conf["edge_alerts"]='false'
+       f_conf["publish_alerts"]='true'
 
     str_verbose=config_file_read_option(l_config, "verbose", conf_section )
     str_verbose.lower()
@@ -212,5 +212,6 @@ if __name__ == '__main__':
 
   TOC.connectionsStart()
   TOC.mainLoop()
+  print( "END" )
   TOC.connectionsStop()
 

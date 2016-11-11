@@ -134,8 +134,10 @@ class TrafficCenter:
   # -----------------------------------------
   def connectionsStop(self):
     out = True
+    # print( "connectionsStop - ini ")
     self.broker_connection.close();
     self.trace(TR_COMMS, " comms stopped" )
+    # print( "connectionsStop - end ")
     return out
 
   # -----------------------------------------
@@ -144,10 +146,10 @@ class TrafficCenter:
     self.status = "TO_DIE"
 
   # -----------------------------------------
-  def messageSend(self, msg):
+  def messagePublish(self, type, fmt, msg):
       self.trace(TR_COMMS, "p:--> [key:"+self.publish_maps_mq_key+"] '"+ msg+ "'" )
       sys.stdout.flush()
-      fields = { 'type':'TWM', 'format':'TWM_fmt' }
+      fields = { 'type':type, 'format':fmt }
       self.publisher_channel.basic_publish(
         exchange=self.project_exchange, routing_key=self.publish_maps_mq_key,
         body=msg, properties = pika.BasicProperties( headers = fields )
@@ -159,8 +161,20 @@ class TrafficCenter:
 #      st_re = re.sub(r'\[ ', '[', str(map))
 #      st_re = re.sub(r'[\n| ]+', ',', st_re)
 #      msg =  '{"id":"' + str(self.msg_counter.getNewMessageId()) + '", "desc":"' + desc + '", "map":"' + st_re +'"}'
-#      self.messageSend( msg )
+#      self.messagePublish( 'TWM', 'TWM_fmt', msg )
      return
+
+  # -------------------------------------------
+  def alertsPublish(self, alerts):
+    if( not self.conf['publish_alerts'] ):
+      return
+
+    if( alerts ):
+      for n in range(0,len(alerts)):
+	a = alerts[n]
+	self.messagePublish( 'ALERT', 'json', a.to_json() )
+	# print("{:d} ==> ALERT: {:s}/{:s}: {:s} ".format(a.getEpoch(), a.getClass(), a.getInstance(), a.getText()) )
+
 
   # ==========================================================================
   # SYNCHRONOUS LOOP
@@ -180,7 +194,6 @@ class TrafficCenter:
     # Exit loops to finish
     self.terminate()
     return out
-
 
   # ==========================================================================
   # ASYNCHRONOUS LOOP
@@ -321,10 +334,8 @@ class TrafficCenter:
       # xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
       alerts = self.simulator.doSimulationStep()
-      if( alerts ):
-        for n in range(0,len(alerts)):
-	  a = alerts[n]
-	  print("{:d} ==> ALERT: {:s}/{:s}: {:s} ".format(a.getEpoch(), a.getClass(), a.getInstance(), a.getText()) )
+      self.alertsPublish( alerts )
+
       # Important: do nothing after doSimulationStep inside this loop
       # -- end of simulation loop ------------------------------
 

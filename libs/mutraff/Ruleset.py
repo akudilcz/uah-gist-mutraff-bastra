@@ -45,9 +45,11 @@ class RuleMatch:
   def getText(self):
     return self.text
 
+  def to_json(self):
+      return "{{'time':{:d},'mode':'{:s}','class':'{:s}','instance':'{:s}','feature':'{:s}','value':'{:s}','match':'{:s}','rule':'{:s}','text':'{:s}'}}".format( self.epoch,self.mode,self.inclass,self.instance, self.feature,str(self.value),self.match,self.rule,self.text)
+
   def dumpMatch(self):
-      print("RULE MATCHED: {'time':{:d}, 'mode':{:s}, 'class':{:s}, 'instance':{:s}, 'feature':{:s}, 'value':{:s}, 'match':{:s}, 'rule':{:s}, 'text':{:s} }".format(
-      	self.epoch,self.mode,self.inclass,self.instance,self.feature,str(self.value),self.match,self.rule,self.text) )
+      print("RULE MATCHED: "+self.to_json() )
 
   @classmethod
   def dump( cls, matches ):
@@ -126,7 +128,6 @@ class Ruleset:
           if( eval(expr) ):
 		newMatch = RuleMatch(epoch,'MATCH',inclass,instance,feature,value,expr1,rule['name'],rule['text'])
 		matches += [newMatch]
-		# matches += [{'time':epoch, 'class':inclass, 'instance':instance, 'rule':rule['name'], 'text':rule['text'], 'feature':feature, 'match':expr1, 'value':value }]
           # print("      {:s} ==> {:s}".format(expr1,str(out)) )
         except:
           print( "Rule syntax error at rule '"+expr1+"': ignored") 

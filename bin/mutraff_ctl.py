@@ -139,6 +139,7 @@ if __name__ == '__main__':
 
   Controller = Controller.Controller( args['amqp_host'], args['amqp_exchange_name'] )
   Controller.connectionsStart()
+  Controller.listenChannels()
   print("Check the About option and enter help or ? for commands info.\n")
   opt = ""
   while( not flag_exit ):

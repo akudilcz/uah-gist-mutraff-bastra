@@ -97,6 +97,8 @@ PYTHON_APP_VEH="mutraff_e_vehicle.py"
 PYTHON_ARGS_1=""
 PYTHON_ARGS_2=""
 
+VERBOSE=2
+
 if [ ! -z "${PYTHON_DEBUG}" ]; then
   cat <<EOF
 ==================================================================
@@ -114,7 +116,7 @@ else
     echo "Execution Starts on: `date -j -f '%s' ${DATE_START}`"
     echo "=================================================================="
 
-    python $MUTRAFF_ROOT/bin/$PYTHON_APP_TOC $COMM_OPTS $PYTHON_ARGS -c $BENV_SCENE_FILE -s $BENV_SCENE
+    python $MUTRAFF_ROOT/bin/$PYTHON_APP_TOC $COMM_OPTS $PYTHON_ARGS -c $BENV_SCENE_FILE -s $BENV_SCENE -v $VERBOSE
 
     DATE_END=`date +%s`
     echo "=================================================================="

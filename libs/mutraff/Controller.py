@@ -3,6 +3,10 @@ Created on 27/09/2016
 
 @author: Alvaro Paricio alvaro.paricio@uah.es
 '''
+try:
+  import thread
+except ImportError:
+  import _thread as thread #Py3K changed it.
 import json
 import time
 import sys
@@ -25,6 +29,9 @@ class Controller:
     # self.publish_ctrl_mq_key= "edu.uah.gist.mutraff.CTRL"
     self.publish_ctrl_mq_key= "#CTRL"
     self.publisher_channel  = 0
+
+    self.subscriber_mq_keys_TWM= [ "#TWM" ]
+    self.subscriber_channel  = 0
 
     print( self.strId, ": Created ", self.name )
     print( self.strId, " [host:"+host+", exchange:"+exchange+"]" )
@@ -50,8 +57,14 @@ class Controller:
     out = True
 
     self.broker_connection = pika.BlockingConnection(pika.ConnectionParameters( host=self.host))
+
+    # Publisher channels
     self.publisher_channel = self.broker_connection.channel()
     self.publisher_channel.exchange_declare(exchange=self.project_exchange, type='topic')
+
+    # Subscriber channels
+    self.subscriber_channel = self.broker_connection.channel()
+    self.subscriber_channel.exchange_declare(exchange=self.project_exchange, type='topic')
 
     print( self.getStrId(), " comms started" )
     return out
@@ -133,4 +146,70 @@ class Controller:
       time.sleep(SLEEPTIME)
 
     return out
+
+  # ==========================================================================
+  # ASYNCHRONOUS LOOP
+  def asynchReceptionLoop(self):
+  # ==========================================================================
+    out = True
+    print( self.getStrId(), "r:entering asynch reception loop" )
+
+    # -- Subscribe to the ROUTING messages queue
+    queue_TWM = "TWM-"+str(self.id)
+    result = self.subscriber_channel.queue_declare(queue=queue_TWM,exclusive=True)
+    for binding_key in self.subscriber_mq_keys_TWM:
+      print( self.getStrId(), "r:Listening at queue [exchange:"+self.project_exchange+", key:"+binding_key+", queue:"+queue_TWM+"]" )
+      self.subscriber_channel.queue_bind(exchange=self.project_exchange, queue=queue_TWM, routing_key=binding_key
+        )
+
+    sys.stdout.flush()
+
+    # -----------------------------------------
+    # Inline callback for messages commands
+    # -----------------------------------------
+    def TWM_rxCallbackback(ch, method, props, body):
+      msg = body.decode("utf-8")
+      print( self.getStrId(), "r:<-- [TWM][key:"+method.routing_key+"] "+msg)
+      if( False ):
+        print( self.getStrId(), "METHOD:", method)
+        print( self.getStrId(), "CH:", ch)
+        print( self.getStrId(), "PROPS:", props)
+
+        if( props.headers['format'] ):
+          if( props.headers['format'] == 'json' ):
+            jmsg = json.loads(msg)
+            print( self.getStrId(), "RECEIVED:", msg )
+          elif( props.headers['format'] == 'TWM_fmt' ):
+          # if( method.routing_key == "#TWM" ):
+            jdata = json.loads(msg)
+            twm_data = eval(jdata['map'])
+            print( self.getStrId(), "MAP RECEIVED:", twm_data )
+          else:
+            print( self.getStrId(), "UNDEF FMT RECEIVED:", msg )
+        else:
+          print( self.getStrId(), "NO FMT RECEIVED:", msg )
+
+      # xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+      # INCLUDE HERE YOUR MESSAGE PARSING AND REACTION CODE !!!!
+      # INCLUDE HERE YOUR MESSAGE PARSING AND REACTION CODE !!!!
+      # INCLUDE HERE YOUR MESSAGE PARSING AND REACTION CODE !!!!
+      # xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+      sys.stdout.flush()
+      return True
+
+    # -----------------------------------------
+    self.subscriber_channel.basic_consume(TWM_rxCallbackback, queue=queue_TWM, no_ack=True)
+
+    try:
+      self.subscriber_channel.start_consuming()
+    except Exception as e:
+      print(self.getStrId(), "ERROR: error receiving messages: "+ str(e))
+
+    print( self.getStrId(), "r:leaving reception loop" )
+    return out
+
+  # ==========================================================================
+  def listenChannels(self):
+    # This MUST be launched in a different thread
+    thread.start_new_thread( self.asynchReceptionLoop, ());
 

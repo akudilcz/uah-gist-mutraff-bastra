@@ -189,7 +189,7 @@ class MutraffSimulator:
   # -------------------------------------------------
   # End of simulation
   # -------------------------------------------------
-  def stop():
+  def stop(self):
     self.theSimulator.edge_stats_dump()
     traci.close()
     print("Process terminated: step " + str(self.theSimulator.getCurTime()) + "\n")
