@@ -8,11 +8,12 @@ import sys
 import os
 import subprocess
 import traci
-from bastralib import Sim as Sim
-from bastralib import Command
-from bastralib import BastraLog
+from mutraffSim import Sim as Sim
+from mutraffSim import Command
+from mutraffSim import BastraLog
 from sumolib import checkBinary
 from lxml import etree
+from mutraff import Ruleset as Rules
 
 #constants
 LOG_LEVEL1=1
@@ -32,6 +33,10 @@ class MutraffSimulator:
     self.sumoProcess		= None
 
   # -----------------------------------------
+  def setRuleset(self,*ruleset):
+    self.the
+
+  # -----------------------------------------
   def commandScheduleReadfile(self,file_name):
     try:
         tree=etree.parse(file_name)
@@ -48,6 +53,30 @@ class MutraffSimulator:
         return False
 
     return True
+
+  # -----------------------------------------
+  def setTrafficAlertRules(self):
+    rules = Rules.Ruleset()
+    #	traf_travel_time
+    #	traf_waiting_time
+    #	traf_total_veh_num
+    #	traf_halted_veh_num
+    #	traf_av_occupancy
+    #	traf_av_speed
+    #	emission_co2
+    #	emission_co
+    #	emission_hc
+    #	emission_noise
+    #	emission_nox
+    #	emission_PMx
+    #	consum_epower
+    #	consum_fuel
+    # inclass, feature, rulename, cond, text
+    rules.addRule( 'edge', 'traf_av_occupancy', 'edge_occupancy_high', 'if {:f} > 0.6', 'Edge Congested over 60%' )
+    rules.addRule( 'edge', 'traf_halted_veh_num', 'edge_halted_veh_high', 'if {:f} > 4', 'Number of halted vehicles exceed 4' )
+    rules.addRule( 'edge', 'traf_waiting_time', 'edge_waiting_time_high', 'if {:f} > 4', 'High waiting time for vehicles' )
+
+    self.theSimulator.setRuleset(rules)
 
   # -----------------------------------------
   def start(self):
@@ -90,6 +119,11 @@ class MutraffSimulator:
     self.sumoProcess = subprocess.Popen([sumoBinary, "-c", self.conf["sumo_config"],"--remote-port", str(self.conf["sumoPort"])], stdout=sys.stdout, stderr=sys.stderr)
     traci.init(self.conf["sumoPort"])
 
+    # -------------------------------------------------
+    # Define Traffic Supervision Alerts
+    # -------------------------------------------------
+    self.setTrafficAlertRules()
+
     return { 'errCode': errCode, 'errText': errText }
 
   # -----------------------------------------
@@ -111,7 +145,7 @@ class MutraffSimulator:
         self.log_file.printLog(LOG_LEVEL1,"Command " + com_name + " not recognized \n")
 
   # -----------------------------------------
-  def getResults(self):
+  def updateVehicles(self):
     l_vehicles_in=traci.vehicle.getIDList()
     for veh in l_vehicles_in:
         self.theSimulator.actVehicleStatistics(veh)
@@ -121,7 +155,7 @@ class MutraffSimulator:
     return
 
   # -----------------------------------------
-  # Check if the current simultion has finished.
+  # Check if the current simulation has finished.
   # Termination conditions:
   #	- End condition 1: reach max num simulations
   #	- End condition 2: do not exceed max time
@@ -143,11 +177,14 @@ class MutraffSimulator:
   def doSimulationStep(self):
     self.applyCommands()
     veh_list=traci.vehicle.getIDList()
+
     self.theSimulator.reroute(veh_list)
     self.theSimulator.foresight(veh_list, self.conf)
     traci.simulationStep()
-    self.getResults()
-    self.theSimulator.edge_stats_add()
+
+    self.updateVehicles()
+    alerts = self.theSimulator.edges_scan( )
+    return alerts
 
   # -------------------------------------------------
   # End of simulation
@@ -157,4 +194,4 @@ class MutraffSimulator:
     traci.close()
     print("Process terminated: step " + str(self.theSimulator.getCurTime()) + "\n")
     self.sumoProcess.terminate()
-    self.theSimulator.printStatistics(self.conf)
+    self.theSimulator.saveStatistics(self.conf)

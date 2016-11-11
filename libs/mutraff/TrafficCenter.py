@@ -13,10 +13,11 @@ import time
 import sys
 import pika
 import json
-from mutraffLib import MessageCounter
-from mutraffLib import MutraffSimulator
+from mutraff    import MessageCounter
+from mutraff	import Ruleset as Rules
+from mutraffSim import MutraffSimulator
 
-TR_ERROR	= 0
+TR_ERROR	= -1
 TR_ALWAYS	= 0
 TR_INFO		= 1
 TR_COMMS	= 2
@@ -319,8 +320,13 @@ class TrafficCenter:
       # If we have to alter simulation behaviour, it SHOULD BE DONE HERE
       # xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
-      # Important: do nothing after doSimulationStep in the Loop
-      self.simulator.doSimulationStep()
+      alerts = self.simulator.doSimulationStep()
+      if( alerts ):
+        for n in range(0,len(alerts)):
+	  a = alerts[n]
+	  print("{:d} ==> ALERT: {:s}/{:s}: {:s} ".format(a.getEpoch(), a.getClass(), a.getInstance(), a.getText()) )
+      # Important: do nothing after doSimulationStep inside this loop
+      # -- end of simulation loop ------------------------------
 
     self.simulator.stop()
 

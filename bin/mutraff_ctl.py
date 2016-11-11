@@ -5,7 +5,7 @@ Created on 27/09/2016
 '''
 
 import time
-from mutraffLib import Controller
+from mutraff import Controller
 
 import argparse
 import sys

@@ -13,6 +13,7 @@ from lxml import etree
 import Vehicle
 import NewTripClass
 import random
+from mutraff import Ruleset as Rules
 
 
 class simulated_traffic:
@@ -48,7 +49,7 @@ class simulated_traffic:
     edge_stats_sampling = 10
     edge_stats = []
     edge_desc = {}
-    edge_ruleset = {}
+    edge_ruleset = None
     
     def __init__(self, config, bastra_log_file):
         self.log_file=bastra_log_file
@@ -105,6 +106,9 @@ class simulated_traffic:
 
     def validEdge(self,e):
       return self.edge_weigths.has_key(e)
+
+    def setRuleset(self,ruleset):
+      self.edge_ruleset = ruleset
 
     def loadEdges(self):
         tree=etree.parse(self.net_file)
@@ -955,6 +959,8 @@ class simulated_traffic:
       if( self.cur_time % self.edge_stats_sampling != 0 ):
         return
 
+      ruleAlerts = []
+
       self.edge_stats.append( { 'time': self.cur_time, 'vals': [] } )
       i = len(self.edge_stats)-1
 
@@ -988,6 +994,7 @@ class simulated_traffic:
 
 	# --------------------------------
 	# Save values
+	# --------------------------------
         self.edge_stats[i]['vals'].append(
 	  [
             self.edge_desc[e]['id'],
@@ -995,7 +1002,36 @@ class simulated_traffic:
 	    emission_co2, emission_co, emission_hc, emission_noise, emission_nox, emission_PMx,
 	    consum_epower, consum_fuel
 	  ] )
-      return alerts
+
+        # --------------------------------
+	# Apply detection rules
+        # --------------------------------
+	if( self.edge_ruleset ):
+	#   print("-- Apply rules --")
+	  measure = Rules.Measure( 'edge', e,
+		time=self.cur_time,
+		traf_travel_time=traf_travel_time,
+		traf_waiting_time=traf_waiting_time,
+		traf_total_veh_num=traf_total_veh_num,
+		traf_halted_veh_num=traf_halted_veh_num,
+		traf_av_occupancy=traf_av_occupancy,
+		traf_av_speed=traf_av_speed,
+		emission_co2=emission_co2,
+		emission_co=emission_co,
+		emission_hc=emission_hc,
+		emission_noise=emission_noise,
+		emission_nox=emission_nox,
+		emission_PMx=emission_PMx,
+		consum_epower=consum_epower,
+		consum_fuel=consum_fuel
+		)
+	  ruleAlerts += self.edge_ruleset.fireOnMeasure( measure )
+	# else:
+	#   print("-- NO rules --")
+
+        # --- END-OF-LOOP ---
+
+      return ruleAlerts
 
 # End of class Simulated_traffic    
     

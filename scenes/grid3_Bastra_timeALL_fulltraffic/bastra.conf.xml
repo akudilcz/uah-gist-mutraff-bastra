@@ -30,7 +30,7 @@
 
   <Sumo>
     <port value="2081"/>
-    <interactive value="true"/>
+    <interactive value="false"/>
     <sumo_config value="../../../scenes/grid3_Bastra_timeALL_fulltraffic/grid3_Bastra_timeALL_fulltraffic.sumo.conf"/>
     <net_file value="../../../scenes/grid3_Bastra_timeALL_fulltraffic/grid3_Bastra_timeALL_fulltraffic.net.xml"/>
     <log_file value="sumo.log"/>

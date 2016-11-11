@@ -9,7 +9,7 @@ import sys
 import os
 import time
 from lxml import etree
-from mutraffLib import Vehicle
+from mutraff import Vehicle
 
 # ----------------------------------
 def getConfig():

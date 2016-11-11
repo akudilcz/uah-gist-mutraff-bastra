@@ -241,7 +241,7 @@ if __name__ == '__main__':
         traci.simulationStep()
         get_simulation_results()
 
-        sim.edge_stats_add( )
+        sim.edges_scan()
 
     # -------------------------------------------------
     # End of simulation
@@ -250,6 +250,6 @@ if __name__ == '__main__':
     traci.close()
     print("Process terminated: step " + str(sim.getCurTime()) + "\n")
     sumoProcess.terminate()
-    sim.printStatistics(config)
+    sim.saveStatistics(config)
 
 exit(0)

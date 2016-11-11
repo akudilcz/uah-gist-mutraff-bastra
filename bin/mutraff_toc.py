@@ -9,7 +9,7 @@ import sys
 import os
 import time
 from lxml import etree
-from mutraffLib import TrafficCenter
+from mutraff import TrafficCenter
 
 # ----------------------------------
 def printBanner(args):
@@ -108,6 +108,12 @@ def config_file_load(conf_file):
       if( v < 0 ):
         v = 1
       f_conf["edge_stats_sampling"]=v
+
+    # Alvaro Added: 11/11/16
+    try:
+      f_conf["edge_alerts"]=config_file_read_option(l_config, "edge_alerts", conf_section )
+    except:
+       f_conf["edge_alerts"]='false'
 
     str_verbose=config_file_read_option(l_config, "verbose", conf_section )
     str_verbose.lower()

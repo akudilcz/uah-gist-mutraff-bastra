@@ -85,8 +85,7 @@ PYTHON_DEBUG=""
 
 export PYTHONPATH=$PYTHONPATH:\
 /opt/local/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages:\
-$MUTRAFF_ROOT/libs:\
-$MUTRAFF_ROOT
+$MUTRAFF_ROOT/libs
 
 # echo "PYTHONPATH=$PYTHONPATH"
 
