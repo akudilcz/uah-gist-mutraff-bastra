@@ -28,7 +28,8 @@ exit 1
 MUTRAFF_ROOT="../../.."
 COMM_OPTS="-x $1"
 BENV_SCENE=`basename $2`
-BENV_SCENE_FILE=$MUTRAFF_ROOT/scenes/$BENV_SCENE/bastra.conf.xml
+BENV_SCENE_DIR=$MUTRAFF_ROOT/scenes/$BENV_SCENE
+BENV_SCENE_FILE=$BENV_SCENE_DIR/bastra.conf.xml
 [ -d "$2" ] || { echo "Error. Scenario $2 doesn't exist"; exit 1; }
 # echo "Selected simulation scene: $BENV_SCENE"
 
@@ -110,6 +111,7 @@ EOF
   set -x
   python ${PYTHON_DEBUG} $MUTRAFF_ROOT/bin/$PYTHON_APP_TOC $COMM_OPTS PYTHON_ARGS -c $BENV_SCENE_FILE -s $BENV_SCENE
 else
+  cp $BENV_SCENE_DIR/SCENARIO_DESCRIPTION.md . 2>/dev/null
   echo
 #  (
     DATE_START=`date +%s`
@@ -126,5 +128,7 @@ else
     echo "Execution total time: ${PROCESS_TIME}"
 #  ) 2>&1 | tee time.out
 fi
+
+mv statistics.csv $STATS_FILE
 
 

@@ -10,6 +10,7 @@ function params_create() {
   p_map="$3"
   p_traffic="$4"
   p_logit="$5"
+  p_logit_val=`echo "$p_logit/100"|bc -l`
 
   p_roadlen="50"
   p_lanes="1"
@@ -94,7 +95,7 @@ export __GRID_SIZE="$p_grid_size"
 export __SPIDER_ARMS="$p_spider_arms"
 export __SPIDER_CIRCLES="$p_spider_circ"
 export __BASTRA_USE_BALANCE="$p_use_bastra"
-export __BASTRA_LOGIT="$p_logit"
+export __BASTRA_LOGIT="$p_logit_val"
 export __BASTRA_FORESIGHT_STEPS="$p_fore_steps"
 export __BASTRA_FORESIGHT_TRIES="$p_fore_tries"
 export __BASTRA_FORESIGHT_HALTING="$p_fore_halt"

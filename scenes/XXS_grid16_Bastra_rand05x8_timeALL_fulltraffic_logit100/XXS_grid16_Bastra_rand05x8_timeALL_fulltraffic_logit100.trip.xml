@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on Sat Nov 12 22:59:11 2016 by SUMO od2trips Version 0.27.1
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/od2tripsConfiguration.xsd">
+
+    <input>
+        <taz-files value="XXS_grid16_Bastra_rand05x8_timeALL_fulltraffic_logit100.net.xml"/>
+        <od-amitran-files value="XXS_grid16_Bastra_rand05x8_timeALL_fulltraffic_logit100.odmat.xml"/>
+    </input>
+
+    <output>
+        <output-file value="XXS_grid16_Bastra_rand05x8_timeALL_fulltraffic_logit100.trip.xml"/>
+        <ignore-vehicle-type value="true"/>
+    </output>
+
+    <defaults>
+        <departlane value="best"/>
+        <departspeed value="0"/>
+    </defaults>
+
+</configuration>
+-->
+
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">
+    <trip id="29" depart="18.13" from="right15to15/15" to="0/0tobottom0" fromTaz="3" toTaz="2" departLane="best" departSpeed="0"/>
+    <trip id="6" depart="55.65" from="left15to0/15" to="15/0tobottom15" fromTaz="1" toTaz="4" departLane="best" departSpeed="0"/>
+    <trip id="21" depart="98.13" from="right15to15/15" to="0/0tobottom0" fromTaz="3" toTaz="2" departLane="best" departSpeed="0"/>
+    <trip id="39" depart="122.15" from="right0to15/0" to="0/15totop0" fromTaz="4" toTaz="1" departLane="best" departSpeed="0"/>
+    <trip id="37" depart="125.46" from="right0to15/0" to="0/15totop0" fromTaz="4" toTaz="1" departLane="best" departSpeed="0"/>
+    <trip id="38" depart="158.69" from="right0to15/0" to="0/15totop0" fromTaz="4" toTaz="1" departLane="best" departSpeed="0"/>
+    <trip id="11" depart="162.06" from="left0to0/0" to="15/15totop15" fromTaz="2" toTaz="3" departLane="best" departSpeed="0"/>
+    <trip id="19" depart="163.02" from="left0to0/0" to="15/15totop15" fromTaz="2" toTaz="3" departLane="best" departSpeed="0"/>
+    <trip id="31" depart="235.96" from="right0to15/0" to="0/15totop0" fromTaz="4" toTaz="1" departLane="best" departSpeed="0"/>
+    <trip id="8" depart="381.92" from="left15to0/15" to="15/0tobottom15" fromTaz="1" toTaz="4" departLane="best" departSpeed="0"/>
+    <trip id="0" depart="390.93" from="left15to0/15" to="15/0tobottom15" fromTaz="1" toTaz="4" departLane="best" departSpeed="0"/>
+    <trip id="27" depart="397.98" from="right15to15/15" to="0/0tobottom0" fromTaz="3" toTaz="2" departLane="best" departSpeed="0"/>
+    <trip id="10" depart="420.07" from="left0to0/0" to="15/15totop15" fromTaz="2" toTaz="3" departLane="best" departSpeed="0"/>
+    <trip id="30" depart="433.87" from="right0to15/0" to="0/15totop0" fromTaz="4" toTaz="1" departLane="best" departSpeed="0"/>
+    <trip id="1" depart="476.94" from="left15to0/15" to="15/0tobottom15" fromTaz="1" toTaz="4" departLane="best" departSpeed="0"/>
+    <trip id="9" depart="532.20" from="left15to0/15" to="15/0tobottom15" fromTaz="1" toTaz="4" departLane="best" departSpeed="0"/>
+    <trip id="26" depart="537.08" from="right15to15/15" to="0/0tobottom0" fromTaz="3" toTaz="2" departLane="best" departSpeed="0"/>
+    <trip id="20" depart="593.77" from="right15to15/15" to="0/0tobottom0" fromTaz="3" toTaz="2" departLane="best" departSpeed="0"/>
+    <trip id="23" depart="596.97" from="right15to15/15" to="0/0tobottom0" fromTaz="3" toTaz="2" departLane="best" departSpeed="0"/>
+    <trip id="36" depart="605.98" from="right0to15/0" to="0/15totop0" fromTaz="4" toTaz="1" departLane="best" departSpeed="0"/>
+    <trip id="22" depart="628.79" from="right15to15/15" to="0/0tobottom0" fromTaz="3" toTaz="2" departLane="best" departSpeed="0"/>
+    <trip id="24" depart="710.84" from="right15to15/15" to="0/0tobottom0" fromTaz="3" toTaz="2" departLane="best" departSpeed="0"/>
+    <trip id="32" depart="714.63" from="right0to15/0" to="0/15totop0" fromTaz="4" toTaz="1" departLane="best" departSpeed="0"/>
+    <trip id="3" depart="754.69" from="left15to0/15" to="15/0tobottom15" fromTaz="1" toTaz="4" departLane="best" departSpeed="0"/>
+    <trip id="15" depart="759.41" from="left0to0/0" to="15/15totop15" fromTaz="2" toTaz="3" departLane="best" departSpeed="0"/>
+    <trip id="7" depart="768.76" from="left15to0/15" to="15/0tobottom15" fromTaz="1" toTaz="4" departLane="best" departSpeed="0"/>
+    <trip id="28" depart="793.64" from="right15to15/15" to="0/0tobottom0" fromTaz="3" toTaz="2" departLane="best" departSpeed="0"/>
+    <trip id="2" depart="799.13" from="left15to0/15" to="15/0tobottom15" fromTaz="1" toTaz="4" departLane="best" departSpeed="0"/>
+    <trip id="18" depart="799.91" from="left0to0/0" to="15/15totop15" fromTaz="2" toTaz="3" departLane="best" departSpeed="0"/>
+    <trip id="13" depart="804.47" from="left0to0/0" to="15/15totop15" fromTaz="2" toTaz="3" departLane="best" departSpeed="0"/>
+    <trip id="33" depart="821.76" from="right0to15/0" to="0/15totop0" fromTaz="4" toTaz="1" departLane="best" departSpeed="0"/>
+    <trip id="5" depart="853.01" from="left15to0/15" to="15/0tobottom15" fromTaz="1" toTaz="4" departLane="best" departSpeed="0"/>
+    <trip id="35" depart="862.12" from="right0to15/0" to="0/15totop0" fromTaz="4" toTaz="1" departLane="best" departSpeed="0"/>
+    <trip id="4" depart="890.42" from="left15to0/15" to="15/0tobottom15" fromTaz="1" toTaz="4" departLane="best" departSpeed="0"/>
+    <trip id="34" depart="891.00" from="right0to15/0" to="0/15totop0" fromTaz="4" toTaz="1" departLane="best" departSpeed="0"/>
+    <trip id="25" depart="895.05" from="right15to15/15" to="0/0tobottom0" fromTaz="3" toTaz="2" departLane="best" departSpeed="0"/>
+    <trip id="17" depart="960.74" from="left0to0/0" to="15/15totop15" fromTaz="2" toTaz="3" departLane="best" departSpeed="0"/>
+    <trip id="12" depart="967.34" from="left0to0/0" to="15/15totop15" fromTaz="2" toTaz="3" departLane="best" departSpeed="0"/>
+    <trip id="14" depart="976.27" from="left0to0/0" to="15/15totop15" fromTaz="2" toTaz="3" departLane="best" departSpeed="0"/>
+    <trip id="16" depart="977.73" from="left0to0/0" to="15/15totop15" fromTaz="2" toTaz="3" departLane="best" departSpeed="0"/>
+</routes>

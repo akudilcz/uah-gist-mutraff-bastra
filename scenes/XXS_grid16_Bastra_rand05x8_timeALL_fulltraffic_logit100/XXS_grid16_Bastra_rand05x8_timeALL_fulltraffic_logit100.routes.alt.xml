@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on Sat Nov 12 22:59:11 2016 by SUMO duarouter Version 0.27.1
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/duarouterConfiguration.xsd">
+
+    <input>
+        <net-file value="XXS_grid16_Bastra_rand05x8_timeALL_fulltraffic_logit100.net.xml"/>
+        <trip-files value="XXS_grid16_Bastra_rand05x8_timeALL_fulltraffic_logit100.trip.xml"/>
+    </input>
+
+    <output>
+        <output-file value="XXS_grid16_Bastra_rand05x8_timeALL_fulltraffic_logit100.routes.xml"/>
+    </output>
+
+    <processing>
+        <remove-loops value="true"/>
+    </processing>
+
+    <time>
+        <begin value="0"/>
+        <end value="1000"/>
+    </time>
+
+</configuration>
+-->
+
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">
+    <vehicle id="29" depart="18.13" departLane="best" departSpeed="0.00" fromTaz="3" toTaz="2">
+        <routeDistribution last="0">
+            <route cost="115.11" probability="1.00000000" edges="right15to15/15 15/15to14/15 14/15to13/15 13/15to12/15 12/15to11/15 11/15to10/15 10/15to9/15 9/15to8/15 8/15to7/15 7/15to6/15 6/15to5/15 5/15to4/15 4/15to3/15 3/15to2/15 2/15to1/15 1/15to0/15 0/15to0/14 0/14to0/13 0/13to0/12 0/12to0/11 0/11to0/10 0/10to0/9 0/9to0/8 0/8to0/7 0/7to0/6 0/6to0/5 0/5to0/4 0/4to0/3 0/3to0/2 0/2to0/1 0/1to0/0 0/0tobottom0"/>
+        </routeDistribution>
+    </vehicle>
+    <vehicle id="6" depart="55.65" departLane="best" departSpeed="0.00" fromTaz="1" toTaz="4">
+        <routeDistribution last="0">
+            <route cost="115.11" probability="1.00000000" edges="left15to0/15 0/15to1/15 1/15to2/15 2/15to3/15 3/15to4/15 4/15to5/15 5/15to6/15 6/15to7/15 7/15to8/15 8/15to9/15 9/15to10/15 10/15to10/14 10/14to10/13 10/13to10/12 10/12to10/11 10/11to10/10 10/10to10/9 10/9to10/8 10/8to10/7 10/7to10/6 10/6to10/5 10/5to10/4 10/4to10/3 10/3to10/2 10/2to10/1 10/1to10/0 10/0to11/0 11/0to12/0 12/0to13/0 13/0to14/0 14/0to15/0 15/0tobottom15"/>
+        </routeDistribution>
+    </vehicle>
+    <vehicle id="21" depart="98.13" departLane="best" departSpeed="0.00" fromTaz="3" toTaz="2">
+        <routeDistribution last="0">
+            <route cost="115.11" probability="1.00000000" edges="right15to15/15 15/15to14/15 14/15to13/15 13/15to12/15 12/15to11/15 11/15to10/15 10/15to9/15 9/15to8/15 8/15to7/15 7/15to6/15 6/15to5/15 5/15to4/15 4/15to3/15 3/15to2/15 2/15to1/15 1/15to0/15 0/15to0/14 0/14to0/13 0/13to0/12 0/12to0/11 0/11to0/10 0/10to0/9 0/9to0/8 0/8to0/7 0/7to0/6 0/6to0/5 0/5to0/4 0/4to0/3 0/3to0/2 0/2to0/1 0/1to0/0 0/0tobottom0"/>
+        </routeDistribution>
+    </vehicle>
+    <vehicle id="39" depart="122.15" departLane="best" departSpeed="0.00" fromTaz="4" toTaz="1">
+        <routeDistribution last="0">
+            <route cost="115.11" probability="1.00000000" edges="right0to15/0 15/0to14/0 14/0to13/0 13/0to12/0 12/0to11/0 11/0to10/0 10/0to9/0 9/0to8/0 8/0to7/0 7/0to6/0 6/0to5/0 5/0to4/0 4/0to3/0 3/0to2/0 2/0to1/0 1/0to0/0 0/0to0/1 0/1to0/2 0/2to0/3 0/3to0/4 0/4to0/5 0/5to0/6 0/6to0/7 0/7to0/8 0/8to0/9 0/9to0/10 0/10to0/11 0/11to0/12 0/12to0/13 0/13to0/14 0/14to0/15 0/15totop0"/>
+        </routeDistribution>
+    </vehicle>
+    <vehicle id="37" depart="125.46" departLane="best" departSpeed="0.00" fromTaz="4" toTaz="1">
+        <routeDistribution last="0">
+            <route cost="115.11" probability="1.00000000" edges="right0to15/0 15/0to14/0 14/0to13/0 13/0to12/0 12/0to11/0 11/0to10/0 10/0to9/0 9/0to8/0 8/0to7/0 7/0to6/0 6/0to5/0 5/0to4/0 4/0to3/0 3/0to2/0 2/0to1/0 1/0to0/0 0/0to0/1 0/1to0/2 0/2to0/3 0/3to0/4 0/4to0/5 0/5to0/6 0/6to0/7 0/7to0/8 0/8to0/9 0/9to0/10 0/10to0/11 0/11to0/12 0/12to0/13 0/13to0/14 0/14to0/15 0/15totop0"/>
+        </routeDistribution>
+    </vehicle>
+    <vehicle id="38" depart="158.69" departLane="best" departSpeed="0.00" fromTaz="4" toTaz="1">
+        <routeDistribution last="0">
+            <route cost="115.11" probability="1.00000000" edges="right0to15/0 15/0to14/0 14/0to13/0 13/0to12/0 12/0to11/0 11/0to10/0 10/0to9/0 9/0to8/0 8/0to7/0 7/0to6/0 6/0to5/0 5/0to4/0 4/0to3/0 3/0to2/0 2/0to1/0 1/0to0/0 0/0to0/1 0/1to0/2 0/2to0/3 0/3to0/4 0/4to0/5 0/5to0/6 0/6to0/7 0/7to0/8 0/8to0/9 0/9to0/10 0/10to0/11 0/11to0/12 0/12to0/13 0/13to0/14 0/14to0/15 0/15totop0"/>
+        </routeDistribution>
+    </vehicle>
+    <vehicle id="11" depart="162.06" departLane="best" departSpeed="0.00" fromTaz="2" toTaz="3">
+        <routeDistribution last="0">
+            <route cost="115.11" probability="1.00000000" edges="left0to0/0 0/0to1/0 1/0to2/0 2/0to3/0 3/0to4/0 4/0to5/0 5/0to6/0 6/0to7/0 7/0to8/0 8/0to9/0 9/0to10/0 10/0to10/1 10/1to10/2 10/2to10/3 10/3to10/4 10/4to10/5 10/5to10/6 10/6to10/7 10/7to10/8 10/8to10/9 10/9to10/10 10/10to10/11 10/11to10/12 10/12to10/13 10/13to10/14 10/14to10/15 10/15to11/15 11/15to12/15 12/15to13/15 13/15to14/15 14/15to15/15 15/15totop15"/>
+        </routeDistribution>
+    </vehicle>
+    <vehicle id="19" depart="163.02" departLane="best" departSpeed="0.00" fromTaz="2" toTaz="3">
+        <routeDistribution last="0">
+            <route cost="115.11" probability="1.00000000" edges="left0to0/0 0/0to1/0 1/0to2/0 2/0to3/0 3/0to4/0 4/0to5/0 5/0to6/0 6/0to7/0 7/0to8/0 8/0to9/0 9/0to10/0 10/0to10/1 10/1to10/2 10/2to10/3 10/3to10/4 10/4to10/5 10/5to10/6 10/6to10/7 10/7to10/8 10/8to10/9 10/9to10/10 10/10to10/11 10/11to10/12 10/12to10/13 10/13to10/14 10/14to10/15 10/15to11/15 11/15to12/15 12/15to13/15 13/15to14/15 14/15to15/15 15/15totop15"/>
+        </routeDistribution>
+    </vehicle>
+    <vehicle id="31" depart="235.96" departLane="best" departSpeed="0.00" fromTaz="4" toTaz="1">
+        <routeDistribution last="0">
+            <route cost="115.11" probability="1.00000000" edges="right0to15/0 15/0to14/0 14/0to13/0 13/0to12/0 12/0to11/0 11/0to10/0 10/0to9/0 9/0to8/0 8/0to7/0 7/0to6/0 6/0to5/0 5/0to4/0 4/0to3/0 3/0to2/0 2/0to1/0 1/0to0/0 0/0to0/1 0/1to0/2 0/2to0/3 0/3to0/4 0/4to0/5 0/5to0/6 0/6to0/7 0/7to0/8 0/8to0/9 0/9to0/10 0/10to0/11 0/11to0/12 0/12to0/13 0/13to0/14 0/14to0/15 0/15totop0"/>
+        </routeDistribution>
+    </vehicle>
+    <vehicle id="8" depart="381.92" departLane="best" departSpeed="0.00" fromTaz="1" toTaz="4">
+        <routeDistribution last="0">
+            <route cost="115.11" probability="1.00000000" edges="left15to0/15 0/15to1/15 1/15to2/15 2/15to3/15 3/15to4/15 4/15to5/15 5/15to6/15 6/15to7/15 7/15to8/15 8/15to9/15 9/15to10/15 10/15to10/14 10/14to10/13 10/13to10/12 10/12to10/11 10/11to10/10 10/10to10/9 10/9to10/8 10/8to10/7 10/7to10/6 10/6to10/5 10/5to10/4 10/4to10/3 10/3to10/2 10/2to10/1 10/1to10/0 10/0to11/0 11/0to12/0 12/0to13/0 13/0to14/0 14/0to15/0 15/0tobottom15"/>
+        </routeDistribution>
+    </vehicle>
+    <vehicle id="0" depart="390.93" departLane="best" departSpeed="0.00" fromTaz="1" toTaz="4">
+        <routeDistribution last="0">
+            <route cost="115.11" probability="1.00000000" edges="left15to0/15 0/15to1/15 1/15to2/15 2/15to3/15 3/15to4/15 4/15to5/15 5/15to6/15 6/15to7/15 7/15to8/15 8/15to9/15 9/15to10/15 10/15to10/14 10/14to10/13 10/13to10/12 10/12to10/11 10/11to10/10 10/10to10/9 10/9to10/8 10/8to10/7 10/7to10/6 10/6to10/5 10/5to10/4 10/4to10/3 10/3to10/2 10/2to10/1 10/1to10/0 10/0to11/0 11/0to12/0 12/0to13/0 13/0to14/0 14/0to15/0 15/0tobottom15"/>
+        </routeDistribution>
+    </vehicle>
+    <vehicle id="27" depart="397.98" departLane="best" departSpeed="0.00" fromTaz="3" toTaz="2">
+        <routeDistribution last="0">
+            <route cost="115.11" probability="1.00000000" edges="right15to15/15 15/15to14/15 14/15to13/15 13/15to12/15 12/15to11/15 11/15to10/15 10/15to9/15 9/15to8/15 8/15to7/15 7/15to6/15 6/15to5/15 5/15to4/15 4/15to3/15 3/15to2/15 2/15to1/15 1/15to0/15 0/15to0/14 0/14to0/13 0/13to0/12 0/12to0/11 0/11to0/10 0/10to0/9 0/9to0/8 0/8to0/7 0/7to0/6 0/6to0/5 0/5to0/4 0/4to0/3 0/3to0/2 0/2to0/1 0/1to0/0 0/0tobottom0"/>
+        </routeDistribution>
+    </vehicle>
+    <vehicle id="10" depart="420.07" departLane="best" departSpeed="0.00" fromTaz="2" toTaz="3">
+        <routeDistribution last="0">
+            <route cost="115.11" probability="1.00000000" edges="left0to0/0 0/0to1/0 1/0to2/0 2/0to3/0 3/0to4/0 4/0to5/0 5/0to6/0 6/0to7/0 7/0to8/0 8/0to9/0 9/0to10/0 10/0to10/1 10/1to10/2 10/2to10/3 10/3to10/4 10/4to10/5 10/5to10/6 10/6to10/7 10/7to10/8 10/8to10/9 10/9to10/10 10/10to10/11 10/11to10/12 10/12to10/13 10/13to10/14 10/14to10/15 10/15to11/15 11/15to12/15 12/15to13/15 13/15to14/15 14/15to15/15 15/15totop15"/>
+        </routeDistribution>
+    </vehicle>
+    <vehicle id="30" depart="433.87" departLane="best" departSpeed="0.00" fromTaz="4" toTaz="1">
+        <routeDistribution last="0">
+            <route cost="115.11" probability="1.00000000" edges="right0to15/0 15/0to14/0 14/0to13/0 13/0to12/0 12/0to11/0 11/0to10/0 10/0to9/0 9/0to8/0 8/0to7/0 7/0to6/0 6/0to5/0 5/0to4/0 4/0to3/0 3/0to2/0 2/0to1/0 1/0to0/0 0/0to0/1 0/1to0/2 0/2to0/3 0/3to0/4 0/4to0/5 0/5to0/6 0/6to0/7 0/7to0/8 0/8to0/9 0/9to0/10 0/10to0/11 0/11to0/12 0/12to0/13 0/13to0/14 0/14to0/15 0/15totop0"/>
+        </routeDistribution>
+    </vehicle>
+    <vehicle id="1" depart="476.94" departLane="best" departSpeed="0.00" fromTaz="1" toTaz="4">
+        <routeDistribution last="0">
+            <route cost="115.11" probability="1.00000000" edges="left15to0/15 0/15to1/15 1/15to2/15 2/15to3/15 3/15to4/15 4/15to5/15 5/15to6/15 6/15to7/15 7/15to8/15 8/15to9/15 9/15to10/15 10/15to10/14 10/14to10/13 10/13to10/12 10/12to10/11 10/11to10/10 10/10to10/9 10/9to10/8 10/8to10/7 10/7to10/6 10/6to10/5 10/5to10/4 10/4to10/3 10/3to10/2 10/2to10/1 10/1to10/0 10/0to11/0 11/0to12/0 12/0to13/0 13/0to14/0 14/0to15/0 15/0tobottom15"/>
+        </routeDistribution>
+    </vehicle>
+    <vehicle id="9" depart="532.20" departLane="best" departSpeed="0.00" fromTaz="1" toTaz="4">
+        <routeDistribution last="0">
+            <route cost="115.11" probability="1.00000000" edges="left15to0/15 0/15to1/15 1/15to2/15 2/15to3/15 3/15to4/15 4/15to5/15 5/15to6/15 6/15to7/15 7/15to8/15 8/15to9/15 9/15to10/15 10/15to10/14 10/14to10/13 10/13to10/12 10/12to10/11 10/11to10/10 10/10to10/9 10/9to10/8 10/8to10/7 10/7to10/6 10/6to10/5 10/5to10/4 10/4to10/3 10/3to10/2 10/2to10/1 10/1to10/0 10/0to11/0 11/0to12/0 12/0to13/0 13/0to14/0 14/0to15/0 15/0tobottom15"/>
+        </routeDistribution>
+    </vehicle>
+    <vehicle id="26" depart="537.08" departLane="best" departSpeed="0.00" fromTaz="3" toTaz="2">
+        <routeDistribution last="0">
+            <route cost="115.11" probability="1.00000000" edges="right15to15/15 15/15to14/15 14/15to13/15 13/15to12/15 12/15to11/15 11/15to10/15 10/15to9/15 9/15to8/15 8/15to7/15 7/15to6/15 6/15to5/15 5/15to4/15 4/15to3/15 3/15to2/15 2/15to1/15 1/15to0/15 0/15to0/14 0/14to0/13 0/13to0/12 0/12to0/11 0/11to0/10 0/10to0/9 0/9to0/8 0/8to0/7 0/7to0/6 0/6to0/5 0/5to0/4 0/4to0/3 0/3to0/2 0/2to0/1 0/1to0/0 0/0tobottom0"/>
+        </routeDistribution>
+    </vehicle>
+    <vehicle id="20" depart="593.77" departLane="best" departSpeed="0.00" fromTaz="3" toTaz="2">
+        <routeDistribution last="0">
+            <route cost="115.11" probability="1.00000000" edges="right15to15/15 15/15to14/15 14/15to13/15 13/15to12/15 12/15to11/15 11/15to10/15 10/15to9/15 9/15to8/15 8/15to7/15 7/15to6/15 6/15to5/15 5/15to4/15 4/15to3/15 3/15to2/15 2/15to1/15 1/15to0/15 0/15to0/14 0/14to0/13 0/13to0/12 0/12to0/11 0/11to0/10 0/10to0/9 0/9to0/8 0/8to0/7 0/7to0/6 0/6to0/5 0/5to0/4 0/4to0/3 0/3to0/2 0/2to0/1 0/1to0/0 0/0tobottom0"/>
+        </routeDistribution>
+    </vehicle>
+    <vehicle id="23" depart="596.97" departLane="best" departSpeed="0.00" fromTaz="3" toTaz="2">
+        <routeDistribution last="0">
+            <route cost="115.11" probability="1.00000000" edges="right15to15/15 15/15to14/15 14/15to13/15 13/15to12/15 12/15to11/15 11/15to10/15 10/15to9/15 9/15to8/15 8/15to7/15 7/15to6/15 6/15to5/15 5/15to4/15 4/15to3/15 3/15to2/15 2/15to1/15 1/15to0/15 0/15to0/14 0/14to0/13 0/13to0/12 0/12to0/11 0/11to0/10 0/10to0/9 0/9to0/8 0/8to0/7 0/7to0/6 0/6to0/5 0/5to0/4 0/4to0/3 0/3to0/2 0/2to0/1 0/1to0/0 0/0tobottom0"/>
+        </routeDistribution>
+    </vehicle>
+    <vehicle id="36" depart="605.98" departLane="best" departSpeed="0.00" fromTaz="4" toTaz="1">
+        <routeDistribution last="0">
+            <route cost="115.11" probability="1.00000000" edges="right0to15/0 15/0to14/0 14/0to13/0 13/0to12/0 12/0to11/0 11/0to10/0 10/0to9/0 9/0to8/0 8/0to7/0 7/0to6/0 6/0to5/0 5/0to4/0 4/0to3/0 3/0to2/0 2/0to1/0 1/0to0/0 0/0to0/1 0/1to0/2 0/2to0/3 0/3to0/4 0/4to0/5 0/5to0/6 0/6to0/7 0/7to0/8 0/8to0/9 0/9to0/10 0/10to0/11 0/11to0/12 0/12to0/13 0/13to0/14 0/14to0/15 0/15totop0"/>
+        </routeDistribution>
+    </vehicle>
+    <vehicle id="22" depart="628.79" departLane="best" departSpeed="0.00" fromTaz="3" toTaz="2">
+        <routeDistribution last="0">
+            <route cost="115.11" probability="1.00000000" edges="right15to15/15 15/15to14/15 14/15to13/15 13/15to12/15 12/15to11/15 11/15to10/15 10/15to9/15 9/15to8/15 8/15to7/15 7/15to6/15 6/15to5/15 5/15to4/15 4/15to3/15 3/15to2/15 2/15to1/15 1/15to0/15 0/15to0/14 0/14to0/13 0/13to0/12 0/12to0/11 0/11to0/10 0/10to0/9 0/9to0/8 0/8to0/7 0/7to0/6 0/6to0/5 0/5to0/4 0/4to0/3 0/3to0/2 0/2to0/1 0/1to0/0 0/0tobottom0"/>
+        </routeDistribution>
+    </vehicle>
+    <vehicle id="24" depart="710.84" departLane="best" departSpeed="0.00" fromTaz="3" toTaz="2">
+        <routeDistribution last="0">
+            <route cost="115.11" probability="1.00000000" edges="right15to15/15 15/15to14/15 14/15to13/15 13/15to12/15 12/15to11/15 11/15to10/15 10/15to9/15 9/15to8/15 8/15to7/15 7/15to6/15 6/15to5/15 5/15to4/15 4/15to3/15 3/15to2/15 2/15to1/15 1/15to0/15 0/15to0/14 0/14to0/13 0/13to0/12 0/12to0/11 0/11to0/10 0/10to0/9 0/9to0/8 0/8to0/7 0/7to0/6 0/6to0/5 0/5to0/4 0/4to0/3 0/3to0/2 0/2to0/1 0/1to0/0 0/0tobottom0"/>
+        </routeDistribution>
+    </vehicle>
+    <vehicle id="32" depart="714.63" departLane="best" departSpeed="0.00" fromTaz="4" toTaz="1">
+        <routeDistribution last="0">
+            <route cost="115.11" probability="1.00000000" edges="right0to15/0 15/0to14/0 14/0to13/0 13/0to12/0 12/0to11/0 11/0to10/0 10/0to9/0 9/0to8/0 8/0to7/0 7/0to6/0 6/0to5/0 5/0to4/0 4/0to3/0 3/0to2/0 2/0to1/0 1/0to0/0 0/0to0/1 0/1to0/2 0/2to0/3 0/3to0/4 0/4to0/5 0/5to0/6 0/6to0/7 0/7to0/8 0/8to0/9 0/9to0/10 0/10to0/11 0/11to0/12 0/12to0/13 0/13to0/14 0/14to0/15 0/15totop0"/>
+        </routeDistribution>
+    </vehicle>
+    <vehicle id="3" depart="754.69" departLane="best" departSpeed="0.00" fromTaz="1" toTaz="4">
+        <routeDistribution last="0">
+            <route cost="115.11" probability="1.00000000" edges="left15to0/15 0/15to1/15 1/15to2/15 2/15to3/15 3/15to4/15 4/15to5/15 5/15to6/15 6/15to7/15 7/15to8/15 8/15to9/15 9/15to10/15 10/15to10/14 10/14to10/13 10/13to10/12 10/12to10/11 10/11to10/10 10/10to10/9 10/9to10/8 10/8to10/7 10/7to10/6 10/6to10/5 10/5to10/4 10/4to10/3 10/3to10/2 10/2to10/1 10/1to10/0 10/0to11/0 11/0to12/0 12/0to13/0 13/0to14/0 14/0to15/0 15/0tobottom15"/>
+        </routeDistribution>
+    </vehicle>
+    <vehicle id="15" depart="759.41" departLane="best" departSpeed="0.00" fromTaz="2" toTaz="3">
+        <routeDistribution last="0">
+            <route cost="115.11" probability="1.00000000" edges="left0to0/0 0/0to1/0 1/0to2/0 2/0to3/0 3/0to4/0 4/0to5/0 5/0to6/0 6/0to7/0 7/0to8/0 8/0to9/0 9/0to10/0 10/0to10/1 10/1to10/2 10/2to10/3 10/3to10/4 10/4to10/5 10/5to10/6 10/6to10/7 10/7to10/8 10/8to10/9 10/9to10/10 10/10to10/11 10/11to10/12 10/12to10/13 10/13to10/14 10/14to10/15 10/15to11/15 11/15to12/15 12/15to13/15 13/15to14/15 14/15to15/15 15/15totop15"/>
+        </routeDistribution>
+    </vehicle>
+    <vehicle id="7" depart="768.76" departLane="best" departSpeed="0.00" fromTaz="1" toTaz="4">
+        <routeDistribution last="0">
+            <route cost="115.11" probability="1.00000000" edges="left15to0/15 0/15to1/15 1/15to2/15 2/15to3/15 3/15to4/15 4/15to5/15 5/15to6/15 6/15to7/15 7/15to8/15 8/15to9/15 9/15to10/15 10/15to10/14 10/14to10/13 10/13to10/12 10/12to10/11 10/11to10/10 10/10to10/9 10/9to10/8 10/8to10/7 10/7to10/6 10/6to10/5 10/5to10/4 10/4to10/3 10/3to10/2 10/2to10/1 10/1to10/0 10/0to11/0 11/0to12/0 12/0to13/0 13/0to14/0 14/0to15/0 15/0tobottom15"/>
+        </routeDistribution>
+    </vehicle>
+    <vehicle id="28" depart="793.64" departLane="best" departSpeed="0.00" fromTaz="3" toTaz="2">
+        <routeDistribution last="0">
+            <route cost="115.11" probability="1.00000000" edges="right15to15/15 15/15to14/15 14/15to13/15 13/15to12/15 12/15to11/15 11/15to10/15 10/15to9/15 9/15to8/15 8/15to7/15 7/15to6/15 6/15to5/15 5/15to4/15 4/15to3/15 3/15to2/15 2/15to1/15 1/15to0/15 0/15to0/14 0/14to0/13 0/13to0/12 0/12to0/11 0/11to0/10 0/10to0/9 0/9to0/8 0/8to0/7 0/7to0/6 0/6to0/5 0/5to0/4 0/4to0/3 0/3to0/2 0/2to0/1 0/1to0/0 0/0tobottom0"/>
+        </routeDistribution>
+    </vehicle>
+    <vehicle id="2" depart="799.13" departLane="best" departSpeed="0.00" fromTaz="1" toTaz="4">
+        <routeDistribution last="0">
+            <route cost="115.11" probability="1.00000000" edges="left15to0/15 0/15to1/15 1/15to2/15 2/15to3/15 3/15to4/15 4/15to5/15 5/15to6/15 6/15to7/15 7/15to8/15 8/15to9/15 9/15to10/15 10/15to10/14 10/14to10/13 10/13to10/12 10/12to10/11 10/11to10/10 10/10to10/9 10/9to10/8 10/8to10/7 10/7to10/6 10/6to10/5 10/5to10/4 10/4to10/3 10/3to10/2 10/2to10/1 10/1to10/0 10/0to11/0 11/0to12/0 12/0to13/0 13/0to14/0 14/0to15/0 15/0tobottom15"/>
+        </routeDistribution>
+    </vehicle>
+    <vehicle id="18" depart="799.91" departLane="best" departSpeed="0.00" fromTaz="2" toTaz="3">
+        <routeDistribution last="0">
+            <route cost="115.11" probability="1.00000000" edges="left0to0/0 0/0to1/0 1/0to2/0 2/0to3/0 3/0to4/0 4/0to5/0 5/0to6/0 6/0to7/0 7/0to8/0 8/0to9/0 9/0to10/0 10/0to10/1 10/1to10/2 10/2to10/3 10/3to10/4 10/4to10/5 10/5to10/6 10/6to10/7 10/7to10/8 10/8to10/9 10/9to10/10 10/10to10/11 10/11to10/12 10/12to10/13 10/13to10/14 10/14to10/15 10/15to11/15 11/15to12/15 12/15to13/15 13/15to14/15 14/15to15/15 15/15totop15"/>
+        </routeDistribution>
+    </vehicle>
+    <vehicle id="13" depart="804.47" departLane="best" departSpeed="0.00" fromTaz="2" toTaz="3">
+        <routeDistribution last="0">
+            <route cost="115.11" probability="1.00000000" edges="left0to0/0 0/0to1/0 1/0to2/0 2/0to3/0 3/0to4/0 4/0to5/0 5/0to6/0 6/0to7/0 7/0to8/0 8/0to9/0 9/0to10/0 10/0to10/1 10/1to10/2 10/2to10/3 10/3to10/4 10/4to10/5 10/5to10/6 10/6to10/7 10/7to10/8 10/8to10/9 10/9to10/10 10/10to10/11 10/11to10/12 10/12to10/13 10/13to10/14 10/14to10/15 10/15to11/15 11/15to12/15 12/15to13/15 13/15to14/15 14/15to15/15 15/15totop15"/>
+        </routeDistribution>
+    </vehicle>
+    <vehicle id="33" depart="821.76" departLane="best" departSpeed="0.00" fromTaz="4" toTaz="1">
+        <routeDistribution last="0">
+            <route cost="115.11" probability="1.00000000" edges="right0to15/0 15/0to14/0 14/0to13/0 13/0to12/0 12/0to11/0 11/0to10/0 10/0to9/0 9/0to8/0 8/0to7/0 7/0to6/0 6/0to5/0 5/0to4/0 4/0to3/0 3/0to2/0 2/0to1/0 1/0to0/0 0/0to0/1 0/1to0/2 0/2to0/3 0/3to0/4 0/4to0/5 0/5to0/6 0/6to0/7 0/7to0/8 0/8to0/9 0/9to0/10 0/10to0/11 0/11to0/12 0/12to0/13 0/13to0/14 0/14to0/15 0/15totop0"/>
+        </routeDistribution>
+    </vehicle>
+    <vehicle id="5" depart="853.01" departLane="best" departSpeed="0.00" fromTaz="1" toTaz="4">
+        <routeDistribution last="0">
+            <route cost="115.11" probability="1.00000000" edges="left15to0/15 0/15to1/15 1/15to2/15 2/15to3/15 3/15to4/15 4/15to5/15 5/15to6/15 6/15to7/15 7/15to8/15 8/15to9/15 9/15to10/15 10/15to10/14 10/14to10/13 10/13to10/12 10/12to10/11 10/11to10/10 10/10to10/9 10/9to10/8 10/8to10/7 10/7to10/6 10/6to10/5 10/5to10/4 10/4to10/3 10/3to10/2 10/2to10/1 10/1to10/0 10/0to11/0 11/0to12/0 12/0to13/0 13/0to14/0 14/0to15/0 15/0tobottom15"/>
+        </routeDistribution>
+    </vehicle>
+    <vehicle id="35" depart="862.12" departLane="best" departSpeed="0.00" fromTaz="4" toTaz="1">
+        <routeDistribution last="0">
+            <route cost="115.11" probability="1.00000000" edges="right0to15/0 15/0to14/0 14/0to13/0 13/0to12/0 12/0to11/0 11/0to10/0 10/0to9/0 9/0to8/0 8/0to7/0 7/0to6/0 6/0to5/0 5/0to4/0 4/0to3/0 3/0to2/0 2/0to1/0 1/0to0/0 0/0to0/1 0/1to0/2 0/2to0/3 0/3to0/4 0/4to0/5 0/5to0/6 0/6to0/7 0/7to0/8 0/8to0/9 0/9to0/10 0/10to0/11 0/11to0/12 0/12to0/13 0/13to0/14 0/14to0/15 0/15totop0"/>
+        </routeDistribution>
+    </vehicle>
+    <vehicle id="4" depart="890.42" departLane="best" departSpeed="0.00" fromTaz="1" toTaz="4">
+        <routeDistribution last="0">
+            <route cost="115.11" probability="1.00000000" edges="left15to0/15 0/15to1/15 1/15to2/15 2/15to3/15 3/15to4/15 4/15to5/15 5/15to6/15 6/15to7/15 7/15to8/15 8/15to9/15 9/15to10/15 10/15to10/14 10/14to10/13 10/13to10/12 10/12to10/11 10/11to10/10 10/10to10/9 10/9to10/8 10/8to10/7 10/7to10/6 10/6to10/5 10/5to10/4 10/4to10/3 10/3to10/2 10/2to10/1 10/1to10/0 10/0to11/0 11/0to12/0 12/0to13/0 13/0to14/0 14/0to15/0 15/0tobottom15"/>
+        </routeDistribution>
+    </vehicle>
+    <vehicle id="34" depart="891.00" departLane="best" departSpeed="0.00" fromTaz="4" toTaz="1">
+        <routeDistribution last="0">
+            <route cost="115.11" probability="1.00000000" edges="right0to15/0 15/0to14/0 14/0to13/0 13/0to12/0 12/0to11/0 11/0to10/0 10/0to9/0 9/0to8/0 8/0to7/0 7/0to6/0 6/0to5/0 5/0to4/0 4/0to3/0 3/0to2/0 2/0to1/0 1/0to0/0 0/0to0/1 0/1to0/2 0/2to0/3 0/3to0/4 0/4to0/5 0/5to0/6 0/6to0/7 0/7to0/8 0/8to0/9 0/9to0/10 0/10to0/11 0/11to0/12 0/12to0/13 0/13to0/14 0/14to0/15 0/15totop0"/>
+        </routeDistribution>
+    </vehicle>
+    <vehicle id="25" depart="895.05" departLane="best" departSpeed="0.00" fromTaz="3" toTaz="2">
+        <routeDistribution last="0">
+            <route cost="115.11" probability="1.00000000" edges="right15to15/15 15/15to14/15 14/15to13/15 13/15to12/15 12/15to11/15 11/15to10/15 10/15to9/15 9/15to8/15 8/15to7/15 7/15to6/15 6/15to5/15 5/15to4/15 4/15to3/15 3/15to2/15 2/15to1/15 1/15to0/15 0/15to0/14 0/14to0/13 0/13to0/12 0/12to0/11 0/11to0/10 0/10to0/9 0/9to0/8 0/8to0/7 0/7to0/6 0/6to0/5 0/5to0/4 0/4to0/3 0/3to0/2 0/2to0/1 0/1to0/0 0/0tobottom0"/>
+        </routeDistribution>
+    </vehicle>
+    <vehicle id="17" depart="960.74" departLane="best" departSpeed="0.00" fromTaz="2" toTaz="3">
+        <routeDistribution last="0">
+            <route cost="115.11" probability="1.00000000" edges="left0to0/0 0/0to1/0 1/0to2/0 2/0to3/0 3/0to4/0 4/0to5/0 5/0to6/0 6/0to7/0 7/0to8/0 8/0to9/0 9/0to10/0 10/0to10/1 10/1to10/2 10/2to10/3 10/3to10/4 10/4to10/5 10/5to10/6 10/6to10/7 10/7to10/8 10/8to10/9 10/9to10/10 10/10to10/11 10/11to10/12 10/12to10/13 10/13to10/14 10/14to10/15 10/15to11/15 11/15to12/15 12/15to13/15 13/15to14/15 14/15to15/15 15/15totop15"/>
+        </routeDistribution>
+    </vehicle>
+    <vehicle id="12" depart="967.34" departLane="best" departSpeed="0.00" fromTaz="2" toTaz="3">
+        <routeDistribution last="0">
+            <route cost="115.11" probability="1.00000000" edges="left0to0/0 0/0to1/0 1/0to2/0 2/0to3/0 3/0to4/0 4/0to5/0 5/0to6/0 6/0to7/0 7/0to8/0 8/0to9/0 9/0to10/0 10/0to10/1 10/1to10/2 10/2to10/3 10/3to10/4 10/4to10/5 10/5to10/6 10/6to10/7 10/7to10/8 10/8to10/9 10/9to10/10 10/10to10/11 10/11to10/12 10/12to10/13 10/13to10/14 10/14to10/15 10/15to11/15 11/15to12/15 12/15to13/15 13/15to14/15 14/15to15/15 15/15totop15"/>
+        </routeDistribution>
+    </vehicle>
+    <vehicle id="14" depart="976.27" departLane="best" departSpeed="0.00" fromTaz="2" toTaz="3">
+        <routeDistribution last="0">
+            <route cost="115.11" probability="1.00000000" edges="left0to0/0 0/0to1/0 1/0to2/0 2/0to3/0 3/0to4/0 4/0to5/0 5/0to6/0 6/0to7/0 7/0to8/0 8/0to9/0 9/0to10/0 10/0to10/1 10/1to10/2 10/2to10/3 10/3to10/4 10/4to10/5 10/5to10/6 10/6to10/7 10/7to10/8 10/8to10/9 10/9to10/10 10/10to10/11 10/11to10/12 10/12to10/13 10/13to10/14 10/14to10/15 10/15to11/15 11/15to12/15 12/15to13/15 13/15to14/15 14/15to15/15 15/15totop15"/>
+        </routeDistribution>
+    </vehicle>
+    <vehicle id="16" depart="977.73" departLane="best" departSpeed="0.00" fromTaz="2" toTaz="3">
+        <routeDistribution last="0">
+            <route cost="115.11" probability="1.00000000" edges="left0to0/0 0/0to1/0 1/0to2/0 2/0to3/0 3/0to4/0 4/0to5/0 5/0to6/0 6/0to7/0 7/0to8/0 8/0to9/0 9/0to10/0 10/0to10/1 10/1to10/2 10/2to10/3 10/3to10/4 10/4to10/5 10/5to10/6 10/6to10/7 10/7to10/8 10/8to10/9 10/9to10/10 10/10to10/11 10/11to10/12 10/12to10/13 10/13to10/14 10/14to10/15 10/15to11/15 11/15to12/15 12/15to13/15 13/15to14/15 14/15to15/15 15/15totop15"/>
+        </routeDistribution>
+    </vehicle>
+</routes>

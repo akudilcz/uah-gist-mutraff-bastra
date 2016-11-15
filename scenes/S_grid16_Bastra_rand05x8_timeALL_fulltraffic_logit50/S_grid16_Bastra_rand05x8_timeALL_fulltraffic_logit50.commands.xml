@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<commands>
+  <command time="0" name="Maps" param="../../../scenes/S_grid16_Bastra_rand05x8_timeALL_fulltraffic_logit50/S_grid16_Bastra_rand05x8_timeALL_fulltraffic_logit50.maps.xml" />
+</commands>
