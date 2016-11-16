@@ -67,6 +67,11 @@ function default_params() {
   export __SIMUL_TIME_END="4000"
 
   # Group: traffic
+  # Descr: aVEhicle 's routing algorithm
+  # Default: '', allowed values:'dijstra', 'astar', 'ch', 'chwrapper'
+  export __ROUTING_ALGORITHM=""
+
+  # Group: traffic
   # Descr: baseline traffic: random trips to be generated
   # Default: 3000
   export __TRAFFIC_BASELINE="3000"
@@ -159,6 +164,7 @@ s/__LANES__/${__LANES}/g
 s/__MAX_SPEED__/${__MAX_SPEED}/g
 s/__SIMUL_TIME_INI__/${__SIMUL_TIME_INI}/g
 s/__SIMUL_TIME_END__/${__SIMUL_TIME_END}/g
+s/__ROUTING_ALGORITHM__/${__ROUTING_ALGORITHM}/g
 s/__TRAFFIC_BASELINE__/${__TRAFFIC_BASELINE}/g
 s/__TRAFFIC_BRANCH__/${__TRAFFIC_BRANCH}/g
 s/__GRID_SIZE__/${__GRID_SIZE}/g

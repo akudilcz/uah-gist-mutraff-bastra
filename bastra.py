@@ -88,6 +88,13 @@ def load_config():
         v = 1
       dict_conf["edge_stats_sampling"]=v
 
+    try:
+      dict_conf["routing_algorithm"]=readOption("routing_algorithm", "Bastra").lower()
+    except:
+      dict_conf["routing_algorithm"]=""
+    if( not dict_conf["routing_algorithm"] in ['','dijstra','astar','ch','chwrapper'] ):
+      dict_conf["routing_algorithm"]=""
+
     str_verbose=readOption("verbose", "Bastra")
     str_verbose.lower()
     if str_verbose=="true":

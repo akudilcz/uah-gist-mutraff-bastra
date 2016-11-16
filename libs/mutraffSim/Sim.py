@@ -64,6 +64,11 @@ class simulated_traffic:
         self.begin=config["begin"]
         self.end=config["end"]
 
+	# Alvaro Added: 15/11/16
+        self.routing_algorithm=config["routing_algorithm"]
+	if( self.routing_algorithm != "" ):
+          self.routing_algorithm = "--routing-algorithm "+self.routing_algorithm
+
 	# Alvaro Added: 10/10/16
         self.edge_stats_onoff = config["edge_stats_dump"]
         self.edge_stats_file = config["edge_stats_file"]
@@ -740,9 +745,9 @@ class simulated_traffic:
 	outfile = dump_dir + "/" + dump_prefix + str(cur_time) + "_" + str(self.duarouter_sec) + ".out"
 
         if len(map_file)>0:
-          command="duarouter -n " + self.net_file + " -t " + trip_file + " -w " + map_file + " -o " + xmlfile + " --error-log " + self.sumo_log_file + " --ignore-errors --no-warnings"
+          command="duarouter -n " + self.net_file + " -t " + trip_file + " -w " + map_file + " -o " + xmlfile + " --error-log " + self.sumo_log_file + " --ignore-errors --no-warnings " + self.routing_algorithm
         else:
-          command="duarouter -n " + self.net_file + " -t " + trip_file + " -o " + xmlfile + " --error-log " + self.sumo_log_file + " --ignore-errors --no-warnings"
+          command="duarouter -n " + self.net_file + " -t " + trip_file + " -o " + xmlfile + " --error-log " + self.sumo_log_file + " --ignore-errors --no-warnings " + self.routing_algorithm
         self.log_file.printLog(self.LEVEL1,"Calculating new trips - duarouter sec " + str(self.duarouter_sec) + ": " + command + "\n")
         os.system(command)
 

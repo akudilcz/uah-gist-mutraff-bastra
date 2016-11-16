@@ -176,6 +176,19 @@ class TrafficCenter:
 	# print("{:d} ==> ALERT: {:s}/{:s}: {:s} ".format(a.getEpoch(), a.getClass(), a.getInstance(), a.getText()) )
 
 
+  # -------------------------------------------
+  def edgeStatsPublish(self, edgeStats):
+    if( not self.conf['publish_edgestats'] ):
+      return
+
+    if( edgeStats ):
+       self.messagePublish( 'EDGE_STATS', 'json', '{"warn":"TO_BE_IMPLEMENTED_SOON"}' )
+#      for n in range(0,len(alerts)):
+#	a = alerts[n]
+#	self.messagePublish( 'ALERT', 'json', a.to_json() )
+#	# print("{:d} ==> ALERT: {:s}/{:s}: {:s} ".format(a.getEpoch(), a.getClass(), a.getInstance(), a.getText()) )
+
+
   # ==========================================================================
   # SYNCHRONOUS LOOP
   # ==========================================================================
@@ -335,6 +348,9 @@ class TrafficCenter:
 
       alerts = self.simulator.doSimulationStep()
       self.alertsPublish( alerts )
+
+      edgeStats = self.simulator.getEdgeStats()
+      self.edgeStatsPublish( edgeStats):
 
       # Important: do nothing after doSimulationStep inside this loop
       # -- end of simulation loop ------------------------------

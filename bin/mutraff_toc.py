@@ -113,7 +113,23 @@ def config_file_load(conf_file):
     try:
       f_conf["publish_alerts"]=config_file_read_option(l_config, "publish_alerts", conf_section )
     except:
-       f_conf["publish_alerts"]='true'
+      f_conf["publish_alerts"]='true'
+
+    # Alvaro Added: 15/11/16
+    try:
+      f_conf["publish_edgeStats"]=config_file_read_option(l_config, "publish_edgeStats", conf_section )
+    except:
+      f_conf["publish_edgeStats"]='false'
+
+    # Alvaro Added: 15/11/16
+    try:
+      f_conf["routing_algorithm"]=config_file_read_option(l_config, "routing_algorithm", conf_section).lower()
+    except:
+      f_conf["routing_algorithm"]=""
+    if( not f_conf["routing_algorithm"] in ['','dijstra','astar','ch','chwrapper'] ):
+      f_conf["routing_algorithm"]=""
+    log_file.printLog(LEVEL1, "Selected routing algorithm:"+f_conf["routing_algorithm"])
+
 
     str_verbose=config_file_read_option(l_config, "verbose", conf_section )
     str_verbose.lower()
