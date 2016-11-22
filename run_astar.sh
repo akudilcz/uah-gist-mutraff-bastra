@@ -7,6 +7,8 @@ SCENE_DIR=scenes
 REFERENCE=M.typed-routes.xml
 DEMAND_REFERENCE="$SCENE_DIR/DEMANDS/$REFERENCE"
 
+# grid16_BastraAstar_rand05x8_timeALL_fulltraffic_logit05\
+# grid16_BastraAstar_rand05x8_timeALL_fulltraffic_logit10\
 SCENES="\
  grid16_noBastraAstar_reference_fulltraffic\
  grid16_BastraAstar_rand05x8_timeALL_fulltraffic_logit20\
