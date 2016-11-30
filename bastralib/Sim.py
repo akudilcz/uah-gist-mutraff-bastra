@@ -129,7 +129,9 @@ class simulated_traffic:
 
                 self.edge_weigths[edge_id]=l_lane.get("speed")
                 self.edge_lengths[edge_id]=l_lane.get("length")
-                [x1, y1, x2, y2 ] = re.split( '[, ]', l_lane.get("shape") )
+		# ALVARO: 6/11/2016: BUG CORRECTION: sometimes SHAPE brings 3D coordinates
+                # [x1, y1, x2, y2 ] = re.split( '[, ]', l_lane.get("shape") )
+                [x1, y1, x2, y2 ] = re.split( '[, ]', l_lane.get("shape") )[0:4]
 		av_x = (float(x1)+float(x2))/2
 		av_y = (float(y1)+float(y2))/2
 		

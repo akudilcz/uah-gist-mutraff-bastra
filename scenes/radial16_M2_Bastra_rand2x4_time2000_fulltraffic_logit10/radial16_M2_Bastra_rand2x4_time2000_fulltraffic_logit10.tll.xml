@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on Mon Nov 28 16:55:44 2016 by SUMO netgenerate Version 0.27.1
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/netgenerateConfiguration.xsd">
+
+    <spider_network>
+        <spider value="true"/>
+        <spider.arm-number value="16"/>
+        <spider.circle-number value="16"/>
+        <spider.space-radius value="100"/>
+        <spider.omit-center value="true"/>
+    </spider_network>
+
+    <output>
+        <output-file value="radial16_M2_Bastra_rand2x4_time2000_fulltraffic_logit10.net.xml"/>
+        <plain-output-prefix value="radial16_M2_Bastra_rand2x4_time2000_fulltraffic_logit10"/>
+    </output>
+
+    <building_defaults>
+        <default.lanenumber value="1"/>
+        <default.speed value="13.9"/>
+        <default.priority value="-1"/>
+    </building_defaults>
+
+    <report>
+        <verbose value="true"/>
+    </report>
+
+</configuration>
+-->
+
+<tlLogics version="0.27" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/tllogic_file.xsd">
+</tlLogics>

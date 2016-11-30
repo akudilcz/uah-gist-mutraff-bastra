@@ -1,0 +1,15 @@
+<demand xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo-sim.org/xsd/amitran/od.xsd">
+   <actorConfig id="0">
+       <timeSlice duration="1000000" startTime="0">
+           <odPair amount="3000" origin="1" destination="2" />
+           <odPair amount="3000" origin="2" destination="1" />
+	<!--
+           <odPair amount="__TRAFFIC_BASELINE__" destination="99" origin="99" />
+           <odPair amount="__TRAFFIC_BRANCH__" destination="2" origin="3" />
+           <odPair amount="__TRAFFIC_BRANCH__" destination="1" origin="4" />
+	-->
+<!--
+-->
+       </timeSlice>
+   </actorConfig>
+</demand>

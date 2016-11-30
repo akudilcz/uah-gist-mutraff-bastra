@@ -22,6 +22,7 @@ __NET_NAME=radial16
 __NET_TYPE=radial
 __PREFIX=radial16_Bastra_rand2x4_timeALL_fulltraffic_logit50
 __ROADLENGTH=50
+__ROUTING_ALGORITHM=
 __SIMUL_TIME_END=4000
 __SIMUL_TIME_INI=0
 __SPIDER_ARMS=16

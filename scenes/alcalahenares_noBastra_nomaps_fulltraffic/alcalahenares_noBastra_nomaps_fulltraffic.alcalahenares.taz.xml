@@ -1,0 +1,66 @@
+    <tazs>
+	<!-- CITY CENTER -->
+      <!--
+        <taz id="99" edges="1/10to1/11 1/10to1/12 ... etc ... " />
+      -->
+	<!-- N-II Extremo Madrid -->
+        <taz id="1">
+	    <!-- carriles principales -->
+            <tazSource id="35576028" weight="1"/>
+	    <!-- via de servicio  -->
+            <tazSource id="125462782#0" weight="1"/>
+
+	    <!-- carriles principales -->
+	    <tazSink id="409770784" weight="1"/>
+        </taz>
+
+	<!-- N-II Extremo Barcelona -->
+        <taz id="2">
+            <tazSource id="355558165#0" weight="1"/>
+	    <tazSink id="23859154#1" weight="1"/>
+        </taz>
+
+	<!-- M-100 Extremo Mejorada -->
+        <taz id="3">
+            <tazSource id="329573257" weight="1"/>
+            <tazSource id="97751437#0" weight="1"/>
+	    <tazSink id="409863378#2" weight="1"/>
+	    <tazSink id="66848920" weight="1"/>
+        </taz>
+
+	<!-- M-100 Extremo Daganzo -->
+        <taz id="4">
+            <tazSource id="4616750#0" weight="1"/>
+	    <tazSink id="96645524#1" weight="1"/>
+        </taz>
+
+	<!-- M-300 Extremo Alcala -->
+        <taz id="5">
+	    <!-- M-300 destino alcala -->
+            <tazSource id="22726045" weight="1"/>
+	    <!-- M-300 destino arganda -->
+            <tazSource id="180049723#0" weight="1"/>
+	    <tazSink id="126777129#2" weight="1"/>
+	    <tazSink id="180049721#1" weight="1"/>
+        </taz>
+
+	<!-- M-300 Extremo Arganda -->
+        <taz id="6">
+            <tazSource id="345228944#0" weight="1"/>
+	    <tazSink id="-345228944#0" weight="1"/>
+        </taz>
+
+	<!-- M-119 Extremo Camarma -->
+        <taz id="7">
+            <tazSource id="-95159050#1" weight="1"/>
+	    <tazSink id="95159050#1" weight="1"/>
+        </taz>
+
+	<!-- M-121 Extremo Meco -->
+        <taz id="8">
+            <tazSource id="-26141600" weight="1"/>
+	    <tazSink id="26141600" weight="1"/>
+        </taz>
+
+    </tazs>
+</net>

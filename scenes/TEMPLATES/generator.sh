@@ -8,8 +8,9 @@ function params_create() {
   p_net_name="$1"
   p_bastra="$2"
   p_map="$3"
-  p_traffic="$4"
-  p_logit="$5"
+  p_demand="$4"
+  p_traffic="$5"
+  p_logit="$6"
   p_logit_val=`echo "$p_logit/100"|bc -l`
 
   p_roadlen="50"
@@ -55,6 +56,31 @@ function params_create() {
   esac
 
   # ----------------
+  case "$p_demand" in
+    L)		p_traffic_rand="3000"
+		p_traffic_dir="200"
+    		;;
+    M2)		p_traffic_rand="1500"
+		p_traffic_dir="200"
+    		;;
+    M)		p_traffic_rand="2000"
+		p_traffic_dir="200"
+    		;;
+    S)		p_traffic_rand="1000"
+		p_traffic_dir="200"
+    		;;
+    XL2)	p_traffic_rand="4000"
+		p_traffic_dir="500"
+    		;;
+    XS)		p_traffic_rand="500"
+		p_traffic_dir="200"
+    		;;
+    XXS)	p_traffic_rand="0"
+		p_traffic_dir="10"
+    		;;
+  esac
+
+  # ----------------
   if [[ "$p_map" =~ .*time([0-9]+).* ]]
   then
     p_map_ini="${BASH_REMATCH[1]}"
@@ -63,10 +89,10 @@ function params_create() {
   # ----------------
   if [ "$p_bastra" == "Bastra" ]
   then
-    p_prefix="${p_net_name}_${p_bastra}_${p_map}_${p_traffic}_logit${p_logit}"
+    p_prefix="${p_net_name}_${p_demand}_${p_bastra}_${p_map}_${p_traffic}_logit${p_logit}"
     p_use_bastra="true"
   else
-    p_prefix="${p_net_name}_${p_bastra}_${p_map}_${p_traffic}"
+    p_prefix="${p_net_name}_${p_demand}_${p_bastra}_${p_map}_${p_traffic}"
     p_logit="1"
   fi
 
@@ -113,8 +139,10 @@ rand05x2_time2000 rand05x4_time2000 \
 rand2x2_timeALL rand2x4_timeALL rand2x2_time2000 rand2x4_time2000 \
 "
 TRAFFIC_TYPES="randomtraffic dirtraffic fulltraffic"
+TRAFFIC_TYPES="fulltraffic"
 LOGIT="05 10 20 50 100"
 BASTRA="noBastra Bastra"
+DEMAND="L M2 M S XL2 XS XXS"
 
 # -----------------------------------------------------------------------
 # -----------------------------------------------------------------------
@@ -138,9 +166,12 @@ EOF
     do
       for Traffic in ${TRAFFIC_TYPES}
       do
-        for Logit in ${LOGIT}
+        for Demand in ${DEMAND}
         do
-		params_create $NetworkType $Bastra $Map $Traffic $Logit
+          for Logit in ${LOGIT}
+          do
+		params_create $NetworkType $Bastra $Map $Demand $Traffic $Logit
+          done
         done
       done
     done

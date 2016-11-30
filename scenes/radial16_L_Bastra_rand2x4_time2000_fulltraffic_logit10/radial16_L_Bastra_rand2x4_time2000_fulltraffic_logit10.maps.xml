@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<maps>
+  <map tag="car" prob="0.25" file="../../../scenes/radial16_L_Bastra_rand2x4_time2000_fulltraffic_logit10/maps/map.radial16.rand2.rand.1.xml" />
+  <map tag="car" prob="0.25" file="../../../scenes/radial16_L_Bastra_rand2x4_time2000_fulltraffic_logit10/maps/map.radial16.rand2.rand.2.xml" />
+  <map tag="car" prob="0.25" file="../../../scenes/radial16_L_Bastra_rand2x4_time2000_fulltraffic_logit10/maps/map.radial16.rand2.rand.3.xml" />
+  <map tag="car" prob="0.25" file="../../../scenes/radial16_L_Bastra_rand2x4_time2000_fulltraffic_logit10/maps/map.radial16.rand2.rand.4.xml" />
+  <map tag="taxi" prob="0.25" file="../../../scenes/radial16_L_Bastra_rand2x4_time2000_fulltraffic_logit10/maps/map.radial16.rand2.rand.1.xml" />
+  <map tag="taxi" prob="0.25" file="../../../scenes/radial16_L_Bastra_rand2x4_time2000_fulltraffic_logit10/maps/map.radial16.rand2.rand.2.xml" />
+  <map tag="taxi" prob="0.25" file="../../../scenes/radial16_L_Bastra_rand2x4_time2000_fulltraffic_logit10/maps/map.radial16.rand2.rand.3.xml" />
+  <map tag="taxi" prob="0.25" file="../../../scenes/radial16_L_Bastra_rand2x4_time2000_fulltraffic_logit10/maps/map.radial16.rand2.rand.4.xml" />
+  <map tag="motorcycle" prob="0.25" file="../../../scenes/radial16_L_Bastra_rand2x4_time2000_fulltraffic_logit10/maps/map.radial16.rand2.rand.1.xml" />
+  <map tag="motorcycle" prob="0.25" file="../../../scenes/radial16_L_Bastra_rand2x4_time2000_fulltraffic_logit10/maps/map.radial16.rand2.rand.2.xml" />
+  <map tag="motorcycle" prob="0.25" file="../../../scenes/radial16_L_Bastra_rand2x4_time2000_fulltraffic_logit10/maps/map.radial16.rand2.rand.3.xml" />
+  <map tag="motorcycle" prob="0.25" file="../../../scenes/radial16_L_Bastra_rand2x4_time2000_fulltraffic_logit10/maps/map.radial16.rand2.rand.4.xml" />
+  <map tag="bus" prob="1" file="../../../scenes/radial16_L_Bastra_rand2x4_time2000_fulltraffic_logit10/maps/map.radial16.reference.mapR.xml" />
+</maps>

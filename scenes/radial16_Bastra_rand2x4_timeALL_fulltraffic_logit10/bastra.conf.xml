@@ -17,7 +17,7 @@
     <edge_stats_file value="edge_stats.csv" />
     <!-- <edge_stats_sampling value="10" /> -->
 
-    <logit value="0.1"/>
+    <logit value="10"/>
     <use_balance value="true"/>
     <foresight_steps value="0"/>
     <foresight_tries value="0"/>
@@ -26,6 +26,9 @@
     <!-- Simulation from/to -->
     <begin value="0"/>
     <end value="4000"/>
+
+    <!-- Routing Algorithm: dijstra, astar, ch, chwrapper -->
+    <routing_algorithm value=""/>
   </Bastra>
 
   <Sumo>

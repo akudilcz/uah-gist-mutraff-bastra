@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<config>
+  <Bastra>
+    <route_file value="../../../scenes/radial16_M2_Bastra_rand05x1_timeALL_fulltraffic_logit50/radial16_M2_Bastra_rand05x1_timeALL_fulltraffic_logit50.typed-routes.xml"/>
+    <commands_file value="../../../scenes/radial16_M2_Bastra_rand05x1_timeALL_fulltraffic_logit50/radial16_M2_Bastra_rand05x1_timeALL_fulltraffic_logit50.commands.xml"/>
+    <verbose value="true"/>
+    <log_dir value="./logs/"/>
+    <log_file value="bastra.log"/>
+    <log_level value="3"/>
+    <dump_dir value="./dumps/"/>
+    <tmp_dir value="./tmp/"/>
+    <results_dir value="./results/"/>
+    <new_routes_file value="new_routes.xml"/>
+    <statistics_file value="statistics.csv" />
+    <edge_stats_dump value="true" />
+    <edge_stats_file value="edge_stats.csv" />
+    <!-- <edge_stats_sampling value="10" /> -->
+
+    <logit value=".50000000000000000000"/>
+    <use_balance value="true"/>
+    <foresight_steps value="0"/>
+    <foresight_tries value="0"/>
+    <foresight_halting value="0"/>
+    <foresight_penalty value="1"/>
+    <!-- Simulation from/to -->
+    <begin value="0"/>
+    <end value="4000"/>
+
+    <!-- Routing Algorithm: dijstra, astar, ch, chwrapper -->
+    <routing_algorithm value=""/>
+  </Bastra>
+
+  <Sumo>
+    <port value="2081"/>
+    <interactive value="false"/>
+    <sumo_config value="../../../scenes/radial16_M2_Bastra_rand05x1_timeALL_fulltraffic_logit50/radial16_M2_Bastra_rand05x1_timeALL_fulltraffic_logit50.sumo.conf"/>
+    <net_file value="../../../scenes/radial16_M2_Bastra_rand05x1_timeALL_fulltraffic_logit50/radial16_M2_Bastra_rand05x1_timeALL_fulltraffic_logit50.net.xml"/>
+    <log_file value="sumo.log"/>
+  </Sumo>
+</config>
