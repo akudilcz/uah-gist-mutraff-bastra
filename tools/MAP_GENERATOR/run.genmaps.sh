@@ -1,4 +1,7 @@
 #!/bin/bash
+# ---------------------------------------------------------------------
+# GENERATE MAPS WITH RANDOM NORMAL DISTRIBUTIONS
+# ---------------------------------------------------------------------
 
 mkdir grid16.maps
 python genmaps.bastra.py -c gmp.grid16.ref.conf

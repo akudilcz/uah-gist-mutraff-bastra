@@ -1,8 +1,4 @@
     <tazs>
-	<!-- CITY CENTER -->
-      <!--
-        <taz id="99" edges="1/10to1/11 1/10to1/12 ... etc ... " />
-      -->
 	<!-- N-II Extremo Madrid -->
         <taz id="1">
 	    <!-- carriles principales -->
@@ -62,5 +58,8 @@
 	    <tazSink id="26141600" weight="1"/>
         </taz>
 
+	<!-- CITY CENTER -->
+        <!-- CASCO HISTORICO PZA CERVANTES -->
+        <taz id="99" edges="-408875678#0 408875678#0 -23869711#0 23869711#0 408875679#1 -408875679#1 69966121#1 23858625#1 23858625#4 -61238148#3 61238148#3 23352524 23858590#1 23858590#3 192156455" />
     </tazs>
 </net>

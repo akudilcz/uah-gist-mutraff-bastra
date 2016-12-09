@@ -14,6 +14,21 @@ import Vehicle
 import NewTripClass
 import random
 
+# -- Alvaro 09/12/2016
+# DECORATOR FOR TIME MANAGEMENT
+# Usage as:
+# @log_computing_time('la_funcion')
+def log_computing_time(txt):
+  def time_decorator(func):
+    def wrapper(*args, **kwargs):
+      beg_ts = time.time()
+      func(*args, **kwargs)
+      end_ts = time.time()
+      #print(txt+":elapsed time: %f" % (end_ts - beg_ts))
+      myself = args[0]
+      myself.log_file.printLog(myself.LEVEL2,txt+":elapsed time: %f" % (end_ts - beg_ts)+ "\n")
+    return wrapper
+  return time_decorator
 
 class simulated_traffic:
 #Las pongo de momento, ya veremos si uso otra cosa
@@ -98,8 +113,11 @@ class simulated_traffic:
             
         return
 
+    def now(self):
+        return (traci.simulation.getCurrentTime()/1000)
+
     def actCurTime(self):
-        self.cur_time=traci.simulation.getCurrentTime()/1000
+        self.cur_time=self.now()
         return
 
     def getCurTime(self):
@@ -410,16 +428,17 @@ class simulated_traffic:
         return
     
     
-    def calcNewRoutes(self,cur_time):
+    def calcNewRoutes(self):
 
         cont=0
+ 	now = self.now()
         for trip_f in self.trip_file_list:
             trip_f.generateFile()
             if self.balanced:
                 map_file_name=self.prepareMap(trip_f.getWeightMaps())
-                self.execDuarouter(trip_f.getFileName(), map_file_name, self.dump_dir, self.new_routes_file, "router_")
+                self.getRouteForVehicle(now,trip_f.getFileName(), map_file_name, self.dump_dir, self.new_routes_file, "router_")
             else:
-                self.execDuarouter(trip_f.getFileName(), "", self.dump_dir, self.new_routes_file, "router_")
+                self.getRouteForVehicle(now,trip_f.getFileName(), "", self.dump_dir, self.new_routes_file, "router_")
 
             self.saveNewRoutes(self.dump_dir + self.new_routes_file)
             self.recoverPendings(self.sumo_log_file)
@@ -629,7 +648,7 @@ class simulated_traffic:
 	# BUG solved by Alvaro: 20/10/2016
         # jam_routes="jam_routes.xml"
         jam_routes="jam_routes.xml"
-        cur_time=traci.simulation.getCurrentTime()/1000
+        cur_time=self.now()
         index=self.dict_index[veh_id]
         dest=self.vehicle_list[index].getDestiny()
         route=self.vehicle_list[index].getPath()
@@ -645,7 +664,7 @@ class simulated_traffic:
         map_name=self.dump_dir + "jam_map_" + str(cur_time) + "_" + veh_id + ".xml"
         self.genJamMap(pen_edges, map_name, veh_id, penalty)
 
-        self.execDuarouter(trip_f.getFileName(), map_name, self.dump_dir, jam_routes, "jam_")
+        self.getRouteForVehicle(cur_time,trip_f.getFileName(), map_name, self.dump_dir, jam_routes, "jam_")
         result=self.readJamFile(self.dump_dir+"/"+jam_routes)
 
         return result
@@ -738,8 +757,8 @@ class simulated_traffic:
 
         return
 
-    def execDuarouter(self,trip_file, map_file, dump_dir, output_file, dump_prefix ):
-        cur_time=traci.simulation.getCurrentTime()/1000
+    @log_computing_time('getRouteForVehicle')
+    def getRouteForVehicle(self,cur_time,trip_file, map_file, dump_dir, output_file, dump_prefix ):
 	xmlfile = dump_dir + "/" + output_file
 	outfile = dump_dir + "/" + dump_prefix + str(cur_time) + "_" + str(self.duarouter_sec) + ".out"
 
@@ -798,7 +817,7 @@ class simulated_traffic:
         self.distMaps(maps_file)
         self.assingTrips(id_list)
         self.prepareTrips(id_list)
-        self.calcNewRoutes(self.cur_time)
+        self.calcNewRoutes()
 
         return
 
@@ -887,7 +906,7 @@ class simulated_traffic:
                 self.vehicle_list[index].setRerouted(True)
             self.assingTrips(id_list)
             self.prepareTrips(id_list)
-            self.calcNewRoutes(id_list)
+            self.calcNewRoutes()
             self.reroute(id_list)
         return
 

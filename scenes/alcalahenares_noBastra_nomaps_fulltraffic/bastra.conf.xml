@@ -32,8 +32,8 @@
   </Bastra>
 
   <Sumo>
-    <port value="3081"/>
-    <interactive value="true"/>
+    <port value="2081"/>
+    <interactive value="false"/>
     <sumo_config value="../../../scenes/alcalahenares_noBastra_nomaps_fulltraffic/alcalahenares_noBastra_nomaps_fulltraffic.sumo.conf"/>
     <net_file value="../../../scenes/alcalahenares_noBastra_nomaps_fulltraffic/alcalahenares_noBastra_nomaps_fulltraffic.net.xml"/>
     <log_file value="sumo.log"/>

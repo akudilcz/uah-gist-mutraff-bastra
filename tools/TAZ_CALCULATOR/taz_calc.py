@@ -1,10 +1,15 @@
+'''
+Created on 09/12/2016
+@author: Alvaro Paricio
+@description: Calculator of TRAFFIC ASSIGNMENT ZONES (TAZ). Given a networkfile and a polygon description, get all the nodes of the network included inside the polygon.
+'''
 from collections import namedtuple
 from pprint import pprint as pp
 import sys
  
 Pt = namedtuple('Pt', 'x, y')               # Point
 Edge = namedtuple('Edge', 'a, b')           # Polygon edge from a to b
-Poly = namedtuple('Poly', 'name, edges')    # Polygon
+TazPolygon = namedtuple('TazPolygon', 'name, edges')    # TazPolygon
  
 _eps = 0.00001
 _huge = sys.float_info.max
@@ -41,24 +46,24 @@ def rayintersectseg(p, edge):
  
 def _odd(x): return x%2 == 1
  
-def ispointinside(p, poly):
-    ln = len(poly)
+def ispointinside(p, tazpolygon):
+    ln = len(tazpolygon)
     return _odd(sum(rayintersectseg(p, edge)
-                    for edge in poly.edges ))
+                    for edge in tazpolygon.edges ))
  
-def polypp(poly):
-    print ("\n  Polygon(name='%s', edges=(" % poly.name)
-    print ('   ', ',\n    '.join(str(e) for e in poly.edges) + '\n    ))')
+def print_tazpolygon(tazpolygon):
+    print ("\n  TazPolygon(name='%s', edges=(" % tazpolygon.name)
+    print ('   ', ',\n    '.join(str(e) for e in tazpolygon.edges) + '\n    ))')
  
 if __name__ == '__main__':
-    polys = [
-      Poly(name='square', edges=(
+    Tazs = [
+      TazPolygon(name='square', edges=(
         Edge(a=Pt(x=0, y=0), b=Pt(x=10, y=0)),
         Edge(a=Pt(x=10, y=0), b=Pt(x=10, y=10)),
         Edge(a=Pt(x=10, y=10), b=Pt(x=0, y=10)),
         Edge(a=Pt(x=0, y=10), b=Pt(x=0, y=0))
         )),
-      Poly(name='square_hole', edges=(
+      TazPolygon(name='square_hole', edges=(
         Edge(a=Pt(x=0, y=0), b=Pt(x=10, y=0)),
         Edge(a=Pt(x=10, y=0), b=Pt(x=10, y=10)),
         Edge(a=Pt(x=10, y=10), b=Pt(x=0, y=10)),
@@ -68,7 +73,7 @@ if __name__ == '__main__':
         Edge(a=Pt(x=7.5, y=7.5), b=Pt(x=2.5, y=7.5)),
         Edge(a=Pt(x=2.5, y=7.5), b=Pt(x=2.5, y=2.5))
         )),
-      Poly(name='strange', edges=(
+      TazPolygon(name='strange', edges=(
         Edge(a=Pt(x=0, y=0), b=Pt(x=2.5, y=2.5)),
         Edge(a=Pt(x=2.5, y=2.5), b=Pt(x=0, y=10)),
         Edge(a=Pt(x=0, y=10), b=Pt(x=2.5, y=7.5)),
@@ -77,7 +82,7 @@ if __name__ == '__main__':
         Edge(a=Pt(x=10, y=10), b=Pt(x=10, y=0)),
         Edge(a=Pt(x=10, y=0), b=Pt(x=2.5, y=2.5))
         )),
-      Poly(name='exagon', edges=(
+      TazPolygon(name='exagon', edges=(
         Edge(a=Pt(x=3, y=0), b=Pt(x=7, y=0)),
         Edge(a=Pt(x=7, y=0), b=Pt(x=10, y=5)),
         Edge(a=Pt(x=10, y=5), b=Pt(x=7, y=10)),
@@ -92,11 +97,11 @@ if __name__ == '__main__':
                   Pt(x=10, y=10))
  
     print ("\n TESTING WHETHER POINTS ARE WITHIN POLYGONS")
-    for poly in polys:
-        polypp(poly)
-        print ('   ', '\t'.join("%s: %s" % (p, ispointinside(p, poly))
+    for taz in Tazs:
+        print_tazpolygon(taz)
+        print ('   ', '\t'.join("%s: %s" % (p, ispointinside(p, taz))
                                for p in testpoints[:3]))
-        print ('   ', '\t'.join("%s: %s" % (p, ispointinside(p, poly))
+        print ('   ', '\t'.join("%s: %s" % (p, ispointinside(p, taz))
                                for p in testpoints[3:6]))
-        print ('   ', '\t'.join("%s: %s" % (p, ispointinside(p, poly))
+        print ('   ', '\t'.join("%s: %s" % (p, ispointinside(p, taz))
                                for p in testpoints[6:]))
