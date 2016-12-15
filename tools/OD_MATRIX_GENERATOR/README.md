@@ -25,15 +25,20 @@ Available O/D matrices are:
 * Edge ids at links from origins to destinations
 
 ## Usage
+```
 usage: mutraff_odgen [-h] -n IN_NET [-d IN_DEMAND] [-v] [-p OUT_PREFIX] [-A]
                      [-I] [-T] [-P] [-W] [-C] [-N] [-fti FILTER_TIME_INI]
                      [-fte FILTER_TIME_END]
+```
 
 Mandatory arguments:
+```
   -n IN_NET, --in-net IN_NET
                         Input. SUMOs XML net description file
+```
 
 Optional arguments:
+```
   -h, --help            show this help message and exit
   -d IN_DEMAND, --in-demand IN_DEMAND
                         Input. SUMOs trip file
@@ -54,6 +59,7 @@ Optional arguments:
                         Filter. Dump trips from specified time
   -fte FILTER_TIME_END, --filter-time-end FILTER_TIME_END
                         Filter. Dump trips up to specified time
+```
 
 ## Examples
 Examples:
