@@ -1,5 +1,5 @@
 # MuTRAFF ODGEN - Origin/Destination Matrix Calculus
-´´´
+```
                  _              __  __             _                  
                 | |            / _|/ _|           | |                 
  _ __ ___  _   _| |_ _ __ __ _| |_| |_    ___   __| | __ _  ___ _ __  
@@ -8,7 +8,7 @@
 |_| |_| |_|\__,_|\__|_|  \__,_|_| |_|    \___/ \__,_|\__, |\___|_| |_|
                                                       __/ |           
                                                      |___/            
-´´´
+```
 alvaro.paricio@uah.es
 
 ## Description
@@ -58,10 +58,10 @@ Optional arguments:
 ## Examples
 Examples:
 * Generate all matrices:
-'''
+```
 > python mutraff_odgen.py -n alcalahenares.net.xml -d alcalahenares_L_Bastra_uni1x8_timeALL_fulltraffic_logit50.trip.xml -A
-'''
+```
 * Generate time-filtered trip counters:
-'''
+```
 > python mutraff_odgen.py -fti 1 -fte 2 -n alcalahenares.net.xml -C -d alcalahenares_L_Bastra_uni1x8_timeALL_fulltraffic_logit50.trip.xml
-'''
+```
