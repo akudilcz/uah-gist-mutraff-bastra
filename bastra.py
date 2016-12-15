@@ -2,6 +2,7 @@
 import optparse
 import sys
 import os
+import time
 import subprocess
 import traci
 from bastralib import BastraLog
@@ -9,6 +10,7 @@ from bastralib import Sim as Sim
 from bastralib import Command
 from sumolib import checkBinary
 from lxml import etree
+
 
 
 def getConfig():
@@ -190,6 +192,26 @@ if __name__ == '__main__':
     config=load_config().copy()
     log_file=BastraLog.BastraLog(config)
 
+    # -- Alvaro 09/12/2016
+    # DECORATOR FOR TIME MANAGEMENT
+    # Usage as:
+    # @log_computing_time(log_file,'la_funcion')
+    def log_computing_time(log_file,txt):
+      def time_decorator(func):
+        def wrapper(*args, **kwargs):
+          beg_ts = time.time()
+          func(*args, **kwargs)
+          end_ts = time.time()
+          #print(txt+":elapsed time: %f" % (end_ts - beg_ts))
+          log_file.printLog(LEVEL2,txt+":elapsed time: %f" % (end_ts - beg_ts)+ "\n")
+        return wrapper
+      return time_decorator
+
+    @log_computing_time( log_file, 'simulationStep' )
+    def simulationStep():
+      traci.simulationStep()
+      return
+
     # -------------------------------------------------
     # Check sumo installed
     # -------------------------------------------------
@@ -245,6 +267,7 @@ if __name__ == '__main__':
         veh_list=traci.vehicle.getIDList()
         sim.reroute(veh_list)
         sim.foresight(veh_list, config)
+	simulationStep()
         traci.simulationStep()
         get_simulation_results()
 

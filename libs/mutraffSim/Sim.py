@@ -873,7 +873,8 @@ class simulated_traffic:
                         str(veh.getEndTime()) +sep+
                         str(veh.getEndTime()-veh.getDepartTime()) +sep+
                         veh.getOrigin() +sep+
-                        veh.getDestiny() +sep
+                        veh.getDestiny() +sep+
+                        str(veh.getRouteCalc()) +sep
                         )
             path_num=0
             path_distance=0

@@ -13,7 +13,7 @@
     <results_dir value="./results/"/>
     <new_routes_file value="new_routes.xml"/>
     <statistics_file value="statistics.csv" />
-    <edge_stats_dump value="true" />
+    <edge_stats_dump value="false" />
     <edge_stats_file value="edge_stats.csv" />
     <!-- <edge_stats_sampling value="10" /> -->
 
@@ -33,7 +33,7 @@
 
   <Sumo>
     <port value="2081"/>
-    <interactive value="false"/>
+    <interactive value="true"/>
     <sumo_config value="../../../scenes/alcalahenares_L_Bastra_uni1x8_timeALL_fulltraffic_logit50/alcalahenares_L_Bastra_uni1x8_timeALL_fulltraffic_logit50.sumo.conf"/>
     <net_file value="../../../scenes/alcalahenares_L_Bastra_uni1x8_timeALL_fulltraffic_logit50/alcalahenares_L_Bastra_uni1x8_timeALL_fulltraffic_logit50.net.xml"/>
     <log_file value="sumo.log"/>

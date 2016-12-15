@@ -31,6 +31,8 @@ class vehicle:
         self.origin_edge=origin
         self.destiny_edge=destiny
         self.route=route
+	# Number of times that the vehicle's route has been recalculated
+        self.route_calc=0
         self.type=type
 
         num_logit=float(logit)
@@ -72,10 +74,14 @@ class vehicle:
 
     def setRoute(self, route):
         self.route=route
+        self.route_calc += 1
         return
 
     def getRoute(self):
         return self.route
+
+    def getRouteCalc(self):
+        return self.route_calc
 
     def isRerouted(self):
         return self.rerouted

@@ -857,6 +857,7 @@ class simulated_traffic:
                         "t_traveltime_secs"+sep+
                         "origin"+sep+
                         "destiny"+sep+
+                        "route_calc_num"+sep+
                         "route_detail"+sep+
                         "route_path_num"+sep+
                         "route_distance"+sep+
@@ -872,7 +873,8 @@ class simulated_traffic:
                         str(veh.getEndTime()) +sep+
                         str(veh.getEndTime()-veh.getDepartTime()) +sep+
                         veh.getOrigin() +sep+
-                        veh.getDestiny() +sep
+                        veh.getDestiny() +sep+
+                        str(veh.getRouteCalc()) +sep
                         )
             path_num=0
             path_distance=0

@@ -10,34 +10,34 @@
        <odPair origin="2" destination="99" amount="500" />
 
        <!-- M-100 Extremo Mejorada -->
-       <odPair origin="3" destination="1" amount="1000" />
-       <odPair origin="3" destination="2" amount="1000" />
-       <odPair origin="3" destination="99" amount="500" />
+       <odPair origin="3" destination="1" amount="500" />
+       <odPair origin="3" destination="2" amount="500" />
+       <odPair origin="3" destination="99" amount="100" />
 
        <!-- M-100 Extremo Daganzo -->
-       <odPair origin="4" destination="1" amount="1000" />
-       <odPair origin="4" destination="2" amount="1000" />
-       <odPair origin="4" destination="99" amount="500" />
+       <odPair origin="4" destination="1" amount="500" />
+       <odPair origin="4" destination="2" amount="500" />
+       <odPair origin="4" destination="99" amount="100" />
 
        <!-- M-300 Extremo Alcala -->
-       <odPair origin="5" destination="1" amount="1000" />
-       <odPair origin="5" destination="2" amount="1000" />
-       <odPair origin="5" destination="99" amount="500" />
+       <odPair origin="5" destination="1" amount="500" />
+       <odPair origin="5" destination="2" amount="500" />
+       <odPair origin="5" destination="99" amount="100" />
 
        <!-- M-300 Extremo Arganda -->
-       <odPair origin="6" destination="1" amount="1000" />
-       <odPair origin="6" destination="2" amount="1000" />
-       <odPair origin="6" destination="99" amount="500" />
+       <odPair origin="6" destination="1" amount="500" />
+       <odPair origin="6" destination="2" amount="500" />
+       <odPair origin="6" destination="99" amount="100" />
 
        <!-- M-300 Extremo Camarma -->
-       <odPair origin="7" destination="1" amount="500" />
-       <odPair origin="7" destination="2" amount="500" />
-       <odPair origin="7" destination="99" amount="500" />
+       <odPair origin="7" destination="1" amount="200" />
+       <odPair origin="7" destination="2" amount="200" />
+       <odPair origin="7" destination="99" amount="100" />
 
        <!-- M-300 Extremo Meco -->
-       <odPair origin="8" destination="1" amount="500" />
-       <odPair origin="8" destination="2" amount="500" />
-       <odPair origin="8" destination="99" amount="500" />
+       <odPair origin="8" destination="1" amount="200" />
+       <odPair origin="8" destination="2" amount="200" />
+       <odPair origin="8" destination="99" amount="100" />
 <!--
 -->
      </timeSlice>
