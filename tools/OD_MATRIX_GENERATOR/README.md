@@ -22,7 +22,10 @@ Matrices generated show csv files where:
 Available O/D matrices are:
 * Trip counters 
 * Edge weights for adjacencies from origins to destinations
-* Edge ids at links from origins to destinations
+* Edge ids for links from origins to destinations
+* Edge names for links from origins to destinations
+* Edge priorities at links from origins to destinations
+* Edge SUMO types at links from origins to destinations
 
 ## Usage
 ```

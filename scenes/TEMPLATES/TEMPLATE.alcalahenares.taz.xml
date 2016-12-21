@@ -33,9 +33,9 @@
 	<!-- M-300 Extremo Alcala -->
         <taz id="5">
 	    <!-- M-300 destino alcala -->
-            <tazSource id="22726045" weight="0.5"/>
+            <tazSource id="22726045" weight="0.3"/>
 	    <!-- M-300 destino arganda -->
-            <tazSource id="180049723#0" weight="0.5"/>
+            <tazSource id="180049723#0" weight="0.7"/>
 	    <tazSink id="126777129#2" weight="0.5"/>
 	    <tazSink id="180049721#1" weight="0.5"/>
         </taz>
@@ -56,6 +56,18 @@
         <taz id="8">
             <tazSource id="-26141600" weight="1"/>
 	    <tazSink id="26141600" weight="1"/>
+        </taz>
+
+	<!-- Pruebas para el tunel de la FIAT -->
+	<!-- lado Alcala -->
+        <taz id="700">
+            <tazSource id="180049722" weight="1"/>
+	    <tazSink id="125233793#1" weight="1"/>
+        </taz>
+	<!-- lado Madrid -->
+        <taz id="701">
+            <tazSource id="100851688" weight="1"/>
+	    <tazSink id="-100851688" weight="1"/>
         </taz>
 
 	<!-- CITY CENTER -->

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- MUTRAFF TAZ-CALC version="0.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/nodes_file.xsd"> -->
+<mutazs>
+<mutaz id="minicentro">
+<vertex id="minicentro-0" x="-3.3631306886672974" y="40.484416752334184"/>
+<vertex id="minicentro-1" x="-3.365265727043152" y="40.48325391864341"/>
+<vertex id="minicentro-2" x="-3.364343047142029" y="40.48085474547896"/>
+<vertex id="minicentro-3" x="-3.3609044551849365" y="40.48126685445189"/>
+</mutaz>
+<mutaz id="plazasquare">
+<vertex id="plazasquare-0" x="-3.3645549416542053" y="40.48217878957167"/>
+<vertex id="plazasquare-1" x="-3.3644261956214905" y="40.481909494583725"/>
+<vertex id="plazasquare-2" x="-3.364115059375763" y="40.48198905912443"/>
+<vertex id="plazasquare-3" x="-3.3642518520355225" y="40.48226651422084"/>
+</mutaz>
+
+</mutazs>

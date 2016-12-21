@@ -1,0 +1,102 @@
+/* Always set the map height explicitly to define the size of the div
+ * element that contains the map. */
+
+#map {
+  height: 100%;
+}
+
+
+/* Optional: Makes the sample page fill the window. */
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* MUTAZ header */
+.mutaz-header-logo {
+  background-image: url(./mutraff_logo.gif);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  height: 50px;
+  width: 60px;
+  float: right;
+  position: relative;
+}
+.mutaz-header {
+  font-family: 'Open Sans', sans-serif, helvetica;
+  font-size: 10px;
+  display: block;
+  position: fixed;
+  z-index: 999;
+  top: 15px;
+  right: 15px;
+  margin: auto;
+  padding: 10px;
+  border: 1px solid black;
+}
+/* the button */
+button#join {
+  font-family: sans-serif, helvetica;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+}
+
+/* The Modal (background) */
+.modal {
+    font-family: sans-serif, helvetica;
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+
+.modal-body {
+    text-align: left;
+    font-family: consolas, verdana;
+    font-size: 10px;
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0} 
+    to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}

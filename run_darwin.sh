@@ -58,8 +58,8 @@ BASTRA_SCENE_DIR=$BASTRA_ROOT/scenes/$BASTRA_SCENE
 PYTHON_VERSION=2.7.6
 PYTHON_DEBUG="-m pdb"
 PYTHON_DEBUG=""
-PYTHON_PROFILER_OPTS=""
 PYTHON_PROFILER_OPTS="-m cProfile -o bastra.pstats "
+PYTHON_PROFILER_OPTS=""
 # CURR_PYTHON="`python -V`"
 # [ "$PYTHON_VERSION" != "$CURR_PYTHON" ] && { echo "ERROR: incorrect python version $CURR_PYTHON. Expected $PYTHON_VERSION."; exit 1; }
 

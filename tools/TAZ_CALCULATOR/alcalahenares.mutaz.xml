@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- MUTRAFF TAZ-CALC version="0.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/nodes_file.xsd"> -->
+<mutazs>
+<mutaz id="CascoHistorico">
+<vertex id="CascoHistorico-0" x="-3.3623313903808594" y="40.48606100559154" />
+<vertex id="CascoHistorico-1" x="-3.354349136352539" y="40.48237259968991" />
+<vertex id="CascoHistorico-2" x="-3.3545637130737305" y="40.481393342837116" />
+<vertex id="CascoHistorico-3" x="-3.358168601989746" y="40.47835755581055" />
+<vertex id="CascoHistorico-4" x="-3.3632755279541016" y="40.47522369617654" />
+<vertex id="CascoHistorico-5" x="-3.366236686706543" y="40.474081106798195" />
+<vertex id="CascoHistorico-6" x="-3.3672237396240234" y="40.4773782403884" />
+<vertex id="CascoHistorico-7" x="-3.3701419830322266" y="40.47750881660339" />
+<vertex id="CascoHistorico-8" x="-3.372502326965332" y="40.478814564785544" />
+<vertex id="CascoHistorico-9" x="-3.3757638931274414" y="40.480544642009455" />
+<vertex id="CascoHistorico-10" x="-3.373403549194336" y="40.4828622227593" />
+<vertex id="CascoHistorico-11" x="-3.3713865280151367" y="40.48384145818394" />
+<vertex id="CascoHistorico-12" x="-3.3690690994262695" y="40.484363711235915" />
+<vertex id="CascoHistorico-13" x="-3.365163803100586" y="40.484690117329926" />
+</mutaz>
+
+<mutaz id="ResidOesteSur">
+<vertex id="ResidOesteSur-0" x="-3.3754634857177734" y="40.48074049699897" />
+<vertex id="ResidOesteSur-1" x="-3.372330665588379" y="40.47894513820701" />
+<vertex id="ResidOesteSur-2" x="-3.3701419830322266" y="40.47767203651499" />
+<vertex id="ResidOesteSur-3" x="-3.3670949935913086" y="40.47744352852765" />
+<vertex id="ResidOesteSur-4" x="-3.3662796020507812" y="40.47424433504265" />
+<vertex id="ResidOesteSur-5" x="-3.3629322052001953" y="40.4753869216434" />
+<vertex id="ResidOesteSur-6" x="-3.360142707824707" y="40.469477906936184" />
+<vertex id="ResidOesteSur-7" x="-3.3672666549682617" y="40.46575594018434" />
+<vertex id="ResidOesteSur-8" x="-3.3782529830932617" y="40.4728732054568" />
+<vertex id="ResidOesteSur-9" x="-3.385591506958008" y="40.47150204787304" />
+<vertex id="ResidOesteSur-10" x="-3.3893251419067383" y="40.47767203651499" />
+<vertex id="ResidOesteSur-11" x="-3.3758068084716797" y="40.48051199945566" />
+</mutaz>
+
+<mutaz id="IndustrialOeste">
+<vertex id="IndustrialOeste-0" x="-3.373703956604004" y="40.48227467464749" />
+<vertex id="IndustrialOeste-1" x="-3.3798837661743164" y="40.4865179621232" />
+<vertex id="IndustrialOeste-2" x="-3.3864927291870117" y="40.49111999373815" />
+<vertex id="IndustrialOeste-3" x="-3.388338088989258" y="40.49252338739314" />
+<vertex id="IndustrialOeste-4" x="-3.39353084564209" y="40.48857422801553" />
+<vertex id="IndustrialOeste-5" x="-3.396878242492676" y="40.485832526159044" />
+<vertex id="IndustrialOeste-6" x="-3.3994102478027344" y="40.483384483430186" />
+<vertex id="IndustrialOeste-7" x="-3.403444290161133" y="40.479369500072835" />
+<vertex id="IndustrialOeste-8" x="-3.407135009765625" y="40.476300976924854" />
+<vertex id="IndustrialOeste-9" x="-3.409237861633301" y="40.47502782509255" />
+<vertex id="IndustrialOeste-10" x="-3.4055042266845703" y="40.47300379043315" />
+<vertex id="IndustrialOeste-11" x="-3.386363983154297" y="40.473101728998756" />
+<vertex id="IndustrialOeste-12" x="-3.3893251419067383" y="40.47806376268384" />
+<vertex id="IndustrialOeste-13" x="-3.388681411743164" y="40.47770468044968" />
+<vertex id="IndustrialOeste-14" x="-3.375849723815918" y="40.48038142908172" />
+</mutaz>
+
+<mutaz id="IndustrialOeste2">
+<vertex id="IndustrialOeste2-0" x="-3.4037017822265625" y="40.50244421691464" />
+<vertex id="IndustrialOeste2-1" x="-3.3958053588867188" y="40.5003557431389" />
+<vertex id="IndustrialOeste2-2" x="-3.384990692138672" y="40.49578698007111" />
+<vertex id="IndustrialOeste2-3" x="-3.3848190307617188" y="40.49519954510389" />
+<vertex id="IndustrialOeste2-4" x="-3.3936595916748047" y="40.48893325210777" />
+<vertex id="IndustrialOeste2-5" x="-3.399839401245117" y="40.48384145818394" />
+<vertex id="IndustrialOeste2-6" x="-3.4067916870117188" y="40.47711708719659" />
+<vertex id="IndustrialOeste2-7" x="-3.409280776977539" y="40.475746016273725" />
+<vertex id="IndustrialOeste2-8" x="-3.4129714965820312" y="40.478814564785544" />
+<vertex id="IndustrialOeste2-9" x="-3.4103965759277344" y="40.49023877807067" />
+<vertex id="IndustrialOeste2-10" x="-3.409881591796875" y="40.49839773992187" />
+</mutaz>
+
+<mutaz id="ResidEste">
+<vertex id="ResidEste-0" x="-3.3546924591064453" y="40.48207882413406" />
+<vertex id="ResidEste-1" x="-3.3448219299316406" y="40.483058070987056" />
+<vertex id="ResidEste-2" x="-3.33709716796875" y="40.484233148353866" />
+<vertex id="ResidEste-3" x="-3.3354663848876953" y="40.48723603038724" />
+<vertex id="ResidEste-4" x="-3.3382129669189453" y="40.492653934148" />
+<vertex id="ResidEste-5" x="-3.3388137817382812" y="40.49350248186391" />
+<vertex id="ResidEste-6" x="-3.337869644165039" y="40.49624387037877" />
+<vertex id="ResidEste-7" x="-3.341646194458008" y="40.49800613242087" />
+<vertex id="ResidEste-8" x="-3.348855972290039" y="40.49369829904371" />
+<vertex id="ResidEste-9" x="-3.3420753479003906" y="40.498724077759924" />
+<vertex id="ResidEste-10" x="-3.3432769775390625" y="40.50185684023719" />
+<vertex id="ResidEste-11" x="-3.3491992950439453" y="40.504141053980156" />
+<vertex id="ResidEste-12" x="-3.356752395629883" y="40.50511997891533" />
+<vertex id="ResidEste-13" x="-3.3629322052001953" y="40.50492419507126" />
+<vertex id="ResidEste-14" x="-3.372030258178711" y="40.5009431329603" />
+<vertex id="ResidEste-15" x="-3.3844757080078125" y="40.49519954510389" />
+<vertex id="ResidEste-16" x="-3.388509750366211" y="40.4925886608023" />
+<vertex id="ResidEste-17" x="-3.3738327026367188" y="40.48233995802499" />
+<vertex id="ResidEste-18" x="-3.3713436126708984" y="40.484037303554615" />
+<vertex id="ResidEste-19" x="-3.368854522705078" y="40.484428992581684" />
+<vertex id="ResidEste-20" x="-3.365335464477539" y="40.48475539835824" />
+<vertex id="ResidEste-21" x="-3.362245559692383" y="40.486126285286545" />
+</mutaz>
+
+<mutaz id="ComercialEste">
+<vertex id="ComercialEste-0" x="-3.343534469604492" y="40.502052633034495" />
+<vertex id="ComercialEste-1" x="-3.3454227447509766" y="40.49663548816614" />
+<vertex id="ComercialEste-2" x="-3.344736099243164" y="40.49624387037877" />
+<vertex id="ComercialEste-3" x="-3.3414745330810547" y="40.49781032781315" />
+<vertex id="ComercialEste-4" x="-3.337697982788086" y="40.49598279058393" />
+<vertex id="ComercialEste-5" x="-3.3328914642333984" y="40.49800613242087" />
+<vertex id="ComercialEste-6" x="-3.3226776123046875" y="40.50218316124853" />
+<vertex id="ComercialEste-7" x="-3.3164119720458984" y="40.503945267278674" />
+<vertex id="ComercialEste-8" x="-3.311777114868164" y="40.5078608927256" />
+<vertex id="ComercialEste-9" x="-3.3173561096191406" y="40.517714205174805" />
+<vertex id="ComercialEste-10" x="-3.3223342895507812" y="40.517714205174805" />
+<vertex id="ComercialEste-11" x="-3.330659866333008" y="40.50929656477974" />
+<vertex id="ComercialEste-12" x="-3.335123062133789" y="40.50564206637222" />
+<vertex id="ComercialEste-13" x="-3.3401870727539062" y="40.50153051763842" />
+</mutaz>
+
+<mutaz id="ServiciosNorte">
+<vertex id="ServiciosNorte-0" x="-3.3437061309814453" y="40.524173538086885" />
+<vertex id="ServiciosNorte-1" x="-3.3477401733398438" y="40.5201283721327" />
+<vertex id="ServiciosNorte-2" x="-3.351430892944336" y="40.515038945653" />
+<vertex id="ServiciosNorte-3" x="-3.3522891998291016" y="40.50897027837527" />
+<vertex id="ServiciosNorte-4" x="-3.352632522583008" y="40.505511544888975" />
+<vertex id="ServiciosNorte-5" x="-3.3458518981933594" y="40.50361895483957" />
+<vertex id="ServiciosNorte-6" x="-3.341217041015625" y="40.50172631138816" />
+<vertex id="ServiciosNorte-7" x="-3.3376121520996094" y="40.503488429419434" />
+<vertex id="ServiciosNorte-8" x="-3.3336639404296875" y="40.506686229094186" />
+<vertex id="ServiciosNorte-9" x="-3.338470458984375" y="40.512559341511135" />
+<vertex id="ServiciosNorte-10" x="-3.3334922790527344" y="40.515952460906334" />
+</mutaz>
+
+<mutaz id="ResidNorte">
+<vertex id="Ex: noth-east-0" x="-3.3527183532714844" y="40.50511997891533" />
+<vertex id="Ex: noth-east-1" x="-3.3515167236328125" y="40.51412541795325" />
+<vertex id="Ex: noth-east-2" x="-3.351430892944336" y="40.51673546407424" />
+<vertex id="Ex: noth-east-3" x="-3.362417221069336" y="40.51836669130397" />
+<vertex id="Ex: noth-east-4" x="-3.373231887817383" y="40.516996463098124" />
+<vertex id="Ex: noth-east-5" x="-3.3779525756835938" y="40.51379915504413" />
+<vertex id="Ex: noth-east-6" x="-3.377094268798828" y="40.503684217454385" />
+<vertex id="Ex: noth-east-7" x="-3.377695083618164" y="40.499376748673775" />
+</mutaz>
+
+<mutaz id="IndustrialNorte2">
+<vertex id="IndustrialNorte2-0" x="-3.3777809143066406" y="40.51477793900883" />
+<vertex id="IndustrialNorte2-1" x="-3.377351760864258" y="40.49918094806632" />
+<vertex id="IndustrialNorte2-2" x="-3.385591506958008" y="40.495525898498414" />
+<vertex id="IndustrialNorte2-3" x="-3.3980369567871094" y="40.5009431329603" />
+<vertex id="IndustrialNorte2-4" x="-3.407564163208008" y="40.50309685163507" />
+<vertex id="IndustrialNorte2-5" x="-3.4074783325195312" y="40.51406016549843" />
+</mutaz>
+
+</mutazs>

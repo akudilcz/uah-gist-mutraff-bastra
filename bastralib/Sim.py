@@ -834,11 +834,14 @@ class simulated_traffic:
                 self.log_file.printLogVeh(self.LEVEL3, veh_id, "Sumo's route by traci - Route : " + str(traci.vehicle.getRoute(veh_id)) + "\n")
                 edge=traci.vehicle.getRoadID(veh_id)
                 self.log_file.printLogEdge(self.LEVEL3, edge, "\n")
-                traci.vehicle.setRoute(veh_id,new_route)
-                self.log_file.printLogVeh(self.LEVEL3, veh_id, "Final route: " + str(traci.vehicle.getRoute(veh_id)) + "\n")
-                veh.setRerouted(False)
-                color=traci.vehicle.getColor(veh_id)
-                traci.vehicle.setColor(veh_id, (0,255,0,0))
+		try:
+                  traci.vehicle.setRoute(veh_id,new_route)
+                  veh.setRerouted(False)
+                  color=traci.vehicle.getColor(veh_id)
+                  traci.vehicle.setColor(veh_id, (255,0,0,0))
+                  self.log_file.printLogVeh(self.LEVEL3, veh_id, "Final route: " + str(traci.vehicle.getRoute(veh_id)) + "\n")
+		except:
+                  self.log_file.printLogVeh(self.LEVEL3, veh_id, "ERROR ROUTING VEHICLE" + str(sys.exc_info()[0]) + "\n")
 
         return
 

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on Thu Dec 15 13:55:15 2016 by SUMO netconvert Version 0.27.1
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/netconvertConfiguration.xsd">
+
+    <input>
+        <type-files value="netconvert.osm.types.xml"/>
+        <osm-files value="../osm/alcalahenares.osm"/>
+    </input>
+
+    <output>
+        <output-file value="alcalahenares.net.xml"/>
+        <plain-output-prefix value="alcalahenares"/>
+        <output.street-names value="true"/>
+        <output.original-names value="true"/>
+    </output>
+
+    <projection>
+        <proj.utm value="true"/>
+        <proj.plain-geo value="true"/>
+    </projection>
+
+    <edge_removal>
+        <remove-edges.by-type value="highway.bridleway,highway.cycleway,highway.footway,highway.ford,highway.path,highway.pedestrian,highway.stairs,highway.step,highway.steps,highway.track,railway.light_rail,railway.preserved,railway.rail,railway.subway,railway.tram"/>
+    </edge_removal>
+
+</configuration>
+-->
+
+<nodes version="0.27" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/nodes_file.xsd">
+    <node id="1008995834" x="-3.329860" y="40.504169" type="priority"/>
+    <node id="899610167" x="-3.358258" y="40.490477" type="priority"/>
+    <node id="899610170" x="-3.358463" y="40.491161" type="priority"/>
+    <node id="901860381" x="-3.392747" y="40.492524" type="right_before_left"/>
+    <node id="901860388" x="-3.366897" y="40.476175" type="priority"/>
+    <node id="901860391" x="-3.363794" y="40.492789" type="priority"/>
+    <node id="901860484" x="-3.393049" y="40.492719" type="right_before_left"/>
+    <node id="996950415" x="-3.399945" y="40.480276" type="priority"/>
+    <node id="996950448" x="-3.396240" y="40.479866" type="priority"/>
+</nodes>
