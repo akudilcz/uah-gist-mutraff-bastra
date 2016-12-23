@@ -1,10 +1,8 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 
 <vTypes>
-  <type id="motorcycle" vClass="motorcycle" weight="1" />
-  <type id="car" vClass="passenger" weight="4" />
-  <type id="taxi" vClass="passenger" weight="2" />
-  <type id="bus" vClass="bus" weight="1" />
-  <type id="truck" vClass="truck" weight="1" />
-  <type id="trailer" vClass="truck" weight="1" />
+  <type id="motorcycle" vClass="motorcycle" weight="20" />
+  <type id="car" vClass="passenger" weight="50" />
+  <type id="taxi" vClass="passenger" weight="20" />
+  <type id="bus" vClass="bus" weight="10" />
 </vTypes>

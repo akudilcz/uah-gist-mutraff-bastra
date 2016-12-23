@@ -233,6 +233,13 @@ if __name__ == '__main__':
     # Start sumo and connect to it (traci)
     # -------------------------------------------------
     commands_sequence=readCommandsSequence(config["commands_file"])
+    # sumoProcess = subprocess.Popen([sumoBinary, "-c", config["sumo_config"],"--remote-port", str(config["sumoPort"])], stdout=sys.stdout, stderr=sys.stderr)
+    # *************************************
+    # WARNING
+    # TIMEOUT IN JUNCTIONS: 60
+    JUNCTION_BLOCK_TIMEOUT="60"
+    # *************************************
+    # sumoProcess = subprocess.Popen([sumoBinary, "-c", config["sumo_config"],"--remote-port", str(config["sumoPort"])], "--ignore-junction-blocker", JUNCTION_BLOCK_TIMEOUT, stdout=sys.stdout, stderr=sys.stderr)
     sumoProcess = subprocess.Popen([sumoBinary, "-c", config["sumo_config"],"--remote-port", str(config["sumoPort"])], stdout=sys.stdout, stderr=sys.stderr)
     traci.init(config["sumoPort"])
 

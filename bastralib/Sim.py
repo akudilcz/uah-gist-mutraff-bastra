@@ -761,11 +761,12 @@ class simulated_traffic:
     def getRouteForVehicle(self,cur_time,trip_file, map_file, dump_dir, output_file, dump_prefix ):
 	xmlfile = dump_dir + "/" + output_file
 	outfile = dump_dir + "/" + dump_prefix + str(cur_time) + "_" + str(self.duarouter_sec) + ".out"
+	duarouter_opts = " --ignore-errors --no-warnings --remove-loops true --max-alternatives 10 --repair true --repair.to true --repair.from true "
 
         if len(map_file)>0:
-          command="duarouter -n " + self.net_file + " -t " + trip_file + " -w " + map_file + " -o " + xmlfile + " --error-log " + self.sumo_log_file + " --ignore-errors --no-warnings " + self.routing_algorithm
+          command="duarouter -n " + self.net_file + " -t " + trip_file + " -w " + map_file + " -o " + xmlfile + " --error-log " + self.sumo_log_file + duarouter_opts + self.routing_algorithm
         else:
-          command="duarouter -n " + self.net_file + " -t " + trip_file + " -o " + xmlfile + " --error-log " + self.sumo_log_file + " --ignore-errors --no-warnings " + self.routing_algorithm
+          command="duarouter -n " + self.net_file + " -t " + trip_file + " -o " + xmlfile + " --error-log " + self.sumo_log_file + duarouter_opts + self.routing_algorithm
         self.log_file.printLog(self.LEVEL1,"Calculating new trips - duarouter sec " + str(self.duarouter_sec) + ": " + command + "\n")
         os.system(command)
 
@@ -841,7 +842,9 @@ class simulated_traffic:
                   traci.vehicle.setColor(veh_id, (255,0,0,0))
                   self.log_file.printLogVeh(self.LEVEL3, veh_id, "Final route: " + str(traci.vehicle.getRoute(veh_id)) + "\n")
 		except:
-                  self.log_file.printLogVeh(self.LEVEL3, veh_id, "ERROR ROUTING VEHICLE" + str(sys.exc_info()[0]) + "\n")
+                  self.log_file.printLogVeh(self.LEVEL3, veh_id, "ERROR ROUTING VEHICLE" + str(sys.exc_info()) + "\n")
+                  self.log_file.printLogVeh(self.LEVEL3, veh_id, "Removed from routing queue\n")
+                  veh.setRerouted(False)
 
         return
 

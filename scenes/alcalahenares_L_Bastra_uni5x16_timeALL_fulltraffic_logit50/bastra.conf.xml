@@ -33,7 +33,7 @@
 
   <Sumo>
     <port value="2081"/>
-    <interactive value="false"/>
+    <interactive value="true"/>
     <sumo_config value="../../../scenes/alcalahenares_L_Bastra_uni5x16_timeALL_fulltraffic_logit50/alcalahenares_L_Bastra_uni5x16_timeALL_fulltraffic_logit50.sumo.conf"/>
     <net_file value="../../../scenes/alcalahenares_L_Bastra_uni5x16_timeALL_fulltraffic_logit50/alcalahenares_L_Bastra_uni5x16_timeALL_fulltraffic_logit50.net.xml"/>
     <log_file value="sumo.log"/>

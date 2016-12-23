@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- generated on Thu Dec 15 13:55:15 2016 by SUMO netconvert Version 0.27.1
+<!-- generated on Thu Dec 22 12:57:50 2016 by SUMO netconvert Version 0.27.1
 <?xml version="1.0" encoding="UTF-8"?>
 
 <configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/netconvertConfiguration.xsd">
@@ -23,7 +23,7 @@
     </projection>
 
     <edge_removal>
-        <remove-edges.by-type value="highway.bridleway,highway.cycleway,highway.footway,highway.ford,highway.path,highway.pedestrian,highway.stairs,highway.step,highway.steps,highway.track,railway.light_rail,railway.preserved,railway.rail,railway.subway,railway.tram"/>
+        <remove-edges.by-type value="highway.bridleway,highway.cycleway,highway.footway,highway.ford,highway.path,highway.pedestrian,highway.service,highway.stairs,highway.step,highway.steps,highway.track,railway.light_rail,railway.preserved,railway.rail,railway.subway,railway.tram"/>
     </edge_removal>
 
 </configuration>

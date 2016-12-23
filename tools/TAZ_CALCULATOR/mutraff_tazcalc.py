@@ -37,6 +37,7 @@ Examples:
   parser.add_argument( "-p","--net-path", help='Input. Path to locate files', default='.' )
   parser.add_argument( "-v","--verbose", help='Verbose output', default=False, action='store_true')
   parser.add_argument( "-t","--run-tests", help='Run tests', default=False, action='store_true')
+  parser.add_argument( "-i","--taz-id-seed", help='USe this number as TAZ id numbering seed', default="1000", required=False)
 
   options = vars(parser.parse_args())
 

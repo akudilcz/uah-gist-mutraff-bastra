@@ -18,6 +18,7 @@ highway.footway,\
 highway.ford,\
 highway.path,\
 highway.pedestrian,\
+highway.service,\
 highway.stairs,\
 highway.step,\
 highway.steps,\
