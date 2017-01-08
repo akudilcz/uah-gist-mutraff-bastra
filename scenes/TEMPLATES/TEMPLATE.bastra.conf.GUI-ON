@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<config>
+  <Bastra>
+    <route_file value="../../../scenes/__PREFIX__/__PREFIX__.typed-routes.xml"/>
+    <commands_file value="../../../scenes/__PREFIX__/__PREFIX__.commands.xml"/>
+    <verbose value="false"/>
+    <log_dir value="./logs/"/>
+    <log_file value="bastra.log"/>
+    <log_level value="3"/>
+    <dump_dir value="./dumps/"/>
+    <tmp_dir value="./tmp/"/>
+    <results_dir value="./results/"/>
+    <new_routes_file value="new_routes.xml"/>
+    <statistics_file value="statistics.csv" />
+    <edge_stats_dump value="false" />
+    <edge_stats_file value="edge_stats.csv" />
+    <!-- <edge_stats_sampling value="10" /> -->
+
+    <logit value="__BASTRA_LOGIT__"/>
+    <use_balance value="__BASTRA_USE_BALANCE__"/>
+    <foresight_steps value="__BASTRA_FORESIGHT_STEPS__"/>
+    <foresight_tries value="__BASTRA_FORESIGHT_TRIES__"/>
+    <foresight_halting value="__BASTRA_FORESIGHT_HALTING__"/>
+    <foresight_penalty value="__BASTRA_FORESIGHT_PENALTY__"/>
+    <!-- Simulation from/to -->
+    <begin value="__SIMUL_TIME_INI__"/>
+    <end value="__SIMUL_TIME_END__"/>
+
+    <!-- Routing Algorithm: dijstra, astar, ch, chwrapper -->
+    <routing_algorithm value="__ROUTING_ALGORITHM__"/>
+  </Bastra>
+
+  <Sumo>
+    <port value="2081"/>
+    <interactive value="true"/>
+    <sumo_config value="../../../scenes/__PREFIX__/__PREFIX__.sumo.conf"/>
+    <net_file value="../../../scenes/__PREFIX__/__PREFIX__.net.xml"/>
+    <log_file value="sumo.log"/>
+  </Sumo>
+</config>

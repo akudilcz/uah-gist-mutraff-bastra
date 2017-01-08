@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<maps>
+  <map tag="car" prob="1" file="../../../scenes/radial16_noBastra_XL2_fulltraffic/maps/map.radial16.reference.mapR.xml" />
+  <map tag="taxi" prob="1" file="../../../scenes/radial16_noBastra_XL2_fulltraffic/maps/map.radial16.reference.mapR.xml" />
+  <map tag="bus" prob="1" file="../../../scenes/radial16_noBastra_XL2_fulltraffic/maps/map.radial16.reference.mapR.xml" />
+  <map tag="motorcycle" prob="1" file="../../../scenes/radial16_noBastra_XL2_fulltraffic/maps/map.radial16.reference.mapR.xml" />
+</maps>
