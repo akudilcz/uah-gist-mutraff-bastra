@@ -4,7 +4,7 @@
   <Bastra>
     <route_file value="../../../scenes/alcalahenares_noBastra_nomaps_fulltraffic/alcalahenares_noBastra_nomaps_fulltraffic.typed-routes.xml"/>
     <commands_file value="../../../scenes/alcalahenares_noBastra_nomaps_fulltraffic/alcalahenares_noBastra_nomaps_fulltraffic.commands.xml"/>
-    <verbose value="false"/>
+    <verbose value="true"/>
     <log_dir value="./logs/"/>
     <log_file value="bastra.log"/>
     <log_level value="3"/>
@@ -13,7 +13,7 @@
     <results_dir value="./results/"/>
     <new_routes_file value="new_routes.xml"/>
     <statistics_file value="statistics.csv" />
-    <edge_stats_dump value="false" />
+    <edge_stats_dump value="true" />
     <edge_stats_file value="edge_stats.csv" />
     <!-- <edge_stats_sampling value="10" /> -->
 
@@ -33,7 +33,7 @@
 
   <Sumo>
     <port value="2081"/>
-    <interactive value="true"/>
+    <interactive value="false"/>
     <sumo_config value="../../../scenes/alcalahenares_noBastra_nomaps_fulltraffic/alcalahenares_noBastra_nomaps_fulltraffic.sumo.conf"/>
     <net_file value="../../../scenes/alcalahenares_noBastra_nomaps_fulltraffic/alcalahenares_noBastra_nomaps_fulltraffic.net.xml"/>
     <log_file value="sumo.log"/>

@@ -72,6 +72,11 @@ function default_params() {
   export __ROUTING_ALGORITHM=""
 
   # Group: traffic
+  # Descr: ability and time to teleport a vehicle.
+  # Default: '-1', allowed values:'60', '30', sumo's default '300'
+  export __TELEPORTING="60"
+
+  # Group: traffic
   # Descr: baseline traffic: random trips to be generated
   # Default: 3000
   export __TRAFFIC_BASELINE="3000"
@@ -80,6 +85,18 @@ function default_params() {
   # Descr: directional traffic, peaks, traffic to be generated at certain edges
   # Default: 200
   export __TRAFFIC_BRANCH="0"
+
+  # Group: traffic
+  # Descr: Use pre-defined traffic DEMAND distribution (typed-trips). Is a file name with the traffic distribution to use. WARNING: it is bounded to a concrete network file.
+  # Default: ""
+  # Examples: "../DEMANDS/alcalahenares/alcalahenares.XXL.typed-routes.xml", "../DEMANDS/grid16/M.typed-routes.xml", "../DEMANDS/radial16/XS.typed-routes.xml"
+  export __PREDEFINED_TRAFFIC_DEMAND=""
+
+  # Group: traffic
+  # Descr: Set generated typed demand as pre-defined distribution (typed-trips). Is a file name with the traffic distribution to use. WARNING: it is bounded to a concrete network file.
+  # Default: ""
+  # Examples: "../DEMANDS/alcalahenares/alcalahenares.XXL.typed-routes.xml", "../DEMANDS/grid16/M.typed-routes.xml", "../DEMANDS/radial16/XS.typed-routes.xml"
+  export __SET_AS_PREDEFINED_TRAFFIC_DEMAND=""
 
   # Group: network-grid
   # Descr: square size of the grid
@@ -96,35 +113,47 @@ function default_params() {
   # Default: 16
   export __SPIDER_CIRCLES="16"
 
-  # Group: bastra
-  # Descr: bastra algorithms is active?
+  # Group: mutraff
+  # Descr: mutraff algorithms is active?
   # Default: true
   export __BASTRA_USE_BALANCE="false"
 
-  # Group: bastra
+  # Group: mutraff
   # Descr: percent of users using Bastra application to route their vehicles
   # Default:  0.5
   export __BASTRA_LOGIT="0"
 
-  # Group: bastra-Foresight
+  # Group: mutraff-Foresight
   # Descr: oresight, following edges to consider in the planned route
   # Default: 1
   export __BASTRA_FORESIGHT_STEPS="0"
 
-  # Group: bastra-Foresight
+  # Group: mutraff-Foresight
   # Descr: foresight, number of alternative edges to consider (in a 4 sides crossing, use the 3 resting edges)
   # Default: 3
   export __BASTRA_FORESIGHT_TRIES="0"
 
-  # Group: bastra-Foresight
+  # Group: mutraff-Foresight
   # Descr: foresight, number of halted vehicles to decide jam occurence
   # Default: 3
   export __BASTRA_FORESIGHT_HALTING="0"
 
-  # Group: bastra-Foresight
+  # Group: mutraff-Foresight
   # Descr: weight multiplier for function cost: if congestion is detected increment traveltime x this factor
   # Default: 50
   export __BASTRA_FORESIGHT_PENALTY="1"
+
+  # Group: sumo
+  # Descr: SUMO's listening PORT
+  # Default: 
+  # export __SUMO_PORT="2081"
+  export __SUMO_PORT="2081"
+
+  # Group: sumo
+  # Descr: Enable SUMO GUI
+  # Default: 
+  # export __SUMO_GUI="false"
+  export __SUMO_GUI="false"
 
   # Group: global
   # Descr: name of simulation
@@ -165,6 +194,7 @@ s/__MAX_SPEED__/${__MAX_SPEED}/g
 s/__SIMUL_TIME_INI__/${__SIMUL_TIME_INI}/g
 s/__SIMUL_TIME_END__/${__SIMUL_TIME_END}/g
 s/__ROUTING_ALGORITHM__/${__ROUTING_ALGORITHM}/g
+s/__TELEPORTING__/${__TELEPORTING}/g
 s/__TRAFFIC_BASELINE__/${__TRAFFIC_BASELINE}/g
 s/__TRAFFIC_BRANCH__/${__TRAFFIC_BRANCH}/g
 s/__GRID_SIZE__/${__GRID_SIZE}/g
@@ -176,6 +206,8 @@ s/__BASTRA_FORESIGHT_STEPS__/${__BASTRA_FORESIGHT_STEPS}/g
 s/__BASTRA_FORESIGHT_TRIES__/${__BASTRA_FORESIGHT_TRIES}/g
 s/__BASTRA_FORESIGHT_HALTING__/${__BASTRA_FORESIGHT_HALTING}/g
 s/__BASTRA_FORESIGHT_PENALTY__/${__BASTRA_FORESIGHT_PENALTY}/g
+s/__SUMO_PORT__/${__SUMO_PORT}/g
+s/__SUMO_GUI__/${__SUMO_GUI}/g
 s/length=".*" /length="${__ROADLENGTH}" /g
 EOF
 
@@ -196,7 +228,9 @@ OUT_TMP_FILE="/tmp/tmp.net.xml"
 
 # ----------------------------------------------------------------
 function die() {
+  echo "******************************************"
   echo "ERROR: $*"
+  echo "******************************************"
   exit 1
 }
 
@@ -299,24 +333,64 @@ echo "</net>" >> ${OUT_TMP_FILE}
 cp ${OUT_TMP_FILE} ${__OUT_NETGEN_FILE}
 
 # ----------------------------------------------------------------
-echo "--- Generating the DEMAND od2trips ---"
-od2trips -c ${__OUT_OD_FILE} 
+# DEMAND GENERATION
+# ----------------------------------------------------------------
+echo "-- DEMAND GENERATION --"
+
+if [ ! -z ${__PREDEFINED_TRAFFIC_DEMAND} ]
+then
+  echo "!!!!! WARNING !!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+  echo "--- Using predefined DEMAND file: ${__PREDEFINED_TRAFFIC_DEMAND} ---"
+  echo ""
+  echo "    PLEASE CHECK THAT THEY'RE USING SAME NETWORK FILE VERSION"
+  echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+  DEMAND_FILE="${__PREFIX}.typed-routes.xml"
+  if [ -f ${__PREDEFINED_TRAFFIC_DEMAND} ]
+  then
+    cp ${__PREDEFINED_TRAFFIC_DEMAND} ${DEMAND_FILE}
+  else
+    die "Cannot access defined DEMAND file: ${__PREDEFINED_TRAFFIC_DEMAND}"
+  fi
+else
+  echo "--- Generating the DEMAND od2trips ---"
+  od2trips -c ${__OUT_OD_FILE} 
+
+  # ----------------------------------------------------------------
+  echo "--- Generating the DEMAND duarouter ---"
+  duarouter -c ${__OUT_DUA_FILE} 2>&1 | tee duarouter.err
+  TRIP_FILE=`ls -1 *trip*`
+  echo "Generated "`grep "trip id=" $TRIP_FILE | wc -l`" trips"
+  echo "--- Removing invalid trips ---"
+
+  # -- ALGORYTHM 1 --
+  # cat duarouter.err | grep " has no valid route" | cut -f2 -d"'" | while read i; do echo '(id=\"'$i'\" )'; done | sort > duarouter.invalid_vehicles.txt
+  # echo "Removing "`wc -l duarouter.invalid_vehicles.txt`" invalid trips"
+  # paste -s -d"|" duarouter.invalid_vehicles.txt > duarouter.filter_regex
+  # egrep -v -f duarouter.filter_regex $TRIP_FILE > $TRIP_FILE.tmp
+
+  # -- ALGORYTHM 2 --
+  # cp $TRIP_FILE $TRIP_FILE.tmp
+  # cat duarouter.err | grep " has no valid route" | cut -f2 -d"'" | while read i; do echo "Removing $i";grep -v '(id=\"'$i'\" )' $TRIP_FILE.tmp > $TRIP_FILE.tmp2; mv $TRIP_FILE.tmp2 $TRIP_FILE.tmp; done
+
+  # -- ALGORYTHM 3 --
+  cat duarouter.err | grep " has no valid route" | cut -f2 -d"'" | while read i; do echo '(id=\"'$i'\" )'; done | sort > duarouter.invalid_vehicles.txt
+  echo "Removing "`wc -l duarouter.invalid_vehicles.txt`" invalid trips"
+  python ../../tools/PYGREP/pygrep.py -v -f duarouter.filter_regex -d $TRIP_FILE > $TRIP_FILE.tmp
+
+  mv $TRIP_FILE.tmp $TRIP_FILE
+
+  # ----------------------------------------------------------------
+  echo "--- Typing the vehicles generated in the DEMAND file ---"
+  python ../../tools/randomVehType.py -c ${__OUT_VEH_FILE} 
+fi
 
 # ----------------------------------------------------------------
-echo "--- Generating the DEMAND duarouter ---"
-duarouter -c ${__OUT_DUA_FILE} 2>&1 | tee duarouter.err
-TRIP_FILE=`ls -1 *trip*`
-echo "Generated "`grep "trip id=" $TRIP_FILE | wc -l`" trips"
-echo "--- Removing invalid trips ---"
-cat duarouter.err | grep " has no valid route" | cut -f2 -d"'" | while read i; do echo '(id=\"'$i'\" )'; done | sort > duarouter.invalid_vehicles.txt
-echo "Removing "`wc -l duarouter.invalid_vehicles.txt`" invalid trips"
-paste -s -d"|" duarouter.invalid_vehicles.txt > duarouter.filter_regex
-egrep -v -f duarouter.filter_regex $TRIP_FILE > $TRIP_FILE.tmp
-mv $TRIP_FILE.tmp $TRIP_FILE
-
-# ----------------------------------------------------------------
-echo "--- Typing the vehicles generated in the DEMAND file ---"
-python ../../tools/randomVehType.py -c ${__OUT_VEH_FILE} 
+if [ ! -z ${__SET_AS_PREDEFINED_TRAFFIC_DEMAND} ]
+then
+  DEMAND_FILE="${__PREFIX}.typed-routes.xml"
+  echo "-- Setting PREDEFINED DEMAND FILE: ${__SET_AS_PREDEFINED_TRAFFIC_DEMAND}"
+  cp ${DEMAND_FILE} ${__SET_AS_PREDEFINED_TRAFFIC_DEMAND}
+fi
 
 # ----------------------------------------------------------------
 cd -

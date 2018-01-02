@@ -2,7 +2,7 @@
 
 cat <<EOF
 ==================================================================
-			BASTRA
+			MUTRAFF
 		MULTI-MAP INTENTION-AWARE SIMULATOR
 
 		UAH - Universidad de Alcala
@@ -13,9 +13,9 @@ EOF
 [ $# -lt 1 ] && { echo "Error. Must provide a simulation scenario name.Check scenes dir for available ones"; exit 1; }
 
 SCENE_DIR="./scenes"
-BASTRA_SCENE=$1
-[ -d "${SCENE_DIR}/${BASTRA_SCENE}" ] || { echo "Error. Scenario ${SCENE_DIR}/${BASTRA_SCENE} doesn't exist"; exit 1; }
-echo "Selected simulation scene: $BASTRA_SCENE"
+MUTRAFF_SCENE=$1
+[ -d "${SCENE_DIR}/${MUTRAFF_SCENE}" ] || { echo "Error. Scenario ${SCENE_DIR}/${MUTRAFF_SCENE} doesn't exist"; exit 1; }
+echo "Selected simulation scene: $MUTRAFF_SCENE"
 
 # ==================================================================
 # Check environment
@@ -35,7 +35,7 @@ echo "Selected simulation scene: $BASTRA_SCENE"
 # ==================================================================
 DATE=`date +'%y%m%d_%H%M%S'`
 DATA_ROOT=./data
-DATA_DIR=${DATA_ROOT}_${BASTRA_SCENE}_${DATE}
+DATA_DIR=${DATA_ROOT}_${MUTRAFF_SCENE}_${DATE}
 echo "Data dirs setup: ${DATA_DIR}"
 (
   unlink ${DATA_ROOT}
@@ -49,7 +49,7 @@ echo "Data dirs setup: ${DATA_DIR}"
 
 cd ${DATA_ROOT}
 # ==================================================================
-BASTRA_SCENE_DIR=../scenes/$BASTRA_SCENE
+MUTRAFF_SCENE=../scenes/$MUTRAFF_SCENE
 
 PYTHON_VERSION=2.7.6
 PYTHON_DEBUG="-m pdb"
@@ -69,14 +69,14 @@ Type "run" to execute, ctrl-C to stop, "c" to continue, etc.
 ==================================================================
 EOF
   set -x
-  python ${PYTHON_DEBUG} ../bastra.py -c $BASTRA_SCENE_DIR/bastra.conf.xml
+  python ${PYTHON_DEBUG} ../bastra.py -c $MUTRAFF_SCENE/bastra.conf.xml
 else
   echo
   (
     DATE_START=`date +%s`
     echo "Simulation Starts on: `date -j -f '%s' ${DATE_START}`"
 
-    python ../bastra.py -c $BASTRA_SCENE_DIR/bastra.conf.xml
+    python ../bastra.py -c $MUTRAFF_SCENE/bastra.conf.xml
 
     DATE_END=`date +%s`
     echo "Simulation End    on: `date -j -f '%s' ${DATE_END}`"

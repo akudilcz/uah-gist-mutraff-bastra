@@ -1,0 +1,83 @@
+Warning: Value of key 'maxspeed' is not numeric ('50|50|30') in edge '23838548'.
+Warning: Value of key 'maxspeed' is not numeric ('50|30') in edge '453955196'.
+Warning: Discarding way '4301854' because it has only 1 node(s)
+Warning: Discarding way '9702393' because it has only 1 node(s)
+Warning: Discarding way '13858717' because it has only 1 node(s)
+Warning: Discarding way '23603910' because it has only 1 node(s)
+Warning: Discarding unknown compound 'cycleway.lane' in type 'cycleway.lane|highway.residential' (first occurence for edge '23628792#0').
+Warning: Discarding unknown compound 'cycleway.shared_lane' in type 'cycleway.shared_lane|highway.tertiary' (first occurence for edge '23838548').
+Warning: Discarding way '24031612' because it has only 1 node(s)
+Warning: Discarding way '24031613' because it has only 1 node(s)
+Warning: Discarding unknown compound 'cycleway.track' in type 'cycleway.track|highway.cycleway' (first occurence for edge '24202745#0').
+Warning: Discarding way '24228290' because it has only 1 node(s)
+Warning: Discarding way '24249434' because it has only 1 node(s)
+Warning: Discarding way '24393795' because it has only 1 node(s)
+Warning: Discarding way '24762180' because it has only 1 node(s)
+Warning: Discarding way '25994520' because it has only 1 node(s)
+Warning: Discarding way '27268907' because it has only 1 node(s)
+Warning: Discarding way '27268909' because it has only 1 node(s)
+Warning: Discarding way '28262961' because it has only 1 node(s)
+Warning: Discarding way '31510032' because it has only 1 node(s)
+Warning: Discarding way '31787437' because it has only 1 node(s)
+Warning: Discarding way '33871870' because it has only 1 node(s)
+Warning: Discarding way '34305132' because it has only 1 node(s)
+Warning: Discarding way '48457517' because it has only 1 node(s)
+Warning: Discarding way '92973850' because it has only 1 node(s)
+Warning: Discarding unusable type 'waterway.stream' (first occurence for edge '101233343').
+Warning: Discarding way '129998289' because it has only 1 node(s)
+Warning: Discarding way '129998298' because it has only 1 node(s)
+Warning: Discarding way '129998301' because it has only 1 node(s)
+Warning: Discarding way '129998304' because it has only 1 node(s)
+Warning: Discarding way '131705000' because it has only 1 node(s)
+Warning: Discarding way '147416800' because it has only 1 node(s)
+Warning: Discarding way '157243605' because it has only 1 node(s)
+Warning: Discarding way '196563504' because it has only 1 node(s)
+Warning: Discarding way '196563507' because it has only 1 node(s)
+Warning: Discarding way '196563512' because it has only 1 node(s)
+Warning: Discarding way '198862604' because it has only 1 node(s)
+Warning: Discarding way '201540227' because it has only 1 node(s)
+Warning: Discarding way '242254198' because it has only 1 node(s)
+Warning: Discarding way '242254228' because it has only 1 node(s)
+Warning: Discarding way '253118236' because it has only 1 node(s)
+Warning: Discarding way '279360228' because it has only 1 node(s)
+Warning: Discarding way '279360234' because it has only 1 node(s)
+Warning: Discarding way '336982493' because it has only 1 node(s)
+Warning: Discarding way '350046854' because it has only 1 node(s)
+Warning: Discarding way '358226534' because it has only 1 node(s)
+Warning: Discarding way '389200621' because it has only 1 node(s)
+Warning: Discarding way '394992079' because it has only 1 node(s)
+Warning: Discarding way '405508190' because it has only 1 node(s)
+Warning: Discarding way '416068550' because it has only 1 node(s)
+Warning: Discarding unusable type 'highway.proposed' (first occurence for edge '416627754').
+Warning: Discarding unknown compound 'cycleway.shared_lane' in type 'cycleway.shared_lane|highway.residential' (first occurence for edge '453955196#0').
+Warning: Ignoring restriction relation '88990' with unknown to-way.
+Warning: Ignoring restriction relation '88990' with unknown via.
+Warning: from-edge of restriction relation could not be determined
+Warning: Ignoring restriction relation '4256856'.
+Warning: from-edge of restriction relation could not be determined
+Warning: Ignoring restriction relation '4256857'.
+Warning: from-edge of restriction relation could not be determined
+Warning: Ignoring restriction relation '4256858'.
+Warning: from-edge of restriction relation could not be determined
+Warning: Ignoring restriction relation '6300014'.
+Warning: to-edge of restriction relation could not be determined
+Warning: Ignoring restriction relation '6885523'.
+Warning: Found sharp turn with radius 4.80 at the start of edge '23947381'.
+Warning: Found sharp turn with radius 5.06 at the end of edge '350046881'.
+Warning: Shape for junction '2089433540' has distance 35.06 to its given position
+Warning: Shape for junction '21702346' has distance 25.87 to its given position
+Warning: Shape for junction '24908997' has distance 55.46 to its given position
+Warning: Shape for junction '24976137' has distance 37.42 to its given position
+Warning: Shape for junction '24977016' has distance 21.08 to its given position
+Warning: Shape for junction '24977027' has distance 21.30 to its given position
+Warning: Shape for junction '255461474' has distance 34.48 to its given position
+Warning: Shape for junction '259588672' has distance 58.45 to its given position
+Warning: Shape for junction '310344437' has distance 36.89 to its given position
+Warning: Shape for junction '31878522' has distance 28.89 to its given position
+Warning: Shape for junction '3556619145' has distance 24.03 to its given position
+Warning: Shape for junction '60022755' has distance 27.52 to its given position
+Warning: Shape for junction '60022756' has distance 43.13 to its given position
+Warning: Shape for junction '60570754' has distance 37.63 to its given position
+Warning: Shape for junction '611362617' has distance 39.46 to its given position
+Warning: Shape for junction '611362638' has distance 30.93 to its given position
+Success.

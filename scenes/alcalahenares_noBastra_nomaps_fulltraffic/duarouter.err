@@ -74,73 +74,3 @@ Warning: The vehicle '1584' has no valid route.
 Warning: No connection between edge '408963359' and edge '397412670' found.
 Warning: Mandatory edge '397412670' not reachable by vehicle '1108'.
 Warning: The vehicle '1108' has no valid route.
-Reading up to time step: 2200.79  (2200.79/3600.00 = 61.13% done)       Reading up to time step: 2400.79  (2400.79/3600.00 = 66.69% done)       Warning: No connection between edge '85892142' and edge '192156457' found.
-Warning: Mandatory edge '192156457' not reachable by vehicle '3117'.
-Warning: The vehicle '3117' has no valid route.
-Reading up to time step: 2600.79  (2600.79/3600.00 = 72.24% done)       Warning: No connection between edge '330982375' and edge '408891184#1' found.
-Warning: Mandatory edge '408891184#1' not reachable by vehicle '3502'.
-Warning: The vehicle '3502' has no valid route.
-Warning: No connection between edge '24038150#3' and edge '28355525' found.
-Warning: Mandatory edge '28355525' not reachable by vehicle '1020'.
-Warning: The vehicle '1020' has no valid route.
-Warning: No connection between edge '218015783#0' and edge '355558165#1' found.
-Warning: Mandatory edge '355558165#1' not reachable by vehicle '2892'.
-Warning: The vehicle '2892' has no valid route.
-Warning: No connection between edge '-32402834#0' and edge '29289647' found.
-Warning: Mandatory edge '29289647' not reachable by vehicle '1945'.
-Warning: The vehicle '1945' has no valid route.
-Reading up to time step: 2800.79  (2800.79/3600.00 = 77.80% done)       Warning: No connection between edge '36243999#1' and edge '-75117926#2' found.
-Warning: Mandatory edge '-75117926#2' not reachable by vehicle '1777'.
-Warning: The vehicle '1777' has no valid route.
-Warning: No connection between edge '125233793#0' and edge '75482908' found.
-Warning: Mandatory edge '75482908' not reachable by vehicle '2324'.
-Warning: The vehicle '2324' has no valid route.
-Warning: No connection between edge '-32906889#7' and edge '75117885' found.
-Warning: Mandatory edge '75117885' not reachable by vehicle '3105'.
-Warning: The vehicle '3105' has no valid route.
-Reading up to time step: 3000.79  (3000.79/3600.00 = 83.36% done)       Warning: No connection between edge '22726014#1' and edge '-75117816#9' found.
-Warning: Mandatory edge '-75117816#9' not reachable by vehicle '1742'.
-Warning: The vehicle '1742' has no valid route.
-Warning: No connection between edge '330982375' and edge '28359594#1' found.
-Warning: Mandatory edge '28359594#1' not reachable by vehicle '3160'.
-Warning: The vehicle '3160' has no valid route.
-Reading up to time step: 3200.79  (3200.79/3600.00 = 88.91% done)       Warning: No connection between edge '-23957345#3' and edge '123484118' found.
-Warning: Mandatory edge '123484118' not reachable by vehicle '1041'.
-Warning: The vehicle '1041' has no valid route.
-Warning: No connection between edge '-123483885' and edge '36243999#0' found.
-Warning: Mandatory edge '36243999#0' not reachable by vehicle '2501'.
-Warning: The vehicle '2501' has no valid route.
-Warning: No connection between edge '-26141600' and edge '125233795#1' found.
-Warning: Mandatory edge '125233795#1' not reachable by vehicle '10722'.
-Warning: The vehicle '10722' has no valid route.
-Warning: No connection between edge '314898332' and edge '-262718090#0' found.
-Warning: Mandatory edge '-262718090#0' not reachable by vehicle '1678'.
-Warning: The vehicle '1678' has no valid route.
-Reading up to time step: 3400.79  (3400.79/3600.00 = 94.47% done)       Warning: No connection between edge '-50170572#23' and edge '36243994#1' found.
-Warning: Mandatory edge '36243994#1' not reachable by vehicle '3479'.
-Warning: The vehicle '3479' has no valid route.
-Warning: No connection between edge '-36243994#1' and edge '24560963#1' found.
-Warning: Mandatory edge '24560963#1' not reachable by vehicle '3187'.
-Warning: The vehicle '3187' has no valid route.
-Warning: No connection between edge '386386644' and edge '-28355604#2' found.
-Warning: Mandatory edge '-28355604#2' not reachable by vehicle '1576'.
-Warning: The vehicle '1576' has no valid route.
-Warning: No connection between edge '-123484005#1' and edge '38754458' found.
-Warning: Mandatory edge '38754458' not reachable by vehicle '973'.
-Warning: The vehicle '973' has no valid route.
-Warning: No connection between edge '179175853' and edge '318886585#1' found.
-Warning: Mandatory edge '318886585#1' not reachable by vehicle '1705'.
-Warning: The vehicle '1705' has no valid route.
-Warning: No connection between edge '180049723#0' and edge '23859149' found.
-Warning: Mandatory edge '23859149' not reachable by vehicle '7827'.
-Warning: The vehicle '7827' has no valid route.
-Reading up to time step: 3600.00  (3600.00/3600.00 = 100.00% done)       Warning: No connection between edge '-154170703#1' and edge '-36243999#1' found.
-Warning: Mandatory edge '-36243999#1' not reachable by vehicle '2066'.
-Warning: The vehicle '2066' has no valid route.
-Warning: No connection between edge '4616750#0' and edge '28355525' found.
-Warning: Mandatory edge '28355525' not reachable by vehicle '4469'.
-Warning: The vehicle '4469' has no valid route.
-Warning: No connection between edge '123484027#0' and edge '-36243999#1' found.
-Warning: Mandatory edge '-36243999#1' not reachable by vehicle '3216'.
-Warning: The vehicle '3216' has no valid route.
-Success.

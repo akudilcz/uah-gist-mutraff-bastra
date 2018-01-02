@@ -32,7 +32,7 @@
   </Bastra>
 
   <Sumo>
-    <port value="2081"/>
+    <port value="3081"/>
     <interactive value="false"/>
     <sumo_config value="../../../scenes/radial16_noBastra_M2_fulltraffic/radial16_noBastra_M2_fulltraffic.sumo.conf"/>
     <net_file value="../../../scenes/radial16_noBastra_M2_fulltraffic/radial16_noBastra_M2_fulltraffic.net.xml"/>

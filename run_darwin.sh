@@ -2,7 +2,7 @@
 
 cat <<EOF
 ==================================================================
-			BASTRA
+			MUTRAFF
 		MULTI-MAP INTENTION-AWARE SIMULATOR
 
 		UAH - Universidad de Alcala
@@ -12,11 +12,11 @@ EOF
 # ==================================================================
 [ $# -lt 1 ] && { echo "Error. Must provide a simulation scenario name.Check scenes dir for available ones"; exit 1; }
 
-BASTRA_ROOT="../../.."
+MUTRAFF_ROOT="../../.."
 SCENE_DIR="./scenes"
-BASTRA_SCENE=$1
-[ -d "${SCENE_DIR}/${BASTRA_SCENE}" ] || { echo "Error. Scenario ${SCENE_DIR}/${BASTRA_SCENE} doesn't exist"; exit 1; }
-echo "Selected simulation scene: $BASTRA_SCENE"
+MUTRAFF_SCENE=$1
+[ -d "${SCENE_DIR}/${MUTRAFF_SCENE}" ] || { echo "Error. Scenario ${SCENE_DIR}/${MUTRAFF_SCENE} doesn't exist"; exit 1; }
+echo "Selected simulation scene: $MUTRAFF_SCENE"
 
 # ==================================================================
 # Check environment
@@ -35,10 +35,10 @@ echo "Selected simulation scene: $BASTRA_SCENE"
 
 # ==================================================================
 DATE=`date +'%y%m%d_%H%M%S'`
-DATA_BASENAME=${BASTRA_SCENE}_${DATE}
+DATA_BASENAME=${MUTRAFF_SCENE}_${DATE}
 DATA_ROOT=./experiments/tmp
 DATA_DIR=${DATA_ROOT}/${DATA_BASENAME}
-STATS_FILE=${BASTRA_SCENE}_${DATE}.csv
+STATS_FILE=${MUTRAFF_SCENE}_${DATE}.csv
 echo "Data dirs setup: ${DATA_DIR}"
 (
   unlink ${DATA_DIR}
@@ -53,7 +53,7 @@ echo "Data dirs setup: ${DATA_DIR}"
 
 cd ${DATA_ROOT}/data
 # ==================================================================
-BASTRA_SCENE_DIR=$BASTRA_ROOT/scenes/$BASTRA_SCENE
+MUTRAFF_SCENE_DIR=$MUTRAFF_ROOT/scenes/$MUTRAFF_SCENE
 
 PYTHON_VERSION=2.7.6
 PYTHON_DEBUG="-m pdb"
@@ -65,7 +65,7 @@ PYTHON_PROFILER_OPTS=""
 
 export PYTHONPATH=$PYTHONPATH:\
 /opt/local/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages:\
-$BASTRA_ROOT/bastralib
+$MUTRAFF_ROOT/bastralib
 
 echo "PYTHONPATH=$PYTHONPATH"
 
@@ -77,22 +77,22 @@ if [ ! -z "${PYTHON_DEBUG}" ]; then
 Type "run" to execute, ctrl-C to stop, "c" to continue, etc.
 ==================================================================
 EOF
-  python ${PYTHON_DEBUG} $BASTRA_ROOT/bastra.py -c $BASTRA_SCENE_DIR/bastra.conf.xml
+  python ${PYTHON_DEBUG} $MUTRAFF_ROOT/bastra.py -c $MUTRAFF_SCENE_DIR/bastra.conf.xml
 else
-  cp $BASTRA_SCENE_DIR/SCENARIO_DESCRIPTION.md . 2>/dev/null
+  cp $MUTRAFF_SCENE_DIR/SCENARIO_DESCRIPTION.md . 2>/dev/null
   echo
   (
     echo "................................................"
-    cat $BASTRA_SCENE_DIR/SCENARIO_DESCRIPTION.md 2>/dev/null
+    cat $MUTRAFF_SCENE_DIR/SCENARIO_DESCRIPTION.md 2>/dev/null
     echo "................................................"
-    cat $BASTRA_SCENE_DIR/bastra.conf.xml
+    cat $MUTRAFF_SCENE_DIR/bastra.conf.xml
     echo "................................................"
-    cat $BASTRA_SCENE_DIR/*.odmat.xml
+    cat $MUTRAFF_SCENE_DIR/*.odmat.xml
     echo "................................................"
     DATE_START=`date +%s`
     echo "Simulation Starts on: `date -j -f '%s' ${DATE_START}`"
 
-    python $PYTHON_PROFILER_OPTS $BASTRA_ROOT/bastra.py -c $BASTRA_SCENE_DIR/bastra.conf.xml
+    python $PYTHON_PROFILER_OPTS $MUTRAFF_ROOT/bastra.py -c $MUTRAFF_SCENE_DIR/bastra.conf.xml
 
     DATE_END=`date +%s`
     echo "Simulation End    on: `date -j -f '%s' ${DATE_END}`"

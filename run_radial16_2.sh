@@ -13,10 +13,11 @@ cp scenes/DEMANDS/radial16/XS.typed-routes.xml scenes/radial16_noBastra_XS_fullt
 # scenes/radial16_L_Bastra_rand05x1_timeALL_fulltraffic_logit05/radial16_L_Bastra_rand05x1_timeALL_fulltraffic_logit05.typed-routes.xml
 # ./run_toc.sh $BUS $SCENE_DIR/$i
 
-./run_darwin.sh radial16_noBastra_L_fulltraffic
+./run_darwin.sh radial16_noBastra_XXS_fulltraffic
+./run_darwin.sh radial16_noBastra_XS_fulltraffic
+./run_darwin.sh radial16_noBastra_S_fulltraffic
 ./run_darwin.sh radial16_noBastra_M2_fulltraffic
 ./run_darwin.sh radial16_noBastra_M_fulltraffic
-./run_darwin.sh radial16_noBastra_S_fulltraffic
+./run_darwin.sh radial16_noBastra_L_fulltraffic
 ./run_darwin.sh radial16_noBastra_XL2_fulltraffic
-./run_darwin.sh radial16_noBastra_XS_fulltraffic
 

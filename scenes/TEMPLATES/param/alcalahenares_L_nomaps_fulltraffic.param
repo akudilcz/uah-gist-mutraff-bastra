@@ -1,7 +1,7 @@
 #!/bin/bash
-export __PREFIX="alcalahenares_noBastra_nomaps_fulltraffic"
+export __PREFIX="alcalahenares_nomutraff_nomaps_fulltraffic"
 export __TRAFFIC_TYPE="fulltraffic"
-export __USE_BASTRA="noBastra"
+export __USE_BASTRA="nomutraff"
 export __MAP_USAGE="nomaps"
 export __MAP_TIME_INI="0"
 export __MAP_TIME_END="10000"
@@ -23,3 +23,5 @@ export __BASTRA_FORESIGHT_STEPS="0"
 export __BASTRA_FORESIGHT_TRIES="0"
 export __BASTRA_FORESIGHT_HALTING="0"
 export __BASTRA_FORESIGHT_PENALTY="1"
+export __SET_AS_PREDEFINED_TRAFFIC_DEMAND="../DEMANDS/alcalahenares/alcalahenares.L.typed-routes.xml"
+

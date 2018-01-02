@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- generated on Fri Dec 23 13:41:35 2016 by SUMO od2trips Version 0.27.1
+<!-- generated on Fri Jan 27 18:21:32 2017 by SUMO od2trips Version 0.27.1
 <?xml version="1.0" encoding="UTF-8"?>
 
 <configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/od2tripsConfiguration.xsd">
@@ -291,6 +291,7 @@
     <trip id="4481" depart="91.43" from="4616750#0" to="28355553#0" fromTaz="3" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="9535" depart="92.07" from="345228944#0" to="180049721#1" fromTaz="6" toTaz="5" departLane="best" departSpeed="0"/>
     <trip id="9707" depart="92.22" from="345228944#0" to="180049721#1" fromTaz="6" toTaz="5" departLane="best" departSpeed="0"/>
+    <trip id="906" depart="92.51" from="254821794#0" to="125233795#0" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="9118" depart="92.68" from="345228944#0" to="126777129#2" fromTaz="6" toTaz="5" departLane="best" departSpeed="0"/>
     <trip id="3316" depart="92.85" from="22892036#0" to="32900593#4" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="6260" depart="93.55" from="97751437#0" to="23859154#1" fromTaz="4" toTaz="2" departLane="best" departSpeed="0"/>
@@ -413,6 +414,7 @@
     <trip id="8337" depart="135.56" from="180049723#0" to="-345228944#0" fromTaz="5" toTaz="6" departLane="best" departSpeed="0"/>
     <trip id="3809" depart="135.76" from="256585723" to="-345228944#0" fromTaz="1000" toTaz="6" departLane="best" departSpeed="0"/>
     <trip id="7910" depart="135.76" from="180049723#0" to="-191930374" fromTaz="5" toTaz="1000" departLane="best" departSpeed="0"/>
+    <trip id="1253" depart="135.94" from="-123484086#4" to="76043570" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="1649" depart="136.02" from="77058983#1" to="174188602#0" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="2783" depart="136.05" from="134180010#1" to="124900773" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="5765" depart="136.20" from="97751437#0" to="409770784" fromTaz="4" toTaz="1" departLane="best" departSpeed="0"/>
@@ -746,6 +748,7 @@
     <trip id="2798" depart="241.71" from="151292465#2" to="50170572#8" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="8001" depart="242.11" from="180049723#0" to="-345228944#0" fromTaz="5" toTaz="6" departLane="best" departSpeed="0"/>
     <trip id="7651" depart="242.27" from="180049723#0" to="-34908495#6" fromTaz="5" toTaz="1000" departLane="best" departSpeed="0"/>
+    <trip id="2988" depart="242.79" from="-75117849#1" to="318886585#0" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="9008" depart="243.16" from="345228944#0" to="180049721#1" fromTaz="6" toTaz="5" departLane="best" departSpeed="0"/>
     <trip id="1223" depart="243.18" from="249995221" to="256287032#0" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="511" depart="243.94" from="23957290#2" to="409770784" fromTaz="1000" toTaz="1" departLane="best" departSpeed="0"/>
@@ -759,6 +762,7 @@
     <trip id="9749" depart="247.31" from="345228944#0" to="180049721#1" fromTaz="6" toTaz="5" departLane="best" departSpeed="0"/>
     <trip id="9787" depart="247.75" from="345228944#0" to="180049721#1" fromTaz="6" toTaz="5" departLane="best" departSpeed="0"/>
     <trip id="2797" depart="247.87" from="32933805#4" to="91348382" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
+    <trip id="916" depart="248.19" from="50170572#20" to="-36243999#0" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="6095" depart="248.73" from="97751437#0" to="409770784" fromTaz="4" toTaz="1" departLane="best" departSpeed="0"/>
     <trip id="5372" depart="248.86" from="4616750#0" to="409863378#2" fromTaz="3" toTaz="4" departLane="best" departSpeed="0"/>
     <trip id="7711" depart="249.11" from="180049723#0" to="75810131#1" fromTaz="5" toTaz="1000" departLane="best" departSpeed="0"/>
@@ -1099,6 +1103,7 @@
     <trip id="556" depart="361.60" from="29289692#9" to="32918604#2" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="2031" depart="361.68" from="24560963#1" to="150036392" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="9358" depart="361.87" from="345228944#0" to="180049721#1" fromTaz="6" toTaz="5" departLane="best" departSpeed="0"/>
+    <trip id="2802" depart="361.91" from="123484052#1" to="397412670" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="2059" depart="362.16" from="-194778551" to="300511267" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="50" depart="363.29" from="125462782#0" to="28359619#1" fromTaz="1" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="9066" depart="363.47" from="345228944#0" to="126777129#2" fromTaz="6" toTaz="5" departLane="best" departSpeed="0"/>
@@ -1122,6 +1127,7 @@
     <trip id="9227" depart="369.37" from="345228944#0" to="126777129#2" fromTaz="6" toTaz="5" departLane="best" departSpeed="0"/>
     <trip id="10740" depart="369.94" from="-26141600" to="133787497#0" fromTaz="8" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="6855" depart="370.13" from="97751437#0" to="96645524#1" fromTaz="4" toTaz="3" departLane="best" departSpeed="0"/>
+    <trip id="1279" depart="370.43" from="330982395#1" to="158265387" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="2225" depart="371.32" from="91348401" to="23907578#5" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="6359" depart="371.47" from="329573257" to="23859154#1" fromTaz="4" toTaz="2" departLane="best" departSpeed="0"/>
     <trip id="4894" depart="371.93" from="4616750#0" to="66848920" fromTaz="3" toTaz="4" departLane="best" departSpeed="0"/>
@@ -1536,6 +1542,7 @@
     <trip id="7699" depart="503.98" from="22726045" to="373638489#1" fromTaz="5" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="2199" depart="504.40" from="-23957283#1" to="36250369" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="10329" depart="504.63" from="-95159050#1" to="23859154#1" fromTaz="7" toTaz="2" departLane="best" departSpeed="0"/>
+    <trip id="1314" depart="504.76" from="397412671" to="75123293#0" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="9615" depart="504.80" from="345228944#0" to="180049721#1" fromTaz="6" toTaz="5" departLane="best" departSpeed="0"/>
     <trip id="3035" depart="505.30" from="67079133#4" to="75689698#2" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="2150" depart="505.50" from="-23957295#5" to="75117860#2" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
@@ -1850,6 +1857,7 @@
     <trip id="10209" depart="610.32" from="-95159050#1" to="409770784" fromTaz="7" toTaz="1" departLane="best" departSpeed="0"/>
     <trip id="8232" depart="610.39" from="180049723#0" to="-345228944#0" fromTaz="5" toTaz="6" departLane="best" departSpeed="0"/>
     <trip id="4323" depart="610.75" from="4616750#0" to="409770784" fromTaz="3" toTaz="1" departLane="best" departSpeed="0"/>
+    <trip id="1309" depart="611.17" from="53163821#0" to="-36243999#0" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="10340" depart="611.20" from="-95159050#1" to="23859154#1" fromTaz="7" toTaz="2" departLane="best" departSpeed="0"/>
     <trip id="1690" depart="611.39" from="-408961938" to="310738320#1" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="3775" depart="611.78" from="4616731#0" to="126777129#2" fromTaz="1000" toTaz="5" departLane="best" departSpeed="0"/>
@@ -2212,6 +2220,7 @@
     <trip id="10582" depart="720.54" from="-26141600" to="409770784" fromTaz="8" toTaz="1" departLane="best" departSpeed="0"/>
     <trip id="2536" depart="721.13" from="23352493#4" to="23858696#5" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="8484" depart="721.43" from="345228944#0" to="-150036384#1" fromTaz="6" toTaz="1000" departLane="best" departSpeed="0"/>
+    <trip id="2854" depart="721.54" from="-91348367#7" to="-36243999#1" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="9608" depart="722.44" from="345228944#0" to="180049721#1" fromTaz="6" toTaz="5" departLane="best" departSpeed="0"/>
     <trip id="2460" depart="722.48" from="67079133#3" to="28343686#0" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="7555" depart="722.79" from="180049723#0" to="75117926#5" fromTaz="5" toTaz="1000" departLane="best" departSpeed="0"/>
@@ -2263,6 +2272,7 @@
     <trip id="4156" depart="738.92" from="355558165#0" to="199419944#0" fromTaz="2" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="7080" depart="739.07" from="329573257" to="96645524#1" fromTaz="4" toTaz="3" departLane="best" departSpeed="0"/>
     <trip id="2989" depart="739.08" from="259047686" to="-123800452" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
+    <trip id="2922" depart="739.18" from="85892142" to="158346183" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="5174" depart="739.61" from="4616750#0" to="409863378#2" fromTaz="3" toTaz="4" departLane="best" departSpeed="0"/>
     <trip id="7716" depart="740.12" from="180049723#0" to="409578705#5" fromTaz="5" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="7368" depart="740.27" from="329573257" to="96645524#1" fromTaz="4" toTaz="3" departLane="best" departSpeed="0"/>
@@ -2433,6 +2443,7 @@
     <trip id="3306" depart="800.15" from="36250029" to="85526616#1" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="3307" depart="800.30" from="23904766#2" to="409045422#13" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="6584" depart="800.59" from="329573257" to="96645524#1" fromTaz="4" toTaz="3" departLane="best" departSpeed="0"/>
+    <trip id="555" depart="800.84" from="330982395#0" to="378121652#1" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="5485" depart="800.90" from="4616750#0" to="409863378#2" fromTaz="3" toTaz="4" departLane="best" departSpeed="0"/>
     <trip id="10442" depart="801.22" from="-26141600" to="409770784" fromTaz="8" toTaz="1" departLane="best" departSpeed="0"/>
     <trip id="9268" depart="801.63" from="345228944#0" to="126777129#2" fromTaz="6" toTaz="5" departLane="best" departSpeed="0"/>
@@ -3049,6 +3060,7 @@
     <trip id="4023" depart="1012.17" from="355558165#0" to="118195334" fromTaz="2" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="10429" depart="1013.41" from="-26141600" to="409770784" fromTaz="8" toTaz="1" departLane="best" departSpeed="0"/>
     <trip id="9788" depart="1013.70" from="345228944#0" to="126777129#2" fromTaz="6" toTaz="5" departLane="best" departSpeed="0"/>
+    <trip id="1511" depart="1013.96" from="378121655" to="-23957558#1" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="9320" depart="1014.67" from="345228944#0" to="126777129#2" fromTaz="6" toTaz="5" departLane="best" departSpeed="0"/>
     <trip id="3012" depart="1014.79" from="-218162389#1" to="158848993#0" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="3719" depart="1015.06" from="150928131#5" to="126777129#2" fromTaz="1000" toTaz="5" departLane="best" departSpeed="0"/>
@@ -3107,6 +3119,7 @@
     <trip id="3176" depart="1035.26" from="150932483#3" to="-24560965#1" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="1704" depart="1035.31" from="192156462" to="-197934837#1" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="3510" depart="1035.33" from="-28343724#1" to="76508304#2" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
+    <trip id="2626" depart="1035.45" from="85526065#1" to="36243994#1" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="9121" depart="1035.70" from="345228944#0" to="180049721#1" fromTaz="6" toTaz="5" departLane="best" departSpeed="0"/>
     <trip id="7146" depart="1036.39" from="329573257" to="96645524#1" fromTaz="4" toTaz="3" departLane="best" departSpeed="0"/>
     <trip id="3152" depart="1036.89" from="78579995" to="23957432#2" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
@@ -3132,6 +3145,7 @@
     <trip id="7534" depart="1045.33" from="22726045" to="-32900502#2" fromTaz="5" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="3969" depart="1045.56" from="355558165#0" to="-23904506#2" fromTaz="2" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="7313" depart="1045.88" from="329573257" to="96645524#1" fromTaz="4" toTaz="3" departLane="best" departSpeed="0"/>
+    <trip id="4161" depart="1046.49" from="355558165#0" to="205623592#0" fromTaz="2" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="7419" depart="1046.94" from="97751437#0" to="96645524#1" fromTaz="4" toTaz="3" departLane="best" departSpeed="0"/>
     <trip id="1233" depart="1047.15" from="-158273375" to="-23941763#0" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="10541" depart="1047.67" from="-26141600" to="409770784" fromTaz="8" toTaz="1" departLane="best" departSpeed="0"/>
@@ -3359,6 +3373,7 @@
     <trip id="6496" depart="1124.73" from="97751437#0" to="96645524#1" fromTaz="4" toTaz="3" departLane="best" departSpeed="0"/>
     <trip id="4337" depart="1125.13" from="4616750#0" to="409770784" fromTaz="3" toTaz="1" departLane="best" departSpeed="0"/>
     <trip id="7569" depart="1125.18" from="22726045" to="-28359590#1" fromTaz="5" toTaz="1000" departLane="best" departSpeed="0"/>
+    <trip id="3434" depart="1125.33" from="409073639#4" to="29289647" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="10482" depart="1125.48" from="-26141600" to="409770784" fromTaz="8" toTaz="1" departLane="best" departSpeed="0"/>
     <trip id="8749" depart="1125.83" from="345228944#0" to="23859154#1" fromTaz="6" toTaz="2" departLane="best" departSpeed="0"/>
     <trip id="10451" depart="1126.48" from="-26141600" to="409770784" fromTaz="8" toTaz="1" departLane="best" departSpeed="0"/>
@@ -3406,6 +3421,7 @@
     <trip id="3037" depart="1139.95" from="-408625732#3" to="50170572#25" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="9981" depart="1139.98" from="-95159050#1" to="409770784" fromTaz="7" toTaz="1" departLane="best" departSpeed="0"/>
     <trip id="7897" depart="1140.01" from="180049723#0" to="197934839#10" fromTaz="5" toTaz="1000" departLane="best" departSpeed="0"/>
+    <trip id="1259" depart="1140.26" from="330982375" to="-23907664#10" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="5673" depart="1140.38" from="4616750#0" to="409863378#2" fromTaz="3" toTaz="4" departLane="best" departSpeed="0"/>
     <trip id="4412" depart="1140.73" from="4616750#0" to="409770784" fromTaz="3" toTaz="1" departLane="best" departSpeed="0"/>
     <trip id="852" depart="1141.28" from="296705012" to="23907660" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
@@ -3423,6 +3439,7 @@
     <trip id="2696" depart="1144.94" from="123484170#1" to="123483968" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="7046" depart="1145.47" from="97751437#0" to="96645524#1" fromTaz="4" toTaz="3" departLane="best" departSpeed="0"/>
     <trip id="1712" depart="1145.86" from="32933559#0" to="28359667" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
+    <trip id="2841" depart="1147.54" from="330982395#1" to="-206095635#0" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="1792" depart="1147.90" from="242703064#1" to="-188988855#1" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="3206" depart="1148.01" from="-23907664#12" to="409609286" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="984" depart="1148.34" from="28343768#3" to="23907596#2" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
@@ -3594,6 +3611,7 @@
     <trip id="8496" depart="1201.66" from="345228944#0" to="76508322#3" fromTaz="6" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="1132" depart="1201.72" from="-150036343#1" to="227354784#3" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="1519" depart="1202.24" from="255267594#5" to="123483760#2" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
+    <trip id="678" depart="1203.13" from="-424825345" to="36243999#1" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="7793" depart="1203.82" from="180049723#0" to="123483829#1" fromTaz="5" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="9885" depart="1203.91" from="345228944#0" to="126777129#2" fromTaz="6" toTaz="5" departLane="best" departSpeed="0"/>
     <trip id="4837" depart="1204.01" from="4616750#0" to="66848920" fromTaz="3" toTaz="4" departLane="best" departSpeed="0"/>
@@ -3991,6 +4009,7 @@
     <trip id="7503" depart="1327.79" from="180049723#0" to="-151292469" fromTaz="5" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="2270" depart="1327.81" from="-32933438" to="179175877#0" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="9383" depart="1328.00" from="345228944#0" to="180049721#1" fromTaz="6" toTaz="5" departLane="best" departSpeed="0"/>
+    <trip id="1048" depart="1328.53" from="23859154#0" to="-28355491#1" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="1015" depart="1328.59" from="23907624" to="-123483968" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="2019" depart="1329.31" from="32933559#1" to="32559722" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="749" depart="1329.91" from="256585722#4" to="158255568" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
@@ -4024,6 +4043,7 @@
     <trip id="2701" depart="1339.50" from="28343716#0" to="-118195325#1" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="9779" depart="1339.83" from="345228944#0" to="126777129#2" fromTaz="6" toTaz="5" departLane="best" departSpeed="0"/>
     <trip id="4560" depart="1339.83" from="4616750#0" to="23859154#1" fromTaz="3" toTaz="2" departLane="best" departSpeed="0"/>
+    <trip id="2609" depart="1340.47" from="22726014#1" to="-409073638#7" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="3976" depart="1340.76" from="355558165#0" to="75689947#5" fromTaz="2" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="2232" depart="1341.02" from="205626165#0" to="-123483911#1" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="2260" depart="1341.27" from="-91341791" to="-28355604#2" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
@@ -4413,6 +4433,7 @@
     <trip id="3798" depart="1467.74" from="75117861#1" to="180049721#1" fromTaz="1000" toTaz="5" departLane="best" departSpeed="0"/>
     <trip id="4120" depart="1468.03" from="355558165#0" to="-242703062" fromTaz="2" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="7530" depart="1468.41" from="180049723#0" to="-28343716#9" fromTaz="5" toTaz="1000" departLane="best" departSpeed="0"/>
+    <trip id="2923" depart="1469.11" from="23957553#1" to="-23957285#1" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="136" depart="1469.82" from="35576028" to="75117863#0" fromTaz="1" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="5720" depart="1470.07" from="97751437#0" to="409770784" fromTaz="4" toTaz="1" departLane="best" departSpeed="0"/>
     <trip id="7303" depart="1470.22" from="97751437#0" to="96645524#1" fromTaz="4" toTaz="3" departLane="best" departSpeed="0"/>
@@ -4570,6 +4591,7 @@
     <trip id="4859" depart="1517.75" from="4616750#0" to="66848920" fromTaz="3" toTaz="4" departLane="best" departSpeed="0"/>
     <trip id="991" depart="1517.88" from="218015786#1" to="-75117923#0" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="8888" depart="1519.31" from="345228944#0" to="23859154#1" fromTaz="6" toTaz="2" departLane="best" departSpeed="0"/>
+    <trip id="1536" depart="1519.43" from="314898332" to="-32900502#1" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="3290" depart="1519.45" from="156663597#0" to="-422507344#2" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="2008" depart="1519.87" from="-409044039#2" to="118195342#1" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="909" depart="1519.87" from="424825345" to="32907397#1" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
@@ -4774,6 +4796,7 @@
     <trip id="2504" depart="1590.14" from="23907635#4" to="-28355552#5" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="8408" depart="1591.61" from="180049723#0" to="-345228944#0" fromTaz="5" toTaz="6" departLane="best" departSpeed="0"/>
     <trip id="5543" depart="1591.64" from="4616750#0" to="409863378#2" fromTaz="3" toTaz="4" departLane="best" departSpeed="0"/>
+    <trip id="4107" depart="1592.72" from="355558165#0" to="410102852#1" fromTaz="2" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="9582" depart="1592.87" from="345228944#0" to="126777129#2" fromTaz="6" toTaz="5" departLane="best" departSpeed="0"/>
     <trip id="5374" depart="1593.33" from="4616750#0" to="66848920" fromTaz="3" toTaz="4" departLane="best" departSpeed="0"/>
     <trip id="163" depart="1593.62" from="35576028" to="256362052#4" fromTaz="1" toTaz="1000" departLane="best" departSpeed="0"/>
@@ -5461,6 +5484,7 @@
     <trip id="10306" depart="1825.55" from="-95159050#1" to="23859154#1" fromTaz="7" toTaz="2" departLane="best" departSpeed="0"/>
     <trip id="7304" depart="1826.01" from="329573257" to="96645524#1" fromTaz="4" toTaz="3" departLane="best" departSpeed="0"/>
     <trip id="8211" depart="1826.09" from="180049723#0" to="-345228944#0" fromTaz="5" toTaz="6" departLane="best" departSpeed="0"/>
+    <trip id="1584" depart="1826.65" from="-36243994#0" to="50170572#18" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="1063" depart="1826.92" from="-32933660#1" to="256362045" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="390" depart="1827.45" from="35576028" to="28355493" fromTaz="1" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="1504" depart="1827.67" from="123484043#1" to="76508332#1" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
@@ -5510,6 +5534,7 @@
     <trip id="3154" depart="1846.88" from="409073638#2" to="-75810150" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="7490" depart="1846.96" from="22726045" to="-156663586#1" fromTaz="5" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="8307" depart="1847.10" from="180049723#0" to="-345228944#0" fromTaz="5" toTaz="6" departLane="best" departSpeed="0"/>
+    <trip id="1108" depart="1847.16" from="408963359" to="397412670" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="2" depart="1847.70" from="35576028" to="28359659" fromTaz="1" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="3108" depart="1847.88" from="409076847#1" to="77058969" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="2292" depart="1847.98" from="32906889#1" to="75689640" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
@@ -6756,6 +6781,7 @@
     <trip id="8504" depart="2268.90" from="345228944#0" to="23957552#4" fromTaz="6" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="103" depart="2268.96" from="125462782#0" to="23957371#2" fromTaz="1" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="5831" depart="2269.40" from="329573257" to="409770784" fromTaz="4" toTaz="1" departLane="best" departSpeed="0"/>
+    <trip id="3117" depart="2269.92" from="85892142" to="192156457" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="8047" depart="2269.94" from="180049723#0" to="-345228944#0" fromTaz="5" toTaz="6" departLane="best" departSpeed="0"/>
     <trip id="5311" depart="2270.01" from="4616750#0" to="66848920" fromTaz="3" toTaz="4" departLane="best" departSpeed="0"/>
     <trip id="486" depart="2270.23" from="35576028" to="75810135#5" fromTaz="1" toTaz="1000" departLane="best" departSpeed="0"/>
@@ -7270,6 +7296,7 @@
     <trip id="7245" depart="2429.20" from="329573257" to="96645524#1" fromTaz="4" toTaz="3" departLane="best" departSpeed="0"/>
     <trip id="6710" depart="2429.39" from="329573257" to="96645524#1" fromTaz="4" toTaz="3" departLane="best" departSpeed="0"/>
     <trip id="6333" depart="2430.00" from="329573257" to="23859154#1" fromTaz="4" toTaz="2" departLane="best" departSpeed="0"/>
+    <trip id="3502" depart="2430.24" from="330982375" to="408891184#1" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="2444" depart="2431.22" from="50170572#20" to="253086826#1" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="320" depart="2431.34" from="35576028" to="28343724#4" fromTaz="1" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="127" depart="2431.38" from="125462782#0" to="-123483740#1" fromTaz="1" toTaz="1000" departLane="best" departSpeed="0"/>
@@ -7521,6 +7548,7 @@
     <trip id="7073" depart="2515.59" from="329573257" to="96645524#1" fromTaz="4" toTaz="3" departLane="best" departSpeed="0"/>
     <trip id="1128" depart="2515.92" from="-313839707#1" to="151292465#0" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="7463" depart="2515.94" from="22726045" to="242703040#2" fromTaz="5" toTaz="1000" departLane="best" departSpeed="0"/>
+    <trip id="1020" depart="2516.05" from="24038150#3" to="28355525" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="871" depart="2516.06" from="218174413" to="32900515#1" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="9657" depart="2516.09" from="345228944#0" to="126777129#2" fromTaz="6" toTaz="5" departLane="best" departSpeed="0"/>
     <trip id="5265" depart="2516.50" from="4616750#0" to="409863378#2" fromTaz="3" toTaz="4" departLane="best" departSpeed="0"/>
@@ -7644,6 +7672,7 @@
     <trip id="439" depart="2555.69" from="35576028" to="46929204#2" fromTaz="1" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="787" depart="2556.73" from="75117849#1" to="218162391" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="2478" depart="2557.41" from="151292465#1" to="206095635#0" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
+    <trip id="2892" depart="2557.42" from="218015783#0" to="355558165#1" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="8961" depart="2557.67" from="345228944#0" to="180049721#1" fromTaz="6" toTaz="5" departLane="best" departSpeed="0"/>
     <trip id="9329" depart="2558.00" from="345228944#0" to="180049721#1" fromTaz="6" toTaz="5" departLane="best" departSpeed="0"/>
     <trip id="7513" depart="2558.21" from="180049723#0" to="123484086#7" fromTaz="5" toTaz="1000" departLane="best" departSpeed="0"/>
@@ -7662,6 +7691,7 @@
     <trip id="7104" depart="2562.73" from="97751437#0" to="96645524#1" fromTaz="4" toTaz="3" departLane="best" departSpeed="0"/>
     <trip id="9300" depart="2562.74" from="345228944#0" to="180049721#1" fromTaz="6" toTaz="5" departLane="best" departSpeed="0"/>
     <trip id="5369" depart="2562.90" from="4616750#0" to="66848920" fromTaz="3" toTaz="4" departLane="best" departSpeed="0"/>
+    <trip id="1945" depart="2562.93" from="-32402834#0" to="29289647" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="1553" depart="2563.52" from="191926973#0" to="103584211#2" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="900" depart="2563.70" from="-313495209" to="355558160" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="559" depart="2563.78" from="123484143#0" to="75117849#2" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
@@ -7862,6 +7892,7 @@
     <trip id="686" depart="2624.41" from="75117911#1" to="-32900576" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="628" depart="2624.55" from="22725997#1" to="23957267#6" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="3746" depart="2624.62" from="123483857#2" to="180049721#1" fromTaz="1000" toTaz="5" departLane="best" departSpeed="0"/>
+    <trip id="1777" depart="2624.66" from="36243999#1" to="-75117926#2" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="10175" depart="2624.69" from="-95159050#1" to="409770784" fromTaz="7" toTaz="1" departLane="best" departSpeed="0"/>
     <trip id="7475" depart="2624.82" from="22726045" to="67079135" fromTaz="5" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="9352" depart="2625.16" from="345228944#0" to="126777129#2" fromTaz="6" toTaz="5" departLane="best" departSpeed="0"/>
@@ -8229,11 +8260,13 @@
     <trip id="4570" depart="2744.07" from="4616750#0" to="23859154#1" fromTaz="3" toTaz="2" departLane="best" departSpeed="0"/>
     <trip id="6118" depart="2744.33" from="97751437#0" to="409770784" fromTaz="4" toTaz="1" departLane="best" departSpeed="0"/>
     <trip id="1525" depart="2744.47" from="-150036371#0" to="-28343685#4" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
+    <trip id="2324" depart="2745.26" from="125233793#0" to="75482908" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="5520" depart="2745.32" from="4616750#0" to="409863378#2" fromTaz="3" toTaz="4" departLane="best" departSpeed="0"/>
     <trip id="5546" depart="2745.40" from="4616750#0" to="409863378#2" fromTaz="3" toTaz="4" departLane="best" departSpeed="0"/>
     <trip id="9509" depart="2745.54" from="345228944#0" to="180049721#1" fromTaz="6" toTaz="5" departLane="best" departSpeed="0"/>
     <trip id="4702" depart="2745.80" from="4616750#0" to="66848920" fromTaz="3" toTaz="4" departLane="best" departSpeed="0"/>
     <trip id="184" depart="2745.91" from="125462782#0" to="405649771" fromTaz="1" toTaz="1000" departLane="best" departSpeed="0"/>
+    <trip id="3105" depart="2745.97" from="-32906889#7" to="75117885" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="3765" depart="2746.41" from="256585721#0" to="180049721#1" fromTaz="1000" toTaz="5" departLane="best" departSpeed="0"/>
     <trip id="9570" depart="2746.72" from="345228944#0" to="180049721#1" fromTaz="6" toTaz="5" departLane="best" departSpeed="0"/>
     <trip id="4715" depart="2747.57" from="4616750#0" to="409863378#2" fromTaz="3" toTaz="4" departLane="best" departSpeed="0"/>
@@ -8606,6 +8639,7 @@
     <trip id="6959" depart="2868.91" from="97751437#0" to="96645524#1" fromTaz="4" toTaz="3" departLane="best" departSpeed="0"/>
     <trip id="3816" depart="2868.97" from="38754458" to="-345228944#0" fromTaz="1000" toTaz="6" departLane="best" departSpeed="0"/>
     <trip id="8784" depart="2869.29" from="345228944#0" to="23859154#1" fromTaz="6" toTaz="2" departLane="best" departSpeed="0"/>
+    <trip id="1742" depart="2869.66" from="22726014#1" to="-75117816#9" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="8093" depart="2870.64" from="180049723#0" to="-345228944#0" fromTaz="5" toTaz="6" departLane="best" departSpeed="0"/>
     <trip id="7276" depart="2870.99" from="329573257" to="96645524#1" fromTaz="4" toTaz="3" departLane="best" departSpeed="0"/>
     <trip id="5573" depart="2871.55" from="4616750#0" to="66848920" fromTaz="3" toTaz="4" departLane="best" departSpeed="0"/>
@@ -8956,6 +8990,7 @@
     <trip id="9763" depart="2988.59" from="345228944#0" to="180049721#1" fromTaz="6" toTaz="5" departLane="best" departSpeed="0"/>
     <trip id="1468" depart="2988.65" from="409076848#2" to="50170602#5" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="1526" depart="2989.08" from="61312542#0" to="-106134346" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
+    <trip id="3160" depart="2989.10" from="330982375" to="28359594#1" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="4766" depart="2989.60" from="4616750#0" to="409863378#2" fromTaz="3" toTaz="4" departLane="best" departSpeed="0"/>
     <trip id="2452" depart="2989.70" from="75117870#2" to="151082202#1" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="3713" depart="2989.81" from="-123483783#0" to="180049721#1" fromTaz="1000" toTaz="5" departLane="best" departSpeed="0"/>
@@ -9133,6 +9168,7 @@
     <trip id="822" depart="3039.94" from="-23957516#1" to="-123021280#2" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="10081" depart="3040.16" from="-95159050#1" to="409770784" fromTaz="7" toTaz="1" departLane="best" departSpeed="0"/>
     <trip id="1849" depart="3040.22" from="-158255580#0" to="-50170637" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
+    <trip id="1041" depart="3040.30" from="-23957345#3" to="123484118" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="1085" depart="3040.48" from="123483822#0" to="-67091822#0" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="860" depart="3041.08" from="409245126#2" to="24038135#1" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="242" depart="3041.47" from="35576028" to="75117866#0" fromTaz="1" toTaz="1000" departLane="best" departSpeed="0"/>
@@ -9143,6 +9179,7 @@
     <trip id="252" depart="3043.22" from="35576028" to="256644253#1" fromTaz="1" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="2295" depart="3043.36" from="-32933438" to="409073640" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="1539" depart="3043.38" from="-150036328#1" to="150932474#0" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
+    <trip id="2501" depart="3043.54" from="-123483885" to="36243999#0" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="7787" depart="3043.57" from="180049723#0" to="95159039#1" fromTaz="5" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="130" depart="3043.58" from="125462782#0" to="76508322#5" fromTaz="1" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="8629" depart="3043.59" from="345228944#0" to="23859154#1" fromTaz="6" toTaz="2" departLane="best" departSpeed="0"/>
@@ -9187,6 +9224,7 @@
     <trip id="2056" depart="3056.83" from="71213424#0" to="28359593#0" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="840" depart="3056.96" from="-23919171#1" to="32933559#0" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="5837" depart="3057.09" from="329573257" to="409770784" fromTaz="4" toTaz="1" departLane="best" departSpeed="0"/>
+    <trip id="10722" depart="3057.09" from="-26141600" to="125233795#1" fromTaz="8" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="3464" depart="3057.21" from="77702064#0" to="416884950" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="4452" depart="3057.70" from="4616750#0" to="22892068#0" fromTaz="3" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="6904" depart="3057.72" from="97751437#0" to="96645524#1" fromTaz="4" toTaz="3" departLane="best" departSpeed="0"/>
@@ -9519,6 +9557,7 @@
     <trip id="4987" depart="3156.88" from="4616750#0" to="409863378#2" fromTaz="3" toTaz="4" departLane="best" departSpeed="0"/>
     <trip id="3558" depart="3157.26" from="23907596#2" to="23859154#1" fromTaz="1000" toTaz="2" departLane="best" departSpeed="0"/>
     <trip id="4262" depart="3157.65" from="4616750#0" to="409770784" fromTaz="3" toTaz="1" departLane="best" departSpeed="0"/>
+    <trip id="1678" depart="3158.34" from="314898332" to="-262718090#0" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="1928" depart="3158.96" from="23957179#3" to="-409041501#2" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="6284" depart="3158.98" from="97751437#0" to="23859154#1" fromTaz="4" toTaz="2" departLane="best" departSpeed="0"/>
     <trip id="10499" depart="3159.49" from="-26141600" to="409770784" fromTaz="8" toTaz="1" departLane="best" departSpeed="0"/>
@@ -9675,6 +9714,7 @@
     <trip id="3389" depart="3208.37" from="75117832#5" to="23971716#0" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="8705" depart="3208.96" from="345228944#0" to="23859154#1" fromTaz="6" toTaz="2" departLane="best" departSpeed="0"/>
     <trip id="7735" depart="3209.10" from="180049723#0" to="151082200#7" fromTaz="5" toTaz="1000" departLane="best" departSpeed="0"/>
+    <trip id="3479" depart="3209.49" from="-50170572#23" to="36243994#1" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="997" depart="3209.67" from="28355568#0" to="-197934830#6" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="5091" depart="3209.86" from="4616750#0" to="409863378#2" fromTaz="3" toTaz="4" departLane="best" departSpeed="0"/>
     <trip id="5245" depart="3210.50" from="4616750#0" to="66848920" fromTaz="3" toTaz="4" departLane="best" departSpeed="0"/>
@@ -9757,6 +9797,7 @@
     <trip id="5171" depart="3235.40" from="4616750#0" to="66848920" fromTaz="3" toTaz="4" departLane="best" departSpeed="0"/>
     <trip id="7135" depart="3235.41" from="97751437#0" to="96645524#1" fromTaz="4" toTaz="3" departLane="best" departSpeed="0"/>
     <trip id="6010" depart="3235.46" from="329573257" to="409770784" fromTaz="4" toTaz="1" departLane="best" departSpeed="0"/>
+    <trip id="3187" depart="3235.51" from="-36243994#1" to="24560963#1" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="548" depart="3235.54" from="23907602#3" to="409770784" fromTaz="1000" toTaz="1" departLane="best" departSpeed="0"/>
     <trip id="279" depart="3235.57" from="35576028" to="-91348367#3" fromTaz="1" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="1997" depart="3235.97" from="408883114" to="380895136#1" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
@@ -9831,6 +9872,7 @@
     <trip id="5332" depart="3258.68" from="4616750#0" to="409863378#2" fromTaz="3" toTaz="4" departLane="best" departSpeed="0"/>
     <trip id="6423" depart="3259.22" from="329573257" to="23859154#1" fromTaz="4" toTaz="2" departLane="best" departSpeed="0"/>
     <trip id="386" depart="3259.43" from="35576028" to="-90746327#1" fromTaz="1" toTaz="1000" departLane="best" departSpeed="0"/>
+    <trip id="1576" depart="3259.80" from="386386644" to="-28355604#2" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="4393" depart="3259.93" from="4616750#0" to="409770784" fromTaz="3" toTaz="1" departLane="best" departSpeed="0"/>
     <trip id="795" depart="3260.21" from="23904423#0" to="179175857" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="9476" depart="3260.53" from="345228944#0" to="126777129#2" fromTaz="6" toTaz="5" departLane="best" departSpeed="0"/>
@@ -9989,6 +10031,7 @@
     <trip id="3486" depart="3308.23" from="-75117888" to="-23957406#1" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="435" depart="3308.90" from="35576028" to="-23905091#4" fromTaz="1" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="6129" depart="3308.94" from="97751437#0" to="409770784" fromTaz="4" toTaz="1" departLane="best" departSpeed="0"/>
+    <trip id="973" depart="3309.00" from="-123484005#1" to="38754458" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="5049" depart="3309.08" from="4616750#0" to="66848920" fromTaz="3" toTaz="4" departLane="best" departSpeed="0"/>
     <trip id="1647" depart="3311.19" from="-50170572#17" to="4616732#0" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="3047" depart="3311.23" from="32904613" to="-154170705#0" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
@@ -10119,6 +10162,7 @@
     <trip id="3248" depart="3350.68" from="156663594#1" to="-32906828#1" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="331" depart="3351.02" from="35576028" to="-123483754#0" fromTaz="1" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="5645" depart="3351.07" from="4616750#0" to="409863378#2" fromTaz="3" toTaz="4" departLane="best" departSpeed="0"/>
+    <trip id="1705" depart="3351.15" from="179175853" to="318886585#1" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="6587" depart="3351.20" from="329573257" to="96645524#1" fromTaz="4" toTaz="3" departLane="best" departSpeed="0"/>
     <trip id="10506" depart="3351.43" from="-26141600" to="409770784" fromTaz="8" toTaz="1" departLane="best" departSpeed="0"/>
     <trip id="7882" depart="3352.15" from="180049723#0" to="23907596#3" fromTaz="5" toTaz="1000" departLane="best" departSpeed="0"/>
@@ -10205,6 +10249,7 @@
     <trip id="7972" depart="3377.47" from="22726045" to="-345228944#0" fromTaz="5" toTaz="6" departLane="best" departSpeed="0"/>
     <trip id="3186" depart="3377.48" from="252184790#0" to="32401699#0" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="4629" depart="3377.97" from="4616750#0" to="23859154#1" fromTaz="3" toTaz="2" departLane="best" departSpeed="0"/>
+    <trip id="7827" depart="3378.17" from="180049723#0" to="23859149" fromTaz="5" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="653" depart="3378.45" from="-50170638#0" to="23957290#12" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="2132" depart="3378.54" from="77065287#2" to="45896970#1" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="6229" depart="3378.75" from="329573257" to="66732641" fromTaz="4" toTaz="1000" departLane="best" departSpeed="0"/>
@@ -10280,6 +10325,7 @@
     <trip id="6199" depart="3402.12" from="329573257" to="409770784" fromTaz="4" toTaz="1" departLane="best" departSpeed="0"/>
     <trip id="4580" depart="3402.32" from="4616750#0" to="23859154#1" fromTaz="3" toTaz="2" departLane="best" departSpeed="0"/>
     <trip id="6417" depart="3402.44" from="97751437#0" to="23859154#1" fromTaz="4" toTaz="2" departLane="best" departSpeed="0"/>
+    <trip id="2066" depart="3402.63" from="-154170703#1" to="-36243999#1" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="9203" depart="3403.36" from="345228944#0" to="126777129#2" fromTaz="6" toTaz="5" departLane="best" departSpeed="0"/>
     <trip id="4737" depart="3403.44" from="4616750#0" to="409863378#2" fromTaz="3" toTaz="4" departLane="best" departSpeed="0"/>
     <trip id="5449" depart="3403.67" from="4616750#0" to="66848920" fromTaz="3" toTaz="4" departLane="best" departSpeed="0"/>
@@ -10403,6 +10449,7 @@
     <trip id="10420" depart="3446.61" from="-26141600" to="409770784" fromTaz="8" toTaz="1" departLane="best" departSpeed="0"/>
     <trip id="3920" depart="3447.03" from="242703046" to="26141600" fromTaz="1000" toTaz="8" departLane="best" departSpeed="0"/>
     <trip id="9366" depart="3447.25" from="345228944#0" to="180049721#1" fromTaz="6" toTaz="5" departLane="best" departSpeed="0"/>
+    <trip id="4469" depart="3447.39" from="4616750#0" to="28355525" fromTaz="3" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="5968" depart="3447.42" from="329573257" to="409770784" fromTaz="4" toTaz="1" departLane="best" departSpeed="0"/>
     <trip id="3878" depart="3448.63" from="24038130#0" to="95159050#1" fromTaz="1000" toTaz="7" departLane="best" departSpeed="0"/>
     <trip id="7277" depart="3449.04" from="97751437#0" to="96645524#1" fromTaz="4" toTaz="3" departLane="best" departSpeed="0"/>
@@ -10764,6 +10811,7 @@
     <trip id="6351" depart="3573.45" from="97751437#0" to="23859154#1" fromTaz="4" toTaz="2" departLane="best" departSpeed="0"/>
     <trip id="6673" depart="3573.57" from="97751437#0" to="96645524#1" fromTaz="4" toTaz="3" departLane="best" departSpeed="0"/>
     <trip id="3041" depart="3573.69" from="29289692#9" to="-28343754" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
+    <trip id="3216" depart="3573.88" from="123484027#0" to="-36243999#1" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="8345" depart="3574.82" from="22726045" to="-345228944#0" fromTaz="5" toTaz="6" departLane="best" departSpeed="0"/>
     <trip id="1922" depart="3575.04" from="-380887380#5" to="242703053" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>
     <trip id="637" depart="3575.18" from="-123484005#0" to="-32933553" fromTaz="1000" toTaz="1000" departLane="best" departSpeed="0"/>

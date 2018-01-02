@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on Wed Jan 11 20:05:31 2017 by SUMO duarouter Version 0.27.1
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/duarouterConfiguration.xsd">
+
+    <input>
+        <net-file value="radial16_noBastra_XXS_fulltraffic.net.xml"/>
+        <trip-files value="radial16_noBastra_XXS_fulltraffic.trip.xml"/>
+    </input>
+
+    <output>
+        <output-file value="radial16_noBastra_XXS_fulltraffic.routes.xml"/>
+    </output>
+
+    <processing>
+        <ignore-errors value="true"/>
+        <max-alternatives value="10"/>
+        <remove-loops value="true"/>
+        <repair value="true"/>
+        <repair.from value="true"/>
+        <repair.to value="true"/>
+    </processing>
+
+    <time>
+        <begin value="0"/>
+        <end value="3600"/>
+    </time>
+
+</configuration>
+-->
+
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">
+    <vehicle id="29" depart="18.13" departLane="best" departSpeed="0.00" fromTaz="3" toTaz="2">
+        <route edges="9/16to9/15 9/15to9/16"/>
+    </vehicle>
+    <vehicle id="6" depart="55.65" departLane="best" departSpeed="0.00" fromTaz="1" toTaz="4">
+        <route edges="5/16to5/15 5/15to5/16"/>
+    </vehicle>
+    <vehicle id="21" depart="98.13" departLane="best" departSpeed="0.00" fromTaz="3" toTaz="2">
+        <route edges="9/16to9/15 9/15to9/16"/>
+    </vehicle>
+    <vehicle id="39" depart="122.15" departLane="best" departSpeed="0.00" fromTaz="4" toTaz="1">
+        <route edges="13/16to13/15 13/15to13/16"/>
+    </vehicle>
+    <vehicle id="37" depart="125.46" departLane="best" departSpeed="0.00" fromTaz="4" toTaz="1">
+        <route edges="13/16to13/15 13/15to13/16"/>
+    </vehicle>
+    <vehicle id="38" depart="158.69" departLane="best" departSpeed="0.00" fromTaz="4" toTaz="1">
+        <route edges="13/16to13/15 13/15to13/16"/>
+    </vehicle>
+    <vehicle id="11" depart="162.06" departLane="best" departSpeed="0.00" fromTaz="2" toTaz="3">
+        <route edges="1/16to1/15 1/15to1/16"/>
+    </vehicle>
+    <vehicle id="19" depart="163.02" departLane="best" departSpeed="0.00" fromTaz="2" toTaz="3">
+        <route edges="1/16to1/15 1/15to1/16"/>
+    </vehicle>
+    <vehicle id="31" depart="235.96" departLane="best" departSpeed="0.00" fromTaz="4" toTaz="1">
+        <route edges="13/16to13/15 13/15to13/16"/>
+    </vehicle>
+    <vehicle id="8" depart="381.92" departLane="best" departSpeed="0.00" fromTaz="1" toTaz="4">
+        <route edges="5/16to5/15 5/15to5/16"/>
+    </vehicle>
+    <vehicle id="0" depart="390.93" departLane="best" departSpeed="0.00" fromTaz="1" toTaz="4">
+        <route edges="5/16to5/15 5/15to5/16"/>
+    </vehicle>
+    <vehicle id="27" depart="397.98" departLane="best" departSpeed="0.00" fromTaz="3" toTaz="2">
+        <route edges="9/16to9/15 9/15to9/16"/>
+    </vehicle>
+    <vehicle id="10" depart="420.07" departLane="best" departSpeed="0.00" fromTaz="2" toTaz="3">
+        <route edges="1/16to1/15 1/15to1/16"/>
+    </vehicle>
+    <vehicle id="30" depart="433.87" departLane="best" departSpeed="0.00" fromTaz="4" toTaz="1">
+        <route edges="13/16to13/15 13/15to13/16"/>
+    </vehicle>
+    <vehicle id="1" depart="476.94" departLane="best" departSpeed="0.00" fromTaz="1" toTaz="4">
+        <route edges="5/16to5/15 5/15to5/16"/>
+    </vehicle>
+    <vehicle id="9" depart="532.20" departLane="best" departSpeed="0.00" fromTaz="1" toTaz="4">
+        <route edges="5/16to5/15 5/15to5/16"/>
+    </vehicle>
+    <vehicle id="26" depart="537.08" departLane="best" departSpeed="0.00" fromTaz="3" toTaz="2">
+        <route edges="9/16to9/15 9/15to9/16"/>
+    </vehicle>
+    <vehicle id="20" depart="593.77" departLane="best" departSpeed="0.00" fromTaz="3" toTaz="2">
+        <route edges="9/16to9/15 9/15to9/16"/>
+    </vehicle>
+    <vehicle id="23" depart="596.97" departLane="best" departSpeed="0.00" fromTaz="3" toTaz="2">
+        <route edges="9/16to9/15 9/15to9/16"/>
+    </vehicle>
+    <vehicle id="36" depart="605.98" departLane="best" departSpeed="0.00" fromTaz="4" toTaz="1">
+        <route edges="13/16to13/15 13/15to13/16"/>
+    </vehicle>
+    <vehicle id="22" depart="628.79" departLane="best" departSpeed="0.00" fromTaz="3" toTaz="2">
+        <route edges="9/16to9/15 9/15to9/16"/>
+    </vehicle>
+    <vehicle id="24" depart="710.84" departLane="best" departSpeed="0.00" fromTaz="3" toTaz="2">
+        <route edges="9/16to9/15 9/15to9/16"/>
+    </vehicle>
+    <vehicle id="32" depart="714.63" departLane="best" departSpeed="0.00" fromTaz="4" toTaz="1">
+        <route edges="13/16to13/15 13/15to13/16"/>
+    </vehicle>
+    <vehicle id="3" depart="754.69" departLane="best" departSpeed="0.00" fromTaz="1" toTaz="4">
+        <route edges="5/16to5/15 5/15to5/16"/>
+    </vehicle>
+    <vehicle id="15" depart="759.41" departLane="best" departSpeed="0.00" fromTaz="2" toTaz="3">
+        <route edges="1/16to1/15 1/15to1/16"/>
+    </vehicle>
+    <vehicle id="7" depart="768.76" departLane="best" departSpeed="0.00" fromTaz="1" toTaz="4">
+        <route edges="5/16to5/15 5/15to5/16"/>
+    </vehicle>
+    <vehicle id="28" depart="793.64" departLane="best" departSpeed="0.00" fromTaz="3" toTaz="2">
+        <route edges="9/16to9/15 9/15to9/16"/>
+    </vehicle>
+    <vehicle id="2" depart="799.13" departLane="best" departSpeed="0.00" fromTaz="1" toTaz="4">
+        <route edges="5/16to5/15 5/15to5/16"/>
+    </vehicle>
+    <vehicle id="18" depart="799.91" departLane="best" departSpeed="0.00" fromTaz="2" toTaz="3">
+        <route edges="1/16to1/15 1/15to1/16"/>
+    </vehicle>
+    <vehicle id="13" depart="804.47" departLane="best" departSpeed="0.00" fromTaz="2" toTaz="3">
+        <route edges="1/16to1/15 1/15to1/16"/>
+    </vehicle>
+    <vehicle id="33" depart="821.76" departLane="best" departSpeed="0.00" fromTaz="4" toTaz="1">
+        <route edges="13/16to13/15 13/15to13/16"/>
+    </vehicle>
+    <vehicle id="5" depart="853.01" departLane="best" departSpeed="0.00" fromTaz="1" toTaz="4">
+        <route edges="5/16to5/15 5/15to5/16"/>
+    </vehicle>
+    <vehicle id="35" depart="862.12" departLane="best" departSpeed="0.00" fromTaz="4" toTaz="1">
+        <route edges="13/16to13/15 13/15to13/16"/>
+    </vehicle>
+    <vehicle id="4" depart="890.42" departLane="best" departSpeed="0.00" fromTaz="1" toTaz="4">
+        <route edges="5/16to5/15 5/15to5/16"/>
+    </vehicle>
+    <vehicle id="34" depart="891.00" departLane="best" departSpeed="0.00" fromTaz="4" toTaz="1">
+        <route edges="13/16to13/15 13/15to13/16"/>
+    </vehicle>
+    <vehicle id="25" depart="895.05" departLane="best" departSpeed="0.00" fromTaz="3" toTaz="2">
+        <route edges="9/16to9/15 9/15to9/16"/>
+    </vehicle>
+    <vehicle id="17" depart="960.74" departLane="best" departSpeed="0.00" fromTaz="2" toTaz="3">
+        <route edges="1/16to1/15 1/15to1/16"/>
+    </vehicle>
+    <vehicle id="12" depart="967.34" departLane="best" departSpeed="0.00" fromTaz="2" toTaz="3">
+        <route edges="1/16to1/15 1/15to1/16"/>
+    </vehicle>
+    <vehicle id="14" depart="976.27" departLane="best" departSpeed="0.00" fromTaz="2" toTaz="3">
+        <route edges="1/16to1/15 1/15to1/16"/>
+    </vehicle>
+    <vehicle id="16" depart="977.73" departLane="best" departSpeed="0.00" fromTaz="2" toTaz="3">
+        <route edges="1/16to1/15 1/15to1/16"/>
+    </vehicle>
+</routes>

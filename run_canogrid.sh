@@ -1,6 +1,6 @@
 # -------------------------------------------------------------
 # EXPERIMENTS WITH
-#	BASTRA: OFF
+#	MUTRAFF: OFF
 #	MAPS: none
 #	TRAFFIC: ground / random
 #	LOGIT: 10 / 20 / 50 / 100
@@ -14,7 +14,7 @@
 
 # -------------------------------------------------------------
 # EXPERIMENTS WITH
-#	BASTRA: ON
+#	MUTRAFF: ON
 #	MAPS: none
 #	TRAFFIC: ground / random
 #	LOGIT: 10 / 20 / 50 / 100
@@ -30,7 +30,7 @@
 
 # -------------------------------------------------------------
 # EXPERIMENTS WITH
-#	BASTRA: ON
+#	MUTRAFF: ON
 #	MAPS: adhoc
 #	TRAFFIC: ground / random
 #	LOGIT: 10 / 20 / 50 / 100

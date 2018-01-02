@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- MUTRAFF TAZ-CALC version="0.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/nodes_file.xsd"> -->
+<mutazs>
+<mutaz id="Taz_Colon">
+<vertex id="Taz_Colon-0" x="-3.6925864219665527" y="40.42636881780223"/>
+<vertex id="Taz_Colon-1" x="-3.692629337310791" y="40.423820597330376"/>
+<vertex id="Taz_Colon-2" x="-3.688809871673584" y="40.42380426227236"/>
+<vertex id="Taz_Colon-3" x="-3.688809871673584" y="40.426434155519274"/>
+</mutaz>
+
+<mutaz id="Taz_Recoletos">
+<vertex id="Taz_Recoletos-0" x="-3.692500591278076" y="40.42166433537493"/>
+<vertex id="Taz_Recoletos-1" x="-3.692500591278076" y="40.4199000696377"/>
+<vertex id="Taz_Recoletos-2" x="-3.6875009536743164" y="40.41993274164593"/>
+<vertex id="Taz_Recoletos-3" x="-3.6875224113464355" y="40.421697006526315"/>
+</mutaz>
+
+<mutaz id="Taz_Alcala">
+<vertex id="Taz_Alcala-0" x="-3.685119152069092" y="40.421860362045194"/>
+<vertex id="Taz_Alcala-1" x="-3.6850976943969727" y="40.42016144525908"/>
+<vertex id="Taz_Alcala-2" x="-3.6821794509887695" y="40.42022678900575"/>
+<vertex id="Taz_Alcala-3" x="-3.682115077972412" y="40.42189303310136"/>
+</mutaz>
+
+<mutaz id="Taz_Goya">
+<vertex id="Taz_Goya-0" x="-3.6882519721984863" y="40.42604212826493"/>
+<vertex id="Taz_Goya-1" x="-3.6882948875427246" y="40.424980376310124"/>
+<vertex id="Taz_Goya-2" x="-3.679625988006592" y="40.424784358731905"/>
+<vertex id="Taz_Goya-3" x="-3.6795830726623535" y="40.42602579374641"/>
+</mutaz>
+
+<mutaz id="Taz_Ppe_vergara">
+<vertex id="Taz_Ppe_vergara-0" x="-3.6791110038757324" y="40.420292132688964"/>
+<vertex id="Taz_Ppe_vergara-1" x="-3.6812567710876465" y="40.420292132688964"/>
+<vertex id="Taz_Ppe_vergara-2" x="-3.680999279022217" y="40.42453933595585"/>
+<vertex id="Taz_Ppe_vergara-3" x="-3.6788535118103027" y="40.424457661498806"/>
+</mutaz>
+
+</mutazs>

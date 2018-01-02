@@ -1,0 +1,160 @@
+Warning: Discarding unknown compound 'cycleway.shared_lane' in type 'cycleway.shared_lane|highway.primary' (first occurence for edge '4078618#0').
+Warning: Discarding unknown compound 'cycleway.shared_lane' in type 'cycleway.shared_lane|highway.tertiary' (first occurence for edge '4261173#0').
+Warning: Discarding way '4290639' because it has only 1 node(s)
+Warning: Discarding unknown compound 'cycleway.shared_lane' in type 'cycleway.shared_lane|highway.residential' (first occurence for edge '6601851').
+Warning: Discarding way '7972768' because it has only 1 node(s)
+Warning: Discarding way '8817179' because it has only 1 node(s)
+Warning: Discarding way '8817535' because it has only 1 node(s)
+Warning: Discarding way '14566866' because it has only 1 node(s)
+Warning: Discarding way '15106384' because it has only 1 node(s)
+Warning: Discarding way '15210632' because it has only 1 node(s)
+Warning: Discarding way '15218932' because it has only 1 node(s)
+Warning: Discarding unknown compound 'cycleway.track' in type 'cycleway.track|highway.pedestrian' (first occurence for edge '23594976#0').
+Warning: Discarding way '24620511' because it has only 1 node(s)
+Warning: Discarding way '24620559' because it has only 1 node(s)
+Warning: Discarding way '29731690' because it has only 1 node(s)
+Warning: Discarding way '31784948' because it has only 1 node(s)
+Warning: Discarding way '31784950' because it has only 1 node(s)
+Warning: Discarding way '31784974' because it has only 1 node(s)
+Warning: Discarding way '31784975' because it has only 1 node(s)
+Warning: Discarding way '31785077' because it has only 1 node(s)
+Warning: Discarding unknown compound 'cycleway.shared_lane' in type 'cycleway.shared_lane|cycleway.shared_lane|highway.primary' (first occurence for edge '37352456').
+Warning: Discarding unknown compound 'cycleway.shared_lane' in type 'cycleway.shared_lane|cycleway.shared_lane|highway.primary' (first occurence for edge '37352456').
+Warning: Discarding way '43681863' because it has only 1 node(s)
+Warning: Discarding way '43682128' because it has only 1 node(s)
+Warning: Discarding way '43682133' because it has only 1 node(s)
+Warning: Discarding way '44508932' because it has only 1 node(s)
+Warning: Discarding way '45314238' because it has only 1 node(s)
+Warning: Discarding way '85817356' because it has only 1 node(s)
+Warning: Discarding way '86974742' because it has only 1 node(s)
+Warning: Discarding way '99434805' because it has only 1 node(s)
+Warning: Discarding way '99434920' because it has only 1 node(s)
+Warning: Discarding way '99434973' because it has only 1 node(s)
+Warning: Discarding way '99434979' because it has only 1 node(s)
+Warning: Discarding way '112538793' because it has only 1 node(s)
+Warning: Discarding way '131497905' because it has only 1 node(s)
+Warning: Discarding unknown compound 'cycleway.track' in type 'cycleway.track|highway.cycleway' (first occurence for edge '142140358#0').
+Warning: Discarding way '164298274' because it has only 1 node(s)
+Warning: Discarding way '187906385' because it has only 1 node(s)
+Warning: Discarding unusable type 'railway.construction' (first occurence for edge '200136216#0').
+Warning: Discarding way '201039220' because it has only 1 node(s)
+Warning: Discarding way '201039228' because it has only 1 node(s)
+Warning: Discarding way '201039237' because it has only 1 node(s)
+Warning: Discarding way '207479677' because it has only 1 node(s)
+Warning: Discarding way '207479681' because it has only 1 node(s)
+Warning: Discarding way '207479686' because it has only 1 node(s)
+Warning: Discarding way '207479702' because it has only 1 node(s)
+Warning: Discarding way '207479715' because it has only 1 node(s)
+Warning: Discarding way '207479719' because it has only 1 node(s)
+Warning: Discarding way '245723748' because it has only 1 node(s)
+Warning: Discarding way '275372616' because it has only 1 node(s)
+Warning: Discarding way '320844398' because it has only 1 node(s)
+Warning: Discarding way '336661676' because it has only 1 node(s)
+Warning: Discarding way '338670817' because it has only 1 node(s)
+Warning: Discarding way '338670828' because it has only 1 node(s)
+Warning: Discarding unusable type 'railway.subway_entrance' (first occurence for edge '341911665#0').
+Warning: Discarding way '371495229' because it has only 1 node(s)
+Warning: Discarding way '375324157' because it has only 1 node(s)
+Warning: Discarding way '426791744' because it has only 1 node(s)
+Warning: Discarding way '429696845' because it has only 1 node(s)
+Warning: Discarding way '431514649' because it has only 1 node(s)
+Warning: Discarding way '437147506' because it has only 1 node(s)
+Warning: Discarding unusable type 'railway.platform' (first occurence for edge '442950337').
+Warning: Discarding unusable type 'highway.platform' (first occurence for edge '461586930#0').
+Warning: Discarding way '468105484' because it has only 1 node(s)
+Warning: Ignoring restriction relation '88387' with unknown to-way.
+Warning: Ignoring restriction relation '88387' with unknown via.
+Warning: from-edge of restriction relation could not be determined
+Warning: Ignoring restriction relation '88388'.
+Warning: Ignoring restriction relation '88390' with unknown to-way.
+Warning: Ignoring restriction relation '88390' with unknown via.
+Warning: Ignoring restriction relation '1251890' with unknown to-way.
+Warning: Ignoring restriction relation '1251890' with unknown via.
+Warning: Ignoring restriction relation '1251892' with unknown to-way.
+Warning: Ignoring restriction relation '1251892' with unknown via.
+Warning: from-edge of restriction relation could not be determined
+Warning: Ignoring restriction relation '1516721'.
+Warning: to-edge of restriction relation could not be determined
+Warning: Ignoring restriction relation '4164639'.
+Warning: from-edge of restriction relation could not be determined
+Warning: Ignoring restriction relation '6188870'.
+Warning: to-edge of restriction relation could not be determined
+Warning: Ignoring restriction relation '6252218'.
+Warning: to-edge of restriction relation could not be determined
+Warning: Ignoring restriction relation '6252221'.
+Warning: from-edge of restriction relation could not be determined
+Warning: Ignoring restriction relation '6299945'.
+Warning: Ignoring restriction relation '6393291' with unknown to-way.
+Warning: Ignoring restriction relation '6393291' with unknown via.
+Warning: Ignoring restriction relation '6393293' with unknown from-way.
+Warning: Ignoring restriction relation '6393293' with unknown via.
+Warning: to-edge of restriction relation could not be determined
+Warning: Ignoring restriction relation '6410472'.
+Warning: Shape for junction '20953244' has distance 68.70 to its given position
+Warning: Shape for junction '265700819' has distance 27.31 to its given position
+Warning: Shape for junction '3123584897' has distance 33.82 to its given position
+Warning: The traffic light '1209331707' does not control any links; it will not be build.
+Warning: Could not build program '0' for traffic light '1209331707'
+Warning: The traffic light '1223809802' does not control any links; it will not be build.
+Warning: Could not build program '0' for traffic light '1223809802'
+Warning: The traffic light '1278838940' does not control any links; it will not be build.
+Warning: Could not build program '0' for traffic light '1278838940'
+Warning: The traffic light '1278839008' does not control any links; it will not be build.
+Warning: Could not build program '0' for traffic light '1278839008'
+Warning: The traffic light '1278839065' does not control any links; it will not be build.
+Warning: Could not build program '0' for traffic light '1278839065'
+Warning: The traffic light '1505106045' does not control any links; it will not be build.
+Warning: Could not build program '0' for traffic light '1505106045'
+Warning: The traffic light '1505106144' does not control any links; it will not be build.
+Warning: Could not build program '0' for traffic light '1505106144'
+Warning: The traffic light '1505184340' does not control any links; it will not be build.
+Warning: Could not build program '0' for traffic light '1505184340'
+Warning: The traffic light '1505184349' does not control any links; it will not be build.
+Warning: Could not build program '0' for traffic light '1505184349'
+Warning: The traffic light '1759501622' does not control any links; it will not be build.
+Warning: Could not build program '0' for traffic light '1759501622'
+Warning: The traffic light '1760085654' does not control any links; it will not be build.
+Warning: Could not build program '0' for traffic light '1760085654'
+Warning: The traffic light '1760085684' does not control any links; it will not be build.
+Warning: Could not build program '0' for traffic light '1760085684'
+Warning: The traffic light '1760085695' does not control any links; it will not be build.
+Warning: Could not build program '0' for traffic light '1760085695'
+Warning: The traffic light '1760085704' does not control any links; it will not be build.
+Warning: Could not build program '0' for traffic light '1760085704'
+Warning: The traffic light '1915012227' does not control any links; it will not be build.
+Warning: Could not build program '0' for traffic light '1915012227'
+Warning: The traffic light '1915012228' does not control any links; it will not be build.
+Warning: Could not build program '0' for traffic light '1915012228'
+Warning: The traffic light '1957490893' does not control any links; it will not be build.
+Warning: Could not build program '0' for traffic light '1957490893'
+Warning: The traffic light '2053142713' does not control any links; it will not be build.
+Warning: Could not build program '0' for traffic light '2053142713'
+Warning: The traffic light '256525373' does not control any links; it will not be build.
+Warning: Could not build program '0' for traffic light '256525373'
+Warning: The traffic light '25902054' does not control any links; it will not be build.
+Warning: Could not build program '0' for traffic light '25902054'
+Warning: The traffic light '25902244' does not control any links; it will not be build.
+Warning: Could not build program '0' for traffic light '25902244'
+Warning: The traffic light '25902473' does not control any links; it will not be build.
+Warning: Could not build program '0' for traffic light '25902473'
+Warning: The traffic light '25902666' does not control any links; it will not be build.
+Warning: Could not build program '0' for traffic light '25902666'
+Warning: The traffic light '300751453' does not control any links; it will not be build.
+Warning: Could not build program '0' for traffic light '300751453'
+Warning: The traffic light '3017747114' does not control any links; it will not be build.
+Warning: Could not build program '0' for traffic light '3017747114'
+Warning: The traffic light '3235382376' does not control any links; it will not be build.
+Warning: Could not build program '0' for traffic light '3235382376'
+Warning: The traffic light '3428425019' does not control any links; it will not be build.
+Warning: Could not build program '0' for traffic light '3428425019'
+Warning: The traffic light '3437173828' does not control any links; it will not be build.
+Warning: Could not build program '0' for traffic light '3437173828'
+Warning: The traffic light '345538475' does not control any links; it will not be build.
+Warning: Could not build program '0' for traffic light '345538475'
+Warning: The traffic light '3484776635' does not control any links; it will not be build.
+Warning: Could not build program '0' for traffic light '3484776635'
+Warning: The traffic light '4316800034' does not control any links; it will not be build.
+Warning: Could not build program '0' for traffic light '4316800034'
+Warning: The traffic light '571785889' does not control any links; it will not be build.
+Warning: Could not build program '0' for traffic light '571785889'
+Success.

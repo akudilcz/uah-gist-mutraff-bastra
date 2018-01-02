@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- MUTRAFF TAZ-CALC version="0.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/nodes_file.xsd"> -->
+<mutazs>
+<mutaz id="Taz_castellana_norte">
+<vertex id="Taz_castellana_norte-0" x="-3.692307472229004" y="40.43874918154326"/>
+<vertex id="Taz_castellana_norte-1" x="-3.692307472229004" y="40.435613473829456"/>
+<vertex id="Taz_castellana_norte-2" x="-3.68715763092041" y="40.43535215825196"/>
+<vertex id="Taz_castellana_norte-3" x="-3.68715763092041" y="40.4388798328576"/>
+</mutaz>
+
+<mutaz id="Taz_avenida_america">
+<vertex id="Taz_avenida_america-0" x="-3.6869001388549805" y="40.43894515841954"/>
+<vertex id="Taz_avenida_america-1" x="-3.686814308166504" y="40.435286829198894"/>
+<vertex id="Taz_avenida_america-2" x="-3.6747121810913086" y="40.434992847674636"/>
+<vertex id="Taz_avenida_america-3" x="-3.674626350402832" y="40.43878184439566"/>
+</mutaz>
+
+<mutaz id="Taz_alcala">
+<vertex id="Taz_alcala-0" x="-3.692307472229004" y="40.421795019885266"/>
+<vertex id="Taz_alcala-1" x="-3.6923933029174805" y="40.419475332087124"/>
+<vertex id="Taz_alcala-2" x="-3.685784339904785" y="40.41921395380005"/>
+<vertex id="Taz_alcala-3" x="-3.685784339904785" y="40.421762348781456"/>
+</mutaz>
+
+<mutaz id="Taz_colon">
+<vertex id="Taz_colon-0" x="-3.6932945251464844" y="40.42712019771622"/>
+<vertex id="Taz_colon-1" x="-3.693509101867676" y="40.4234612251377"/>
+<vertex id="Taz_colon-2" x="-3.6890459060668945" y="40.42339588453274"/>
+<vertex id="Taz_colon-3" x="-3.6890459060668945" y="40.4270221921165"/>
+</mutaz>
+
+<mutaz id="taz_ruben_dario">
+<vertex id="taz_ruben_dario-0" x="-3.6923933029174805" y="40.43437221579131"/>
+<vertex id="taz_ruben_dario-1" x="-3.6924362182617188" y="40.43172629981128"/>
+<vertex id="taz_ruben_dario-2" x="-3.6858701705932617" y="40.43175896607541"/>
+<vertex id="taz_ruben_dario-3" x="-3.6859130859375" y="40.43437221579131"/>
+</mutaz>
+
+<mutaz id="Taz_odonell">
+<vertex id="Taz_odonell-0" x="-3.6823511123657227" y="40.4234612251377"/>
+<vertex id="Taz_odonell-1" x="-3.682436943054199" y="40.42039014809476"/>
+<vertex id="Taz_odonell-2" x="-3.6784887313842773" y="40.42035747630869"/>
+<vertex id="Taz_odonell-3" x="-3.6782312393188477" y="40.423591906157185"/>
+</mutaz>
+
+<mutaz id="Taz_manuel_becerra">
+<vertex id="Taz_manuel_becerra-0" x="-3.6728668212890625" y="40.42979896214198"/>
+<vertex id="Taz_manuel_becerra-1" x="-3.673081398010254" y="40.426532161975835"/>
+<vertex id="Taz_manuel_becerra-2" x="-3.667588233947754" y="40.42627081110766"/>
+<vertex id="Taz_manuel_becerra-3" x="-3.667416572570801" y="40.42976629492578"/>
+</mutaz>
+
+<mutaz id="Taz_diego_de_leon">
+<vertex id="Taz_diego_de_leon-0" x="-3.675098419189453" y="40.43368624757132"/>
+<vertex id="Taz_diego_de_leon-1" x="-3.6753129959106445" y="40.431628300923734"/>
+<vertex id="Taz_diego_de_leon-2" x="-3.67067813873291" y="40.431628300923734"/>
+<vertex id="Taz_diego_de_leon-3" x="-3.67067813873291" y="40.43381690872417"/>
+</mutaz>
+
+</mutazs>

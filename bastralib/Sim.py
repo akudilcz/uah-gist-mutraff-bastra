@@ -24,7 +24,6 @@ def log_computing_time(txt):
       beg_ts = time.time()
       func(*args, **kwargs)
       end_ts = time.time()
-      #print(txt+":elapsed time: %f" % (end_ts - beg_ts))
       myself = args[0]
       myself.log_file.printLog(myself.LEVEL2,txt+":elapsed time: %f" % (end_ts - beg_ts)+ "\n")
     return wrapper
@@ -823,7 +822,9 @@ class simulated_traffic:
 
         return
 
+    # -----------------------------------------------
     def reroute(self, veh_id_list):
+    # -----------------------------------------------
 
         cont=0
         for veh_id in veh_id_list:
@@ -848,8 +849,28 @@ class simulated_traffic:
                   veh.setRerouted(False)
 
         return
+    # -----------------------------------------------
+    def get_simulation_results(self):
+    # -----------------------------------------------
+      l_vehicles_in=traci.vehicle.getIDList()
+      for veh in l_vehicles_in:
+        self.actVehicleStatistics(veh)
+      l_vehicles_out=traci.simulation.getArrivedIDList()
+      for veh in l_vehicles_out:
+        self.actArriveTime(veh)
+      #self.log_file.printLog(self.LEVEL3, "SimulationStep: vehicles running:{}, finished:{}".format( len(l_vehicles_in), len(l_vehicles_out)) + "\n")
+      return
 
+
+    # -----------------------------------------------
+    #@log_computing_time( 'simulationStep' )
+    def simulationStep(self):
+      traci.simulationStep()
+      return
+
+    # -----------------------------------------------
     def saveStatistics(self, config):
+    # -----------------------------------------------
         file_name=config["statistics_f"]
         sep=config["csv_sep"]
         route_sep=":"
@@ -905,7 +926,9 @@ class simulated_traffic:
 
         return
 
+    # -----------------------------------------------
     def processPendings(self):
+    # -----------------------------------------------
         if len(self.pending_vehicles)>0:
             id_list=[]
             id_list.extend(self.pending_vehicles)
@@ -920,7 +943,9 @@ class simulated_traffic:
         return
 
 
+    # -----------------------------------------------
     def processIncident(self, edge):
+    # -----------------------------------------------
         if not self.validEdge(edge):
             self.log_file.printLogEdge(self.LEVEL1, edge, "Not defined in " + self.net_file + ".\n")
         else:

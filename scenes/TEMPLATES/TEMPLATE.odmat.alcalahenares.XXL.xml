@@ -1,0 +1,69 @@
+<demand xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo-sim.org/xsd/amitran/od.xsd">
+   <actorConfig id="0">
+     <!-- timeSlice in miliseconds -->
+     <timeSlice duration="3600000" startTime="0">
+       <!-- N-II Extremo Madrid -->
+       <!-- <odPair origin="1" destination="2" amount="2000" /> -->
+       <odPair origin="1" destination="1000" amount="1000" />
+
+       <!-- N-II Extremo Barcelona -->
+       <!-- <odPair origin="2" destination="1" amount="2000" /> -->
+       <odPair origin="2" destination="1000" amount="1000" />
+
+       <!-- M-100 Extremo Mejorada -->
+       <odPair origin="3" destination="1" amount="500" />
+       <odPair origin="3" destination="2" amount="500" />
+       <odPair origin="3" destination="4" amount="1000" />
+       <odPair origin="3" destination="1000" amount="500" />
+
+       <!-- M-100 Extremo Daganzo -->
+       <odPair origin="4" destination="1" amount="500" />
+       <odPair origin="4" destination="2" amount="200" />
+       <odPair origin="4" destination="3" amount="1000" />
+       <odPair origin="4" destination="1000" amount="500" />
+
+       <!-- M-300 Extremo Alcala -->
+       <odPair origin="5" destination="6" amount="500" />
+       <odPair origin="5" destination="1000" amount="1000" />
+
+       <!-- M-300 Extremo Arganda -->
+       <odPair origin="6" destination="5" amount="1000" />
+       <odPair origin="6" destination="2" amount="400" />
+       <odPair origin="6" destination="1000" amount="1000" />
+
+       <!-- M-300 Extremo Camarma -->
+       <odPair origin="7" destination="1" amount="300" />
+       <odPair origin="7" destination="2" amount="100" />
+       <odPair origin="7" destination="1000" amount="500" />
+
+       <!-- M-300 Extremo Meco -->
+       <odPair origin="8" destination="1" amount="300" />
+       <odPair origin="8" destination="2" amount="100" />
+       <odPair origin="8" destination="1000" amount="500" />
+
+       <!-- Trafico interno de salida -->
+       <odPair origin="1000" destination="1" amount="500" />
+       <odPair origin="1000" destination="2" amount="500" />
+       <odPair origin="1000" destination="3" amount="500" />
+       <odPair origin="1000" destination="4" amount="500" />
+       <odPair origin="1000" destination="5" amount="1000" />
+       <odPair origin="1000" destination="6" amount="500" />
+       <odPair origin="1000" destination="7" amount="500" />
+       <odPair origin="1000" destination="8" amount="500" />
+
+       <!-- Trafico urbano interno / interno -->
+       <odPair origin="1000" destination="1000" amount="10000" />
+
+       <!-- Trafico pruebas del tunnel
+       <odPair origin="700" destination="701" amount="2000" />
+       <odPair origin="701" destination="700" amount="2000" />
+       -->
+
+       <!-- Trafico pruebas Avda.Complutense
+       <odPair origin="702" destination="703" amount="1000" />
+       <odPair origin="703" destination="702" amount="1000" />
+       -->
+
+     </timeSlice>
+   </actorConfig>
+</demand>

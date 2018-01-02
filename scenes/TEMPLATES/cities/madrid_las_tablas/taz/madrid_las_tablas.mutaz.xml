@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- MUTRAFF TAZ-CALC version="0.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/nodes_file.xsd"> -->
+<mutazs>
+<mutaz id="taz_m40_norte">
+<vertex id="taz_m40_norte-0" x="-3.6753129959106445" y="40.518301442976814"/>
+<vertex id="taz_m40_norte-1" x="-3.6754846572875977" y="40.513505517068594"/>
+<vertex id="taz_m40_norte-2" x="-3.667759895324707" y="40.515821959489315"/>
+<vertex id="taz_m40_norte-3" x="-3.6699914932250977" y="40.518464563675614"/>
+</mutaz>
+
+<mutaz id="taz_distrito_c">
+<vertex id="taz_distrito_c-0" x="-3.666987419128418" y="40.517942576042344"/>
+<vertex id="taz_distrito_c-1" x="-3.6675453186035156" y="40.515038945653"/>
+<vertex id="taz_distrito_c-2" x="-3.6629533767700195" y="40.51161315260255"/>
+<vertex id="taz_distrito_c-3" x="-3.6602067947387695" y="40.51102585621993"/>
+<vertex id="taz_distrito_c-4" x="-3.658576011657715" y="40.51285298363015"/>
+<vertex id="taz_distrito_c-5" x="-3.6592626571655273" y="40.51520207428965"/>
+<vertex id="taz_distrito_c-6" x="-3.6637258529663086" y="40.51768158070164"/>
+</mutaz>
+
+<mutaz id="taz_nudo_n1">
+<vertex id="taz_nudo_n1-0" x="-3.66119384765625" y="40.51102585621993"/>
+<vertex id="taz_nudo_n1-1" x="-3.6612367630004883" y="40.50789352197723"/>
+<vertex id="taz_nudo_n1-2" x="-3.655571937561035" y="40.50750196990991"/>
+<vertex id="taz_nudo_n1-3" x="-3.655400276184082" y="40.51109111162756"/>
+</mutaz>
+
+<mutaz id="taz_fuencarral">
+<vertex id="taz_fuencarral-0" x="-3.684067726135254" y="40.514092791733766"/>
+<vertex id="taz_fuencarral-1" x="-3.684239387512207" y="40.50998176106177"/>
+<vertex id="taz_fuencarral-2" x="-3.679947853088379" y="40.50991650457462"/>
+<vertex id="taz_fuencarral-3" x="-3.6799049377441406" y="40.5142232965164"/>
+</mutaz>
+
+<mutaz id="taz_n1_sur">
+<vertex id="taz_n1_sur-0" x="-3.6704206466674805" y="40.497288179398744"/>
+<vertex id="taz_n1_sur-1" x="-3.6705493927001953" y="40.49431838300975"/>
+<vertex id="taz_n1_sur-2" x="-3.663296699523926" y="40.4942857471544"/>
+<vertex id="taz_n1_sur-3" x="-3.6631250381469727" y="40.497451351214785"/>
+</mutaz>
+
+<mutaz id="taz_sanchinarro">
+<vertex id="taz_sanchinarro-0" x="-3.663339614868164" y="40.503977898435274"/>
+<vertex id="taz_sanchinarro-1" x="-3.663511276245117" y="40.50058417312504"/>
+<vertex id="taz_sanchinarro-2" x="-3.658876419067383" y="40.49947464876319"/>
+<vertex id="taz_sanchinarro-3" x="-3.657717704772949" y="40.50045364179964"/>
+<vertex id="taz_sanchinarro-4" x="-3.6580610275268555" y="40.50329264081298"/>
+</mutaz>
+
+</mutazs>

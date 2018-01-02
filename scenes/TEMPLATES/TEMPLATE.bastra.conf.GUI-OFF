@@ -32,7 +32,7 @@
   </Bastra>
 
   <Sumo>
-    <port value="2081"/>
+    <port value="__SUMO_PORT__"/>
     <interactive value="false"/>
     <sumo_config value="../../../scenes/__PREFIX__/__PREFIX__.sumo.conf"/>
     <net_file value="../../../scenes/__PREFIX__/__PREFIX__.net.xml"/>

@@ -166,16 +166,6 @@ def readCommandsSequence(file_name):
     return command_list
 
 
-def get_simulation_results():
-    l_vehicles_in=traci.vehicle.getIDList()
-    for veh in l_vehicles_in:
-        sim.actVehicleStatistics(veh)
-    l_vehicles_out=traci.simulation.getArrivedIDList()
-    for veh in l_vehicles_out:
-        sim.actArriveTime(veh)
-
-    return
-
 # ==========================================================================
 if __name__ == '__main__':
 
@@ -206,11 +196,6 @@ if __name__ == '__main__':
           log_file.printLog(LEVEL2,txt+":elapsed time: %f" % (end_ts - beg_ts)+ "\n")
         return wrapper
       return time_decorator
-
-    @log_computing_time( log_file, 'simulationStep' )
-    def simulationStep():
-      traci.simulationStep()
-      return
 
     # -------------------------------------------------
     # Check sumo installed
@@ -274,9 +259,8 @@ if __name__ == '__main__':
         veh_list=traci.vehicle.getIDList()
         sim.reroute(veh_list)
         sim.foresight(veh_list, config)
-	simulationStep()
-        traci.simulationStep()
-        get_simulation_results()
+	sim.simulationStep()
+        sim.get_simulation_results()
 
         sim.edges_scan()
 
