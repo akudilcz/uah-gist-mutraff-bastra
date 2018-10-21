@@ -1,5 +1,5 @@
 #!/bin/bash
-
+# set -x
 # ----------------------------------------------------------------
 function default_params() {
 
@@ -213,7 +213,7 @@ EOF
 
 # ----------------------------------------------------------------
 __OUT_BASTRA_FILE="bastra.conf.xml"
-__OUT_DUA_FLE="${__PREFIX}.duarouter.conf"
+__OUT_DUA_FILE="${__PREFIX}.duarouter.conf"
 __OUT_CMDS_FILE="${__PREFIX}.commands.xml"
 __OUT_MAPS_FILE="${__PREFIX}.maps.xml"
 __OUT_NET_FILE="${__PREFIX}.net.${__NET_TYPE}.conf"
@@ -281,8 +281,8 @@ echo "--- Adapting conf files ---"
 echo "Generating ${__OUT_BASTRA_FILE}"
 sed -f /tmp/filter.sed TEMPLATE.bastra.conf > ${OUT_DIR}/${__OUT_BASTRA_FILE}
 
-echo "Generating ${__OUT_DUA_FLE}"
-sed -f /tmp/filter.sed TEMPLATE.duarouter.conf > ${OUT_DIR}/${__OUT_DUA_FLE}
+echo "Generating ${__OUT_DUA_FILE}"
+sed -f /tmp/filter.sed TEMPLATE.duarouter.conf > ${OUT_DIR}/${__OUT_DUA_FILE}
 
 echo "Generating ${__OUT_CMDS_FILE}"
 sed -f /tmp/filter.sed commands/TEMPLATE.commands.${__MAP_USAGE}.xml > ${OUT_DIR}/${__OUT_CMDS_FILE}
@@ -349,13 +349,14 @@ else
   echo "--- Generating the DEMAND duarouter ---"
   duarouter -c ${__OUT_DUA_FILE} 2>&1 | tee duarouter.err
   TRIP_FILE=`ls -1 *trip*`
+  TRIP_FILE_TMP="${TRIP_FILE}.tmp"
   echo "Generated "`grep "trip id=" $TRIP_FILE | wc -l`" trips"
   echo "--- Removing invalid trips ---"
   cat duarouter.err | grep " has no valid route" | cut -f2 -d"'" | while read i; do echo '(id=\"'$i'\" )'; done | sort > duarouter.invalid_vehicles.txt
   echo "Removing "`wc -l duarouter.invalid_vehicles.txt`" invalid trips"
   paste -s -d"|" duarouter.invalid_vehicles.txt > duarouter.filter_regex
-  egrep -v -f duarouter.filter_regex $TRIP_FILE > $TRIP_FILE.tmp
-  mv $TRIP_FILE.tmp $TRIP_FILE
+  egrep -v -f duarouter.filter_regex $TRIP_FILE > $TRIP_FILE_TMP
+  mv $TRIP_FILE_TMP $TRIP_FILE
 
   # ----------------------------------------------------------------
   echo "--- Typing the vehicles generated in the DEMAND file ---"
