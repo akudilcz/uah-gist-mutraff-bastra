@@ -275,7 +275,7 @@ cat <<EOF
     ESCENARIO: ${__PREFIX}
 
     alvaro.paricio@uah.es
-(This file has been generated automatically by generate_scenes.sh)
+(This file has been generated automatically by generate_cities.sh)
 .............................................
 EOF
 env | sort | grep __
@@ -315,6 +315,9 @@ echo "Generating ${__OUT_VEH_FILE}"
 sed -f /tmp/filter.sed TEMPLATE.vehicle_distrib.conf > ${OUT_DIR}/${__OUT_VEH_FILE}
 cp vehicle_types.xml ${OUT_DIR}/vehicle_types.xml
 cp cities/${__NET_NAME}/sumo/${__NET_NAME}.net.xml ${OUT_DIR}/${__OUT_NETGEN_FILE}
+# XXXXXXXXX
+LOCATION=`grep "netOffset" ${OUT_DIR}/${__OUT_NETGEN_FILE}`
+echo "LOCATION=${LOCATION}" >> $OUT_DIR/SCENARIO_DESCRIPTION.md
 
 mkdir ${OUT_DIR}/maps
 cp $SRC_MAP_DIR/* ${OUT_DIR}/maps
@@ -375,6 +378,7 @@ else
   # -- ALGORYTHM 3 --
   cat duarouter.err | grep " has no valid route" | cut -f2 -d"'" | while read i; do echo '(id=\"'$i'\" )'; done | sort > duarouter.invalid_vehicles.txt
   echo "Removing "`wc -l duarouter.invalid_vehicles.txt`" invalid trips"
+  paste -s -d"|" duarouter.invalid_vehicles.txt > duarouter.filter_regex
   python ../../tools/PYGREP/pygrep.py -v -f duarouter.filter_regex -d $TRIP_FILE > $TRIP_FILE.tmp
 
   mv $TRIP_FILE.tmp $TRIP_FILE

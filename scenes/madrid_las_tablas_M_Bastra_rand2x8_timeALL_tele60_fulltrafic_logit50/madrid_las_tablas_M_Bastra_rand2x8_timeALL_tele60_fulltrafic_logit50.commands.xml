@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<commands>
+  <command time="0" name="Maps" param="../../../scenes/madrid_las_tablas_M_Bastra_rand2x8_timeALL_tele60_fulltrafic_logit50/madrid_las_tablas_M_Bastra_rand2x8_timeALL_tele60_fulltrafic_logit50.maps.xml" />
+</commands>

@@ -1,0 +1,1910 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "slideshow": {
+     "slide_type": "slide"
+    }
+   },
+   "source": [
+    "# BASTRA COMPARE SCENARIOS\n",
+    "Compares two traffic scenarios data analysis based on BASTRA simulator.\n",
+    "\n",
+    "Author: Alvaro Paricio. sept.2016\n",
+    "\n",
+    "## References\n",
+    "* For Wilcoxon tests:\n",
+    "    * http://docs.scipy.org/doc/scipy-0.14.0/reference/generated/scipy.stats.wilcoxon.html\n",
+    "    * https://gist.github.com/mblondel/1761714\n",
+    "    * http://www.randalolson.com/2012/08/06/statistical-analysis-made-easy-in-python/"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<script>jQuery(function() {if (jQuery(\"body.notebook_app\").length == 0) { jQuery(\".input_area\").toggle(); jQuery(\".prompt\").toggle();}});</script>"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    },
+    {
+     "data": {
+      "text/html": [
+       "<button onclick=\"jQuery('.input_area').toggle(); jQuery('.prompt').toggle();\">Toggle code</button>"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    }
+   ],
+   "source": [
+    "from IPython.display import display\n",
+    "from IPython.display import HTML\n",
+    "import IPython.core.display as di\n",
+    "\n",
+    "# This line will hide code by default when the notebook is exported as HTML\n",
+    "di.display_html('<script>jQuery(function() {if (jQuery(\"body.notebook_app\").length == 0) { jQuery(\".input_area\").toggle(); jQuery(\".prompt\").toggle();}});</script>', raw=True)\n",
+    "\n",
+    "# This line will add a button to toggle visibility of code blocks, for use with the HTML export version\n",
+    "di.display_html('''<button onclick=\"jQuery('.input_area').toggle(); jQuery('.prompt').toggle();\">Toggle code</button>''', raw=True)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "# OPTIONS\n",
+    "flag_show_scenarios = True\n",
+    "flag_show_fleets = False\n",
+    "flag_show_heat_maps = True\n",
+    "flag_show_heat_maps_speed = True\n",
+    "flag_show_demand_stats = True\n",
+    "flag_show_traveltime_stats = True\n",
+    "flag_show_route_stats = True\n",
+    "flag_show_paired_stats = True\n",
+    "flag_show_paired_histo_secs = True\n",
+    "flag_show_paired_histo_perc = True\n",
+    "flag_show_paired_histo_usage = True\n",
+    "flag_show_paired_histo_cumsum = True\n",
+    "flag_paired_stats_save_csv = False\n",
+    "flag_display_gmaps = False\n",
+    "\n",
+    "conf_paired_stats_confidence = 0.05\n",
+    "conf_single_stats_confidence = 0.05\n",
+    "\n",
+    "exp={}"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "## Scenarios setup"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "experiment1=\"\"\n",
+    "experiment2=\"\"\n",
+    "def set_experiments(idx1,idx2):\n",
+    "    global experiment1, experiment2\n",
+    "    experiment1=exp[idx1]\n",
+    "    experiment2=exp[idx2]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "BASTRA_PATH=\"/Users/alvaro/Desktop/workspace/mutraff/uah-gist-mutraff-bastra\"\n",
+    "label1=\"GRID16/MuTRAFF OFF/full traffic\"\n",
+    "label2=\"GRID16/MuTRAFF ON/full traffic/1MAP/random5/logit100\"\n",
+    "\n",
+    "# Bastra L con 1 mapa\n",
+    "experiment1=\"grid16_noBastra_nomaps_fulltraffic_161114_125258\"\n",
+    "experiment2=\"grid16_Bastra_rand05x1_timeALL_fulltraffic_logit05_161114_131513\"\n",
+    "\n",
+    "# Extra-Large con 2 lanes por edge + con 8 mapas\n",
+    "experiment1=\"XL2_grid16_Bastra_rand05x8_timeALL_fulltraffic_logit50_161114_190405\"\n",
+    "experiment2=\"XL2_grid16_Bastra_rand05x8_timeALL_fulltraffic_logit100_161114_183734\"\n",
+    "\n",
+    "\n",
+    "# Small con 8 mapas\n",
+    "experiment1=\"S_grid16_noBastra_reference_fulltraffic_161114_115215\"\n",
+    "experiment2=\"S_grid16_Bastra_rand05x8_timeALL_fulltraffic_logit50_161114_114837\"\n",
+    "experiment2=\"S_grid16_Bastra_rand05x8_timeALL_fulltraffic_logit100_161114_114102\""
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "BASTRA_PATH=\"/Users/alvaro/Desktop/workspace/mutraff/uah-gist-mutraff-bastra\"\n",
+    "label1=\"GRID16/MuTRAFF OFF/full traffic\"\n",
+    "label2=\"GRID16/MuTRAFF ON/full traffic/1MAP/random5/logit100\"\n",
+    "\n",
+    "# Bastra L con 1 mapa\n",
+    "experiment1=\"grid16_noBastra_nomaps_fulltraffic_161114_125258\"\n",
+    "experiment2=\"grid16_Bastra_rand05x1_timeALL_fulltraffic_logit05_161114_131513\"\n",
+    "\n",
+    "# Extra-Large con 2 lanes por edge + con 8 mapas\n",
+    "experiment1=\"XL2_grid16_Bastra_rand05x8_timeALL_fulltraffic_logit50_161114_190405\"\n",
+    "experiment2=\"XL2_grid16_Bastra_rand05x8_timeALL_fulltraffic_logit100_161114_183734\"\n",
+    "\n",
+    "\n",
+    "# Small con 8 mapas\n",
+    "experiment1=\"S_grid16_noBastra_reference_fulltraffic_161114_115215\"\n",
+    "experiment2=\"S_grid16_Bastra_rand05x8_timeALL_fulltraffic_logit50_161114_114837\"\n",
+    "experiment2=\"S_grid16_Bastra_rand05x8_timeALL_fulltraffic_logit100_161114_114102\""
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "# Experimento con los 8 mapas puestos = pesos de referencia --> deberia dar lo mismo que sin Bastra o con reference maps\n",
+    "experiment1=\"S_grid16_noBastra_reference_fulltraffic_161114_115215\"\n",
+    "experiment2=\"S_grid16_Bastra_rand05x8_timeALL_fulltraffic_logit100_161114_194134\""
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "# Extra-Small para no saturar y 8 mapas random (500 + 4x200)\n",
+    "experiment1=\"XS_grid16_Bastra_rand05x8_timeALL_fulltraffic_logit10_161115_092404\"\n",
+    "experiment1=\"XS_grid16_noBastra_reference_fulltraffic_170130_225044\"\n",
+    "\n",
+    "#experiment2=\"XS_grid16_Bastra_rand05x8_timeALL_fulltraffic_logit05_161115_092039\"\n",
+    "#experiment2=\"XS_grid16_Bastra_rand05x8_timeALL_fulltraffic_logit10_161115_092404\"\n",
+    "#experiment2=\"XS_grid16_Bastra_rand05x8_timeALL_fulltraffic_logit20_161115_092738\"\n",
+    "#experiment2=\"XS_grid16_Bastra_rand05x8_timeALL_fulltraffic_logit50_161115_093115\"\n",
+    "experiment2=\"XS_grid16_Bastra_rand05x8_timeALL_fulltraffic_logit50_170130_225435\"\n",
+    "#experiment2=\"XS_grid16_Bastra_rand05x8_timeALL_fulltraffic_logit100_161115_093432\"\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "# 2 LANES con trafico grid16 normal (2000 + 4x200)\n",
+    "experiment1=\"grid16_noBastra_reference_fulltraffic_161115_110544\"\n",
+    "# experiment1=\"XL2_grid16_noBastra_reference_fulltraffic_161115_092630\"\n",
+    "experiment2=\"XL2_grid16_Bastra_rand05x8_timeALL_fulltraffic_logit50_161115_093151\"\n",
+    "experiment2=\"XL2_grid16_Bastra_rand05x8_timeALL_fulltraffic_logit100_161115_093621\"\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "# 2 LANES con tráfico grid16 L (3000 + 4x200)\n",
+    "experiment1=\"grid16_noBastra_reference_fulltraffic_161115_164807\"\n",
+    "experiment2=\"XL2_grid16_Bastra_rand05x8_timeALL_fulltraffic_logit50_161115_133434\"\n",
+    "experiment2=\"XL2_grid16_Bastra_rand05x8_timeALL_fulltraffic_logit100_161115_134312\"\n",
+    "experiment2=\"XL2_grid16_noBastra_reference_fulltraffic_161115_132611\"\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "# A* Routing algorithms comparison\n",
+    "experiment1=\"grid16_noBastra_reference_fulltraffic_161115_192127\"\n",
+    "experiment1=\"grid16_noBastraAstar_reference_fulltraffic_161115_191754\"\n",
+    "experiment2=\"grid16_BastraAstar_rand05x8_timeALL_fulltraffic_logit20_161115_222212\"\n",
+    "experiment2=\"grid16_BastraAstar_rand05x8_timeALL_fulltraffic_logit50_161115_223541\"\n",
+    "experiment2=\"grid16_BastraAstar_rand05x8_timeALL_fulltraffic_logit100_161115_225023\"\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 12,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "# A* Routing algorithms comparison\n",
+    "\n",
+    "# First experiments:\n",
+    "experiment1=\"grid16_noBastra_reference_fulltraffic_161115_192127\"\n",
+    "experiment1=\"grid16_noBastraAstar_reference_fulltraffic_161115_191754\"\n",
+    "#experiment2=\"grid16_BastraAstar_rand05x8_timeALL_fulltraffic_logit20_161115_222212\"\n",
+    "#experiment2=\"grid16_BastraAstar_rand05x8_timeALL_fulltraffic_logit50_161115_223541\"\n",
+    "#experiment2=\"grid16_BastraAstar_rand05x8_timeALL_fulltraffic_logit100_161115_225023\"\n",
+    "\n",
+    "# Second experiments:\n",
+    "experiment1=\"grid16_noBastraAstar_reference_fulltraffic_161115_191754\"\n",
+    "experiment1=\"grid16_noBastraAstar_reference_fulltraffic_161121_095357\"\n",
+    "experiment2=\"grid16_BastraAstar_rand05x8_timeALL_fulltraffic_logit20_161121_100716\"\n",
+    "# experiment2=\"grid16_BastraAstar_rand05x8_timeALL_fulltraffic_logit50_161121_101535\"\n",
+    "# experiment2=\"grid16_BastraAstar_rand05x8_timeALL_fulltraffic_logit100_161121_102631\"\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 13,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [],
+   "source": [
+    "# ALCALA DE HENARES EXPERIMENTS\n",
+    "# alcalahenares_noBastra_nomaps_fulltraffic_161216_110525\n",
+    "# alcalahenares_L_Bastra_uni1x8_timeALL_fulltraffic_logit50_161216_114129\n",
+    "# alcalahenares_L_Bastra_uni5x8_timeALL_fulltraffic_logit50_161216_121730\n",
+    "# alcalahenares_L_Bastra_uni5x16_timeALL_fulltraffic_logit50_161216_153926\n",
+    "\n",
+    "experiment1=\"alcalahenares_noBastra_nomaps_fulltraffic_170115_230706\"\n",
+    "experiment2=\"alcalahenares_noBastra_nomaps_fulltraffic_170115_230706\"\n",
+    "\n",
+    "exp[1000]=\"alcalahenares_noBastra_nomaps_tele300_fulltraffic_170116_000420\"\n",
+    "exp[1001]=\"alcalahenares_L_Bastra_tele300_uni5x8_timeALL_fulltraffic_logit50_170116_004127\"\n",
+    "exp[1002]=\"alcalahenares_L_Bastra_tele300_uni1x8_timeALL_fulltraffic_logit50_170116_002314\"\n",
+    "exp[1003]=\"alcalahenares_L_Bastra_tele300_uni5x16_timeALL_fulltraffic_logit50_170116_005920\"\n",
+    "\n",
+    "exp[1100]=\"alcalahenares_noBastra_nomaps_tele60_fulltraffic_170126_201242\"\n",
+    "exp[1101]=\"alcalahenares_L_Bastra_tele60_uni1x8_timeALL_fulltraffic_logit50_170126_203035\"\n",
+    "exp[1102]=\"alcalahenares_L_Bastra_tele60_uni5x16_timeALL_fulltraffic_logit50_170126_204811\"\n",
+    "exp[1103]=\"alcalahenares_L_Bastra_tele60_uni5x8_timeALL_fulltraffic_logit50_170126_210456\"\n",
+    "\n",
+    "set_experiments(1000,1001)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 14,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [],
+   "source": [
+    "# RADIAL16 EXPERIMENTS\n",
+    "exp[0]=\"radial16_noBastra_XXS_fulltraffic_170111_232306\"\n",
+    "exp[1]=\"radial16_noBastra_XS_fulltraffic_170111_232346\"\n",
+    "exp[2]=\"radial16_noBastra_S_fulltraffic_170111_232444\"\n",
+    "exp[3]=\"radial16_noBastra_M2_fulltraffic_170111_232549\"\n",
+    "exp[4]=\"radial16_noBastra_M_fulltraffic_170111_233225\"\n",
+    "exp[5]=\"radial16_noBastra_L_fulltraffic_170111_233357\"\n",
+    "exp[6]=\"radial16_noBastra_XL2_fulltraffic_170111_234332\"\n",
+    "exp[7]=\"radial16_XS_Bastra_rand05x1_timeALL_fulltraffic_logit05_170111_235743\"\n",
+    "exp[8]=\"radial16_XS_Bastra_rand05x1_timeALL_fulltraffic_logit10_170111_235839\"\n",
+    "exp[9]=\"radial16_XS_Bastra_rand05x1_timeALL_fulltraffic_logit100_170111_235936\"\n",
+    "exp[10]=\"radial16_XS_Bastra_rand05x1_timeALL_fulltraffic_logit20_170112_000036\"\n",
+    "exp[11]=\"radial16_XS_Bastra_rand05x1_timeALL_fulltraffic_logit50_170112_000133\"\n",
+    "exp[12]=\"radial16_XS_Bastra_rand05x2_timeALL_fulltraffic_logit05_170112_000228\"\n",
+    "exp[13]=\"radial16_XS_Bastra_rand05x2_timeALL_fulltraffic_logit10_170112_000324\"\n",
+    "exp[14]=\"radial16_XS_Bastra_rand05x2_timeALL_fulltraffic_logit100_170112_000420\"\n",
+    "exp[15]=\"radial16_XS_Bastra_rand05x2_timeALL_fulltraffic_logit20_170112_000519\"\n",
+    "exp[16]=\"radial16_XS_Bastra_rand05x2_timeALL_fulltraffic_logit50_170112_000615\"\n",
+    "exp[17]=\"radial16_XS_Bastra_rand05x4_timeALL_fulltraffic_logit05_170112_000713\"\n",
+    "exp[18]=\"radial16_XS_Bastra_rand05x4_timeALL_fulltraffic_logit10_170112_000809\"\n",
+    "exp[19]=\"radial16_XS_Bastra_rand05x4_timeALL_fulltraffic_logit100_170112_000905\"\n",
+    "exp[20]=\"radial16_XS_Bastra_rand05x4_timeALL_fulltraffic_logit20_170112_001004\"\n",
+    "exp[21]=\"radial16_XS_Bastra_rand05x4_timeALL_fulltraffic_logit50_170112_001101\"\n",
+    "exp[22]=\"radial16_M2_Bastra_rand05x1_timeALL_fulltraffic_logit05_170112_001329\"\n",
+    "exp[23]=\"radial16_M2_Bastra_rand05x1_timeALL_fulltraffic_logit10_170112_001438\"\n",
+    "exp[24]=\"radial16_M2_Bastra_rand05x1_timeALL_fulltraffic_logit100_170112_001545\"\n",
+    "exp[25]=\"radial16_M2_Bastra_rand05x1_timeALL_fulltraffic_logit20_170112_001658\"\n",
+    "exp[26]=\"radial16_M2_Bastra_rand05x1_timeALL_fulltraffic_logit50_170112_001806\"\n",
+    "exp[27]=\"radial16_M2_Bastra_rand05x2_timeALL_fulltraffic_logit05_170112_001917\"\n",
+    "exp[28]=\"radial16_M2_Bastra_rand05x2_timeALL_fulltraffic_logit10_170112_002030\"\n",
+    "exp[29]=\"radial16_M2_Bastra_rand05x2_timeALL_fulltraffic_logit100_170112_002142\"\n",
+    "exp[30]=\"radial16_M2_Bastra_rand05x2_timeALL_fulltraffic_logit20_170112_002259\"\n",
+    "exp[31]=\"radial16_M2_Bastra_rand05x2_timeALL_fulltraffic_logit50_170112_002412\"\n",
+    "exp[32]=\"radial16_M2_Bastra_rand05x4_timeALL_fulltraffic_logit05_170112_002526\"\n",
+    "exp[33]=\"radial16_M2_Bastra_rand05x4_timeALL_fulltraffic_logit10_170112_002638\"\n",
+    "exp[34]=\"radial16_M2_Bastra_rand05x4_timeALL_fulltraffic_logit100_170112_002750\"\n",
+    "exp[35]=\"radial16_M2_Bastra_rand05x4_timeALL_fulltraffic_logit20_170112_002905\"\n",
+    "exp[36]=\"radial16_M2_Bastra_rand05x4_timeALL_fulltraffic_logit50_170112_003018\"\n",
+    "exp[37]=\"radial16_M2_Bastra_rand05x8_timeALL_fulltraffic_logit05_170112_003130\"\n",
+    "exp[38]=\"radial16_M2_Bastra_rand05x8_timeALL_fulltraffic_logit10_170112_003240\"\n",
+    "exp[39]=\"radial16_M2_Bastra_rand05x8_timeALL_fulltraffic_logit100_170112_003349\"\n",
+    "exp[40]=\"radial16_M2_Bastra_rand05x8_timeALL_fulltraffic_logit20_170112_003506\"\n",
+    "exp[41]=\"radial16_M2_Bastra_rand05x8_timeALL_fulltraffic_logit50_170112_003615\"\n",
+    "exp[42]=\"radial16_M2_Bastra_rand2x2_timeALL_fulltraffic_logit05_170112_003728\"\n",
+    "exp[43]=\"radial16_M2_Bastra_rand2x2_timeALL_fulltraffic_logit10_170112_003838\"\n",
+    "exp[44]=\"radial16_M2_Bastra_rand2x2_timeALL_fulltraffic_logit100_170112_003947\"\n",
+    "exp[45]=\"radial16_M2_Bastra_rand2x2_timeALL_fulltraffic_logit20_170112_004101\"\n",
+    "exp[46]=\"radial16_M2_Bastra_rand2x2_timeALL_fulltraffic_logit50_170112_004212\"\n",
+    "exp[47]=\"radial16_M2_Bastra_rand2x4_timeALL_fulltraffic_logit05_170112_004323\"\n",
+    "exp[48]=\"radial16_M2_Bastra_rand2x4_timeALL_fulltraffic_logit10_170112_004432\"\n",
+    "exp[49]=\"radial16_M2_Bastra_rand2x4_timeALL_fulltraffic_logit100_170112_004542\"\n",
+    "exp[50]=\"radial16_M2_Bastra_rand2x4_timeALL_fulltraffic_logit20_170112_004656\"\n",
+    "exp[51]=\"radial16_M2_Bastra_rand2x4_timeALL_fulltraffic_logit50_170112_004805\"\n",
+    "exp[52]=\"radial16_M_Bastra_rand05x1_timeALL_fulltraffic_logit05_170112_004917\"\n",
+    "exp[53]=\"radial16_M_Bastra_rand05x1_timeALL_fulltraffic_logit10_170112_005041\"\n",
+    "exp[54]=\"radial16_M_Bastra_rand05x1_timeALL_fulltraffic_logit100_170112_005207\"\n",
+    "exp[55]=\"radial16_M_Bastra_rand05x1_timeALL_fulltraffic_logit20_170112_005329\"\n",
+    "exp[56]=\"radial16_M_Bastra_rand05x1_timeALL_fulltraffic_logit50_170112_005450\"\n",
+    "exp[57]=\"radial16_M_Bastra_rand05x2_timeALL_fulltraffic_logit05_170112_005609\"\n",
+    "exp[58]=\"radial16_M_Bastra_rand05x2_timeALL_fulltraffic_logit10_170112_005733\"\n",
+    "exp[59]=\"radial16_M_Bastra_rand05x2_timeALL_fulltraffic_logit100_170112_005856\"\n",
+    "exp[60]=\"radial16_M_Bastra_rand05x2_timeALL_fulltraffic_logit20_170112_010018\"\n",
+    "exp[61]=\"radial16_M_Bastra_rand05x2_timeALL_fulltraffic_logit50_170112_010144\"\n",
+    "exp[62]=\"radial16_M_Bastra_rand05x4_timeALL_fulltraffic_logit05_170112_010301\"\n",
+    "exp[63]=\"radial16_M_Bastra_rand05x4_timeALL_fulltraffic_logit10_170112_010426\"\n",
+    "exp[64]=\"radial16_M_Bastra_rand05x4_timeALL_fulltraffic_logit100_170112_010551\"\n",
+    "exp[65]=\"radial16_M_Bastra_rand05x4_timeALL_fulltraffic_logit20_170112_010710\"\n",
+    "exp[66]=\"radial16_M_Bastra_rand05x4_timeALL_fulltraffic_logit50_170112_010832\"\n",
+    "exp[67]=\"radial16_M_Bastra_rand05x8_timeALL_fulltraffic_logit05_170112_010953\"\n",
+    "exp[68]=\"radial16_M_Bastra_rand05x8_timeALL_fulltraffic_logit10_170112_011121\"\n",
+    "exp[69]=\"radial16_M_Bastra_rand05x8_timeALL_fulltraffic_logit100_170112_011245\"\n",
+    "exp[70]=\"radial16_M_Bastra_rand05x8_timeALL_fulltraffic_logit20_170112_011407\"\n",
+    "exp[71]=\"radial16_M_Bastra_rand05x8_timeALL_fulltraffic_logit50_170112_011530\"\n",
+    "exp[72]=\"radial16_M_Bastra_rand2x2_timeALL_fulltraffic_logit05_170112_011650\"\n",
+    "exp[73]=\"radial16_M_Bastra_rand2x2_timeALL_fulltraffic_logit10_170112_011812\"\n",
+    "exp[74]=\"radial16_M_Bastra_rand2x2_timeALL_fulltraffic_logit100_170112_011939\"\n",
+    "exp[75]=\"radial16_M_Bastra_rand2x2_timeALL_fulltraffic_logit20_170112_012101\"\n",
+    "exp[76]=\"radial16_M_Bastra_rand2x2_timeALL_fulltraffic_logit50_170112_012223\"\n",
+    "exp[77]=\"radial16_M_Bastra_rand2x4_timeALL_fulltraffic_logit05_170112_012345\"\n",
+    "exp[78]=\"radial16_M_Bastra_rand2x4_timeALL_fulltraffic_logit10_170112_012510\"\n",
+    "exp[79]=\"radial16_M_Bastra_rand2x4_timeALL_fulltraffic_logit100_170112_012636\"\n",
+    "exp[80]=\"radial16_M_Bastra_rand2x4_timeALL_fulltraffic_logit20_170112_012802\"\n",
+    "exp[81]=\"radial16_M_Bastra_rand2x4_timeALL_fulltraffic_logit50_170112_012930\"\n",
+    "exp[82]=\"radial16_L_Bastra_rand05x1_timeALL_fulltraffic_logit05_170112_013056\"\n",
+    "exp[83]=\"radial16_L_Bastra_rand05x1_timeALL_fulltraffic_logit10_170112_013341\"\n",
+    "exp[84]=\"radial16_L_Bastra_rand05x1_timeALL_fulltraffic_logit100_170112_014126\"\n",
+    "exp[85]=\"radial16_L_Bastra_rand05x1_timeALL_fulltraffic_logit20_170112_014538\"\n",
+    "exp[86]=\"radial16_L_Bastra_rand05x1_timeALL_fulltraffic_logit50_170112_015044\"\n",
+    "exp[87]=\"radial16_L_Bastra_rand05x2_timeALL_fulltraffic_logit05_170112_015238\"\n",
+    "exp[88]=\"radial16_L_Bastra_rand05x2_timeALL_fulltraffic_logit10_170112_015517\"\n",
+    "exp[89]=\"radial16_L_Bastra_rand05x2_timeALL_fulltraffic_logit100_170112_015750\"\n",
+    "exp[90]=\"radial16_L_Bastra_rand05x2_timeALL_fulltraffic_logit20_170112_015935\"\n",
+    "exp[91]=\"radial16_L_Bastra_rand05x2_timeALL_fulltraffic_logit50_170112_020159\"\n",
+    "exp[92]=\"radial16_L_Bastra_rand05x4_timeALL_fulltraffic_logit05_170112_021001\"\n",
+    "exp[93]=\"radial16_L_Bastra_rand05x4_timeALL_fulltraffic_logit10_170112_021256\"\n",
+    "exp[94]=\"radial16_L_Bastra_rand05x4_timeALL_fulltraffic_logit100_170112_021533\"\n",
+    "exp[95]=\"radial16_L_Bastra_rand05x4_timeALL_fulltraffic_logit20_170112_021720\"\n",
+    "exp[96]=\"radial16_L_Bastra_rand05x4_timeALL_fulltraffic_logit50_170112_022433\"\n",
+    "exp[97]=\"radial16_L_Bastra_rand05x8_timeALL_fulltraffic_logit05_170112_022635\"\n",
+    "exp[98]=\"radial16_L_Bastra_rand05x8_timeALL_fulltraffic_logit10_170112_022915\"\n",
+    "exp[99]=\"radial16_L_Bastra_rand05x8_timeALL_fulltraffic_logit100_170112_023151\"\n",
+    "exp[100]=\"radial16_L_Bastra_rand05x8_timeALL_fulltraffic_logit20_170112_023348\"\n",
+    "exp[101]=\"radial16_L_Bastra_rand05x8_timeALL_fulltraffic_logit50_170112_023634\"\n",
+    "exp[102]=\"radial16_L_Bastra_rand2x2_timeALL_fulltraffic_logit05_170112_023841\"\n",
+    "exp[103]=\"radial16_L_Bastra_rand2x2_timeALL_fulltraffic_logit10_170112_024334\"\n",
+    "exp[104]=\"radial16_L_Bastra_rand2x2_timeALL_fulltraffic_logit100_170112_024609\"\n",
+    "exp[105]=\"radial16_L_Bastra_rand2x2_timeALL_fulltraffic_logit20_170112_024808\"\n",
+    "exp[106]=\"radial16_L_Bastra_rand2x2_timeALL_fulltraffic_logit50_170112_025416\"\n",
+    "exp[107]=\"radial16_L_Bastra_rand2x4_timeALL_fulltraffic_logit05_170112_025627\"\n",
+    "exp[108]=\"radial16_L_Bastra_rand2x4_timeALL_fulltraffic_logit10_170112_025912\"\n",
+    "exp[109]=\"radial16_L_Bastra_rand2x4_timeALL_fulltraffic_logit100_170112_030549\"\n",
+    "exp[110]=\"radial16_L_Bastra_rand2x4_timeALL_fulltraffic_logit20_170112_030740\"\n",
+    "exp[111]=\"radial16_L_Bastra_rand2x4_timeALL_fulltraffic_logit50_170112_031439\"\n",
+    "exp[112]=\"radial16_XL2_Bastra_rand05x1_timeALL_fulltraffic_logit05_170112_032025\"\n",
+    "exp[113]=\"radial16_XL2_Bastra_rand05x1_timeALL_fulltraffic_logit10_170112_033553\"\n",
+    "exp[114]=\"radial16_XL2_Bastra_rand05x1_timeALL_fulltraffic_logit100_170112_035126\"\n",
+    "exp[115]=\"radial16_XL2_Bastra_rand05x1_timeALL_fulltraffic_logit20_170112_040946\"\n",
+    "exp[116]=\"radial16_XL2_Bastra_rand05x1_timeALL_fulltraffic_logit50_170112_042434\"\n",
+    "exp[117]=\"radial16_XL2_Bastra_rand05x2_timeALL_fulltraffic_logit05_170112_044047\"\n",
+    "exp[118]=\"radial16_XL2_Bastra_rand05x2_timeALL_fulltraffic_logit10_170112_045651\"\n",
+    "exp[119]=\"radial16_XL2_Bastra_rand05x2_timeALL_fulltraffic_logit100_170112_051128\"\n",
+    "exp[120]=\"radial16_XL2_Bastra_rand05x2_timeALL_fulltraffic_logit20_170112_052741\"\n",
+    "exp[121]=\"radial16_XL2_Bastra_rand05x2_timeALL_fulltraffic_logit50_170112_054329\"\n",
+    "exp[122]=\"radial16_XL2_Bastra_rand05x4_timeALL_fulltraffic_logit05_170112_055700\"\n",
+    "exp[123]=\"radial16_XL2_Bastra_rand05x4_timeALL_fulltraffic_logit10_170112_061213\"\n",
+    "exp[124]=\"radial16_XL2_Bastra_rand05x4_timeALL_fulltraffic_logit100_170112_062626\"\n",
+    "exp[125]=\"radial16_XL2_Bastra_rand05x4_timeALL_fulltraffic_logit20_170112_064052\"\n",
+    "exp[126]=\"radial16_XL2_Bastra_rand05x4_timeALL_fulltraffic_logit50_170112_065703\"\n",
+    "exp[127]=\"radial16_XL2_Bastra_rand05x8_timeALL_fulltraffic_logit05_170112_094500\"\n",
+    "exp[128]=\"radial16_XL2_Bastra_rand05x8_timeALL_fulltraffic_logit10_170112_142512\"\n",
+    "exp[129]=\"radial16_XL2_Bastra_rand05x8_timeALL_fulltraffic_logit100_170112_144117\"\n",
+    "exp[130]=\"radial16_XL2_Bastra_rand05x8_timeALL_fulltraffic_logit20_170112_145550\"\n",
+    "exp[131]=\"radial16_XL2_Bastra_rand05x8_timeALL_fulltraffic_logit50_170112_150929\"\n",
+    "exp[132]=\"radial16_XL2_Bastra_rand2x2_timeALL_fulltraffic_logit05_170112_152321\"\n",
+    "exp[133]=\"radial16_XL2_Bastra_rand2x2_timeALL_fulltraffic_logit10_170112_153713\"\n",
+    "exp[134]=\"radial16_XL2_Bastra_rand2x2_timeALL_fulltraffic_logit100_170112_155127\"\n",
+    "exp[135]=\"radial16_XL2_Bastra_rand2x2_timeALL_fulltraffic_logit20_170112_160558\"\n",
+    "exp[136]=\"radial16_XL2_Bastra_rand2x2_timeALL_fulltraffic_logit50_170112_162104\"\n",
+    "exp[137]=\"radial16_XL2_Bastra_rand2x4_timeALL_fulltraffic_logit05_170112_163311\"\n",
+    "exp[138]=\"radial16_XL2_Bastra_rand2x4_timeALL_fulltraffic_logit10_170112_164810\"\n",
+    "exp[139]=\"radial16_XL2_Bastra_rand2x4_timeALL_fulltraffic_logit100_170112_170303\"\n",
+    "exp[140]=\"radial16_XL2_Bastra_rand2x4_timeALL_fulltraffic_logit20_170112_171722\"\n",
+    "exp[141]=\"radial16_XL2_Bastra_rand2x4_timeALL_fulltraffic_logit50_170112_173237\"\n",
+    "\n",
+    "# -L- time-to-teleport = 30\n",
+    "exp[142]=\"radial16_noBastra_L_fulltraffic_170115_222202\"  \n",
+    "exp[143]=\"radial16_L_Bastra_rand05x8_timeALL_fulltraffic_logit50_170115_222455\"\n",
+    "\n",
+    "# -XL- time-to-teleport = 30\n",
+    "exp[144]=\"radial16_noBastra_XL2_fulltraffic_170115_223107\"  \n",
+    "exp[145]=\"radial16_XL2_Bastra_rand05x8_timeALL_fulltraffic_logit50_170115_223333\"\n",
+    "\n",
+    "# XXL\n",
+    "exp[146]=\"radial16_noBastra_XXL_fulltraffic_170115_225021\"\n",
+    "exp[147]=\"radial16_noBastra_XXL_fulltraffic_170115_225722\"\n",
+    "\n",
+    "# TELEPORTING time-to-teleport = 30\n",
+    "exp[150]=\"radial16_XXL_noBastra_nomaps_fulltraffic_170125_231820\"\n",
+    "exp[151]=\"radial16_XXL_Bastra_rand05x1_timeALL_fulltraffic_logit50_170116_002248\"\n",
+    "exp[152]=\"radial16_XXL_Bastra_rand05x1_timeALL_fulltraffic_logit100_170116_002704\"\n",
+    "exp[153]=\"radial16_XXL_Bastra_rand05x2_timeALL_fulltraffic_logit05_170116_003203\"\n",
+    "exp[154]=\"radial16_XXL_Bastra_rand05x2_timeALL_fulltraffic_logit10_170116_003557\"\n",
+    "exp[155]=\"radial16_XXL_Bastra_rand05x2_timeALL_fulltraffic_logit20_170116_003955\"\n",
+    "exp[156]=\"radial16_XXL_Bastra_rand05x2_timeALL_fulltraffic_logit50_170116_004349\"\n",
+    "exp[157]=\"radial16_XXL_Bastra_rand05x2_timeALL_fulltraffic_logit100_170116_004745\"\n",
+    "exp[158]=\"radial16_XXL_Bastra_rand05x4_timeALL_fulltraffic_logit05_170116_005211\"\n",
+    "exp[159]=\"radial16_XXL_Bastra_rand05x4_timeALL_fulltraffic_logit10_170116_005608\"\n",
+    "exp[160]=\"radial16_XXL_Bastra_rand05x4_timeALL_fulltraffic_logit20_170116_010004\"\n",
+    "exp[161]=\"radial16_XXL_Bastra_rand05x4_timeALL_fulltraffic_logit50_170116_010403\"\n",
+    "exp[162]=\"radial16_XXL_Bastra_rand05x4_timeALL_fulltraffic_logit100_170116_010801\"\n",
+    "exp[163]=\"radial16_XXL_Bastra_rand05x8_timeALL_fulltraffic_logit05_170116_011219\"\n",
+    "exp[164]=\"radial16_XXL_Bastra_rand05x8_timeALL_fulltraffic_logit10_170116_011614\"\n",
+    "exp[165]=\"radial16_XXL_Bastra_rand05x8_timeALL_fulltraffic_logit20_170116_012003\"\n",
+    "exp[166]=\"radial16_XXL_Bastra_rand05x8_timeALL_fulltraffic_logit50_170116_012354\"\n",
+    "exp[167]=\"radial16_XXL_Bastra_rand05x8_timeALL_fulltraffic_logit100_170116_012754\"\n",
+    "exp[168]=\"radial16_XXL_Bastra_rand2x2_timeALL_fulltraffic_logit05_170116_013208\"\n",
+    "exp[169]=\"radial16_XXL_Bastra_rand2x2_timeALL_fulltraffic_logit10_170116_013601\"\n",
+    "exp[170]=\"radial16_XXL_Bastra_rand2x2_timeALL_fulltraffic_logit20_170116_013948\"\n",
+    "exp[171]=\"radial16_XXL_Bastra_rand2x2_timeALL_fulltraffic_logit50_170116_014335\"\n",
+    "exp[172]=\"radial16_XXL_Bastra_rand2x2_timeALL_fulltraffic_logit100_170116_014731\"\n",
+    "exp[173]=\"radial16_XXL_Bastra_rand2x4_timeALL_fulltraffic_logit05_170116_015152\"\n",
+    "exp[174]=\"radial16_XXL_Bastra_rand2x4_timeALL_fulltraffic_logit10_170116_015539\"\n",
+    "exp[175]=\"radial16_XXL_Bastra_rand2x4_timeALL_fulltraffic_logit20_170116_015928\"\n",
+    "exp[176]=\"radial16_XXL_Bastra_rand2x4_timeALL_fulltraffic_logit50_170116_020315\"\n",
+    "exp[177]=\"radial16_XXL_Bastra_rand2x4_timeALL_fulltraffic_logit100_170116_020708\"\n",
+    "\n",
+    "# TELEPORT - time-to-teleport=60\n",
+    "exp[200]=\"radial16_XXL_noBastra_tele60_nomaps_fulltraffic_170125_234213\"\n",
+    "exp[201]=\"radial16_XXL_Bastra_tele60_rand05x8_timeALL_fulltraffic_logit50_170125_234652\"\n",
+    "exp[202]=\"radial16_XXL_Bastra_tele60_rand05x2_timeALL_fulltraffic_logit50_170125_235111\"\n",
+    "exp[203]=\"radial16_XXL_Bastra_tele60_rand05x1_timeALL_fulltraffic_logit05_170125_235649\"\n",
+    "exp[204]=\"radial16_XXL_Bastra_tele60_rand05x1_timeALL_fulltraffic_logit10_170126_000104\"\n",
+    "exp[205]=\"radial16_XXL_Bastra_tele60_rand05x1_timeALL_fulltraffic_logit20_170126_000516\"\n",
+    "exp[206]=\"radial16_XXL_Bastra_tele60_rand05x1_timeALL_fulltraffic_logit50_170126_000928\"\n",
+    "exp[207]=\"radial16_XXL_Bastra_tele60_rand05x1_timeALL_fulltraffic_logit100_170126_001405\"\n",
+    "exp[208]=\"radial16_XXL_Bastra_tele60_rand05x2_timeALL_fulltraffic_logit05_170126_001957\"\n",
+    "exp[209]=\"radial16_XXL_Bastra_tele60_rand05x2_timeALL_fulltraffic_logit10_170126_002412\"\n",
+    "exp[210]=\"radial16_XXL_Bastra_tele60_rand05x2_timeALL_fulltraffic_logit20_170126_002829\"\n",
+    "exp[211]=\"radial16_XXL_Bastra_tele60_rand05x2_timeALL_fulltraffic_logit100_170126_003238\"\n",
+    "exp[212]=\"radial16_XXL_Bastra_tele60_rand05x4_timeALL_fulltraffic_logit05_170126_003745\"\n",
+    "exp[213]=\"radial16_XXL_Bastra_tele60_rand05x4_timeALL_fulltraffic_logit10_170126_004200\"\n",
+    "exp[214]=\"radial16_XXL_Bastra_tele60_rand05x4_timeALL_fulltraffic_logit20_170126_004614\"\n",
+    "exp[215]=\"radial16_XXL_Bastra_tele60_rand05x4_timeALL_fulltraffic_logit50_170126_005025\"\n",
+    "exp[216]=\"radial16_XXL_Bastra_tele60_rand05x4_timeALL_fulltraffic_logit100_170126_005440\"\n",
+    "exp[217]=\"radial16_XXL_Bastra_tele60_rand05x8_timeALL_fulltraffic_logit05_170126_005920\"\n",
+    "exp[218]=\"radial16_XXL_Bastra_tele60_rand05x8_timeALL_fulltraffic_logit10_170126_010340\"\n",
+    "exp[219]=\"radial16_XXL_Bastra_tele60_rand05x8_timeALL_fulltraffic_logit20_170126_010753\"\n",
+    "exp[220]=\"radial16_XXL_Bastra_tele60_rand05x8_timeALL_fulltraffic_logit100_170126_011207\"\n",
+    "exp[221]=\"radial16_XXL_Bastra_tele60_rand2x2_timeALL_fulltraffic_logit05_170126_011634\"\n",
+    "exp[222]=\"radial16_XXL_Bastra_tele60_rand2x2_timeALL_fulltraffic_logit10_170126_012047\"\n",
+    "exp[223]=\"radial16_XXL_Bastra_tele60_rand2x2_timeALL_fulltraffic_logit20_170126_012501\"\n",
+    "exp[224]=\"radial16_XXL_Bastra_tele60_rand2x2_timeALL_fulltraffic_logit50_170126_012914\"\n",
+    "exp[225]=\"radial16_XXL_Bastra_tele60_rand2x2_timeALL_fulltraffic_logit100_170126_013333\"\n",
+    "exp[226]=\"radial16_XXL_Bastra_tele60_rand2x4_timeALL_fulltraffic_logit05_170126_013852\"\n",
+    "exp[227]=\"radial16_XXL_Bastra_tele60_rand2x4_timeALL_fulltraffic_logit10_170126_014309\"\n",
+    "exp[228]=\"radial16_XXL_Bastra_tele60_rand2x4_timeALL_fulltraffic_logit20_170126_014723\"\n",
+    "exp[229]=\"radial16_XXL_Bastra_tele60_rand2x4_timeALL_fulltraffic_logit50_170126_015141\""
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## L traffic experiments"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 15,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "# L - Effect of number of maps rand5 + logit50\n",
+    "# L - Effect of number of maps rand5 + logit100\n",
+    "#set_experiments(4,54)\n",
+    "#set_experiments(4,59)\n",
+    "#set_experiments(4,64)\n",
+    "#set_experiments(4,69)\n",
+    "\n",
+    "# L - Effect of number of maps rand2 + logit50\n",
+    "#set_experiments(4,76) # logit50\n",
+    "#set_experiments(4,81) # logit50\n",
+    "\n",
+    "# L - Effect of number of maps rand2 + logit100\n",
+    "#set_experiments(4,74) # logit100\n",
+    "#set_experiments(4,79) # logit100\n",
+    "#set_experiments(64,79) # logit100"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## XL traffic experiments"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 16,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [],
+   "source": [
+    "set_experiments(5,86) # 1-MAP-50%\n",
+    "set_experiments(5,91) #2-MAP-50%\n",
+    "set_experiments(5,96)#4-MAP-50%\n",
+    "set_experiments(5,101)#8-MAP-50%\n",
+    "\n",
+    "set_experiments(86,101)#1/8-MAPS-50%\n",
+    "\n",
+    "# 2,4 MAPS high weights at 100%\n",
+    "set_experiments(5,104)\n",
+    "set_experiments(5,109)\n",
+    "\n",
+    "\n",
+    "#set_experiments(5,101)\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## XL2 traffic experiments"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 17,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "#set_experiments(6,146)\n",
+    "set_experiments(146,147)\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Tele-porting effect"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Teleporting 30"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 18,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [],
+   "source": [
+    "set_experiments(150,166)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Teleporting 60"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 19,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "set_experiments(1000,1001)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 20,
+   "metadata": {
+    "collapsed": false,
+    "slideshow": {
+     "slide_type": "fragment"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "## IMPORTS\n",
+    "\n",
+    "%matplotlib inline\n",
+    "\n",
+    "import fileinput\n",
+    "import re\n",
+    "import numpy as np\n",
+    "import matplotlib.pyplot as plt\n",
+    "import matplotlib.mlab as mlab\n",
+    "import matplotlib.lines as mlines\n",
+    "import matplotlib as mpl\n",
+    "from IPython.display import display, HTML\n",
+    "# from scipy.stats import ttest_1samp, wilcoxon, ttest_ind, mannwhitneyu\n",
+    "from scipy import stats as st\n",
+    "\n",
+    "import sklearn as sk\n",
+    "import pandas as pd"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 21,
+   "metadata": {
+    "collapsed": true,
+    "slideshow": {
+     "slide_type": "subslide"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "### Functions"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 22,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<script>jQuery(function() {if (jQuery(\"body.notebook_app\").length == 0) { jQuery(\".input_area\").toggle(); jQuery(\".prompt\").toggle();}});</script>"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    },
+    {
+     "data": {
+      "text/html": [
+       "<button onclick=\"jQuery('.input_area').toggle(); jQuery('.prompt').toggle();\">Toggle code</button>"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    }
+   ],
+   "source": [
+    "# Toggle CODE ON/OFF\n",
+    "from IPython.display import display\n",
+    "from IPython.display import HTML\n",
+    "import IPython.core.display as di\n",
+    "\n",
+    "# This line will hide code by default when the notebook is exported as HTML\n",
+    "di.display_html('<script>jQuery(function() {if (jQuery(\"body.notebook_app\").length == 0) { jQuery(\".input_area\").toggle(); jQuery(\".prompt\").toggle();}});</script>', raw=True)\n",
+    "\n",
+    "# This line will add a button to toggle visibility of code blocks, for use with the HTML export version\n",
+    "di.display_html('''<button onclick=\"jQuery('.input_area').toggle(); jQuery('.prompt').toggle();\">Toggle code</button>''', raw=True)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 23,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "# Reporting functions\n",
+    "\n",
+    "idx1=0\n",
+    "idx2=0\n",
+    "idx3=0\n",
+    "def print_h0( title ):\n",
+    "    global idx1, idx2, idx3\n",
+    "    display(HTML(\"<h2>\"+ title + \"</h2>\"))\n",
+    "    display(HTML(\"<style>div.output_subarea table {font-size: 10px;}</style>\"))\n",
+    "\n",
+    "    idx1 = 0\n",
+    "    idx2 = 0\n",
+    "    idx3 = 0\n",
+    "\n",
+    "def print_h1( title, chapter ):\n",
+    "    global idx1, idx2, idx3\n",
+    "    idx1 +=1\n",
+    "    idx2 = 0\n",
+    "    idx3 = 0\n",
+    "    display(HTML(\"<h4>\"+str(idx1)+\". \"+ title+\". \"+ chapter + \"</h4>\"))\n",
+    "\n",
+    "def print_h2( title, chapter ):\n",
+    "    global idx1, idx2, idx3\n",
+    "    idx2 +=1\n",
+    "    idx3 = 0\n",
+    "    display(HTML(\"<h5>\"+str(idx1)+\".\"+str(idx2)+\". \"+ title+\". \"+ chapter + \"</h5>\"))\n",
+    "\n",
+    "def print_h3( title, chapter ):\n",
+    "    global idx1, idx2, idx3\n",
+    "    idx3 +=1\n",
+    "    display(HTML(\"<h6>\"+str(idx1)+\".\"+str(idx2)+\".\"+str(idx3)+\". \"+ title+\". \"+ chapter + \"</h6>\"))\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 24,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [],
+   "source": [
+    "#### Function str_vals_percent\n",
+    "# Given two values, print them with their percent difference\n",
+    "def str_val( n ):\n",
+    "    return \"{0:.2f}\".format(n)\n",
+    "def str_perc( n1, n2 ):\n",
+    "    txt = \"{0:.2f}\".format((n2-n1)*100/n1) + \"%\"\n",
+    "    return txt\n",
+    "def str_vals_percent( n1, n2 ):\n",
+    "    return \"[\" + str_val(n1) + \",\" + str_val(n2) +\"] \"+ str_perc( n1, n2 ) "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 25,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "#### Function dataset_obtain_unique_fleets\n",
+    "# Extract unique values for 'veh_types' column from the datasets.\n",
+    "#\n",
+    "# Support 0,1,2 datasets. Easy to extend to more dataserts. Not needed by now.\n",
+    "def dataset_obtain_unique_fleets( *ds ):\n",
+    "    size = len(ds)\n",
+    "    if( len(ds) == 0):\n",
+    "        return []\n",
+    "    if( len(ds) == 1):\n",
+    "        return ds[0]['veh_type'].unique()\n",
+    "    if( len(ds) == 2):\n",
+    "        vt1 = ds[0]['veh_type'].unique()\n",
+    "        vt2 = ds[1]['veh_type'].unique()\n",
+    "        return list(set().union(vt2, vt2))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 26,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "#### Function dataset_filter_per_veh_type\n",
+    "# Filter a dataset per type of veh_type\n",
+    "def dataset_filter_per_veh_type(ds, vt):\n",
+    "    return ds.loc[ ds['veh_type']==vt ]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 27,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [],
+   "source": [
+    "def compare_values(diff,op):\n",
+    "  if( diff==0):\n",
+    "    return \"hasn't changed\"\n",
+    "  if( op == '>'):\n",
+    "    return \"has improved\" if diff>0 else \"gets worse\"\n",
+    "  if( op == '<'):\n",
+    "    return \"has improved\" if diff<0 else \"gets worse\"\n",
+    "  return \"\"\n",
+    "\n",
+    "#### Function printPairedStats\n",
+    "# Print paired statistics for two data sets\n",
+    "# Print Statistics for paired values\n",
+    "def printPairedStats( title, label1, ds_raw1, label2, ds_raw2 ):\n",
+    "    if( not flag_show_paired_stats ):\n",
+    "        return\n",
+    "\n",
+    "    confidence_str = str(conf_paired_stats_confidence)+\"%\"\n",
+    "    # Copy DataFrames and change column names\n",
+    "    ds1 = ds_raw1.loc[ ds_raw1['t_arrival_secs'] > 0 ].copy()\n",
+    "    # WARNING: CHECK WITH THIS SENTENCE THAT EVERYTHIGN IS CORRECT: print(ds1.columns)\n",
+    "    ds1.columns = ['id1','veh_type1','t_depart_secs1','t_arrival_secs1','t_traveltime_secs1',\n",
+    "                   'origin1','destiny1', 'route_calc_num1',\n",
+    "                   'route_detail1','route_path_num1','route_distance1','is_attended1','has_finished1',\n",
+    "                   'maps1','tripfile1']\n",
+    "    ds2 = ds_raw2.loc[ ds_raw2['t_arrival_secs'] > 0 ].copy()\n",
+    "    ds2.columns = ['id2','veh_type2','t_depart_secs2','t_arrival_secs2','t_traveltime_secs2',\n",
+    "                   'origin2','destiny2', 'route_calc_num2',\n",
+    "                   'route_detail2','route_path_num2','route_distance2','is_attended2','has_finished2',\n",
+    "                   'maps2','tripfile2']\n",
+    "\n",
+    "    # Inner join for vehicles that completed in both scenarios\n",
+    "    ds3 = pd.merge(left=ds1,right=ds2, left_on='id1', right_on='id2')\n",
+    "    ds3['diff_traveltime_secs']=ds3['t_traveltime_secs1']-ds3['t_traveltime_secs2']\n",
+    "    # percent\n",
+    "    ds3['diff_traveltime_perc']=100.0*ds3['diff_traveltime_secs']/ds3['t_traveltime_secs1']\n",
+    "\n",
+    "    # Inner join for vehicles that completed and used MUTRAFF in both scenarios\n",
+    "    # ds4 used Mutraff\n",
+    "    # ds5 didn't use Mutraff\n",
+    "    ds4 = ds3.loc[ ds3['is_attended2'] == True ].copy()\n",
+    "    ds5 = ds3.loc[ ds3['is_attended2'] == False ].copy()\n",
+    "\n",
+    "    travel_times1 = ds3['t_traveltime_secs1']\n",
+    "    travel_times2 = ds3['t_traveltime_secs2']\n",
+    "\n",
+    "    # --- VARIANCE COMPARISON STATISTICS\n",
+    "    x_t_test  = st.ttest_ind( travel_times1, travel_times2 )\n",
+    "    if( x_t_test.pvalue < conf_paired_stats_confidence ):\n",
+    "        x_t_test_str = \"Variances are different (standard independent 2 sample test) \"\n",
+    "    else:\n",
+    "        x_t_test_str = \"We cannot assure that variances are equal\"\n",
+    "    r_t_test  = st.ttest_ind( ds1['route_path_num1'], ds2['route_path_num2'])\n",
+    "    if( r_t_test.pvalue < conf_paired_stats_confidence ):\n",
+    "        r_t_test_str = \"Variances are different (standard independent 2 sample test) \"\n",
+    "    else:\n",
+    "        r_t_test_str = \"We cannot assure that variances are equal\"\n",
+    "\n",
+    "    # SHAPIRO normality test\n",
+    "    diff_shapiro1_secs=st.shapiro(ds3['diff_traveltime_secs'])\n",
+    "    diff_shapiro1_perc=st.shapiro(ds3['diff_traveltime_perc'])\n",
+    "    diff_shapiro1_secs_str = (\"Distrib is not normal\" if diff_shapiro1_secs[1] < conf_paired_stats_confidence else \"cannot reject that is normal\")\n",
+    "    diff_shapiro1_perc_str = (\"Distrib is not normal\" if diff_shapiro1_perc[1] < conf_paired_stats_confidence else \"cannot reject that is normal\")\n",
+    "\n",
+    "    # SIGN AND RANK SIGN WILCOXON TESTS\n",
+    "    diff_ranksign_test = st.wilcoxon( travel_times1, travel_times2 )\n",
+    "    diff_ranksign_test_str = (\"Medians are sensitive different. MuTRAFF has a statistical significative impact\" if diff_ranksign_test.pvalue < conf_paired_stats_confidence else \"cannot reject that Medians are sensitive different\")\n",
+    "    \n",
+    "    theStats = pd.DataFrame([\n",
+    "        [ 'Travel Time', 'T-TEST',  '(t_stat)(p_value)', confidence_str, x_t_test_str, 'stat='+str(x_t_test.statistic), 'p_val='+str(x_t_test.pvalue) ],\n",
+    "        [ 'Route Length', 'T-TEST',  '(t_stat)(p_value)', confidence_str, r_t_test_str, 'stat='+str(r_t_test.statistic), 'p_val='+str(r_t_test.pvalue) ],\n",
+    "        [ 'Travel Time', 'Wilcoxon Paired RankSign',  '', confidence_str, diff_ranksign_test_str, 'stat='+str(diff_ranksign_test.statistic), 'p_val='+str(diff_ranksign_test.pvalue) ],\n",
+    "        [ 'Diff in Travel Time', 'Shapiro',  '', confidence_str, r_t_test_str, 'stat='+str(r_t_test.statistic), 'p_val='+str(r_t_test.pvalue) ],\n",
+    "        [ 'Travel Time Diff secs', 'Shapiro Normality', 'secs', confidence_str, diff_shapiro1_secs_str, '', diff_shapiro1_secs[1] ],\n",
+    "        [ 'Travel Time Diff secs', 'mean',  't.units', confidence_str, compare_values(np.mean(ds3['diff_traveltime_secs']),'>'), np.mean(ds3['diff_traveltime_secs']), ''],\n",
+    "        [ 'Travel Time Diff secs', 'median',  't.units', confidence_str, compare_values(np.median(ds3['diff_traveltime_secs']),'>'),np.median(ds3['diff_traveltime_secs']), '' ],\n",
+    "        [ 'Travel Time Diff secs', 'std.deviation',  't.units', confidence_str, compare_values(np.std(ds3['diff_traveltime_secs']),'>'), np.std(ds3['diff_traveltime_secs']), '' ],\n",
+    "        [ 'Travel Time Diff %', 'Shapiro Normality', '%', '', diff_shapiro1_perc_str, '', diff_shapiro1_perc[1] ],\n",
+    "        [ 'Travel Time Diff %', 'mean',  '%', '', compare_values(np.mean(ds3['diff_traveltime_perc']),'>'), np.mean(ds3['diff_traveltime_perc']), ''],\n",
+    "        [ 'Travel Time Diff %', 'median',  '%', '', compare_values(np.median(ds3['diff_traveltime_perc']),'>'), np.median(ds3['diff_traveltime_perc']), '' ],\n",
+    "        [ 'Travel Time Diff %', 'std.deviation',  '%', '', compare_values(np.std(ds3['diff_traveltime_perc']),'>'), np.std(ds3['diff_traveltime_perc']), '' ],\n",
+    "        ])\n",
+    "    theStats.columns = [ '', 'Stat', 'Units', 'confidence', 'Analysis', 'stat', 'pvalue']\n",
+    "    print_h2(title,\"PAIRED STATISTICS\")\n",
+    "    display(HTML(theStats.to_html()))\n",
+    "    \n",
+    "    if( flag_show_paired_histo_secs ):\n",
+    "        print_h2(title,\"PAIRED - Individual Absolute Traveltime Enhancement histogram\")\n",
+    "        cols = 80\n",
+    "        fig, ax = plt.subplots(figsize=(18,8))\n",
+    "\n",
+    "        plt.xlabel('Travel Time Enhancement (time units)')\n",
+    "        plt.ylabel('Frecuency')\n",
+    "        plt.title(\"Individual travel time enhancement (time units)\" )\n",
+    "\n",
+    "        y_vals_secs, x_bins, patches = ax.hist(ds3['diff_traveltime_secs'], cols, normed=0, color=['blue'], alpha=0.30, histtype='bar')\n",
+    "\n",
+    "        plt.show()\n",
+    "\n",
+    "    if( flag_show_paired_histo_perc ):\n",
+    "        print_h2(title,\"PAIRED - Individual Relative Traveltime Enhancement histogram %\")\n",
+    "        fig, ax = plt.subplots(figsize=(18,8))\n",
+    "\n",
+    "        plt.xlabel('Travel Time Enhancement (%)')\n",
+    "        plt.ylabel('Frecuency')\n",
+    "        plt.title(\"Percentual Individual travel time enhancement (% enhancement relative to original travel time)\" )\n",
+    "\n",
+    "        # bins = np.linspace(-100, 100, 200)\n",
+    "        # y_vals, x_bins, patches = ax.hist(ds3['diff_traveltime_perc'], bins, normed=0, color=['blue'], alpha=0.30, histtype='bar')\n",
+    "        cols = 80\n",
+    "        y_vals, x_bins, patches = ax.hist(ds3['diff_traveltime_perc'], cols, normed=0, color=['blue'], alpha=0.30, histtype='bar')\n",
+    "\n",
+    "        plt.show()\n",
+    "\n",
+    "        # Percent Graphic zoom...\n",
+    "        bins = np.linspace(-100, 100, 200)\n",
+    "        fig, ax = plt.subplots(figsize=(18,8))\n",
+    "\n",
+    "        plt.xlabel('Travel Time Enhancement (%)')\n",
+    "        plt.ylabel('Frecuency')\n",
+    "        plt.title(\"(Zoomed -100%,100%) Percentual Individual travel time enhancement (% enhancement relative to original travel time)\" )\n",
+    "        y_vals, x_bins, patches = ax.hist(ds3['diff_traveltime_perc'], bins, normed=0, color=['blue'], alpha=0.30, histtype='bar')\n",
+    "\n",
+    "        plt.show()\n",
+    "        if( flag_show_paired_histo_cumsum ):\n",
+    "            print_h2(title,\"PAIRED - Cumulative distribution of Individual Traveltime Enhancement\")\n",
+    "            fig, ax = plt.subplots(figsize=(18,8))\n",
+    "\n",
+    "            bins = len(y_vals)\n",
+    "            y_cum = np.cumsum(y_vals)\n",
+    "            y_cum_max = y_cum[bins-1]\n",
+    "            y_cum = y_cum/y_cum_max\n",
+    "\n",
+    "            x1 = np.ones(bins)\n",
+    "            x_cum = np.cumsum(x1)\n",
+    "            #x_cum = x_cum/bins\n",
+    "\n",
+    "            #print( \"Enhancement differences (X):\", x_cum )\n",
+    "            #print( \"Enhancement differences (Y):\", y_cum )\n",
+    "\n",
+    "            plt.title(\"Cumulative distribution of Individual travel time enhancement\" )\n",
+    "            plt.xlabel('Travel Time Enhancenment')\n",
+    "            plt.ylabel('Probability')\n",
+    "            # plot the cumulative function\n",
+    "            # plt.plot(base[:-1], cumulative, c='red')\n",
+    "            plt.plot(x_cum, y_cum, c='red')\n",
+    "            # plot the survival function\n",
+    "            # plt.plot(base[:-1], len(ds3['diff_traveltime_perc'])-cumulative, c='brown')\n",
+    "            plt.show()\n",
+    "\n",
+    "    if( flag_show_paired_histo_usage ):\n",
+    "        print_h2(title,\"PAIRED - MuTRAFF Usage - Individual absolute traveltime enhancement histogram\")\n",
+    "        # Graph for Using Mutraff or not\n",
+    "        cols = 80\n",
+    "        fig, ax = plt.subplots(figsize=(18,8))\n",
+    "\n",
+    "        plt.xlabel('Travel Time Enhancement based on MuTRAFF usage (time units)')\n",
+    "        plt.ylabel('Frecuency')\n",
+    "        plt.title(\"Individual travel time enhancenment (time units)\" )\n",
+    "\n",
+    "        ax.hist([ds4['diff_traveltime_secs'],ds5['diff_traveltime_secs']], cols, color=['green','red'], label=['Using MuTRAFF','Not using'], alpha=0.7, histtype='bar')      \n",
+    "        ax.grid(True)\n",
+    "        ax.legend(loc='upper right')\n",
+    "        plt.show()\n",
+    "        \n",
+    "        print_h2(title,\"PAIRED - MuTRAFF Usage - Individual relative traveltime enhancement histogram\")\n",
+    "        fig, ax = plt.subplots(figsize=(18,8))\n",
+    "        plt.xlabel('Travel Time Enhancement (%)')\n",
+    "        plt.ylabel('Frecuency')\n",
+    "        plt.title(\"Percentual Individual travel time enhancement based on MuTRAFF usage(% enhancement relative to original travel time)\" )\n",
+    "\n",
+    "        cols = 80\n",
+    "        ax.hist([ds4['diff_traveltime_perc'],ds5['diff_traveltime_perc']], cols, color=['green','red'], label=['Using MuTRAFF','Not using'], alpha=0.7, histtype='bar')\n",
+    "        ax.grid(True)\n",
+    "        ax.legend(loc='upper left')\n",
+    "        plt.show()\n",
+    "\n",
+    "        # Percent Graphic zoom...\n",
+    "        bins = np.linspace(-100, 100, 100)\n",
+    "        fig, ax = plt.subplots(figsize=(18,8))\n",
+    "\n",
+    "        plt.xlabel('Travel Time Enhancement (%)')\n",
+    "        plt.ylabel('Frecuency')\n",
+    "        plt.title(\"(Zoomed -100%,100%) Percentual Individual travel time enhancement based on MuTRAFF usage(% enhancement relative to original travel time)\" )\n",
+    "        ax.hist([ds4['diff_traveltime_perc'],ds5['diff_traveltime_perc']], bins, color=['green','red'], label=['Using MuTRAFF','Not using'], alpha=0.7, histtype='bar')\n",
+    "        ax.grid(True)\n",
+    "        ax.legend(loc='upper left')\n",
+    "        plt.show()\n",
+    "\n",
+    "    if( flag_paired_stats_save_csv ):\n",
+    "        stats_file = '/tmp/mutraff-'+label1+\"-\"+label2+\".csv\"\n",
+    "        ds3.to_csv( stats_file )\n",
+    "        print( \"Saved file \" + stats_file )\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 28,
+   "metadata": {
+    "collapsed": false,
+    "slideshow": {
+     "slide_type": "skip"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "#### Function draw_2histograms\n",
+    "# Plots the comparison between two overlapped histograms based on the datasets.\n",
+    "def draw_2histograms( title, label1, experiment1, ds_raw1, label2, experiment2, ds_raw2 ):\n",
+    "    confidence_str = str(conf_single_stats_confidence)+\"%\"\n",
+    "\n",
+    "    ds1 = ds_raw1.loc[ ds_raw1['t_arrival_secs'] > 0 ]\n",
+    "    ds2 = ds_raw2.loc[ ds_raw2['t_arrival_secs'] > 0 ]\n",
+    "    ds3 = ds_raw2.loc[ ds_raw2['is_attended'] == True ]\n",
+    "\n",
+    "    travel_times1 = ds1['t_traveltime_secs']\n",
+    "    travel_times2 = ds2['t_traveltime_secs']\n",
+    "    travel_times = [ travel_times1, travel_times2 ]\n",
+    "\n",
+    "    cols = 80\n",
+    "    fig, ax = plt.subplots(figsize=(18,8))\n",
+    "\n",
+    "    plt.xlabel('Travel Time')\n",
+    "    plt.ylabel('Frecuency')\n",
+    "    plt.title(\"Travel Times Histogram: \"+label1+\" <--> \"+label2 )\n",
+    "    \n",
+    "    # y_vals1, x_bins1, patches1 = ax.hist(travel_times1, histtype='bar', cols, normed=0, facecolor='green', alpha=0.30)\n",
+    "    # y_vals2, x_bins2, patches2 = ax.hist(travel_times2, histtype='bar', cols, normed=0, facecolor='blue', alpha=0.30)\n",
+    "    [y_vals1, y_vals2], x_bins, patches = ax.hist(travel_times, cols, normed=0, color=['green', 'blue'], alpha=0.30, histtype='bar')\n",
+    "    \n",
+    "    conf_int=0.68\n",
+    "    \n",
+    "    # first histogram ------------------------------------\n",
+    "    x_size1   = len(travel_times1)\n",
+    "    x_mean1   = np.mean(travel_times1)\n",
+    "    x_median1 = np.median(travel_times1)\n",
+    "    x_std1    = np.std(travel_times1)\n",
+    "    x_var1    = np.var(travel_times1)\n",
+    "    x_conf_int1  = st.norm.interval(conf_int, loc=x_mean1, scale=x_std1)\n",
+    "    x_m_conf_int1= st.norm.interval(conf_int, loc=x_mean1, scale=x_std1/np.sqrt(x_size1))\n",
+    "    x_shapiro1=st.shapiro(travel_times1)\n",
+    "    x_shapiro_str1 = confidence_str + (\"is not normal\" if x_shapiro1[1] < conf_single_stats_confidence else \"cannot reject that is normal\")\n",
+    "    y_mean1   = np.mean(y_vals1)\n",
+    "    y_median1 = np.median(y_vals1)\n",
+    "    y_std1    = np.std(y_vals1)\n",
+    "    r_mean1   = np.mean(ds1['route_path_num'])\n",
+    "    r_median1 = np.median(ds1['route_path_num'])\n",
+    "    r_std1    = np.std(ds1['route_path_num'])\n",
+    "    r_var1    = np.var(ds1['route_path_num'])\n",
+    "    r_conf_int1= st.norm.interval(conf_int, loc=r_mean1, scale=r_std1)\n",
+    "    r_conf_int1= st.norm.interval(conf_int, loc=r_mean1, scale=r_std1)\n",
+    "    r_m_conf_int1= st.norm.interval(conf_int, loc=r_mean1, scale=r_std1/np.sqrt(x_size1))\n",
+    "    # l_mean1   = np.mean(ds1['route_length'])\n",
+    "    # l_median1 = np.median(ds1['route_length'])\n",
+    "    l_mean1   = 1\n",
+    "    l_median1 = 1\n",
+    "\n",
+    "    # add a 'best fit' line\n",
+    "    y1_vals1 = np.append( y_vals1, y_vals1[cols-1] )\n",
+    "\n",
+    "    x2_mean1   = [ x_mean1   for i in y1_vals1 ]\n",
+    "    x3_median1 = [ x_median1 for i in y1_vals1 ]\n",
+    "    y2_mean1   = [ y_mean1   for i in x_bins ]\n",
+    "    y3_median1 = [ y_median1 for i in x_bins ]\n",
+    "\n",
+    "    # second histogram ------------------------------------\n",
+    "    x_size2   = len(travel_times2)\n",
+    "    x_mean2   = np.mean(travel_times2)\n",
+    "    x_median2 = np.median(travel_times2)\n",
+    "    x_std2    = np.std(travel_times2)\n",
+    "    x_var2    = np.var(travel_times2)\n",
+    "    x_conf_int2  = st.norm.interval(conf_int, loc=x_mean2, scale=x_std2)\n",
+    "    x_m_conf_int2= st.norm.interval(conf_int, loc=x_mean2, scale=x_std2/np.sqrt(x_size2))\n",
+    "    x_shapiro2=st.shapiro(travel_times2)\n",
+    "    x_shapiro_str2 = confidence_str + (\"is not normal\" if x_shapiro2[1] < conf_single_stats_confidence else \"cannot reject that is normal\")\n",
+    "    y_mean2   = np.mean(y_vals2)\n",
+    "    y_median2 = np.median(y_vals2)\n",
+    "    y_std2    = np.std(y_vals2)\n",
+    "    r_mean2   = np.mean(ds2['route_path_num'])\n",
+    "    r_median2 = np.median(ds2['route_path_num'])\n",
+    "    r_std2    = np.std(ds2['route_path_num'])\n",
+    "    r_var2    = np.var(ds2['route_path_num'])\n",
+    "    r_conf_int2  = st.norm.interval(conf_int, loc=r_mean2, scale=r_std2)\n",
+    "    r_m_conf_int2= st.norm.interval(conf_int, loc=r_mean2, scale=r_std2/np.sqrt(x_size2))\n",
+    "    r_t_test  = st.ttest_ind( ds1['route_path_num'], ds2['route_path_num'])\n",
+    "    # l_mean2   = np.mean(ds2['route_length'])\n",
+    "    # l_median2 = np.median(ds2['route_length'])\n",
+    "    l_mean2   = 1\n",
+    "    l_median2 = 1\n",
+    "     \n",
+    "    # add a 'best fit' line\n",
+    "    y1_vals2 = np.append( y_vals2, y_vals2[cols-1] )\n",
+    "\n",
+    "    x2_mean2   = [ x_mean2   for i in y1_vals2 ]\n",
+    "    x3_median2 = [ x_median2 for i in y1_vals2 ]\n",
+    "    y2_mean2   = [ y_mean2   for i in x_bins ]\n",
+    "    y3_median2 = [ y_median2 for i in x_bins ]\n",
+    "\n",
+    "    if( flag_show_demand_stats ):\n",
+    "      theStats = pd.DataFrame([\n",
+    "        [ 'Trips Planned', 'num',  'trips', str_perc(ds_raw1['id'].count(),ds_raw2['id'].count()), ds_raw1['id'].count(), ds_raw2['id'].count()],\n",
+    "        [ 'Trips Routed',  'num',  'trips', str_perc(travel_times1.count(),travel_times2.count()), travel_times1.count(), travel_times2.count()],\n",
+    "        [ 'Trips using MuTRAFF',  'num',  'trips', str_perc(travel_times1.count(),len(ds3)), travel_times1.count(), len(ds3)],\n",
+    "        ])\n",
+    "      theStats.columns = [ '', 'Stat', 'Units', 'variation', label1, label2]        \n",
+    "      print_h2(title, \"NON-PAIRED STATS - ROUTED DEMAND\")\n",
+    "      display(HTML(theStats.to_html()))\n",
+    "\n",
+    "    if( flag_show_traveltime_stats ):\n",
+    "      theStats = pd.DataFrame([\n",
+    "        [ 'Travel Time', 'mean',  't.units', str_perc(x_mean1,x_mean2), x_mean1, x_mean2 ],\n",
+    "        [ 'Travel Time', 'median',  't.units', str_perc(x_median1,x_median2), x_median1, x_median2 ],\n",
+    "        # [ 'Travel Time', 'variance',  't.units', str_perc(x_var1,x_var2), x_var1, x_var2 ],\n",
+    "        [ 'Travel Time', 'std.deviation',  't.units', str_perc(x_std1,x_std2), x_std1,x_std2 ],\n",
+    "        [ 'Travel Time', 'Value Confidence Interval',  't.units', '', str(x_conf_int1), str(x_conf_int2) ],\n",
+    "        [ 'Travel Time', 'Mean Confidence Interval',  't.units', '', str(x_m_conf_int1), str(x_m_conf_int2) ],\n",
+    "        [ 'Travel Time', 'Shapiro', '', '', x_shapiro_str1, x_shapiro_str2 ]\n",
+    "        ])\n",
+    "      theStats.columns = [ '', 'Stat', 'Units', 'variation', label1, label2]\n",
+    "      print_h2(title, \"NON-PAIRED STATS - TRAVELTIME\")\n",
+    "      display(HTML(theStats.to_html()))\n",
+    "\n",
+    "    if( flag_show_route_stats ):\n",
+    "      theStats = pd.DataFrame([\n",
+    "        [ 'Route Length', 'mean',  'mts', str_perc(r_mean1,r_mean2), r_mean1, r_mean2 ],\n",
+    "        [ 'Route Length', 'median',  'mts', str_perc(r_median1,r_median2), r_median1, r_median2 ],\n",
+    "        # [ 'Route Length', 'variance',  'mts', str_perc(r_var1,r_var2), r_var1, r_var2 ],\n",
+    "        [ 'Route Length', 'std.deviation',  'mts', str_perc(r_std1,r_std2), r_std1, r_std2 ],\n",
+    "        [ 'Route Length', 'Value Confidence Interval',  'mts', '', str(r_conf_int1), str(r_conf_int2) ],\n",
+    "        [ 'Route Length', 'Mean Confidence Interval',  'mts', '', str(r_m_conf_int1), str(r_m_conf_int2) ],\n",
+    "        ])\n",
+    "      theStats.columns = [ '', 'Stat', 'Units', 'variation', label1, label2]        \n",
+    "      print_h2(title, \"NON-PAIRED STATS - ROUTE LENGTH\")\n",
+    "      display(HTML(theStats.to_html()))\n",
+    "\n",
+    "    print_h2(title, \"NON-PAIRED STATS - TRAVELTIMES COMPARED HISTOGRAM\")\n",
+    "    line_estimation1 = ax.plot(x_bins, y1_vals1, 'r-', label='Estimation', linewidth=2, color='darkgreen')\n",
+    "    line_estimation2 = ax.plot(x_bins, y1_vals2, 'r-', label='Estimation', linewidth=2, color='darkblue')\n",
+    "\n",
+    "    max_y = np.linspace(0, max( max(y_vals1), max(y_vals2)), num=len(x_bins))\n",
+    "    line_mean1 = ax.plot(x2_mean1, max_y, label='Mean', linestyle='--', linewidth=2, color='darkgreen')\n",
+    "    line_median1 = ax.plot(x3_median1, max_y, label='Median', linestyle='-', linewidth=2, color='darkgreen')\n",
+    "\n",
+    "    line_mean2 = ax.plot(x2_mean2, y1_vals2, label='Mean', linestyle='--', linewidth=2, color='darkblue')\n",
+    "    line_median2 = ax.plot(x3_median2, max_y, label='Median', linestyle='-', linewidth=2, color='darkblue')\n",
+    "\n",
+    "    mean_line1   = mlines.Line2D([], [], linestyle='--',color='darkgreen', markersize=1, label=label1+':Mean')\n",
+    "    median_line1 = mlines.Line2D([], [], linestyle='-', color='darkgreen', markersize=1, label=label1+':Median')\n",
+    "    mean_line2   = mlines.Line2D([], [], linestyle='--',color='darkblue',  markersize=1, label=label2+':Mean')\n",
+    "    median_line2 = mlines.Line2D([], [], linestyle='-', color='darkblue',  markersize=1, label=label2+':Median')\n",
+    "    ax.legend(handles=[median_line1, mean_line1, median_line2, mean_line2], loc='upper right')\n",
+    "    # plt.axis([travel_times.min(), travel_times.max()+1, 0, 0.03])\n",
+    "    ax.grid(True)\n",
+    "\n",
+    "    # If plotting OUTSIDE the notebook, set interactive mode ON/OFF\n",
+    "    # plt.ioff()\n",
+    "    # plt.ion()\n",
+    "\n",
+    "    plt.show()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 29,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "#### Function map_coord\n",
+    "# Maps edge coordinates into a grid representation for heatmaps.\n",
+    "# Receives as input parameters:\n",
+    "#    * (x,y) values to be mapped\n",
+    "#    * (max, min)(x,y) value ranges for x,y\n",
+    "#    * grid dimensions\n",
+    "# Test code to create distribution in array of heatmap\n",
+    "def map_coord(x,y,min_x,max_x,min_y,max_y,dim_x,dim_y):\n",
+    "    c_x = int(x/(max_x-min_x)*dim_x)\n",
+    "    c_y = int(y/(max_y-min_y)*dim_y)\n",
+    "    # print( \"(x,y):(\", x, \":\", y, \") --> coords:(\", c_x, \",\", c_y, \")\")\n",
+    "    return [ c_x, c_y ]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 30,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [],
+   "source": [
+    "def subplot_heatmap(title, column, criteria, heatmap, scale_min, scale_max, vals, x_min, x_max, y_min, y_max, grid_size_x, grid_size_y):\n",
+    "    max_v = vals[column].max()\n",
+    "    min_v = vals[column].min()\n",
+    "\n",
+    "    heatmap.grid(True)\n",
+    "    heatmap.set_title(title+\" / min:\"+str(min_v)+\", max:\"+str(max_v) )\n",
+    "    vmap = np.zeros( (grid_size_x,grid_size_y) )\n",
+    "    for i in range(len(vals)):\n",
+    "        x, y = map_coord( vals.ix[i,'av_x'], vals.ix[i,'av_y'],\n",
+    "                    x_min,x_max,y_min,y_max, grid_size_x, grid_size_y )\n",
+    "        vals.ix[i,'canvas_x'] = x\n",
+    "        vals.ix[i,'canvas_y'] = y\n",
+    "        # METHOD: AGGREGATE VALUES \n",
+    "        # OTHER METHODS WOULD BE POSSIBLE !!!\n",
+    "        if( criteria.lower() == 'max' ):\n",
+    "            if( vals.ix[i,column]> vmap[x,y] ):\n",
+    "                vmap[x,y] = vals.ix[i,column]\n",
+    "        else:\n",
+    "            if( criteria.lower() == 'min' ):\n",
+    "                if( vals.ix[i,column]< vmap[x,y] ):\n",
+    "                    vmap[x,y] = vals.ix[i,column]\n",
+    "            else:\n",
+    "                # Additive critieria:\n",
+    "                vmap[x,y] += vals.ix[i,column]\n",
+    "        \n",
+    "        # if( values.ix[i,column] > 0.1 ):\n",
+    "        #  print( \"{:d} : {:d},{:d} = {:f} <-- {:f},{:f}\".format(\n",
+    "        #        i, x, y, values.ix[i,column], values.ix[i,'av_x'], values.ix[i,'av_y']),\n",
+    "        #        \"...\", canvas_x_min,canvas_x_max,canvas_y_min,canvas_y_max, size_x, size_y )\n",
+    "    hot_vals = pd.DataFrame( vmap )\n",
+    "    # print(values[['canvas_x','canvas_y',column,'av_x','av_y']].sort_values(by=column,ascending=False))\n",
+    "    \n",
+    "    # interploation='bilinear', 'bicubic', 'nearest'\n",
+    "    # other colormaps are also possible such as: 'Reds'\n",
+    "    img = heatmap.imshow( hot_vals, cmap='YlOrBr', interpolation='bicubic', vmin=scale_min, vmax=scale_max)\n",
+    "    return img"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 31,
+   "metadata": {
+    "collapsed": false,
+    "scrolled": false
+   },
+   "outputs": [],
+   "source": [
+    "#### Function plot_traffic_heatmap\n",
+    "# Creates a heatmap plot for a given variable in a determinate time epoch. Considers only data coming from this epoch.\n",
+    "#Input parameters:\n",
+    "#    * Plot title\n",
+    "#    * Traffic network edges (as map representation)\n",
+    "#    * Edge dat sets obtained\n",
+    "#    * Size of the heatmap grid to be represented\n",
+    "#    * Time epoch to be considered\n",
+    "def plot_traffic_heatmap_single( title, edges, edge_ds_1, edge_ds_2, column, criteria, grid_size_x, grid_size_y, epoch ):\n",
+    "\n",
+    "    # Extract the columns edge and <<measure>>\n",
+    "    ds1 = edge_ds_1.loc[ edge_ds_1['time']==epoch ][['edge_id',column]]\n",
+    "    ds2 = edge_ds_2.loc[ edge_ds_2['time']==epoch ][['edge_id',column]]\n",
+    "    \n",
+    "    # merge with edge coordinates\n",
+    "    values1 = pd.merge(ds1, edges, how='left', left_on=['edge_id'], right_on=['name'])\n",
+    "    values2 = pd.merge(ds2, edges, how='left', left_on=['edge_id'], right_on=['name'])\n",
+    "    \n",
+    "    # print(values)\n",
+    "    max_v1 = values1[column].max()\n",
+    "    max_v2 = values2[column].max()\n",
+    "    min_v1 = values1[column].min()\n",
+    "    min_v2 = values2[column].min()\n",
+    "    max_v = max( [ max_v1, max_v2 ] )\n",
+    "    min_v = min( [ min_v1, min_v2 ] )\n",
+    "\n",
+    "    #Calculate canvas axis x,y over the whole map\n",
+    "    edge_vals_x = edges[['x1','x2']]\n",
+    "    x_min = edge_vals_x.values.min()\n",
+    "    x_max = edge_vals_x.values.max()\n",
+    "    \n",
+    "    edge_vals_y = edges[['y1','y2']]\n",
+    "    y_min = edge_vals_y.values.min()\n",
+    "    y_max = edge_vals_y.values.max()\n",
+    "    # print(\"VALUES\",\"min:\", min_v, \" max:\",max_v)\n",
+    "    # print(\"X_AXIS\",\"min:\", canvas_x_min, \" max:\",canvas_x_max)\n",
+    "    # print(\"Y_AXIS\",\"min:\", canvas_y_min, \" max:\",canvas_y_max)\n",
+    "\n",
+    "    fig, heatmaps = plt.subplots(1, 2, figsize=(20,8) )\n",
+    "    # fig, heatmaps = plt.subplots(1, 2 )\n",
+    "    fig.suptitle( title+\". Time: \"+str(epoch) )\n",
+    "    # plt.figure(figsize=(20,8))\n",
+    "    im = subplot_heatmap(column, column, criteria, heatmaps[0], min_v, max_v,\n",
+    "                    values1, x_min, x_max, y_min, y_max, grid_size_x, grid_size_y)\n",
+    "    im = subplot_heatmap(column,  column, criteria, heatmaps[1], min_v, max_v,\n",
+    "                    values2, x_min, x_max, y_min, y_max, grid_size_x, grid_size_y)\n",
+    "    \n",
+    "    fig.subplots_adjust(right=0.8)\n",
+    "    # cbar_ax = fig.add_axes([0.85, 0.15, 0.05, 0.7])\n",
+    "    # cbar_ax = fig.add_axes()\n",
+    "    # fig.colorbar(im, cax=cbar_ax)\n",
+    "    cax,kw = mpl.colorbar.make_axes([ax for ax in heatmaps.flat])\n",
+    "    plt.colorbar(im, cax=cax, **kw)\n",
+    "    plt.show()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 32,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "def plot_traffic_heatmap( title, edge_map, edge_stats1, edge_stats2, measure, criteria, grid_size_x, grid_size_y, graphic_samples ):\n",
+    "\n",
+    "    times = edge_stats1.time.unique()\n",
+    "    graphic_step = int((len(times)-1)/graphic_samples)\n",
+    "    # print(\"=== COMPARING\",measure,\"in\", graphic_samples, \"steps\")\n",
+    "\n",
+    "    for t in range(0,graphic_samples):\n",
+    "        timestamp = times[t*graphic_step]\n",
+    "        print (measure+\"[time:\"+str(timestamp)+\"]\" )\n",
+    "        plot_traffic_heatmap_single( \"Halted vehicles (num)\", edge_map,\n",
+    "                             edge_stats1, edge_stats2, measure, criteria,\n",
+    "                             grid_size_x, grid_size_y, timestamp )\n",
+    "\n",
+    "    plot_traffic_heatmap_single( \"Halted vehicles (num)\", edge_map,\n",
+    "                             edge_stats1, edge_stats2, measure, criteria,\n",
+    "                             grid_size_x, grid_size_y, times[len(times)-1] )"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 33,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [],
+   "source": [
+    "#### Function compare_scenarios\n",
+    "# Uploads results from 2 scenario executions and plotting the histogram curves based on the dataset.\n",
+    "# * Select only those vehicles that finish the trip, i.e. have arrive time > 0.\n",
+    "def load_scenario_data( path, label, experiment ):\n",
+    "    expr = re.compile('^__.+')\n",
+    "    data={}\n",
+    "    # print( \"Scenario: \", label, \"\\nExperiment: \", experiment, \"\\n\" )\n",
+    "    descriptor = path + \"/experiments/tmp/\" + experiment + \"/SCENARIO_DESCRIPTION.md\"\n",
+    "    # print( \"FILE:\", descriptor, \"\\n\")\n",
+    "    data['TITLE']=label\n",
+    "    data['EXPERIMENT']=experiment\n",
+    "    for line in fileinput.input([descriptor]):\n",
+    "        if( expr.match(line) ):\n",
+    "            [key,val] = line.rstrip().split(\"=\")\n",
+    "            data[key]=val\n",
+    "    return data\n",
+    "    \n",
+    "def print_scenarios( path, label1, experiment1, label2, experiment2 ):\n",
+    "    par1 = load_scenario_data(path, label1, experiment1)\n",
+    "    par2 = load_scenario_data(path, label2, experiment2)\n",
+    "    df = pd.DataFrame([par1, par2]).T\n",
+    "    df.columns = ['exp1','exp2']\n",
+    "    display(HTML(df.to_html()))\n",
+    "    return df\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "collapsed": true
+   },
+   "source": [
+    "# GOOGLE MAPS INTEGRATION\n",
+    "# http://jupyter-gmaps.readthedocs.io/en/latest/authentication.html\n",
+    "# https://github.com/pbugnion/gmaps\n",
+    "\n",
+    "import gmaps\n",
+    "import gmaps.datasets\n",
+    "import os\n",
+    "# Alvaro GMAPS API KEY - DONT REUSE IT IF YOU ARE NOT ALVARO !!!!!\n",
+    "# gmaps_api_key=\"xxxxxxxx\"\n",
+    "gmaps_api_key=os.environ[\"GOOGLE_API_KEY\"]\n",
+    "gmaps.configure(api_key=gmaps_api_key)\n",
+    "\n",
+    "def plot_gmaps( title, edge_map1, edge_stats1, edge_stats2 ):\n",
+    "    if( not flag_display_gmaps ):\n",
+    "        return\n",
+    "    #print_h3(title, \"CONGESTION - EDGE TRAVELTIMES\")\n",
+    "    print_h3(title, \"CONGESTION - EDGE HALTED VEHICLES\")\n",
+    "    locations = gmaps.datasets.load_dataset(\"starbucks_uk\")\n",
+    "    print( \"Locations:\", locations)\n",
+    "    m = gmaps.Map()\n",
+    "    starbucks_layer = gmaps.symbol_layer(\n",
+    "            locations, fill_color=\"green\", stroke_color=\"green\", scale=2)\n",
+    "    m.add_layer(starbucks_layer)\n",
+    "    m\n",
+    "    #print_h3(title, \"CONGESTION - EDGE SPEEDS\")\n",
+    "    print( \"--- FIN ---\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 34,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [],
+   "source": [
+    "# ALCALA DE HENARES EXPERIMENTS\n",
+    "# alcalahenares_noBastra_nomaps_fulltraffic_161216_110525\n",
+    "# alcalahenares_L_Bastra_uni1x8_timeALL_fulltraffic_logit50_161216_114129\n",
+    "# alcalahenares_L_Bastra_uni5x8_timeALL_fulltraffic_logit50_161216_121730\n",
+    "# alcalahenares_L_Bastra_uni5x16_timeALL_fulltraffic_logit50_161216_153926\n",
+    "\n",
+    "experiment1=\"alcalahenares_noBastra_nomaps_fulltraffic_170115_230706\"\n",
+    "experiment2=\"alcalahenares_noBastra_nomaps_fulltraffic_170115_230706\"\n",
+    "\n",
+    "exp[1000]=\"alcalahenares_noBastra_nomaps_tele300_fulltraffic_170116_000420\"\n",
+    "exp[1001]=\"alcalahenares_L_Bastra_tele300_uni5x8_timeALL_fulltraffic_logit50_170116_004127\"\n",
+    "exp[1002]=\"alcalahenares_L_Bastra_tele300_uni1x8_timeALL_fulltraffic_logit50_170116_002314\"\n",
+    "exp[1003]=\"alcalahenares_L_Bastra_tele300_uni5x16_timeALL_fulltraffic_logit50_170116_005920\"\n",
+    "\n",
+    "exp[1100]=\"alcalahenares_noBastra_nomaps_tele60_fulltraffic_170126_201242\"\n",
+    "exp[1101]=\"alcalahenares_L_Bastra_tele60_uni1x8_timeALL_fulltraffic_logit50_170126_203035\"\n",
+    "exp[1102]=\"alcalahenares_L_Bastra_tele60_uni5x16_timeALL_fulltraffic_logit50_170126_204811\"\n",
+    "exp[1103]=\"alcalahenares_L_Bastra_tele60_uni5x8_timeALL_fulltraffic_logit50_170126_210456\"\n",
+    "\n",
+    "exp[1150]=\"alcalahenares_XL_nomutraff_tele60_nomaps_fulltraffic_170130_200632\"\n",
+    "exp[1151]=\"alcalahenares_XL_mutraff_tele60_uni1x8_timeALL_fulltraffic_logit10_170130_202418\"\n",
+    "exp[1152]=\"alcalahenares_XL_mutraff_tele60_uni1x8_timeALL_fulltraffic_logit20_170130_222842\"\n",
+    "exp[1153]=\"alcalahenares_XL_mutraff_tele60_uni1x8_timeALL_fulltraffic_logit50_170131_002856\"\n",
+    "exp[1154]=\"alcalahenares_XL_mutraff_tele60_uni1x8_timeALL_fulltraffic_logit100_170131_022031\"\n",
+    "exp[1155]=\"alcalahenares_XL_mutraff_tele60_uni5x16_timeALL_fulltraffic_logit10_170131_040937\"\n",
+    "exp[1156]=\"alcalahenares_XL_mutraff_tele60_uni5x16_timeALL_fulltraffic_logit20_170131_061125\"\n",
+    "exp[1157]=\"alcalahenares_XL_mutraff_tele60_uni5x16_timeALL_fulltraffic_logit50_170131_081200\"\n",
+    "exp[1158]=\"alcalahenares_XL_mutraff_tele60_uni5x16_timeALL_fulltraffic_logit100_170131_100628\"\n",
+    "exp[1159]=\"alcalahenares_XL_mutraff_tele60_uni5x8_timeALL_fulltraffic_logit10_170131_120427\"\n",
+    "exp[1160]=\"alcalahenares_XL_mutraff_tele60_uni5x8_timeALL_fulltraffic_logit20_170131_140843\"\n",
+    "exp[1161]=\"alcalahenares_XL_mutraff_tele60_uni5x8_timeALL_fulltraffic_logit50_170131_161749\"\n",
+    "exp[1162]=\"alcalahenares_XL_mutraff_tele60_uni5x8_timeALL_fulltraffic_logit100_170131_180507\"\n",
+    "\n",
+    "exp[1170]=\"alcalahenares_XL_nomutraff_tele60_nomaps_fulltraffic_170206_085516\"\n",
+    "exp[1171]=\"alcalahenares_XL_mutraff_tele60_uni1x8_timeALL_fulltraffic_logit10_170206_101837\"\n",
+    "exp[1172]=\"alcalahenares_XL_mutraff_tele60_uni1x8_timeALL_fulltraffic_logit20_170206_113945\"\n",
+    "exp[1173]=\"alcalahenares_XL_mutraff_tele60_uni1x8_timeALL_fulltraffic_logit50_170206_130158\"\n",
+    "exp[1174]=\"alcalahenares_XL_mutraff_tele60_uni1x8_timeALL_fulltraffic_logit100_170206_141519\"\n",
+    "exp[1175]=\"alcalahenares_XL_mutraff_tele60_uni5x8_timeALL_fulltraffic_logit10_170206_153012\"\n",
+    "exp[1176]=\"alcalahenares_XL_mutraff_tele60_uni5x8_timeALL_fulltraffic_logit20_170206_165216\"\n",
+    "exp[1177]=\"alcalahenares_XL_mutraff_tele60_uni5x8_timeALL_fulltraffic_logit50_170206_181328\"\n",
+    "exp[1178]=\"alcalahenares_XL_mutraff_tele60_uni5x8_timeALL_fulltraffic_logit100_170206_193055\"\n",
+    "exp[1179]=\"alcalahenares_XL_mutraff_tele60_uni5x16_timeALL_fulltraffic_logit10_170206_204057\"\n",
+    "exp[1180]=\"alcalahenares_XL_mutraff_tele60_uni5x16_timeALL_fulltraffic_logit20_170206_220415\"\n",
+    "exp[1181]=\"alcalahenares_XL_mutraff_tele60_uni5x16_timeALL_fulltraffic_logit50_170206_232354\"\n",
+    "exp[1182]=\"alcalahenares_XL_mutraff_tele60_uni5x16_timeALL_fulltraffic_logit100_170207_004023\"\n",
+    "\n",
+    "\n",
+    "exp[1200]=\"alcalahenares_XXL_noBastra_tele60_nomaps_fulltraffic_170129_072912\"\n",
+    "exp[1201]=\"alcalahenares_XXL_mutraff_tele60_uni1x8_timeALL_fulltraffic_logit10_170129_091235\"\n",
+    "exp[1202]=\"alcalahenares_XXL_mutraff_tele60_uni5x8_timeALL_fulltraffic_logit10_170129_120212\"\n",
+    "exp[1203]=\"alcalahenares_XXL_mutraff_tele60_uni5x16_timeALL_fulltraffic_logit10_170129_144702\"\n",
+    "exp[1204]=\"alcalahenares_XXL_mutraff_tele60_uni1x8_timeALL_fulltraffic_logit20_170129_173323\"\n",
+    "exp[1205]=\"alcalahenares_XXL_mutraff_tele60_uni5x8_timeALL_fulltraffic_logit20_170129_201805\"\n",
+    "exp[1206]=\"alcalahenares_XXL_mutraff_tele60_uni5x16_timeALL_fulltraffic_logit20_170129_230412\"\n",
+    "exp[1207]=\"alcalahenares_XXL_mutraff_tele60_uni5x8_timeALL_fulltraffic_logit50_170130_014946\"\n",
+    "exp[1208]=\"alcalahenares_XXL_mutraff_tele60_uni1x8_timeALL_fulltraffic_logit100_170130_043133\"\n",
+    "exp[1209]=\"alcalahenares_XXL_mutraff_tele60_uni5x8_timeALL_fulltraffic_logit100_170130_071541\"\n",
+    "\n",
+    "set_experiments(1170,1182)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 35,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [],
+   "source": [
+    "exp[1210]=\"radial16_noBastra_XXXL_fulltraffic_181021_123147\"\n",
+    "exp[1211]=\"radial16_XXXL_Bastra_nomaps_fulltraffic_logit50_181021_124339\"\n",
+    "exp[1212]=\"radial16_XXXL_Bastra_rand05x8_timeALL_fulltraffic_logit05_181021_171052\"\n",
+    "exp[1213]=\"radial16_XXXL_Bastra_rand05x8_timeALL_fulltraffic_logit10_181021_172210\"\n",
+    "exp[1214]=\"radial16_XXXL_Bastra_rand05x8_timeALL_fulltraffic_logit20_181021_214113\"\n",
+    "exp[1215]=\"radial16_XXXL_Bastra_rand05x8_timeALL_fulltraffic_logit50_181021_125449\"\n",
+    "exp[1216]=\"radial16_XXXL_Bastra_rand05x8_timeALL_fulltraffic_logit100_181021_215241\"\n",
+    "exp[1217]=\"radial16_XXXL_Bastra_rand05x2_timeALL_fulltraffic_logit50_181021_220642\"\n",
+    "exp[1218]=\"radial16_XXXL_Bastra_rand05x1_timeALL_fulltraffic_logit50_181021_221936\"\n",
+    "exp[1219]=\"radial16_XXXL_Bastra_rand05x4_timeALL_fulltraffic_logit50_181021_223318\"\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 36,
+   "metadata": {
+    "collapsed": true,
+    "slideshow": {
+     "slide_type": "-"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "set_experiments(1211,1212)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 37,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [],
+   "source": [
+    "exp[1250]=\"madrid_barrio_salamanca_L_nomaps_tele60_fulltrafic_181025_181150\"\n",
+    "exp[1251]=\"madrid_barrio_salamanca_L_Bastra_rand05x8_timeALL_tele60_fulltrafic_logit20_181025_183912\"\n",
+    "exp[1252]=\"madrid_barrio_salamanca_L_Bastra_rand05x8_timeALL_tele60_fulltrafic_logit50_181025_185614\"\n",
+    "exp[1253]=\"madrid_barrio_salamanca_L_Bastra_rand05x8_timeALL_tele60_fulltrafic_logit100_181025_191339\"\n",
+    "\n",
+    "exp[1260]=\"madrid_las_tablas_L_nomaps_tele60_fulltrafic_181025_182850\"\n",
+    "exp[1261]=\"madrid_las_tablas_L_Bastra_rand05x8_timeALL_tele60_fulltrafic_logit100_181025_200125\"\n",
+    "exp[1262]=\"madrid_las_tablas_L_Bastra_rand05x8_timeALL_tele60_fulltrafic_logit20_181025_194819\"\n",
+    "exp[1263]=\"madrid_las_tablas_L_Bastra_rand05x8_timeALL_tele60_fulltrafic_logit50_181025_195445\"\n",
+    "exp[1264]=\"madrid_las_tablas_L_Bastra_uni5x8_timeALL_tele60_fulltrafic_logit50_181025_200815\"\n",
+    "\n",
+    "exp[1265]=\"madrid_las_tablas_M_nomaps_tele60_fulltrafic_190207_004643\"\n",
+    "exp[1266]=\"madrid_las_tablas_M_Bastra_rand05x8_timeALL_tele60_fulltrafic_logit20_190207_005208\"\n",
+    "exp[1267]=\"madrid_las_tablas_M_Bastra_rand05x8_timeALL_tele60_fulltrafic_logit50_190207_005725\"\n",
+    "exp[1268]=\"madrid_las_tablas_M_Bastra_rand05x8_timeALL_tele60_fulltrafic_logit100_190207_010238\"\n",
+    "exp[1269]=\"madrid_las_tablas_M_Bastra_uni5x8_timeALL_tele60_fulltrafic_logit50_190207_010753\"\n",
+    "\n",
+    "exp[1270]=\"madrid_las_tablas_M_nomaps_tele60_fulltrafic_190207_080052\"\n",
+    "\n",
+    "exp[1271]=\"madrid_las_tablas_M_Bastra_rand05x8_timeALL_tele60_fulltrafic_logit20_190207_080704\"\n",
+    "exp[1272]=\"madrid_las_tablas_M_Bastra_rand05x8_timeALL_tele60_fulltrafic_logit50_190207_081306\"\n",
+    "exp[1273]=\"madrid_las_tablas_M_Bastra_rand05x8_timeALL_tele60_fulltrafic_logit100_190207_081914\"\n",
+    "\n",
+    "exp[1274]=\"madrid_las_tablas_M_Bastra_rand05x8_timeALL_tele60_fulltrafic_logit20_190207_080704\"\n",
+    "exp[1275]=\"madrid_las_tablas_M_Bastra_rand05x8_timeALL_tele60_fulltrafic_logit50_190207_081306\"\n",
+    "exp[1276]=\"madrid_las_tablas_M_Bastra_rand2x8_timeALL_tele60_fulltrafic_logit100_190213_110949\"\n",
+    "\n",
+    "exp[1279]=\"madrid_las_tablas_M_Bastra_uni5x8_timeALL_tele60_fulltrafic_logit50_190207_082532\"\n",
+    "\n",
+    "exp[1280]=\"madrid_retiro_L_nomaps_tele60_fulltrafic_181025_183528\""
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 38,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "exp[1300]=\"madrid_barrio_salamanca_M_nomaps_tele60_fulltrafic_181025_203259\"\n",
+    "exp[1301]=\"madrid_barrio_salamanca_L_Bastra_rand05x8_timeALL_tele60_fulltrafic_logit50_181025_203822\""
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 39,
+   "metadata": {
+    "collapsed": false,
+    "slideshow": {
+     "slide_type": "-"
+    }
+   },
+   "outputs": [],
+   "source": [
+    "set_experiments(1270,1276)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 40,
+   "metadata": {
+    "collapsed": false,
+    "slideshow": {
+     "slide_type": "-"
+    }
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "exp1=madrid_las_tablas_M_nomaps_tele60_fulltrafic_190207_080052\n",
+      "exp2=madrid_las_tablas_M_Bastra_rand2x8_timeALL_tele60_fulltrafic_logit100_190213_110949\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(\"exp1=\"+experiment1)\n",
+    "print(\"exp2=\"+experiment2)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 41,
+   "metadata": {
+    "collapsed": false,
+    "scrolled": false,
+    "slideshow": {
+     "slide_type": "slide"
+    }
+   },
+   "outputs": [
+    {
+     "ename": "NameError",
+     "evalue": "name 'compare_scenarios' is not defined",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[0;31m\u001b[0m",
+      "\u001b[0;31mNameError\u001b[0mTraceback (most recent call last)",
+      "\u001b[0;32m<ipython-input-41-6ddc2c51ddef>\u001b[0m in \u001b[0;36m<module>\u001b[0;34m()\u001b[0m\n\u001b[0;32m----> 1\u001b[0;31m \u001b[0mcompare_scenarios\u001b[0m\u001b[0;34m(\u001b[0m \u001b[0mBASTRA_PATH\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mlabel1\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mexperiment1\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mlabel2\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mexperiment2\u001b[0m \u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m",
+      "\u001b[0;31mNameError\u001b[0m: name 'compare_scenarios' is not defined"
+     ]
+    }
+   ],
+   "source": [
+    "compare_scenarios( BASTRA_PATH, label1, experiment1, label2, experiment2 )"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "collapsed": true
+   },
+   "source": [
+    "# BACKUP"
+   ]
+  }
+ ],
+ "metadata": {
+  "anaconda-cloud": {},
+  "celltoolbar": "Slideshow",
+  "kernelspec": {
+   "display_name": "Python [Root]",
+   "language": "python",
+   "name": "Python [Root]"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.5.2"
+  },
+  "nbpresent": {
+   "slides": {
+    "0e93617c-5659-44ad-a5a3-3b67f0917a8a": {
+     "id": "0e93617c-5659-44ad-a5a3-3b67f0917a8a",
+     "prev": "d2ee484a-f981-4b4e-96e0-fafec10ab31f",
+     "regions": {
+      "24f8c583-3bc9-475b-9e13-537eb880eccf": {
+       "attrs": {
+        "height": 0.8,
+        "width": 0.8,
+        "x": 0.1,
+        "y": 0.1
+       },
+       "content": {
+        "cell": "c7f66994-f059-4fa7-b87c-fcf87fcd4692",
+        "part": "whole"
+       },
+       "id": "24f8c583-3bc9-475b-9e13-537eb880eccf"
+      }
+     }
+    },
+    "192eac39-0228-4273-ad57-1231cfedd981": {
+     "id": "192eac39-0228-4273-ad57-1231cfedd981",
+     "prev": "0e93617c-5659-44ad-a5a3-3b67f0917a8a",
+     "regions": {
+      "4d2c9d56-c2c4-4967-944f-b5fde27072d9": {
+       "attrs": {
+        "height": 0.4,
+        "width": 0.8,
+        "x": 0.1,
+        "y": 0.5
+       },
+       "content": {
+        "cell": "13cdafd0-e099-4df8-b330-ca35e5af9864",
+        "part": "whole"
+       },
+       "id": "4d2c9d56-c2c4-4967-944f-b5fde27072d9"
+      },
+      "bbfe68c0-0433-4982-b147-1bb5e6507033": {
+       "attrs": {
+        "height": 0.4,
+        "width": 0.8,
+        "x": 0.1,
+        "y": 0.5
+       },
+       "content": {
+        "cell": "08badeff-9fcf-4a72-882f-406306564576",
+        "part": "whole"
+       },
+       "id": "bbfe68c0-0433-4982-b147-1bb5e6507033"
+      },
+      "dc6c02d6-41e6-423f-889f-589b1356935c": {
+       "attrs": {
+        "height": 0.8,
+        "width": 0.8,
+        "x": 0.1,
+        "y": 0.1
+       },
+       "content": {
+        "cell": "478def4f-6428-4d47-a089-295db8ebbb0f",
+        "part": "whole"
+       },
+       "id": "dc6c02d6-41e6-423f-889f-589b1356935c"
+      }
+     }
+    },
+    "318b4c1a-687f-49bb-b17e-090af20718df": {
+     "id": "318b4c1a-687f-49bb-b17e-090af20718df",
+     "prev": "db8c44bf-4546-44d6-bbe5-627a85244894",
+     "regions": {
+      "10d4c0a8-0d07-4118-98e6-4b6674a073b4": {
+       "attrs": {
+        "height": 0.8,
+        "width": 0.8,
+        "x": 0.1,
+        "y": 0.1
+       },
+       "content": {
+        "cell": "3874ab56-9646-45e2-99ae-cb18c9603f38",
+        "part": "whole"
+       },
+       "id": "10d4c0a8-0d07-4118-98e6-4b6674a073b4"
+      },
+      "7270e0de-058e-4b5e-bd44-5910108f26b8": {
+       "attrs": {
+        "height": 0.4,
+        "width": 0.8,
+        "x": 0.1,
+        "y": 0.5
+       },
+       "content": {
+        "cell": "69d6520c-8cb1-48f0-942b-f3c057f6d32e",
+        "part": "whole"
+       },
+       "id": "7270e0de-058e-4b5e-bd44-5910108f26b8"
+      }
+     }
+    },
+    "49be6fd5-37c9-4081-8941-b283985e0377": {
+     "id": "49be6fd5-37c9-4081-8941-b283985e0377",
+     "prev": "ac4b7a52-e61d-4b2e-a2d0-e78488fe662f",
+     "regions": {
+      "deb4410c-3665-4a55-9cb8-b9792388f552": {
+       "attrs": {
+        "height": 0.8,
+        "width": 0.8,
+        "x": 0.1,
+        "y": 0.1
+       },
+       "content": {
+        "cell": "a622efcf-0563-4216-9d5a-f4b1f55d42a0",
+        "part": "whole"
+       },
+       "id": "deb4410c-3665-4a55-9cb8-b9792388f552"
+      }
+     }
+    },
+    "54356b59-8e84-4e66-a8f6-1d4ef0bca15f": {
+     "id": "54356b59-8e84-4e66-a8f6-1d4ef0bca15f",
+     "prev": null,
+     "regions": {
+      "b3560a32-169b-4d7f-b4fa-18fb3a36de9f": {
+       "attrs": {
+        "height": 0.8,
+        "width": 0.8,
+        "x": 0.1,
+        "y": 0.1
+       },
+       "content": {
+        "cell": "aa548334-3712-4bc8-a30a-5a2a2260bd1c",
+        "part": "whole"
+       },
+       "id": "b3560a32-169b-4d7f-b4fa-18fb3a36de9f"
+      }
+     }
+    },
+    "ac4b7a52-e61d-4b2e-a2d0-e78488fe662f": {
+     "id": "ac4b7a52-e61d-4b2e-a2d0-e78488fe662f",
+     "prev": "318b4c1a-687f-49bb-b17e-090af20718df",
+     "regions": {
+      "9483ba7b-f75f-4b68-86a7-2a72826169c5": {
+       "attrs": {
+        "height": 0.4,
+        "width": 0.8,
+        "x": 0.1,
+        "y": 0.5
+       },
+       "content": {
+        "cell": "66306679-3be0-4087-bed0-760c7d275993",
+        "part": "whole"
+       },
+       "id": "9483ba7b-f75f-4b68-86a7-2a72826169c5"
+      },
+      "ecb1b2c4-fdf2-4db7-975c-c797f9f6fcb8": {
+       "attrs": {
+        "height": 0.4,
+        "width": 0.8,
+        "x": 0.1,
+        "y": 0.5
+       },
+       "content": {
+        "cell": "745baf99-dab3-4a9a-b114-af69d3ab1633",
+        "part": "whole"
+       },
+       "id": "ecb1b2c4-fdf2-4db7-975c-c797f9f6fcb8"
+      },
+      "edaccb11-8731-4b52-9075-f981f02e220c": {
+       "attrs": {
+        "height": 0.8,
+        "width": 0.8,
+        "x": 0.1,
+        "y": 0.1
+       },
+       "content": {
+        "cell": "076a1b7c-343b-4bb3-a2cf-20d64498445f",
+        "part": "whole"
+       },
+       "id": "edaccb11-8731-4b52-9075-f981f02e220c"
+      }
+     }
+    },
+    "d2ee484a-f981-4b4e-96e0-fafec10ab31f": {
+     "id": "d2ee484a-f981-4b4e-96e0-fafec10ab31f",
+     "prev": "49be6fd5-37c9-4081-8941-b283985e0377",
+     "regions": {
+      "60f786b0-ee3e-41bc-b0c1-2d1bb85b226b": {
+       "attrs": {
+        "height": 0.8,
+        "width": 0.8,
+        "x": 0.1,
+        "y": 0.1
+       },
+       "content": {
+        "cell": "db3fb542-6dc1-44d6-8c08-adc17d7d044d",
+        "part": "whole"
+       },
+       "id": "60f786b0-ee3e-41bc-b0c1-2d1bb85b226b"
+      }
+     }
+    },
+    "db8c44bf-4546-44d6-bbe5-627a85244894": {
+     "id": "db8c44bf-4546-44d6-bbe5-627a85244894",
+     "prev": "54356b59-8e84-4e66-a8f6-1d4ef0bca15f",
+     "regions": {
+      "c3afd57d-9edb-4cc5-9978-b437ee816cde": {
+       "attrs": {
+        "height": 0.8,
+        "width": 0.8,
+        "x": 0.1,
+        "y": 0.1
+       },
+       "content": {
+        "cell": "cc5f0cc1-0a51-4018-a01a-b9672f6f94a8",
+        "part": "whole"
+       },
+       "id": "c3afd57d-9edb-4cc5-9978-b437ee816cde"
+      }
+     }
+    }
+   },
+   "themes": {}
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 0
+}
