@@ -155,6 +155,48 @@ function default_params() {
   # export __SUMO_GUI="false"
   export __SUMO_GUI="false"
 
+  # Group: MAPS_GPS
+  # Descr: Image PNG to include in the report and the heatmaps
+  # Default: 
+  # export __MAP_IMAGE="madrid_las_tablas.png"
+  export __MAP_IMAGE=""
+
+  # Group: MAPS_GPS
+  # Descr: Map longitude west
+  # Default: 
+  # export __MAP_GPS_LONG_FROM="-3.681621"
+  export __MAP_GPS_LONG_FROM=""
+
+  # Group: MAPS_GPS
+  # Descr: Map longitude east
+  # Default: 
+  # export __MAP_GPS_LONG_TO="-3.651930"
+  export __MAP_GPS_LONG_TO=""
+
+  # Group: MAPS_GPS
+  # Descr: Map lattitude south
+  # Default: 
+  # export __MAP_GPS_LAT_FROM="40.495272"
+  export __MAP_GPS_LAT_FROM=""
+
+  # Group: MAPS_GPS
+  # Descr: Map lattitude north
+  # Default: 
+  # export __MAP_GPS_LAT_TO="40.517975"
+  export __MAP_GPS_LAT_TO=""
+
+  # Group: MAPS_GPS
+  # Descr: Map longitude width
+  # Default: 
+  # export __MAP_GPS_LONG_SCALE="2507.81"
+  export __MAP_GPS_LONG_SCALE=""
+
+  # Group: MAPS_GPS
+  # Descr: Map lattitude height
+  # Default: 
+  # export __MAP_GPS_LAT_SCALE="2532.27"
+  export __MAP_GPS_LAT_SCALE=""
+
   # Group: global
   # Descr: name of simulation
   # Default: 
