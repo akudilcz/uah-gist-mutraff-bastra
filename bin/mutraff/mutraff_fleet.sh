@@ -7,7 +7,7 @@ cat <<EOF
 			UAH - Universidad de Alcala
 			alvaro.paricio@uah.es
 
-Example: run_ev.sh uah.gist.mutraff.comms.bus_alvaro SCENARIO_A
+Example: mutraff_fleet.sh uah.gist.mutraff.comms.bus_alvaro SCENARIO_A
 ==================================================================
 EOF
 
@@ -69,8 +69,7 @@ export PYTHONPATH=$PYTHONPATH:\
 echo "PYTHONPATH=$PYTHONPATH"
 
 # This is your application name
-PYTHON_APP_TOC="mutraff_traffic_op_center.py"
-PYTHON_APP_VEH="mutraff_e_vehicle.py"
+PYTHON_APP="mutraff_fleet.py"
 
 # Add here any arguments your applicaton needs.
 PYTHON_ARGS_1=""
@@ -85,7 +84,7 @@ Type "run" to execute, ctrl-C to stop, "c" to continue, etc.
 ==================================================================
 EOF
   set -x
-  python ${PYTHON_DEBUG} ../bin/$PYTHON_APP_TOC $COMM_OPTS PYTHON_ARGS
+  python ${PYTHON_DEBUG} ../bin/$PYTHON_APP $COMM_OPTS PYTHON_ARGS
 else
   echo
 #  (
@@ -93,7 +92,7 @@ else
     echo "Execution Starts on: `date -j -f '%s' ${DATE_START}`"
     echo "=================================================================="
 
-    python ../bin/$PYTHON_APP_VEH $COMM_OPTS $PYTHON_ARGS
+    python ../bin/$PYTHON_APP $COMM_OPTS $PYTHON_ARGS
 
     DATE_END=`date +%s`
     echo "=================================================================="

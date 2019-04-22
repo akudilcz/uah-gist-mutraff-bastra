@@ -4,6 +4,8 @@ cat <<EOF
 ==================================================================
 			MUTRAFF CONTROLLER
 
+Launch the MUTRAFF distributed controller.
+
 			UAH - Universidad de Alcala
 			alvaro.paricio@uah.es
 
