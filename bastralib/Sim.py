@@ -25,15 +25,15 @@ def log_computing_time(txt):
       func(*args, **kwargs)
       end_ts = time.time()
       myself = args[0]
-      myself.log_file.printLog(myself.LEVEL2,txt+":elapsed time: %f" % (end_ts - beg_ts)+ "\n")
+      myself.log_file.printLog(myself.LEVEL2_CPU_TIME,txt+":elapsed time: %f" % (end_ts - beg_ts)+ "\n")
     return wrapper
   return time_decorator
 
 class simulated_traffic:
 #Las pongo de momento, ya veremos si uso otra cosa
-    LEVEL1=1
-    LEVEL2=2
-    LEVEL3=3
+    LEVEL1_ERRORS=1
+    LEVEL2_CPU_TIME=2
+    LEVEL3_FULL=3
 #Son como quien dice auxiliares
     vehicle_list=[]
     dict_index={}
@@ -239,7 +239,7 @@ class simulated_traffic:
     def saveNewRoutes(self, file_name):
 
         if not os.path.isfile(file_name):
-            self.log_file.printLog(self.LEVEL2, "Error en la lectura de " + file_name + "\n")
+            self.log_file.printLog(self.LEVEL2_CPU_TIME, "Error en la lectura de " + file_name + "\n")
             print ("Error en la lectura de " + file_name + "\n")
             return -1
 
@@ -274,7 +274,7 @@ class simulated_traffic:
 
     def readMaps(self, map_file):
         if not os.path.isfile(map_file):
-            self.log_file.printLog(self.LEVEL1, "Error reading " + map_file + "\n")
+            self.log_file.printLog(self.LEVEL1_ERRORS, "Error reading " + map_file + "\n")
             return
 
         tree=etree.parse(map_file)
@@ -287,7 +287,7 @@ class simulated_traffic:
             prob=map.get("prob")
             tag=map.get("tag")
             if (file is None) or (prob is None):
-                self.log_file.printLog(self.LEVEL1, "Data error: wrong data in maps file " + map_file + "\n")
+                self.log_file.printLog(self.LEVEL1_ERRORS, "Data error: wrong data in maps file " + map_file + "\n")
                 return None
             if tag is None:
                 tag=""
@@ -321,7 +321,7 @@ class simulated_traffic:
 
         for key in weight_list.keys():
             if weight_list[key] != 1:
-                self.log_file.printLog(self.LEVEL1,"Error in map definitions. Probability sum of map's probabilities is not 1.\n")
+                self.log_file.printLog(self.LEVEL1_ERRORS,"Error in map definitions. Probability sum of map's probabilities is not 1.\n")
                 return False
 
         return True
@@ -331,10 +331,10 @@ class simulated_traffic:
 
         map_rules=self.readMaps(map_file)
         if map_rules is None:
-            self.log_file.printLog(self.LEVEL1, "Error in map assignment. Fail processing " + map_file + "\n")
+            self.log_file.printLog(self.LEVEL1_ERRORS, "Error in map assignment. Fail processing " + map_file + "\n")
             return None
         if not self.checkMapRule(map_rules):
-            self.log_file.printLog(self.LEVEL1, "Error in map assignment. Fail processing " + map_file + "\n")
+            self.log_file.printLog(self.LEVEL1_ERRORS, "Error in map assignment. Fail processing " + map_file + "\n")
             return None
         for veh in self.vehicle_list:
             #if self.cur_time<= int(veh.getDepartTime()):
@@ -355,7 +355,7 @@ class simulated_traffic:
                 id=str_line[(first_tag+1):(last_tag)]
                 self.addPending(id)
             str_line=log.readline()
-        self.log_file.printLog(self.LEVEL2, "Pendientes: " +  str(self.getPendings()) + "\n")
+        self.log_file.printLog(self.LEVEL2_CPU_TIME, "Pendientes: " +  str(self.getPendings()) + "\n")
         log.close()
         return
     
@@ -370,7 +370,7 @@ class simulated_traffic:
                     veh_maps.sort()
                     weight_maps=trip_f.getWeightMaps()
                     if veh_maps==weight_maps:
-                        self.log_file.printLogVeh(self.LEVEL3, id, "Maps: " + str(veh_maps) + " - Corresponding trip found: " + trip_f.getFileName() + "\n")
+                        self.log_file.printLogVeh(self.LEVEL3_FULL, id, "Maps: " + str(veh_maps) + " - Corresponding trip found: " + trip_f.getFileName() + "\n")
                         self.vehicle_list[index].setTripFile(trip_f.getFileName())
                         done=True
                         break
@@ -379,8 +379,8 @@ class simulated_traffic:
                         #time.sleep(0.1)
                 if not done:
                     new_trip= NewTripClass.NewTripFile(self.dump_dir + "trip_file_I" + str(self.cur_time) + "_" + str(len(self.trip_file_list)))
-                    self.log_file.printLogVeh(self.LEVEL3, id, "Maps: " + str(veh_maps) + "\n")
-                    self.log_file.printLogVeh(self.LEVEL3, id, "Creating a new trip:" + new_trip.getFileName() + "\n")
+                    self.log_file.printLogVeh(self.LEVEL3_FULL, id, "Maps: " + str(veh_maps) + "\n")
+                    self.log_file.printLogVeh(self.LEVEL3_FULL, id, "Creating a new trip:" + new_trip.getFileName() + "\n")
                     new_trip.weight_maps=veh_maps
                     self.trip_file_list.append(new_trip)
                     self.vehicle_list[index].setTripFile(new_trip.getFileName())
@@ -480,24 +480,24 @@ class simulated_traffic:
         for inc in self.incident_list:
             if not inc.isRestored():
                 if inc.getEdge()==edge:
-                    self.log_file.printLogEdge(self.LEVEL3, edge, "incident=" + str(inc.getId()) + "Restoring service"+ "\n")
+                    self.log_file.printLogEdge(self.LEVEL3_FULL, edge, "incident=" + str(inc.getId()) + "Restoring service"+ "\n")
                     r_maps=inc.getIncMaps()
-                    self.log_file.printLog(self.LEVEL3, "Deleting maps: " + str(r_maps) + "\n")
+                    self.log_file.printLog(self.LEVEL3_FULL, "Deleting maps: " + str(r_maps) + "\n")
                     for veh in self.vehicle_list:
                         for map in r_maps:
                             if map in veh.getCarMaps():
                                 veh.deleteMaps(r_maps)
                                 veh.setRerouted(True)
-                                self.log_file.printLogVeh(self.LEVEL3, veh.getId(), "Has been rerouted and now has the maps: " + str(veh.getCarMaps()) + "\n")
+                                self.log_file.printLogVeh(self.LEVEL3_FULL, veh.getId(), "Has been rerouted and now has the maps: " + str(veh.getCarMaps()) + "\n")
                     traci.edge.setMaxSpeed(edge, float(self.edge_weigths[edge]))
-                    self.log_file.printLogEdge(self.LEVEL3, edge, "Service restored" + "\n")
+                    self.log_file.printLogEdge(self.LEVEL3_FULL, edge, "Service restored" + "\n")
                     #time.sleep(2)
                     done=True
                     break
             
         if not done:
             print ("There's no active incident on that edge. Simulation continues after 5 seconds.")
-            self.log_file.printLogEdge(self.LEVEL1, edge, "There's no active incident on that edge. Simulation continues after 5 seconds.\n")
+            self.log_file.printLogEdge(self.LEVEL1_ERRORS, edge, "There's no active incident on that edge. Simulation continues after 5 seconds.\n")
             time.sleep(5)
         return
     
@@ -596,7 +596,7 @@ class simulated_traffic:
                 pos=route.index(edge)
             else:
                 result=[]
-                self.log_file.printLogEdge(self.LEVEL3, edge, "veh=" + id + ":Vehicle no sigue la nueva ruta: " + str(route) + "\n" )
+                self.log_file.printLogEdge(self.LEVEL3_FULL, edge, "veh=" + id + ":Vehicle no sigue la nueva ruta: " + str(route) + "\n" )
                 return result
         else:
             pos=0
@@ -638,7 +638,7 @@ class simulated_traffic:
 
                 if len(new_route)>0:
                     self.vehicle_list[index].setRoute(new_route)
-                    self.log_file.printLogVeh(self.LEVEL2, id, "Rerouting by trafic jam. New route: " + str(new_route) + "\n")
+                    self.log_file.printLogVeh(self.LEVEL2_CPU_TIME, id, "Rerouting by trafic jam. New route: " + str(new_route) + "\n")
                     traci.vehicle.setRoute(id, new_route)
         return
 
@@ -767,7 +767,7 @@ class simulated_traffic:
           command="duarouter -n " + self.net_file + " -t " + trip_file + " -w " + map_file + " -o " + xmlfile + " --error-log " + self.sumo_log_file + " " + duarouter_opts + " " + self.routing_algorithm
         else:
           command="duarouter -n " + self.net_file + " -t " + trip_file + " -o " + xmlfile + " --error-log " + self.sumo_log_file + " " + duarouter_opts + " " + self.routing_algorithm
-        self.log_file.printLog(self.LEVEL1,"Calculating new trips - duarouter sec " + str(self.duarouter_sec) + ": " + command + "\n")
+        self.log_file.printLog(self.LEVEL3_FULL,"Calculating new trips - duarouter sec " + str(self.duarouter_sec) + ": " + command + "\n")
         os.system(command)
 
         # ------------------------
@@ -779,19 +779,19 @@ class simulated_traffic:
             #command="copy " + xmlfile + " " + self.dump_dir + dump_prefix + str(cur_time) + "_" + str(self.duarouter_sec) + ".out"
             #command="cd " + self.dump_dir + " & copy " + self.new_routes_file + " " + dump_prefix + str(cur_time) + "_" + str(self.duarouter_sec) + ".out"
             command="copy " + xmlfile + " " + outfile
-            self.log_file.printLog(self.LEVEL3,"Copying duarouter results: " + command + "\n")
+            self.log_file.printLog(self.LEVEL3_FULL,"Copying duarouter results: " + command + "\n")
             os.system(command)
           else:
-            self.log_file.printLog(self.LEVEL1, "No output for duarouter " + str(self.duarouter_sec) + ".\n")
+            self.log_file.printLog(self.LEVEL1_ERRORS, "No output for duarouter " + str(self.duarouter_sec) + ".\n")
         else:
           # --- LINUX ---
           if os.path.isfile(xmlfile):
             #command="cd " + self.dump_dir + " ; cp " + self.new_routes_file + " " + dump_prefix + str(cur_time) + "_" + str(self.duarouter_sec) + ".out"
             command="cp " + xmlfile + " " + outfile
-            self.log_file.printLog(self.LEVEL3,"Copying duarouter results: " + command + "\n")
+            self.log_file.printLog(self.LEVEL3_FULL,"Copying duarouter results: " + command + "\n")
             os.system(command)
           else:
-              self.log_file.printLog(self.LEVEL1, "No output for duarouter " + str(self.duarouter_sec) + ".\n")
+              self.log_file.printLog(self.LEVEL1_ERRORS, "No output for duarouter " + str(self.duarouter_sec) + ".\n")
         self.duarouter_sec=self.duarouter_sec + 1
 
 
@@ -833,19 +833,19 @@ class simulated_traffic:
             if veh.isRerouted():
                 cont=cont+1
                 new_route=self.getRoute(veh_id)
-                self.log_file.printLogVeh(self.LEVEL2, veh_id, "Rerouting - New route: "  + str(new_route) + "\n")
-                self.log_file.printLogVeh(self.LEVEL3, veh_id, "Sumo's route by traci - Route : " + str(traci.vehicle.getRoute(veh_id)) + "\n")
+                self.log_file.printLogVeh(self.LEVEL2_CPU_TIME, veh_id, "Rerouting - New route: "  + str(new_route) + "\n")
+                self.log_file.printLogVeh(self.LEVEL3_FULL, veh_id, "Sumo's route by traci - Route : " + str(traci.vehicle.getRoute(veh_id)) + "\n")
                 edge=traci.vehicle.getRoadID(veh_id)
-                self.log_file.printLogEdge(self.LEVEL3, edge, "\n")
+                self.log_file.printLogEdge(self.LEVEL3_FULL, edge, "\n")
 		try:
                   traci.vehicle.setRoute(veh_id,new_route)
                   veh.setRerouted(False)
                   color=traci.vehicle.getColor(veh_id)
                   traci.vehicle.setColor(veh_id, (255,0,0,0))
-                  self.log_file.printLogVeh(self.LEVEL3, veh_id, "Final route: " + str(traci.vehicle.getRoute(veh_id)) + "\n")
+                  self.log_file.printLogVeh(self.LEVEL3_FULL, veh_id, "Final route: " + str(traci.vehicle.getRoute(veh_id)) + "\n")
 		except:
-                  self.log_file.printLogVeh(self.LEVEL3, veh_id, "ERROR ROUTING VEHICLE" + str(sys.exc_info()) + "\n")
-                  self.log_file.printLogVeh(self.LEVEL3, veh_id, "Removed from routing queue\n")
+                  self.log_file.printLogVeh(self.LEVEL3_FULL, veh_id, "ERROR ROUTING VEHICLE" + str(sys.exc_info()) + "\n")
+                  self.log_file.printLogVeh(self.LEVEL3_FULL, veh_id, "Removed from routing queue\n")
                   veh.setRerouted(False)
 
         return
@@ -858,7 +858,7 @@ class simulated_traffic:
       l_vehicles_out=traci.simulation.getArrivedIDList()
       for veh in l_vehicles_out:
         self.actArriveTime(veh)
-      #self.log_file.printLog(self.LEVEL3, "SimulationStep: vehicles running:{}, finished:{}".format( len(l_vehicles_in), len(l_vehicles_out)) + "\n")
+      #self.log_file.printLog(self.LEVEL3_FULL, "SimulationStep: vehicles running:{}, finished:{}".format( len(l_vehicles_in), len(l_vehicles_out)) + "\n")
       return
 
 
@@ -947,18 +947,20 @@ class simulated_traffic:
     def processIncident(self, edge):
     # -----------------------------------------------
         if not self.validEdge(edge):
-            self.log_file.printLogEdge(self.LEVEL1, edge, "Not defined in " + self.net_file + ".\n")
+            self.log_file.printLogEdge(self.LEVEL1_ERRORS, edge, "Not defined in " + self.net_file + ".\n")
         else:
             traci.edge.setMaxSpeed(edge,0)
-            self.log_file.printLogEdge(self.LEVEL1, edge, "Speed limited to 0 for this edge.\n")
+            self.log_file.printLogEdge(self.LEVEL1_ERRORS, edge, "Speed limited to 0 for this edge.\n")
         return
 
+    # -----------------------------------------------
     def processRestore(self, edge):
+    # -----------------------------------------------
         if not self.validEdge(edge):
-            self.log_file.printLogEdge(self.LEVEL1, edge, "Not defined in " + self.net_file +".\n")
+            self.log_file.printLogEdge(self.LEVEL1_ERRORS, edge, "Not defined in " + self.net_file +".\n")
         else:
             traci.edge.setMaxSpeed(edge,float(self.edge_weigths[edge]))
-            self.log_file.printLogEdge(self.LEVEL1, edge, "Speed limited for this edge, restored to " + self.edge_weigths[edge] + ".\n")
+            self.log_file.printLogEdge(self.LEVEL1_ERRORS, edge, "Speed limited for this edge, restored to " + self.edge_weigths[edge] + ".\n")
         return
 
     # -----------------------------------------------

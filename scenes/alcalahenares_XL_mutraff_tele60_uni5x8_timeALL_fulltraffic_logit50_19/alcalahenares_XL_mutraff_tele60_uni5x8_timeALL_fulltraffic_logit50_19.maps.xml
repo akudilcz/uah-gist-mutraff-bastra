@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<maps>
+  <!-- car -->
+  <map tag="car" prob="0.125" file="../../../scenes/alcalahenares_XL_mutraff_tele60_uni5x8_timeALL_fulltraffic_logit50_19/maps/map.alcalahenares.uni5.rand.1.xml" />
+  <map tag="car" prob="0.125" file="../../../scenes/alcalahenares_XL_mutraff_tele60_uni5x8_timeALL_fulltraffic_logit50_19/maps/map.alcalahenares.uni5.rand.2.xml" />
+  <map tag="car" prob="0.125" file="../../../scenes/alcalahenares_XL_mutraff_tele60_uni5x8_timeALL_fulltraffic_logit50_19/maps/map.alcalahenares.uni5.rand.3.xml" />
+  <map tag="car" prob="0.125" file="../../../scenes/alcalahenares_XL_mutraff_tele60_uni5x8_timeALL_fulltraffic_logit50_19/maps/map.alcalahenares.uni5.rand.4.xml" />
+  <map tag="car" prob="0.125" file="../../../scenes/alcalahenares_XL_mutraff_tele60_uni5x8_timeALL_fulltraffic_logit50_19/maps/map.alcalahenares.uni5.rand.5.xml" />
+  <map tag="car" prob="0.125" file="../../../scenes/alcalahenares_XL_mutraff_tele60_uni5x8_timeALL_fulltraffic_logit50_19/maps/map.alcalahenares.uni5.rand.6.xml" />
+  <map tag="car" prob="0.125" file="../../../scenes/alcalahenares_XL_mutraff_tele60_uni5x8_timeALL_fulltraffic_logit50_19/maps/map.alcalahenares.uni5.rand.7.xml" />
+  <map tag="car" prob="0.125" file="../../../scenes/alcalahenares_XL_mutraff_tele60_uni5x8_timeALL_fulltraffic_logit50_19/maps/map.alcalahenares.uni5.rand.8.xml" />
+  <!-- taxi -->
+  <map tag="taxi" prob="0.125" file="../../../scenes/alcalahenares_XL_mutraff_tele60_uni5x8_timeALL_fulltraffic_logit50_19/maps/map.alcalahenares.uni5.rand.1.xml" />
+  <map tag="taxi" prob="0.125" file="../../../scenes/alcalahenares_XL_mutraff_tele60_uni5x8_timeALL_fulltraffic_logit50_19/maps/map.alcalahenares.uni5.rand.2.xml" />
+  <map tag="taxi" prob="0.125" file="../../../scenes/alcalahenares_XL_mutraff_tele60_uni5x8_timeALL_fulltraffic_logit50_19/maps/map.alcalahenares.uni5.rand.3.xml" />
+  <map tag="taxi" prob="0.125" file="../../../scenes/alcalahenares_XL_mutraff_tele60_uni5x8_timeALL_fulltraffic_logit50_19/maps/map.alcalahenares.uni5.rand.4.xml" />
+  <map tag="taxi" prob="0.125" file="../../../scenes/alcalahenares_XL_mutraff_tele60_uni5x8_timeALL_fulltraffic_logit50_19/maps/map.alcalahenares.uni5.rand.5.xml" />
+  <map tag="taxi" prob="0.125" file="../../../scenes/alcalahenares_XL_mutraff_tele60_uni5x8_timeALL_fulltraffic_logit50_19/maps/map.alcalahenares.uni5.rand.6.xml" />
+  <map tag="taxi" prob="0.125" file="../../../scenes/alcalahenares_XL_mutraff_tele60_uni5x8_timeALL_fulltraffic_logit50_19/maps/map.alcalahenares.uni5.rand.7.xml" />
+  <map tag="taxi" prob="0.125" file="../../../scenes/alcalahenares_XL_mutraff_tele60_uni5x8_timeALL_fulltraffic_logit50_19/maps/map.alcalahenares.uni5.rand.8.xml" />
+  <!-- motorcycle -->
+  <map tag="motorcycle" prob="0.125" file="../../../scenes/alcalahenares_XL_mutraff_tele60_uni5x8_timeALL_fulltraffic_logit50_19/maps/map.alcalahenares.uni5.rand.1.xml" />
+  <map tag="motorcycle" prob="0.125" file="../../../scenes/alcalahenares_XL_mutraff_tele60_uni5x8_timeALL_fulltraffic_logit50_19/maps/map.alcalahenares.uni5.rand.2.xml" />
+  <map tag="motorcycle" prob="0.125" file="../../../scenes/alcalahenares_XL_mutraff_tele60_uni5x8_timeALL_fulltraffic_logit50_19/maps/map.alcalahenares.uni5.rand.3.xml" />
+  <map tag="motorcycle" prob="0.125" file="../../../scenes/alcalahenares_XL_mutraff_tele60_uni5x8_timeALL_fulltraffic_logit50_19/maps/map.alcalahenares.uni5.rand.4.xml" />
+  <map tag="motorcycle" prob="0.125" file="../../../scenes/alcalahenares_XL_mutraff_tele60_uni5x8_timeALL_fulltraffic_logit50_19/maps/map.alcalahenares.uni5.rand.5.xml" />
+  <map tag="motorcycle" prob="0.125" file="../../../scenes/alcalahenares_XL_mutraff_tele60_uni5x8_timeALL_fulltraffic_logit50_19/maps/map.alcalahenares.uni5.rand.6.xml" />
+  <map tag="motorcycle" prob="0.125" file="../../../scenes/alcalahenares_XL_mutraff_tele60_uni5x8_timeALL_fulltraffic_logit50_19/maps/map.alcalahenares.uni5.rand.7.xml" />
+  <map tag="motorcycle" prob="0.125" file="../../../scenes/alcalahenares_XL_mutraff_tele60_uni5x8_timeALL_fulltraffic_logit50_19/maps/map.alcalahenares.uni5.rand.8.xml" />
+  <!-- bus -->
+  <map tag="bus" prob="1" file="../../../scenes/alcalahenares_XL_mutraff_tele60_uni5x8_timeALL_fulltraffic_logit50_19/maps/map.alcalahenares.reference.mapR.xml" />
+  <!-- truck -->
+  <map tag="truck" prob="0.125" file="../../../scenes/alcalahenares_XL_mutraff_tele60_uni5x8_timeALL_fulltraffic_logit50_19/maps/map.alcalahenares.uni5.rand.1.xml" />
+  <map tag="truck" prob="0.125" file="../../../scenes/alcalahenares_XL_mutraff_tele60_uni5x8_timeALL_fulltraffic_logit50_19/maps/map.alcalahenares.uni5.rand.2.xml" />
+  <map tag="truck" prob="0.125" file="../../../scenes/alcalahenares_XL_mutraff_tele60_uni5x8_timeALL_fulltraffic_logit50_19/maps/map.alcalahenares.uni5.rand.3.xml" />
+  <map tag="truck" prob="0.125" file="../../../scenes/alcalahenares_XL_mutraff_tele60_uni5x8_timeALL_fulltraffic_logit50_19/maps/map.alcalahenares.uni5.rand.4.xml" />
+  <map tag="truck" prob="0.125" file="../../../scenes/alcalahenares_XL_mutraff_tele60_uni5x8_timeALL_fulltraffic_logit50_19/maps/map.alcalahenares.uni5.rand.5.xml" />
+  <map tag="truck" prob="0.125" file="../../../scenes/alcalahenares_XL_mutraff_tele60_uni5x8_timeALL_fulltraffic_logit50_19/maps/map.alcalahenares.uni5.rand.6.xml" />
+  <map tag="truck" prob="0.125" file="../../../scenes/alcalahenares_XL_mutraff_tele60_uni5x8_timeALL_fulltraffic_logit50_19/maps/map.alcalahenares.uni5.rand.7.xml" />
+  <map tag="truck" prob="0.125" file="../../../scenes/alcalahenares_XL_mutraff_tele60_uni5x8_timeALL_fulltraffic_logit50_19/maps/map.alcalahenares.uni5.rand.8.xml" />
+  <!-- trailer -->
+  <map tag="trailer" prob="0.125" file="../../../scenes/alcalahenares_XL_mutraff_tele60_uni5x8_timeALL_fulltraffic_logit50_19/maps/map.alcalahenares.uni5.rand.1.xml" />
+  <map tag="trailer" prob="0.125" file="../../../scenes/alcalahenares_XL_mutraff_tele60_uni5x8_timeALL_fulltraffic_logit50_19/maps/map.alcalahenares.uni5.rand.2.xml" />
+  <map tag="trailer" prob="0.125" file="../../../scenes/alcalahenares_XL_mutraff_tele60_uni5x8_timeALL_fulltraffic_logit50_19/maps/map.alcalahenares.uni5.rand.3.xml" />
+  <map tag="trailer" prob="0.125" file="../../../scenes/alcalahenares_XL_mutraff_tele60_uni5x8_timeALL_fulltraffic_logit50_19/maps/map.alcalahenares.uni5.rand.4.xml" />
+  <map tag="trailer" prob="0.125" file="../../../scenes/alcalahenares_XL_mutraff_tele60_uni5x8_timeALL_fulltraffic_logit50_19/maps/map.alcalahenares.uni5.rand.5.xml" />
+  <map tag="trailer" prob="0.125" file="../../../scenes/alcalahenares_XL_mutraff_tele60_uni5x8_timeALL_fulltraffic_logit50_19/maps/map.alcalahenares.uni5.rand.6.xml" />
+  <map tag="trailer" prob="0.125" file="../../../scenes/alcalahenares_XL_mutraff_tele60_uni5x8_timeALL_fulltraffic_logit50_19/maps/map.alcalahenares.uni5.rand.7.xml" />
+  <map tag="trailer" prob="0.125" file="../../../scenes/alcalahenares_XL_mutraff_tele60_uni5x8_timeALL_fulltraffic_logit50_19/maps/map.alcalahenares.uni5.rand.8.xml" />
+</maps>

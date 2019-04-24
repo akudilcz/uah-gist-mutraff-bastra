@@ -1,6 +1,6 @@
 '''
 Created on 23 de feb. de 2016
-@author: Valentin
+@author: Alvaro Paricio
 '''
 
 import os
@@ -41,14 +41,15 @@ class BastraLog:
         return
 
     def printLog(self, msg_level, str_message):
-        log_file=open(self.log_path, "a")
-        stime=traci.simulation.getCurrentTime()/1000
-        log=str(stime) + ":" + str_message
-        if int(self.log_level)>=msg_level:
+        if (int(self.log_level)>=msg_level) or ((self.verbose) and (msg_level==1)):
+          log_file=open(self.log_path, "a")
+          stime=traci.simulation.getCurrentTime()/1000
+          log=str(stime) + ":" + str_message
+          if int(self.log_level)>=msg_level:
             log_file.write(log)
-        if (self.verbose) and (msg_level==1):
+          if (self.verbose) and (msg_level==1):
             print( log )
-        log_file.close()
+          log_file.close()
         return
 
     def printLogVeh(self, msg_level, vehId, str_message):

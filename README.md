@@ -44,7 +44,7 @@ To install Bastra, you have to downkload it from the repository:
 $ git clone https://github.com/uahservtel/uah-gist-mutraff-bastra.git
 $ cd uah-gist-mutraff-bastra
 ```
-You will find the "bastra.py" simulator and the run scripts as described in the QuickStart Guide.
+You will find the "mutraff_simulator.py" simulator and the run scripts as described in the QuickStart Guide.
 
 ## QuickStart
 
@@ -106,7 +106,7 @@ You will check in your screen how simulation is executed using a non-gui SUMO in
 Execution results will create several files:
 * statistics.csv : a CSV formatted report with execution results.
 * data/dumps/... : dumps on each traffic routing iteration
-* data/logs/... : logs about bastra execution
+* data/logs/... : logs about Mutraff execution
 
 Execution results will create several files:
 * statistics.csv : a CSV formatted report with execution results.
@@ -115,7 +115,7 @@ Execution results will create several files:
 ## Tools
 
 Bastra package is formed by several tools:
-* **bastra.py** : Bastra simulator
+* **mutraff_simulator.py** : Bastra simulator
 * **genmaps.bastra.py** : Map generator for Bastra. See [genmaps.bastra info](tools/genmaps.bastra.md) for more info.
 * **randomVehType.py** : Demand generator based on Random Distribution upon different vehicle types. See [randomVehType info](tools/randomVehType.md) for more info.
 

@@ -69,14 +69,14 @@ Type "run" to execute, ctrl-C to stop, "c" to continue, etc.
 ==================================================================
 EOF
   set -x
-  python ${PYTHON_DEBUG} ../bastra.py -c $MUTRAFF_SCENE/bastra.conf.xml
+  python ${PYTHON_DEBUG} ../mutraff_simulator.py -c $MUTRAFF_SCENE/bastra.conf.xml
 else
   echo
   (
     DATE_START=`date +%s`
     echo "Simulation Starts on: `date -j -f '%s' ${DATE_START}`"
 
-    python ../bastra.py -c $MUTRAFF_SCENE/bastra.conf.xml
+    python ../mutraff_simulator.py -c $MUTRAFF_SCENE/bastra.conf.xml
 
     DATE_END=`date +%s`
     echo "Simulation End    on: `date -j -f '%s' ${DATE_END}`"

@@ -77,7 +77,7 @@ if [ ! -z "${PYTHON_DEBUG}" ]; then
 Type "run" to execute, ctrl-C to stop, "c" to continue, etc.
 ==================================================================
 EOF
-  python ${PYTHON_DEBUG} $MUTRAFF_ROOT/bastra.py -c $MUTRAFF_SCENE_DIR/bastra.conf.xml
+  python ${PYTHON_DEBUG} $MUTRAFF_ROOT/mutraff_simulator.py -c $MUTRAFF_SCENE_DIR/bastra.conf.xml
 else
   cp $MUTRAFF_SCENE_DIR/SCENARIO_DESCRIPTION.md . 2>/dev/null
   echo
@@ -92,7 +92,7 @@ else
     DATE_START=`date +%s`
     echo "Simulation Starts on: `date -j -f '%s' ${DATE_START}`"
 
-    python $PYTHON_PROFILER_OPTS $MUTRAFF_ROOT/bastra.py -c $MUTRAFF_SCENE_DIR/bastra.conf.xml
+    python $PYTHON_PROFILER_OPTS $MUTRAFF_ROOT/mutraff_simulator.py -c $MUTRAFF_SCENE_DIR/bastra.conf.xml
 
     DATE_END=`date +%s`
     echo "Simulation End    on: `date -j -f '%s' ${DATE_END}`"

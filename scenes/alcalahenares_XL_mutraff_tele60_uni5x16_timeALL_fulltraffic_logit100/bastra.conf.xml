@@ -7,7 +7,7 @@
     <verbose value="true"/>
     <log_dir value="./logs/"/>
     <log_file value="bastra.log"/>
-    <log_level value="3"/>
+    <log_level value="1"/>
     <dump_dir value="./dumps/"/>
     <tmp_dir value="./tmp/"/>
     <results_dir value="./results/"/>
