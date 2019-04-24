@@ -26,7 +26,7 @@
     <foresight_penalty value="1"/>
     <!-- Simulation from/to -->
     <begin value="0"/>
-    <end value="10000"/>
+    <end value="100"/>
 
     <!-- Routing Algorithm: dijstra, astar, ch, chwrapper -->
     <routing_algorithm value=""/>

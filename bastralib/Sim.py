@@ -30,11 +30,17 @@ def log_computing_time(txt):
   return time_decorator
 
 class simulated_traffic:
-#Las pongo de momento, ya veremos si uso otra cosa
+    # Niveles de trazado
     LEVEL1_ERRORS=1
     LEVEL2_CPU_TIME=2
     LEVEL3_FULL=3
-#Son como quien dice auxiliares
+
+    # Posiciones de los campos en el array de reglas del mapa
+    MAP_RULE_POS_FILE=0
+    MAP_RULE_POS_PROBABILITY=1
+    MAP_RULE_POS_FLEET=2
+
+    # Variables de la clase
     vehicle_list=[]
     dict_index={}
     edge_weigths={}
@@ -76,6 +82,13 @@ class simulated_traffic:
         self.max_tries=config["f_tries"]
         self.begin=config["begin"]
         self.end=config["end"]
+
+	# Initialize random generator as declared in:
+	# https://docs.python.org/2/library/random.html
+	# random.seed(a=None)
+	# Initialize internal state of the random number generator.
+	# None or no argument seeds from current time or from an operating system specific randomness source if available (see the os.urandom() function for details on availability).
+	random.seed()
 
         # Alvaro Added: 15/11/16
         self.routing_algorithm=config["routing_algorithm"]
@@ -272,6 +285,10 @@ class simulated_traffic:
         self.incident_list.append(inc)
         return
 
+    # ----------------------------------------------------------------------
+    # Lee el fichero XML de comando de asignacion de mapas.
+    # Crea una "map_rule" como un array de [file,prob,tag/fleet].
+    # ----------------------------------------------------------------------
     def readMaps(self, map_file):
         if not os.path.isfile(map_file):
             self.log_file.printLog(self.LEVEL1_ERRORS, "Error reading " + map_file + "\n")
@@ -291,11 +308,16 @@ class simulated_traffic:
                 return None
             if tag is None:
                 tag=""
+
+	    # Esta es la map rule.
             result.append((file, float(prob), tag))
 
         return result
 
 
+    #-------------------------------------------------------------
+    # Asigna aleatoriamente un mapa a un vehiculo
+    #-------------------------------------------------------------
     def chooseMap(self, id, map_rule):
         index=self.dict_index[id]
         tag=self.vehicle_list[index].getType()
@@ -303,21 +325,25 @@ class simulated_traffic:
         rand=random.random()
         prob=0
         for map in map_rule:
-            if tag==map[2]:
-                prob= prob + float(map[1])
+            if tag==map[self.MAP_RULE_POS_FLEET]:
+                prob= prob + float(map[self.MAP_RULE_POS_PROBABILITY])
                 if rand <= prob:
-                    return map[0]
+                    return map[self.MAP_RULE_POS_FILE]
         return ""
 
+    #-------------------------------------------------------------
+    # Verifica que la suma de las probabilidades de los mapas para
+    # cada "flota" = "tag" son 1.
+    #-------------------------------------------------------------
     def checkMapRule(self, data):
 
         weight_list={}
         for rule in data:
-            tag=rule[2]
+            tag=rule[self.MAP_RULE_POS_FLEET]
             if weight_list.has_key(tag):
-                weight_list[tag]=weight_list[tag]+ rule[1]
+                weight_list[tag]=weight_list[tag]+ rule[self.MAP_RULE_POS_PROBABILITY]
             else:
-                weight_list[tag]=rule[1]
+                weight_list[tag]=rule[self.MAP_RULE_POS_PROBABILITY]
 
         for key in weight_list.keys():
             if weight_list[key] != 1:
@@ -327,8 +353,12 @@ class simulated_traffic:
         return True
 
 
+    # -----------------------------------------------------------------
+    # Distribuye los comandos de mapas por la poblacion de vehiculos.
+    # -----------------------------------------------------------------
     def distMaps(self, map_file):
 
+	# Lee el fichero XML de distribucion de mapas.
         map_rules=self.readMaps(map_file)
         if map_rules is None:
             self.log_file.printLog(self.LEVEL1_ERRORS, "Error in map assignment. Fail processing " + map_file + "\n")
@@ -336,6 +366,9 @@ class simulated_traffic:
         if not self.checkMapRule(map_rules):
             self.log_file.printLog(self.LEVEL1_ERRORS, "Error in map assignment. Fail processing " + map_file + "\n")
             return None
+
+	# Distribuye las reglas de mapas entre los vehiculos en simulacion
+	# De acuerdo a sus probabilidades asignadas.
         for veh in self.vehicle_list:
             #if self.cur_time<= int(veh.getDepartTime()):
                 if veh.isAttended():
