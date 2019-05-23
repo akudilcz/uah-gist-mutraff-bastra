@@ -38,6 +38,11 @@ def load_config():
     dict_conf["log_dir"]=readOption("log_dir", "Bastra")
     dict_conf["log_file"]=readOption("log_file", "Bastra")
     dict_conf["log_level"]=readOption("log_level", "Bastra")
+    try:
+      dict_conf["log_every_n_steps"]=int(readOption("log_every_n_steps", "Bastra"))
+    except:
+      dict_conf["log_every_n_steps"]=1
+      
     dict_conf["dump_dir"]=readOption("dump_dir", "Bastra")
     dict_conf["new_routes_file"]=readOption("new_routes_file", "Bastra")
     dict_conf["route_file"]=readOption("route_file", "Bastra")
@@ -235,11 +240,17 @@ if __name__ == '__main__':
     # -------------------------------------------------
     while (traci.simulation.getMinExpectedNumber() > 0) and (int(sim.getCurTime())<int(sim.getEnd())):
     	# ---------------------------------------------
-	# Each simulation step:
+	# For each simulation step:
     	# ---------------------------------------------
+	# Update simulation timestamp
         sim.actCurTime()
-        log_file.printLog(LEVEL3_FULL,"Processing step: " + str(sim.getCurTime()) + "\n")
+	if ( (sim.getCurTime() % config["log_every_n_steps"]) == 0 ):
+           log_file.printLog(LEVEL1_ERRORS,"Hour:{} - Processing step:{}\n".format( int(sim.getCurTime() / config["log_every_n_steps"]), sim.getCurTime() ))
+	# Process pending vehicle movements
         sim.processPendings()
+	# ---------------------------------------------
+	# Check if there are commands pending for the step
+	# ---------------------------------------------
         while len(commands_sequence)>0 and commands_sequence[0].getTime()==sim.getCurTime():
             command=commands_sequence.pop(0)
             log_file.printLog(LEVEL3_FULL,str(command.getTime()) + ": " + command.getName() + "\n")
@@ -247,21 +258,34 @@ if __name__ == '__main__':
             com_name=command.getName().lower()
             com_params=command.getParams()
 
+	    # if there is a MAP-APPLY command
             if com_name=="maps":
                 sim.processMaps(com_params[0])
+
+	    # If there is a road-incident
             elif com_name=="incident":
                 sim.processIncident(com_params[0])
+
+	    # If there is a road-incident restoration
             elif com_name=="restore":
                 sim.processRestore(com_params[0])
+
+	    # Unknown command
             else:
                 log_file.printLog(LEVEL1_ERRORS,"Command " + com_name + " not recognized \n")
 
+	# Reroute vehicles if necessary
         veh_list=traci.vehicle.getIDList()
         sim.reroute(veh_list)
-        sim.foresight(veh_list, config)
-	sim.simulationStep()
-        sim.get_simulation_results()
 
+	# Check congestion foresights if necessary
+        sim.foresight(veh_list, config)
+
+	# Do simulation STEP
+	sim.simulationStep()
+
+	# Get stats from the simulation step
+        sim.get_simulation_results()
         sim.edges_scan()
 
     # -------------------------------------------------

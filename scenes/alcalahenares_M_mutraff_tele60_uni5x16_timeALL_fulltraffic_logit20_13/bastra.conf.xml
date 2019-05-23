@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<config>
+  <Bastra>
+    <route_file value="../../../scenes/alcalahenares_M_mutraff_tele60_uni5x16_timeALL_fulltraffic_logit20_13/alcalahenares_M_mutraff_tele60_uni5x16_timeALL_fulltraffic_logit20_13.typed-routes.xml"/>
+    <commands_file value="../../../scenes/alcalahenares_M_mutraff_tele60_uni5x16_timeALL_fulltraffic_logit20_13/alcalahenares_M_mutraff_tele60_uni5x16_timeALL_fulltraffic_logit20_13.commands.xml"/>
+    <verbose value="true"/>
+    <log_dir value="./logs/"/>
+    <log_file value="bastra.log"/>
+    <!-- log_level = 1:errors, 2:cpu time, 3:time steps  !! <=1 IS FASTER!!!-->
+    <log_level value="1"/>
+    <log_every_n_steps value="60"/>
+    <dump_dir value="./dumps/"/>
+    <tmp_dir value="./tmp/"/>
+    <results_dir value="./results/"/>
+    <new_routes_file value="new_routes.xml"/>
+    <statistics_file value="statistics.csv" />
+    <edge_stats_dump value="true" />
+    <edge_stats_file value="edge_stats.csv" />
+    <!-- <edge_stats_sampling value="10" /> -->
+
+    <logit value="0.2"/>
+    <use_balance value="true"/>
+    <foresight_steps value="0"/>
+    <foresight_tries value="0"/>
+    <foresight_halting value="0"/>
+    <foresight_penalty value="1"/>
+    <!-- Simulation from/to -->
+    <begin value="0"/>
+    <end value="2500"/>
+
+    <!-- Routing Algorithm: dijstra, astar, ch, chwrapper -->
+    <routing_algorithm value=""/>
+  </Bastra>
+
+  <Sumo>
+    <port value="4085"/>
+    <interactive value="false"/>
+    <sumo_config value="../../../scenes/alcalahenares_M_mutraff_tele60_uni5x16_timeALL_fulltraffic_logit20_13/alcalahenares_M_mutraff_tele60_uni5x16_timeALL_fulltraffic_logit20_13.sumo.conf"/>
+    <net_file value="../../../scenes/alcalahenares_M_mutraff_tele60_uni5x16_timeALL_fulltraffic_logit20_13/alcalahenares_M_mutraff_tele60_uni5x16_timeALL_fulltraffic_logit20_13.net.xml"/>
+    <log_file value="sumo.log"/>
+  </Sumo>
+</config>
