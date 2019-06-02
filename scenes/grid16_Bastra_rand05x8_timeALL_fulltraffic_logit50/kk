@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<maps>
+  <!-- MAP 1 -->
+  <map tag="car" prob="0.125" file="maps/grid16.rand05.1.xml" />
+  <map tag="taxi" prob="0.125" file="maps/grid16.rand05.1.xml" />
+  <map tag="bus" prob="0.125" file="maps/grid16.rand05.1.xml" />
+  <map tag="motorcycle" prob="0.125" file="maps/grid16.rand05.1.xml" />
+  <!-- MAP 2 -->
+  <map tag="car" prob="0.125" file="maps/grid16.rand05.2.xml" />
+  <map tag="taxi" prob="0.125" file="maps/grid16.rand05.2.xml" />
+  <map tag="bus" prob="0.125" file="maps/grid16.rand05.2.xml" />
+  <map tag="motorcycle" prob="0.125" file="maps/grid16.rand05.2.xml" />
+  <!-- MAP 3 -->
+  <map tag="car" prob="0.125" file="maps/grid16.rand05.3.xml" />
+  <map tag="taxi" prob="0.125" file="maps/grid16.rand05.3.xml" />
+  <map tag="bus" prob="0.125" file="maps/grid16.rand05.3.xml" />
+  <map tag="motorcycle" prob="0.125" file="maps/grid16.rand05.3.xml" />
+  <!-- MAP 4 -->
+  <map tag="car" prob="0.125" file="maps/grid16.rand05.4.xml" />
+  <map tag="taxi" prob="0.125" file="maps/grid16.rand05.4.xml" />
+  <map tag="bus" prob="0.125" file="maps/grid16.rand05.4.xml" />
+  <map tag="motorcycle" prob="0.125" file="maps/grid16.rand05.4.xml" />
+  <!-- MAP 5 -->
+  <map tag="car" prob="0.125" file="maps/grid16.rand05.5.xml" />
+  <map tag="taxi" prob="0.125" file="maps/grid16.rand05.5.xml" />
+  <map tag="bus" prob="0.125" file="maps/grid16.rand05.5.xml" />
+  <map tag="motorcycle" prob="0.125" file="maps/grid16.rand05.5.xml" />
+  <!-- MAP 6 -->
+  <map tag="car" prob="0.125" file="maps/grid16.rand05.6.xml" />
+  <map tag="taxi" prob="0.125" file="maps/grid16.rand05.6.xml" />
+  <map tag="bus" prob="0.125" file="maps/grid16.rand05.6.xml" />
+  <map tag="motorcycle" prob="0.125" file="maps/grid16.rand05.6.xml" />
+  <!-- MAP 7 -->
+  <map tag="car" prob="0.125" file="maps/grid16.rand05.7.xml" />
+  <map tag="taxi" prob="0.125" file="maps/grid16.rand05.7.xml" />
+  <map tag="bus" prob="0.125" file="maps/grid16.rand05.7.xml" />
+  <map tag="motorcycle" prob="0.125" file="maps/grid16.rand05.7.xml" />
+  <!-- MAP 8 -->
+  <map tag="car" prob="0.125" file="maps/grid16.rand05.8.xml" />
+  <map tag="taxi" prob="0.125" file="maps/grid16.rand05.8.xml" />
+  <map tag="bus" prob="0.125" file="maps/grid16.rand05.8.xml" />
+  <map tag="motorcycle" prob="0.125" file="maps/grid16.rand05.8.xml" />
+</maps>

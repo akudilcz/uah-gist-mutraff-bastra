@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<commands>
+  <command time="0" name="Maps" param="../../../scenes/XS_grid16_noBastra_reference_fulltraffic/XS_grid16_noBastra_reference_fulltraffic.maps.xml" />
+  <command time="1000" name="Incident" param="7/8to8/8" />
+  <command time="1500" name="Restore" param="7/8to8/8" />
+</commands>

@@ -47,6 +47,8 @@ def load_config():
     dict_conf["new_routes_file"]=readOption("new_routes_file", "Bastra")
     dict_conf["route_file"]=readOption("route_file", "Bastra")
     dict_conf["logit"]=readOption("logit", "Bastra")
+    if (float(dict_conf["logit"])> 1.0):
+        sys.exit("Configuration error: LOGIT parameter must be between 0.0 and 1.0")
     dict_conf["commands_file"]=readOption("commands_file", "Bastra")
     dict_conf["statistics_f"]=readOption("statistics_file", "Bastra")
     dict_conf["begin"]=readOption("begin", "Bastra")
@@ -244,13 +246,13 @@ if __name__ == '__main__':
     	# ---------------------------------------------
 	# Update simulation timestamp
         sim.actCurTime()
-	if ( (sim.getCurTime() % config["log_every_n_steps"]) == 0 ):
+        if ( (sim.getCurTime() % config["log_every_n_steps"]) == 0 ):
            log_file.printLog(LEVEL1_ERRORS,"Hour:{} - Processing step:{}\n".format( int(sim.getCurTime() / config["log_every_n_steps"]), sim.getCurTime() ))
-	# Process pending vehicle movements
+        # Process pending vehicle movements
         sim.processPendings()
-	# ---------------------------------------------
-	# Check if there are commands pending for the step
-	# ---------------------------------------------
+        # ---------------------------------------------
+        # Check if there are commands pending for the step
+        # ---------------------------------------------
         while len(commands_sequence)>0 and commands_sequence[0].getTime()==sim.getCurTime():
             command=commands_sequence.pop(0)
             log_file.printLog(LEVEL3_FULL,str(command.getTime()) + ": " + command.getName() + "\n")
@@ -282,9 +284,9 @@ if __name__ == '__main__':
         sim.foresight(veh_list, config)
 
 	# Do simulation STEP
-	sim.simulationStep()
+        sim.simulationStep()
 
-	# Get stats from the simulation step
+        # Get stats from the simulation step
         sim.get_simulation_results()
         sim.edges_scan()
 

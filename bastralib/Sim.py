@@ -83,23 +83,23 @@ class simulated_traffic:
         self.begin=config["begin"]
         self.end=config["end"]
 
-	# Initialize random generator as declared in:
-	# https://docs.python.org/2/library/random.html
-	# random.seed(a=None)
-	# Initialize internal state of the random number generator.
-	# None or no argument seeds from current time or from an operating system specific randomness source if available (see the os.urandom() function for details on availability).
-	random.seed()
+        # Initialize random generator as declared in:
+        # https://docs.python.org/2/library/random.html
+        # random.seed(a=None)
+        # Initialize internal state of the random number generator.
+        # None or no argument seeds from current time or from an operating system specific randomness source if available (see the os.urandom() function for details on availability).
+        random.seed()
 
         # Alvaro Added: 15/11/16
         self.routing_algorithm=config["routing_algorithm"]
-	if( self.routing_algorithm != "" ):
-	  self.routing_algorithm = "--routing-algorithm "+self.routing_algorithm
+        if( self.routing_algorithm != "" ):
+          self.routing_algorithm = "--routing-algorithm "+self.routing_algorithm
 
-	# Alvaro Added: 10/10/16
+        # Alvaro Added: 10/10/16
         self.edge_stats_onoff = config["edge_stats_dump"]
         self.edge_stats_file = config["edge_stats_file"]
         self.edge_stats_sampling = config["edge_stats_sampling"]
-	if( self.edge_stats_sampling <= 0 ):
+        if( self.edge_stats_sampling <= 0 ):
           self.edge_stats_onoff = False
 
         tree=etree.parse(self.route_file)
@@ -139,14 +139,16 @@ class simulated_traffic:
         return self.end
 
     def validEdge(self,e):
-      return self.edge_weigths.has_key(e)
+      # ALVARO: PATCHED ON 26/05/2019
+      # return self.edge_weigths.has_key(e)
+      return e in self.edge_weigths
 
     def loadEdges(self):
         tree=etree.parse(self.net_file)
         root=tree.getroot()
         l_edges=root.findall("edge")
 
-	num = 0
+        num = 0
         for edg in l_edges:
             fun_name=edg.get("function")
             if fun_name != "internal" :
@@ -159,17 +161,17 @@ class simulated_traffic:
 
                 self.edge_weigths[edge_id]=l_lane.get("speed")
                 self.edge_lengths[edge_id]=l_lane.get("length")
-		# ALVARO: 6/11/2016: BUG CORRECTION: sometimes SHAPE brings 3D coordinates
+               # ALVARO: 6/11/2016: BUG CORRECTION: sometimes SHAPE brings 3D coordinates
                 # [x1, y1, x2, y2 ] = re.split( '[, ]', l_lane.get("shape") )
                 [x1, y1, x2, y2 ] = re.split( '[, ]', l_lane.get("shape") )[0:4]
-		av_x = (float(x1)+float(x2))/2
-		av_y = (float(y1)+float(y2))/2
-		
-		# Alvaro Added: 10/10/16
-		# Inventory the edges
+                av_x = (float(x1)+float(x2))/2
+                av_y = (float(y1)+float(y2))/2
+
+                # Alvaro Added: 10/10/16
+                # Inventory the edges
                 self.edge_desc[edge_id]={'id':num, 'name':edge_id, 'priority': edge_prio, 'from':edge_from, 'to': edge_to, 'x1': x1, 'y1': y1, 'x2': x2, 'y2': y2, 'av_x': av_x, 'av_y': av_y }
-		num += 1
-	self.saveEdges()
+                num += 1
+        self.saveEdges()
         return
 
     def saveEdges(self):
@@ -309,7 +311,7 @@ class simulated_traffic:
             if tag is None:
                 tag=""
 
-	    # Esta es la map rule.
+            # Esta es la map rule.
             result.append((file, float(prob), tag))
 
         return result
@@ -340,7 +342,9 @@ class simulated_traffic:
         weight_list={}
         for rule in data:
             tag=rule[self.MAP_RULE_POS_FLEET]
-            if weight_list.has_key(tag):
+            # ALVARO: PATCHED ON 26/05/2019
+            # if weight_list.has_key(tag):
+            if tag in weight_list:
                 weight_list[tag]=weight_list[tag]+ rule[self.MAP_RULE_POS_PROBABILITY]
             else:
                 weight_list[tag]=rule[self.MAP_RULE_POS_PROBABILITY]
@@ -358,7 +362,7 @@ class simulated_traffic:
     # -----------------------------------------------------------------
     def distMaps(self, map_file):
 
-	# Lee el fichero XML de distribucion de mapas.
+        # Lee el fichero XML de distribucion de mapas.
         map_rules=self.readMaps(map_file)
         if map_rules is None:
             self.log_file.printLog(self.LEVEL1_ERRORS, "Error in map assignment. Fail processing " + map_file + "\n")
@@ -367,8 +371,8 @@ class simulated_traffic:
             self.log_file.printLog(self.LEVEL1_ERRORS, "Error in map assignment. Fail processing " + map_file + "\n")
             return None
 
-	# Distribuye las reglas de mapas entre los vehiculos en simulacion
-	# De acuerdo a sus probabilidades asignadas.
+        # Distribuye las reglas de mapas entre los vehiculos en simulacion
+        # De acuerdo a sus probabilidades asignadas.
         for veh in self.vehicle_list:
             #if self.cur_time<= int(veh.getDepartTime()):
                 if veh.isAttended():
@@ -463,7 +467,7 @@ class simulated_traffic:
     def calcNewRoutes(self):
 
         cont=0
- 	now = self.now()
+        now = self.now()
         for trip_f in self.trip_file_list:
             trip_f.generateFile()
             if self.balanced:
@@ -558,7 +562,9 @@ class simulated_traffic:
                 id=edg.get("id")
                 travel_time=float(edg.get("traveltime"))
 
-                if line.has_key(id):
+                # ALVARO: PATCHED ON 26/05/2019
+                # if line.has_key(id):
+                if id in line:
                     t_time=line[id]
                     travel_time=travel_time+t_time
                 else:
@@ -648,8 +654,8 @@ class simulated_traffic:
     def foresight(self, id_list, config):
 
         steps=config["f_steps"]
-	if( steps == 0):
-	  return
+        if( steps == 0):
+          return
 
         max_halting=int(config["f_halting"])
         penalty=float(config["f_penalty"])
@@ -677,7 +683,7 @@ class simulated_traffic:
 
 
     def jamReroute(self, pen_edges, veh_id, penalty):
-	# BUG solved by Alvaro: 20/10/2016
+        # BUG solved by Alvaro: 20/10/2016
         # jam_routes="jam_routes.xml"
         jam_routes="jam_routes.xml"
         cur_time=self.now()
@@ -735,7 +741,9 @@ class simulated_traffic:
                 edge_id=edge.get("id")
                 ttime=edge.get("traveltime")
 
-                if dict_edges.has_key(edge_id):
+                # ALVARO: PATCHED ON 26/05/2019
+                # if dict_edges.has_key(edge_id):
+                if edge_id in dict_edges:
                     old_ttime=dict_edges[edge_id]
                     if ttime > old_ttime:
                         dict_edges[edge_id]=ttime
@@ -791,10 +799,10 @@ class simulated_traffic:
 
     @log_computing_time('getRouteForVehicle')
     def getRouteForVehicle(self,cur_time,trip_file, map_file, dump_dir, output_file, dump_prefix ):
-	xmlfile = dump_dir + "/" + output_file
-	outfile = dump_dir + "/" + dump_prefix + str(cur_time) + "_" + str(self.duarouter_sec) + ".out"
-	duarouter_opts = " --ignore-errors --no-warnings --remove-loops true --max-alternatives 10 --repair true --repair.to true --repair.from true "
-	duarouter_opts = ""
+        xmlfile = dump_dir + "/" + output_file
+        outfile = dump_dir + "/" + dump_prefix + str(cur_time) + "_" + str(self.duarouter_sec) + ".out"
+        duarouter_opts = " --ignore-errors --no-warnings --remove-loops true --max-alternatives 10 --repair true --repair.to true --repair.from true "
+        duarouter_opts = ""
 
         if len(map_file)>0:
           command="duarouter -n " + self.net_file + " -t " + trip_file + " -w " + map_file + " -o " + xmlfile + " --error-log " + self.sumo_log_file + " " + duarouter_opts + " " + self.routing_algorithm
@@ -831,7 +839,7 @@ class simulated_traffic:
     def isAtEndOfEdge(self, id):
         road=traci.vehicle.getRoadID(id)
         if not self.validEdge(road):
-	  return False
+          return False
 
         result=False
         lane=traci.vehicle.getLaneID(id)
@@ -870,13 +878,13 @@ class simulated_traffic:
                 self.log_file.printLogVeh(self.LEVEL3_FULL, veh_id, "Sumo's route by traci - Route : " + str(traci.vehicle.getRoute(veh_id)) + "\n")
                 edge=traci.vehicle.getRoadID(veh_id)
                 self.log_file.printLogEdge(self.LEVEL3_FULL, edge, "\n")
-		try:
+                try:
                   traci.vehicle.setRoute(veh_id,new_route)
                   veh.setRerouted(False)
                   color=traci.vehicle.getColor(veh_id)
                   traci.vehicle.setColor(veh_id, (255,0,0,0))
                   self.log_file.printLogVeh(self.LEVEL3_FULL, veh_id, "Final route: " + str(traci.vehicle.getRoute(veh_id)) + "\n")
-		except:
+                except:
                   self.log_file.printLogVeh(self.LEVEL3_FULL, veh_id, "ERROR ROUTING VEHICLE" + str(sys.exc_info()) + "\n")
                   self.log_file.printLogVeh(self.LEVEL3_FULL, veh_id, "Removed from routing queue\n")
                   veh.setRerouted(False)
@@ -911,7 +919,7 @@ class simulated_traffic:
         if os.path.isfile(file_name):
             os.remove(file_name)
         file=open(file_name, "w")
-        file.write(	"id"+sep+
+        file.write(     "id"+sep+
                         "veh_type"+sep+
                         "t_depart_secs"+sep+
                         "t_arrival_secs"+sep+
@@ -928,8 +936,8 @@ class simulated_traffic:
                         "tripfile"+
                         "\n")
         for veh in self.vehicle_list:
-            file.write(	veh.getId() + sep+
-			veh.getType()+sep+
+            file.write( veh.getId() + sep+
+                        veh.getType()+sep+
                         str(veh.getDepartTime())+sep+
                         str(veh.getEndTime()) +sep+
                         str(veh.getEndTime()-veh.getDepartTime()) +sep+
@@ -1014,15 +1022,15 @@ class simulated_traffic:
         for i in range(0,len(self.edge_stats)-1):
           vals = self.edge_stats[i]['vals']
           for j in range(0,len(vals)-1):
-  	    v = vals[j]
-  	    # time
- 	    # traf_travel_time, traf_waiting_time, traf_total_veh_num, traf_halted_veh_num, traf_av_occupancy, traf_av_speed,
- 	    # emission_co2, emission_co, emission_hc, emission_noise, emission_nox, emission_PMx,
- 	    # consum_epower, consum_fuel
+            v = vals[j]
+            # time
+            # traf_travel_time, traf_waiting_time, traf_total_veh_num, traf_halted_veh_num, traf_av_occupancy, traf_av_speed,
+            # emission_co2, emission_co, emission_hc, emission_noise, emission_nox, emission_PMx,
+            # consum_epower, consum_fuel
             file.write( '{:d},{:s},{:d},{:f},{:f},{:f},{:f},{:f},{:f},{:f},{:f},{:f},{:f},{:f},{:f},{:f},{:f}\n'.format(
-             self.edge_stats[i]['time'],'xxxx',v[0],
-	     v[1],v[2],v[3],v[4],v[5],v[6],v[7],v[8],v[9],v[10],v[11],v[12],v[13],v[14] )
- 	     )
+             int(self.edge_stats[i]['time']),'xxxx',int(v[0]),
+             v[1],v[2],v[3],v[4],v[5],v[6],v[7],v[8],v[9],v[10],v[11],v[12],v[13],v[14] )
+             )
       else:
         file.write( '{:s},{:s},{:s},{:s},{:s},{:s},{:s},{:s},{:s},{:s},{:s},{:s},{:s},{:s},{:s},{:s}\n'.format(
           "time","edge_id",
@@ -1033,15 +1041,15 @@ class simulated_traffic:
         for i in range(0,len(self.edge_stats)-1):
           vals = self.edge_stats[i]['vals']
           for j in range(0,len(vals)-1):
-  	    v = vals[j]
-  	    # time
- 	    # traf_travel_time, traf_waiting_time, traf_total_veh_num, traf_halted_veh_num, traf_av_occupancy, traf_av_speed,
- 	    # emission_co2, emission_co, emission_hc, emission_noise, emission_nox, emission_PMx,
- 	    # consum_epower, consum_fuel
+            v = vals[j]
+            # time
+            # traf_travel_time, traf_waiting_time, traf_total_veh_num, traf_halted_veh_num, traf_av_occupancy, traf_av_speed,
+            # emission_co2, emission_co, emission_hc, emission_noise, emission_nox, emission_PMx,
+            # consum_epower, consum_fuel
             file.write( '{:d},{:d},{:f},{:f},{:f},{:f},{:f},{:f},{:f},{:f},{:f},{:f},{:f},{:f},{:f},{:f}\n'.format(
-             self.edge_stats[i]['time'],v[0],
-	     v[1],v[2],v[3],v[4],v[5],v[6],v[7],v[8],v[9],v[10],v[11],v[12],v[13],v[14] )
- 	     )
+             int(self.edge_stats[i]['time']),int(v[0]),
+             v[1],v[2],v[3],v[4],v[5],v[6],v[7],v[8],v[9],v[10],v[11],v[12],v[13],v[14] )
+             )
       file.close()
       return
 
@@ -1058,17 +1066,17 @@ class simulated_traffic:
       i = len(self.edge_stats)-1
 
       for e in self.edge_desc:
-	# --------------------------------
+        # --------------------------------
         # Ask traci for edge values
-	# --------------------------------
+        # --------------------------------
 
-	# --------------------------------
+        # --------------------------------
         # Discarded values:
         # traf_adaptedTravelTime=traci.edge.getAdaptedTravelTime(time)
-	# traf_effort = traci.edge.getEffort(e,time)
-	# traf_veh_mean_len = traci.edge.getEffort(e,time)
+        # traf_effort = traci.edge.getEffort(e,time)
+        # traf_veh_mean_len = traci.edge.getEffort(e,time)
 
-	# --------------------------------
+        # --------------------------------
         # Considered values:
         traf_travel_time = traci.edge.getTraveltime(e)
         traf_waiting_time = traci.edge.getWaitingTime(e)
@@ -1085,15 +1093,15 @@ class simulated_traffic:
         consum_epower = traci.edge.getElectricityConsumption(e)
         consum_fuel = traci.edge.getFuelConsumption(e)
 
-	# --------------------------------
-	# Save values
+        # --------------------------------
+        # Save values
         self.edge_stats[i]['vals'].append(
-	  [
+          [
             self.edge_desc[e]['id'],
-	    traf_travel_time, traf_waiting_time, traf_total_veh_num, traf_halted_veh_num, traf_av_occupancy, traf_av_speed,
-	    emission_co2, emission_co, emission_hc, emission_noise, emission_nox, emission_PMx,
-	    consum_epower, consum_fuel
-	  ] )
+            traf_travel_time, traf_waiting_time, traf_total_veh_num, traf_halted_veh_num, traf_av_occupancy, traf_av_speed,
+            emission_co2, emission_co, emission_hc, emission_noise, emission_nox, emission_PMx,
+            consum_epower, consum_fuel
+          ] )
       return
 
 # End of class Simulated_traffic    

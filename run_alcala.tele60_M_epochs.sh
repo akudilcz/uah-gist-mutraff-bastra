@@ -86,6 +86,9 @@ SCENES="\
  alcalahenares_3L3h_mutraff_tele60_uni5x16_timeALL_fulltraffic_logit100_01 \
 "
 
+SCENES="\
+ alcalahenares_3L3h_nomaps_tele60_timeALL_fulltraffic_incident \
+"
 
 for i in $SCENES
 do

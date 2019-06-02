@@ -14,6 +14,13 @@ SCENES="\
  XS_grid16_Bastra_rand05x8_timeALL_fulltraffic_logit100\
 "
 
+SCENES="\
+  XS_grid16_Bastra_rand2x8_timeALL_fulltraffic_logit20 \
+  XS_grid16_Bastra_rand2x8_timeALL_fulltraffic_logit50 \
+  XS_grid16_Bastra_rand05x4_timeALL_fulltraffic_logit20 \
+  XS_grid16_Bastra_rand05x4_timeALL_fulltraffic_logit50 \
+"
+
 for i in $SCENES
 do
   echo "===================================="
