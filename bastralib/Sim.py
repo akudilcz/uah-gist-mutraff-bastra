@@ -40,6 +40,9 @@ class simulated_traffic:
     MAP_RULE_POS_PROBABILITY=1
     MAP_RULE_POS_FLEET=2
 
+    # Velocidad del EDGE en caso de INCIDENTE
+    EDGE_SPEED_ON_INCIDENT = 0.01
+    
     # Variables de la clase
     vehicle_list=[]
     dict_index={}
@@ -990,7 +993,7 @@ class simulated_traffic:
         if not self.validEdge(edge):
             self.log_file.printLogEdge(self.LEVEL1_ERRORS, edge, "Not defined in " + self.net_file + ".\n")
         else:
-            traci.edge.setMaxSpeed(edge,0)
+            traci.edge.setMaxSpeed(edge,EDGE_SPEED_ON_INCIDENT)
             self.log_file.printLogEdge(self.LEVEL1_ERRORS, edge, "Speed limited to 0 for this edge.\n")
         return
 
