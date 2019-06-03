@@ -26,6 +26,7 @@ EPOCHS=1
 # ------------------
 # ------------------
 ####generate_city.sh param/alcalahenares_3L3h_nomaps_tele60_timeALL_fulltraffic.param
+####generate_city.sh param/alcalahenares_3L3h_nomaps_tele60_timeALL_fulltraffic_incident.param
 ####generate_city_epochs.sh param/alcalahenares_3L3h_mutraff_tele60_uni5x8_timeALL_fulltraffic_logit50.param $EPOCHS
 ####generate_city_epochs.sh param/alcalahenares_3L3h_mutraff_tele60_uni5x16_timeALL_fulltraffic_logit50.param $EPOCHS
 

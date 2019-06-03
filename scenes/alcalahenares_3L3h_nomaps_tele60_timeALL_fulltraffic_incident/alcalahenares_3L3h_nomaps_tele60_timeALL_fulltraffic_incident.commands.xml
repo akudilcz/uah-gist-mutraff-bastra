@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<commands>
+  <!-- Calle de Luis de Astrana MarÃ­n 2, Alcala de Henares located at: (40.4845899, -3.3690635) -->
+  <command time="3000" name="Incident" param="23867499#1" />
+  <command time="4800" name="Restore"  param="23867499#1" />
+</commands>

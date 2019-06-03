@@ -170,7 +170,9 @@ def generatePenEdges(edges_list):
     command=config["weight_function"]
     new_dict_edges={}
     for edge in new_pen_edges:
-        if not new_dict_edges.has_key(edge):
+        # ALVARO: Patched on 02/06/19
+        # if not new_dict_edges.has_key(edge):
+        if not edge in new_dict_edges:
             penalty=eval(command)
             weight=dict_edges[edge] * penalty
             new_dict_edges[edge]=weight
@@ -226,7 +228,9 @@ def join(list_maps, map_file):
         for edge in l_edges:
             edge_id=edge.get("id")
             traveltime=float(edge.get("traveltime"))
-            if not new_dict_edges.has_key(edge_id):
+            # ALVARO: Patched on 02/06/19
+            # if not new_dict_edges.has_key(edge_id):
+            if not edge_id in new_dict_edges:
                 new_dict_edges[edge_id]=traveltime
             else:
                 if config["join_option"]=="add":
@@ -246,7 +250,9 @@ def join(list_maps, map_file):
         for edge in l_edges:
             edge_id=edge.get("id")
             traveltime=float(edge.get("traveltime"))
-            if not new_dict_edges.has_key(edge_id):
+            # ALVARO: Patched on 02/06/19
+            # if not new_dict_edges.has_key(edge_id):
+            if not edge_id in new_dict_edges:
                 new_dict_edges[edge_id]=traveltime
             else:
                 if config["join_option"]=="add":

@@ -2,8 +2,8 @@
 
 <config>
   <Bastra>
-    <route_file value="../../../scenes/alcalahenares_3L3h_nomaps_tele60_timeALL_fulltraffic/alcalahenares_3L3h_nomaps_tele60_timeALL_fulltraffic.typed-routes.xml"/>
-    <commands_file value="../../../scenes/alcalahenares_3L3h_nomaps_tele60_timeALL_fulltraffic/alcalahenares_3L3h_nomaps_tele60_timeALL_fulltraffic.commands.xml"/>
+    <route_file value="../../../scenes/alcalahenares_3L3h_nomaps_tele60_timeALL_fulltraffic_incident/alcalahenares_3L3h_nomaps_tele60_timeALL_fulltraffic_incident.typed-routes.xml"/>
+    <commands_file value="../../../scenes/alcalahenares_3L3h_nomaps_tele60_timeALL_fulltraffic_incident/alcalahenares_3L3h_nomaps_tele60_timeALL_fulltraffic_incident.commands.xml"/>
     <verbose value="true"/>
     <log_dir value="./logs/"/>
     <log_file value="bastra.log"/>
@@ -36,8 +36,8 @@
   <Sumo>
     <port value="4082"/>
     <interactive value="false"/>
-    <sumo_config value="../../../scenes/alcalahenares_3L3h_nomaps_tele60_timeALL_fulltraffic/alcalahenares_3L3h_nomaps_tele60_timeALL_fulltraffic.sumo.conf"/>
-    <net_file value="../../../scenes/alcalahenares_3L3h_nomaps_tele60_timeALL_fulltraffic/alcalahenares_3L3h_nomaps_tele60_timeALL_fulltraffic.net.xml"/>
+    <sumo_config value="../../../scenes/alcalahenares_3L3h_nomaps_tele60_timeALL_fulltraffic_incident/alcalahenares_3L3h_nomaps_tele60_timeALL_fulltraffic_incident.sumo.conf"/>
+    <net_file value="../../../scenes/alcalahenares_3L3h_nomaps_tele60_timeALL_fulltraffic_incident/alcalahenares_3L3h_nomaps_tele60_timeALL_fulltraffic_incident.net.xml"/>
     <log_file value="sumo.log"/>
   </Sumo>
 </config>

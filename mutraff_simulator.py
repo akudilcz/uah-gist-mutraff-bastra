@@ -262,14 +262,32 @@ if __name__ == '__main__':
 
 	    # if there is a MAP-APPLY command
             if com_name=="maps":
+                errTxt = """
+---------------------------------------
+NEW TWM TO BE APPLIED: {}
+---------------------------------------
+""".format( com_params[0] )
+                log_file.printLog (LEVEL1_ERRORS, errTxt )
                 sim.processMaps(com_params[0])
 
 	    # If there is a road-incident
             elif com_name=="incident":
+                errTxt = """
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+INCIDENT DETECTION AT: {}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+""".format( com_params[0] )
+                log_file.printLog (LEVEL1_ERRORS, errTxt )
                 sim.processIncident(com_params[0])
 
 	    # If there is a road-incident restoration
             elif com_name=="restore":
+                errTxt = """
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+INCIDENT CLEARANCE AT: {}
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+""".format( com_params[0] )
+                log_file.printLog (LEVEL1_ERRORS, errTxt )
                 sim.processRestore(com_params[0])
 
 	    # Unknown command

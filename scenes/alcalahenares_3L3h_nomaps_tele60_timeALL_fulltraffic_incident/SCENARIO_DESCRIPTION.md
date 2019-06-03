@@ -1,6 +1,6 @@
 .............................................
     BASTRA SIMULATION TOOL
-    ESCENARIO: alcalahenares_3L3h_nomaps_tele60_timeALL_fulltraffic
+    ESCENARIO: alcalahenares_3L3h_nomaps_tele60_timeALL_fulltraffic_incident
 
     alvaro.paricio@uah.es
 (This file has been generated automatically by generate_cities.sh)
@@ -26,11 +26,11 @@ __MAP_USAGE=nomaps
 __MAX_SPEED=13.9
 __NET_NAME=alcalahenares
 __NET_TYPE=city
-__PREDEFINED_TRAFFIC_DEMAND=
-__PREFIX=alcalahenares_3L3h_nomaps_tele60_timeALL_fulltraffic
+__PREDEFINED_TRAFFIC_DEMAND=../DEMANDS/alcalahenares/alcalahenares.M.typed-routes.xml
+__PREFIX=alcalahenares_3L3h_nomaps_tele60_timeALL_fulltraffic_incident
 __ROADLENGTH=50
 __ROUTING_ALGORITHM=
-__SET_AS_PREDEFINED_TRAFFIC_DEMAND=../DEMANDS/alcalahenares/alcalahenares.M.typed-routes.xml
+__SET_AS_PREDEFINED_TRAFFIC_DEMAND=
 __SIMUL_TIME_END=7200
 __SIMUL_TIME_INI=0
 __SPIDER_ARMS=0

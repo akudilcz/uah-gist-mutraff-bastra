@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<meandata>
+	<interval begin="0" end="10000" id="whatever">
+		<edge id="23867499#0" traveltime="1.1951043916486679"/>
+		<edge id="23867499#1" traveltime="0.3743700503959684"/>
+		<edge id="23867499#2" traveltime="0.8423326133909287"/>
+		<edge id="23867509" traveltime="2.4752475247524757"/>
+		<edge id="91348403#1" traveltime="6.05471562275018"/>
+	</interval>
+</meandata>
