@@ -1,0 +1,33 @@
+    
+    self.exp[2200]="alcalahenares_M3h_nomaps_tele60_timeALL_fulltraffic_190510_235642"
+    self.exp[2201]="alcalahenares_M3h_mutraff_tele60_uni5x16_timeALL_fulltraffic_logit50_01_190511_163910"
+
+    self.exp[2300]="alcalahenares_L3h_nomaps_tele60_timeALL_fulltraffic_190515_130939"
+    self.exp[2301]="alcalahenares_L3h_mutraff_tele60_uni5x16_timeALL_fulltraffic_logit50_01_190515_133434"
+
+    self.exp[2400]="alcalahenares_2L3h_nomaps_tele60_timeALL_fulltraffic_190515_150939"
+    self.exp[2401]="alcalahenares_2L3h_mutraff_tele60_uni5x16_timeALL_fulltraffic_logit50_01_190515_161514"
+
+    self.exp[2410]="alcalahenares_2L3h_nomaps_tele60_timeALL_fulltraffic_190515_182031"
+    self.exp[2411]="alcalahenares_2L3h_mutraff_tele60_uni5x8_timeALL_fulltraffic_logit50_01_190515_191357"
+    self.exp[2412]="alcalahenares_2L3h_mutraff_tele60_uni5x16_timeALL_fulltraffic_logit50_01_190515_200544"
+
+    self.exp[2420]="alcalahenares_2L3h_nomaps_tele60_timeALL_fulltraffic_190515_202233"
+    self.exp[2421]="alcalahenares_2L3h_mutraff_tele60_uni5x8_timeALL_fulltraffic_logit50_01_190515_205714"
+    self.exp[2422]="alcalahenares_2L3h_mutraff_tele60_uni5x16_timeALL_fulltraffic_logit50_01_190515_212938"
+
+    self.exp[2430]="alcalahenares_3L3h_nomaps_tele60_timeALL_fulltraffic_190516_084853"
+    self.exp[2431]="alcalahenares_3L3h_mutraff_tele60_uni5x8_timeALL_fulltraffic_logit10_01_190521_091537"
+    self.exp[2432]="alcalahenares_3L3h_mutraff_tele60_uni5x8_timeALL_fulltraffic_logit20_01_190521_143019"
+    self.exp[2433]="alcalahenares_3L3h_mutraff_tele60_uni5x8_timeALL_fulltraffic_logit50_01_190516_091540"
+    self.exp[2434]="alcalahenares_3L3h_mutraff_tele60_uni5x8_timeALL_fulltraffic_logit100_01_190521_210550"
+
+    self.exp[2441]="alcalahenares_3L3h_mutraff_tele60_uni5x16_timeALL_fulltraffic_logit10_01_190521_213112"
+    self.exp[2442]="alcalahenares_3L3h_mutraff_tele60_uni5x16_timeALL_fulltraffic_logit20_01_190521_220448"
+    self.exp[2443]="alcalahenares_3L3h_mutraff_tele60_uni5x16_timeALL_fulltraffic_logit50_01_190516_114311"
+    self.exp[2444]="alcalahenares_3L3h_mutraff_tele60_uni5x16_timeALL_fulltraffic_logit100_01_190521_223020"
+
+    self.exp[2500]="alcalahenares_3L3h_nomaps_tele60_timeALL_fulltraffic_190604_073604"
+    self.exp[2501]="alcalahenares_3L3h_nomaps_tele60_timeALL_fulltraffic_incident_190604_082709"
+    self.exp[2502]="alcalahenares_3L3h_mutraff_tele60_uni5x16_timeALL_fulltraffic_logit10_01_190604_091731"
+

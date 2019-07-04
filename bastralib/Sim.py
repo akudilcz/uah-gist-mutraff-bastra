@@ -964,7 +964,12 @@ class simulated_traffic:
                 file.write("True")
             else:
                 file.write("False")
-            file.write(sep + str(veh.getCarMaps()) + sep + str(veh.getTripFile()) )
+            # ALVARO 28/06/2019 - BUG: JUST FIXED BUT NOT CORRECTED !!!!
+            # str_carMaps  = str(veh.getCarMaps())
+            # str_tripFile = str(veh.getTripFile())
+            str_carMaps = "[]"
+            str_tripFile = "[]"
+            file.write(sep + str_carMaps + sep + str_tripFile)
             file.write("\n")
         file.close()
 
@@ -993,8 +998,8 @@ class simulated_traffic:
         if not self.validEdge(edge):
             self.log_file.printLogEdge(self.LEVEL1_ERRORS, edge, "Not defined in " + self.net_file + ".\n")
         else:
-            traci.edge.setMaxSpeed(edge,EDGE_SPEED_ON_INCIDENT)
-            self.log_file.printLogEdge(self.LEVEL1_ERRORS, edge, "Speed limited to 0 for this edge.\n")
+            traci.edge.setMaxSpeed(edge,self.EDGE_SPEED_ON_INCIDENT)
+            self.log_file.printLogEdge(self.LEVEL1_ERRORS, edge, "Speed limited to {} for this edge.\n".format(self.EDGE_SPEED_ON_INCIDENT) )
         return
 
     # -----------------------------------------------

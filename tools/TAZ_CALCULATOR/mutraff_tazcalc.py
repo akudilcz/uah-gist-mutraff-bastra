@@ -16,9 +16,9 @@ opts= {}
 # --------------------------------------------------------------
 def getConfig():
   parser = arg.ArgumentParser(
-  	prog="mutraff_tazcalc",
-	formatter_class=arg.RawDescriptionHelpFormatter,
-  	description='''\
+    prog="mutraff_tazcalc",
+    formatter_class=arg.RawDescriptionHelpFormatter,
+    description='''\
 MuTRAFF TAZ Calculator
 Given an XML taz definition file based on polygon coordinates in GPS format(lat,lon), generate the associated SUMO TAZ definiton file with the edges contained inside each taz polygon.
 Examples:
@@ -46,7 +46,7 @@ Examples:
   options['in_edges'] = options['net_path'] + '/' + options['in_edges']
   options['in_mutaz'] = options['net_path'] + '/' + options['in_mutaz']
   if 'out_sumo_taz' in options and options['out_sumo_taz']:
-	options['out_sumo_taz'] = options['net_path'] + '/' + options['out_sumo_taz']
+    options['out_sumo_taz'] = options['net_path'] + '/' + options['out_sumo_taz']
 
   if( options['verbose'] ):
     print(options)

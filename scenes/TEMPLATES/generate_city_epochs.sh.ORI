@@ -159,7 +159,7 @@ function default_params() {
 
   # Group: mutraff-Foresight
   # Descr: weight multiplier for function cost: if congestion is detected increment traveltime x this factor
-  # Default: 50
+  # Default: 1
   export __BASTRA_FORESIGHT_PENALTY="1"
 
   # Group: sumo
@@ -297,6 +297,13 @@ EOF
   export __OUT_VEH_FILE="${__PREFIX}.vehicle_distrib.conf"
 
   export OUT_TMP_FILE="/tmp/tmp.net.xml"
+
+  if [ -z ${__ODMAT_FILE} ]
+  then
+    export IN_ODMAT_FILE="TEMPLATE.odmat.${__NET_NAME}.xml"
+  else
+    export IN_ODMAT_FILE=${__ODMAT_FILE}
+  fi
 }
 
 # ----------------------------------------------------------------
@@ -315,7 +322,7 @@ function check_necessary_templates() {
   [ -r "TEMPLATE.duarouter.conf" ] || die "Cannot find TEMPLATE.duarouter.conf"
   # [ -r "TEMPLATE.net.${__NET_TYPE}.conf" ] || die "Cannot find TEMPLATE.net.${__NET_TYPE}.conf"
   [ -r "TEMPLATE.od.conf" ]      || die "Cannot find TEMPLATE.od.conf"
-  [ -r "TEMPLATE.odmat.${__NET_NAME}.xml" ]    || die "Cannot find TEMPLATE.odmat.${__NET_NAME}.xml"
+  [ -r "${IN_ODMAT_FILE}" ]    || die "Cannot find ${IN_ODMAT_FILE}"
   [ -r "TEMPLATE.sumo.conf" ]    || die "Cannot find TEMPLATE.sumo.conf"
   [ -r "TEMPLATE.${__NET_NAME}.taz.xml" ] || die "Cannot find TEMPLATE.${__NET_NAME}.taz.xml"
 
@@ -357,15 +364,15 @@ EOF
     fi
   else
     echo "   Generating the DEMAND od2trips "
-    set -x
+    #set -x
     od2trips -c ${__OUT_OD_FILE} 
-    set +x
+    #set +x
 
     # ----------------------------------------------------------------
-    echo "  Generating the DEMAND duarouter"
-    set -x
+    echo "  Calculating shortest-path routes for the selected trips duarouter"
+    #set -x
     duarouter -c ${__OUT_DUA_FILE} 2>&1 | tee duarouter.err
-    set +x
+    #set +x
     TRIP_FILE=`ls -1 *trip*`
     echo "  Generated "`grep "trip id=" $TRIP_FILE | wc -l`" trips"
     echo "  Removing invalid trips"
@@ -381,20 +388,20 @@ EOF
     # cat duarouter.err | grep " has no valid route" | cut -f2 -d"'" | while read i; do echo "Removing $i";grep -v '(id=\"'$i'\" )' $TRIP_FILE.tmp > $TRIP_FILE.tmp2; mv $TRIP_FILE.tmp2 $TRIP_FILE.tmp; done
 
     # -- ALGORYTHM 3 --
-    set -x
+    #set -x
     cat duarouter.err | grep " has no valid route" | cut -f2 -d"'" | while read i; do echo '(id=\"'$i'\" )'; done | sort > duarouter.invalid_vehicles.txt
     echo "  Removing "`wc -l duarouter.invalid_vehicles.txt`" invalid trips"
     paste -s -d"|" duarouter.invalid_vehicles.txt > duarouter.filter_regex
     python ../../tools/PYGREP/pygrep.py -v -f duarouter.filter_regex -d $TRIP_FILE > $TRIP_FILE.tmp
 
     mv $TRIP_FILE.tmp $TRIP_FILE
-    set +x
+    #set +x
 
     # ----------------------------------------------------------------
     echo "   Typing the vehicles generated in the DEMAND file "
-    set -x
+    #set -x
     python ../../tools/randomVehType.py -c ${__OUT_VEH_FILE} 
-    set +x
+    #set +x
   fi
 
   # ----------------------------------------------------------------
@@ -447,7 +454,7 @@ function configure_epoch() {
   sed -f /tmp/filter.sed TEMPLATE.od.conf > ${OUT_DIR}/${__OUT_OD_FILE}
 
   echo "    Generating: ${__OUT_ODMAT_FILE}"
-  sed -f /tmp/filter.sed TEMPLATE.odmat.${__NET_NAME}.xml > ${OUT_DIR}/${__OUT_ODMAT_FILE}
+  sed -f /tmp/filter.sed ${IN_ODMAT_FILE} > ${OUT_DIR}/${__OUT_ODMAT_FILE}
 
   echo "    Generating: ${__OUT_SUMO_FILE}"
   sed -f /tmp/filter.sed TEMPLATE.sumo.conf > ${OUT_DIR}/${__OUT_SUMO_FILE}

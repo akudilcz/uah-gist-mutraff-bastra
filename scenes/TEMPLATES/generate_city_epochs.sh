@@ -159,8 +159,13 @@ function default_params() {
 
   # Group: mutraff-Foresight
   # Descr: weight multiplier for function cost: if congestion is detected increment traveltime x this factor
-  # Default: 50
+  # Default: 1
   export __BASTRA_FORESIGHT_PENALTY="1"
+
+  # Group: mutraff-Commands
+  # Descr: additional commands for the simulation: incidents, and more
+  # Default: ""
+  export __ADD_COMMANDS=""
 
   # Group: sumo
   # Descr: SUMO's listening PORT
@@ -330,11 +335,12 @@ function check_necessary_templates() {
   [ -d "maps" ]           || die "Cannot find maps dir"
   [ -r "${SRC_MAP}" ]     || die "Cannot find ${SRC_MAP}"
 
-  SRC_MAP_DIR="maps/${__NET_NAME}.maps"
+  export SRC_MAP_DIR="maps/${__NET_NAME}.maps"
+  export SRC_COMMANDS_FILE="commands/TEMPLATE.commands.${__MAP_USAGE}${__ADD_COMMANDS}.xml"
   [ -d "${SRC_MAP_DIR}" ] || die "Cannot find ${SRC_MAP_DIR} dir"
 
   [ -d "commands" ]                  || die "Cannot find commands dir"
-  [ -r "commands/TEMPLATE.commands.${__MAP_USAGE}.xml" ] || die "Cannot find commands/TEMPLATE.commands.${__MAP_USAGE}.xml"
+  [ -r "${SRC_COMMANDS_FILE}" ] || die "Cannot find ${SRC_COMMANDS_FILE}"
 
   echo "   Found all the necessary TEMPLATE FILES"
 }
@@ -364,15 +370,15 @@ EOF
     fi
   else
     echo "   Generating the DEMAND od2trips "
-    set -x
+    #set -x
     od2trips -c ${__OUT_OD_FILE} 
-    set +x
+    #set +x
 
     # ----------------------------------------------------------------
     echo "  Calculating shortest-path routes for the selected trips duarouter"
-    set -x
+    #set -x
     duarouter -c ${__OUT_DUA_FILE} 2>&1 | tee duarouter.err
-    set +x
+    #set +x
     TRIP_FILE=`ls -1 *trip*`
     echo "  Generated "`grep "trip id=" $TRIP_FILE | wc -l`" trips"
     echo "  Removing invalid trips"
@@ -388,20 +394,20 @@ EOF
     # cat duarouter.err | grep " has no valid route" | cut -f2 -d"'" | while read i; do echo "Removing $i";grep -v '(id=\"'$i'\" )' $TRIP_FILE.tmp > $TRIP_FILE.tmp2; mv $TRIP_FILE.tmp2 $TRIP_FILE.tmp; done
 
     # -- ALGORYTHM 3 --
-    set -x
+    #set -x
     cat duarouter.err | grep " has no valid route" | cut -f2 -d"'" | while read i; do echo '(id=\"'$i'\" )'; done | sort > duarouter.invalid_vehicles.txt
     echo "  Removing "`wc -l duarouter.invalid_vehicles.txt`" invalid trips"
     paste -s -d"|" duarouter.invalid_vehicles.txt > duarouter.filter_regex
     python ../../tools/PYGREP/pygrep.py -v -f duarouter.filter_regex -d $TRIP_FILE > $TRIP_FILE.tmp
 
     mv $TRIP_FILE.tmp $TRIP_FILE
-    set +x
+    #set +x
 
     # ----------------------------------------------------------------
     echo "   Typing the vehicles generated in the DEMAND file "
-    set -x
+    #set -x
     python ../../tools/randomVehType.py -c ${__OUT_VEH_FILE} 
-    set +x
+    #set +x
   fi
 
   # ----------------------------------------------------------------
@@ -442,7 +448,8 @@ function configure_epoch() {
   sed -f /tmp/filter.sed TEMPLATE.duarouter.conf > ${OUT_DIR}/${__OUT_DUA_FILE}
 
   echo "    Generating: ${__OUT_CMDS_FILE}"
-  sed -f /tmp/filter.sed commands/TEMPLATE.commands.${__MAP_USAGE}.xml > ${OUT_DIR}/${__OUT_CMDS_FILE}
+  # sed -f /tmp/filter.sed commands/TEMPLATE.commands.${__MAP_USAGE}.xml > ${OUT_DIR}/${__OUT_CMDS_FILE}
+  sed -f /tmp/filter.sed ${SRC_COMMANDS_FILE} > ${OUT_DIR}/${__OUT_CMDS_FILE}
 
   echo "    Generating: ${__OUT_MAPS_FILE}"
   sed -f /tmp/filter.sed ${SRC_MAP} > ${OUT_DIR}/${__OUT_MAPS_FILE}
@@ -472,7 +479,7 @@ function configure_epoch() {
   echo "LOCATION=${LOCATION}" >> $OUT_DIR/SCENARIO_DESCRIPTION.md
 
   mkdir ${OUT_DIR}/maps > /dev/null 2>&1
-  cp $SRC_MAP_DIR/* ${OUT_DIR}/maps
+  cp ${SRC_MAP_DIR}/* ${OUT_DIR}/maps
 
   cd $OUT_DIR
 

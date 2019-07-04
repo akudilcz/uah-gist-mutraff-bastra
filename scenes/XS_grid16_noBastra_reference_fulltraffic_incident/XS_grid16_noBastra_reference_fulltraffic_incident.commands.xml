@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<commands>
+  <command time="0" name="Maps" param="../../../scenes/XS_grid16_noBastra_reference_fulltraffic_incident/XS_grid16_noBastra_reference_fulltraffic_incident.maps.xml" />
+  <command time="1000" name="Incident" param="7/7to7/8" />
+  <command time="1000" name="Incident" param="7/7to7/8" />
+  <command time="1000" name="Incident" param="7/7to8/7" />
+  <command time="1000" name="Incident" param="7/8to8/7" />
+  <command time="1000" name="Incident" param="7/8to6/8" />
+  <command time="1000" name="Incident" param="7/8to7/7" />
+  <command time="1000" name="Incident" param="7/8to7/9" />
+  <command time="1000" name="Incident" param="7/8to8/8" />
+
+  <command time="2000" name="Restore" param="7/7to7/8" />
+  <command time="2000" name="Restore" param="7/7to7/8" />
+  <command time="2000" name="Restore" param="7/7to8/7" />
+  <command time="2000" name="Restore" param="7/8to8/7" />
+  <command time="2000" name="Restore" param="7/8to6/8" />
+  <command time="2000" name="Restore" param="7/8to7/7" />
+  <command time="2000" name="Restore" param="7/8to7/9" />
+  <command time="2000" name="Restore" param="7/8to8/8" />
+</commands>

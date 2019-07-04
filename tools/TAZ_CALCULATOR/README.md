@@ -22,24 +22,24 @@ usage: mutraff_tazcalc [-h] -net IN_NET -nod IN_NODES -edg IN_EDGES -mutaz
 
 # Arguments
 ## Mandatory
-  -nod IN_NODES, --in-nodes IN_NODES
+-nod IN_NODES, --in-nodes IN_NODES
                         Input. SUMOs XML nodes description file
-  -edg IN_EDGES, --in-edges IN_EDGES
+-edg IN_EDGES, --in-edges IN_EDGES
                         Input. SUMOs XML edges description file
-  -mutaz IN_MUTAZ, --in-mutaz IN_MUTAZ
+-mutaz IN_MUTAZ, --in-mutaz IN_MUTAZ
                         Input. MUTRAFF XML description file
 ## Optional
-  -h, --help            show this help message and exit
-  -net IN_NET, --in-net IN_NET
+-h, --help            show this help message and exit
+-net IN_NET, --in-net IN_NET
                         Input. SUMOs XML net description file
-  -sumo_taz OUT_SUMO_TAZ, --out-sumo-taz OUT_SUMO_TAZ
+-sumo_taz OUT_SUMO_TAZ, --out-sumo-taz OUT_SUMO_TAZ
                         Output. Generate output to SUMO TAZ XML description
                         file
-  -p NET_PATH, --net-path NET_PATH
+-p NET_PATH, --net-path NET_PATH
                         Input. Path to locate files
-  -v, --verbose         Verbose output
-  -t, --run-tests       Run tests
-  -i TAZ_ID_SEED, --taz-id-seed TAZ_ID_SEED
+-v, --verbose         Verbose output
+-t, --run-tests       Run tests
+-i TAZ_ID_SEED, --taz-id-seed TAZ_ID_SEED
                         USe this number as TAZ id numbering seed
 
 # Examples

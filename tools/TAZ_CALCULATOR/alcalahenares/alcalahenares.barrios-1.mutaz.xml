@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- MUTRAFF TAZ-CALC version="0.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/nodes_file.xsd"> -->
+<mutazs>
+<mutaz id="La dehesa">
+<vertex id="La dehesa-0" x="-3.3323061746216354" y="40.508802449859864"/>
+<vertex id="La dehesa-1" x="-3.3408892434692916" y="40.502276372068685"/>
+<vertex id="La dehesa-2" x="-3.335310248718315" y="40.497022418127024"/>
+<vertex id="La dehesa-3" x="-3.3214915078735885" y="40.50299427170825"/>
+<vertex id="La dehesa-4" x="-3.3268130105591354" y="40.508802449859864"/>
+</mutaz>
+
+<mutaz id="ensanche">
+<vertex id="ensanche-0" x="-3.3745777886963424" y="40.499698396395814"/>
+<vertex id="ensanche-1" x="-3.3706295770264205" y="40.49323670559689"/>
+<vertex id="ensanche-2" x="-3.3593428414917526" y="40.49695714903092"/>
+<vertex id="ensanche-3" x="-3.3644068521118697" y="40.50345111293306"/>
+</mutaz>
+
+<mutaz id="nueva_rinconada">
+<vertex id="nueva_rinconada-0" x="-3.374191550598198" y="40.47071382930584"/>
+<vertex id="nueva_rinconada-1" x="-3.3678829949951705" y="40.46611039861939"/>
+<vertex id="nueva_rinconada-2" x="-3.3654368203735885" y="40.46725312362132"/>
+<vertex id="nueva_rinconada-3" x="-3.3663809579468307" y="40.47394583676509"/>
+</mutaz>
+
+<mutaz id="rinconada">
+<vertex id="rinconada-0" x="-3.3721745294189986" y="40.4786793042887"/>
+<vertex id="rinconada-1" x="-3.3786976617432174" y="40.47358673250712"/>
+<vertex id="rinconada-2" x="-3.374534873352104" y="40.47071382930584"/>
+<vertex id="rinconada-3" x="-3.3663380426025924" y="40.47394583676509"/>
+<vertex id="rinconada-4" x="-3.367196349487358" y="40.4774388416196"/>
+<vertex id="rinconada-5" x="-3.370071677551323" y="40.47766734962289"/>
+</mutaz>
+
+<mutaz id="juan de austria">
+<vertex id="juan de austria-0" x="-3.362175254211479" y="40.48579519985198"/>
+<vertex id="juan de austria-1" x="-3.3515322488403854" y="40.491343769233225"/>
+<vertex id="juan de austria-2" x="-3.3446657937622604" y="40.483771489800816"/>
+<vertex id="juan de austria-3" x="-3.354364661560112" y="40.48233527145879"/>
+</mutaz>
+
+<mutaz id="el val">
+<vertex id="el val-0" x="-3.3515751641846236" y="40.491474318283"/>
+<vertex id="el val-1" x="-3.344279555664116" y="40.49588019977855"/>
+<vertex id="el val-2" x="-3.3353960794067916" y="40.48811259932112"/>
+<vertex id="el val-3" x="-3.336855201110893" y="40.48517503712682"/>
+<vertex id="el val-4" x="-3.340159682617241" y="40.48344507923964"/>
+<vertex id="el val-5" x="-3.3447087091064986" y="40.48351036147886"/>
+</mutaz>
+</mutazs>

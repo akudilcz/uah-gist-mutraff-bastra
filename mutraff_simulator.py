@@ -161,15 +161,14 @@ def readCommandsSequence(file_name):
         l_commands=root.findall("command")
         for comm in l_commands:
             time=int(comm.get("time"))
-            name=comm.get("name")
-            str_param=comm.get("param")
-            param=str_param.split(' ')
-            new_command=Command.Command(name, time, param)
+            theCommand=comm.get("name")
+            str_param =comm.get("param")
+            theArgs=str_param.split(' ')
+            new_command=Command.Command(theCommand, time, theArgs )
             command_list.append(new_command)
     except:
         log_file.printLog(LEVEL1_ERRORS, "Error reading commands for " + file_name + "\n" )
         sys.exit("Error reading commands for " + file_name)
-
     return command_list
 
 
@@ -225,6 +224,9 @@ if __name__ == '__main__':
     # Start sumo and connect to it (traci)
     # -------------------------------------------------
     commands_sequence=readCommandsSequence(config["commands_file"])
+    for c in commands_sequence:
+      print( "------> PLANNED COMMAND: {:05d}:{}:{}".format(c.time,c.name,c.param))
+    
     # sumoProcess = subprocess.Popen([sumoBinary, "-c", config["sumo_config"],"--remote-port", str(config["sumoPort"])], stdout=sys.stdout, stderr=sys.stderr)
     # *************************************
     # WARNING
@@ -253,8 +255,12 @@ if __name__ == '__main__':
         # ---------------------------------------------
         # Check if there are commands pending for the step
         # ---------------------------------------------
-        while len(commands_sequence)>0 and commands_sequence[0].getTime()==sim.getCurTime():
-            command=commands_sequence.pop(0)
+        timestep = sim.getCurTime()
+        step_commands = filter( lambda x: x.getTime()==timestep, commands_sequence)
+        for command in step_commands:
+        #   print( "------> STEP COMMAND: {:05d}:{}:{}".format(c.time,c.name,c.param))
+        # while len(commands_sequence)>0 and commands_sequence[0].getTime()==sim.getCurTime():
+        #     command=commands_sequence.pop(0)
             log_file.printLog(LEVEL3_FULL,str(command.getTime()) + ": " + command.getName() + "\n")
             log_file.printLog (LEVEL3_FULL,str(command.getParams()) + "\n")
             com_name=command.getName().lower()
