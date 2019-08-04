@@ -43,8 +43,8 @@ class BastraLog:
     def printLog(self, msg_level, str_message):
         if (int(self.log_level)>=msg_level) or ((self.verbose) and (msg_level==1)):
           log_file=open(self.log_path, "a")
-          stime=traci.simulation.getCurrentTime()/1000
-          log=str(stime) + ":" + str_message
+          stime=int(traci.simulation.getCurrentTime()/1000)
+          log="{:06d}:{}".format(stime,str_message)
           if int(self.log_level)>=msg_level:
             log_file.write(log)
           if (self.verbose) and (msg_level==1):
@@ -53,7 +53,8 @@ class BastraLog:
         return
 
     def printLogVeh(self, msg_level, vehId, str_message):
-      self.printLog( msg_level, "veh="+str(vehId)+":"+str_message )
+      # self.printLog( msg_level, "veh="+str(vehId)+":"+str_message )
+      self.printLog( msg_level, "veh({:>7}):{}".format(vehId,str_message) )
 
     def printLogEdge(self, msg_level, edgeId, str_message):
       self.printLog( msg_level, "edge="+str(edgeId)+":"+str_message )

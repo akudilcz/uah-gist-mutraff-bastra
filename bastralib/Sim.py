@@ -25,7 +25,7 @@ def log_computing_time(txt):
       func(*args, **kwargs)
       end_ts = time.time()
       myself = args[0]
-      myself.log_file.printLog(myself.LEVEL2_CPU_TIME,txt+":elapsed time: %f" % (end_ts - beg_ts)+ "\n")
+      myself.log_file.printLog(myself.LEVEL2_CPU_TIME,txt+":execution elapsed time: %f" % (end_ts - beg_ts)+ "\n")
     return wrapper
   return time_decorator
 
@@ -216,11 +216,12 @@ class simulated_traffic:
     def actArriveTime(self, id):
         index=self.dict_index[id]
         self.vehicle_list[index].setEndTime(self.cur_time)
-        self.vehicle_list[index].hasFinished()
+        self.vehicle_list[index].isFinished()
         return
     
     def act_route(self, id, route):
         index=self.dict_index[id]
+        self.log_file.printLogVeh(self.LEVEL3_FULL, id, "act_route: edges=({})\n".format(route))
         self.vehicle_list[index].setRoute(route)
         return
     
@@ -254,8 +255,9 @@ class simulated_traffic:
             self.pending_vehicles.pop()
         return        
         
-    def saveNewRoutes(self, file_name):
+    def readNewRoutes(self, file_name):
 
+        self.log_file.printLog(self.LEVEL3_FULL, "readNewRoutes: Reading routes from {}\n".format(file_name))
         if not os.path.isfile(file_name):
             self.log_file.printLog(self.LEVEL2_CPU_TIME, "Error en la lectura de " + file_name + "\n")
             print ("Error en la lectura de " + file_name + "\n")
@@ -269,7 +271,8 @@ class simulated_traffic:
             id=veh.get("id")
             route=veh.find("route")
             str_edges=route.get("edges")
-            l_edges=str_edges.split(' ')
+            # l_edges=str_edges.split(' ')
+            l_edges=[str(edge) for edge in str_edges.split(' ')]
             
             self.act_route(id, l_edges)
             
@@ -329,11 +332,11 @@ class simulated_traffic:
 
         rand=random.random()
         prob=0
-        for map in map_rule:
-            if tag==map[self.MAP_RULE_POS_FLEET]:
-                prob= prob + float(map[self.MAP_RULE_POS_PROBABILITY])
+        for the_map in map_rule:
+            if tag==the_map[self.MAP_RULE_POS_FLEET]:
+                prob= prob + float(the_map[self.MAP_RULE_POS_PROBABILITY])
                 if rand <= prob:
-                    return map[self.MAP_RULE_POS_FILE]
+                    return the_map[self.MAP_RULE_POS_FILE]
         return ""
 
     #-------------------------------------------------------------
@@ -366,11 +369,11 @@ class simulated_traffic:
     def distMaps(self, map_file):
 
         # Lee el fichero XML de distribucion de mapas.
-        map_rules=self.readMaps(map_file)
-        if map_rules is None:
+        map_conf=self.readMaps(map_file)
+        if map_conf is None:
             self.log_file.printLog(self.LEVEL1_ERRORS, "Error in map assignment. Fail processing " + map_file + "\n")
             return None
-        if not self.checkMapRule(map_rules):
+        if not self.checkMapRule(map_conf):
             self.log_file.printLog(self.LEVEL1_ERRORS, "Error in map assignment. Fail processing " + map_file + "\n")
             return None
 
@@ -378,11 +381,12 @@ class simulated_traffic:
         # De acuerdo a sus probabilidades asignadas.
         for veh in self.vehicle_list:
             #if self.cur_time<= int(veh.getDepartTime()):
-                if veh.isAttended():
+                if veh.usesTWMRouting():
                     id=veh.getId()
-                    map=self.chooseMap(id, map_rules)
-                    veh.setMap(map)
+                    the_map=self.chooseMap(id, map_conf)
+                    veh.setMap(the_map)
                     veh.setRerouted(True)
+                    self.log_file.printLogVeh(self.LEVEL3_FULL, id, "{}: Replanned to be rerouted\n".format(veh.getType()))
         return
     
     def recoverPendings(self,log_file):
@@ -399,18 +403,20 @@ class simulated_traffic:
         log.close()
         return
     
-    def assingTrips(self, id_list):
+    def assignTrips(self, id_list):
         
         for id in id_list:
             index=self.dict_index[id]
             if self.vehicle_list[index].isRerouted():
                 veh_maps=self.vehicle_list[index].getCarMaps()
+                veh_maps.sort()
+
                 done=False
                 for trip_f in self.trip_file_list:
-                    veh_maps.sort()
                     weight_maps=trip_f.getWeightMaps()
                     if veh_maps==weight_maps:
-                        self.log_file.printLogVeh(self.LEVEL3_FULL, id, "Maps: " + str(veh_maps) + " - Corresponding trip found: " + trip_f.getFileName() + "\n")
+                        # self.log_file.printLogVeh(self.LEVEL3_FULL, id, "Maps: " + str(veh_maps) + " - Corresponding trip found: " + trip_f.getFileName() + "\n")
+                        self.log_file.printLogVeh(self.LEVEL3_FULL, id, "assignTrip: found tripfile {} for map {}\n".format( trip_f.getFileName(), veh_maps))
                         self.vehicle_list[index].setTripFile(trip_f.getFileName())
                         done=True
                         break
@@ -418,9 +424,10 @@ class simulated_traffic:
                         #    print ("Las cadenas no coinciden")
                         #time.sleep(0.1)
                 if not done:
-                    new_trip= NewTripClass.NewTripFile(self.dump_dir + "trip_file_I" + str(self.cur_time) + "_" + str(len(self.trip_file_list)))
-                    self.log_file.printLogVeh(self.LEVEL3_FULL, id, "Maps: " + str(veh_maps) + "\n")
-                    self.log_file.printLogVeh(self.LEVEL3_FULL, id, "Creating a new trip:" + new_trip.getFileName() + "\n")
+                    # new_trip= NewTripClass.NewTripFile(self.dump_dir + "trip_file_I" + str(self.cur_time) + "_" + str(len(self.trip_file_list)))
+                    trip_filename = "{}tripfile-t{}-{}.xml".format(self.dump_dir,int(self.cur_time),str(len(self.trip_file_list)))
+                    new_trip= NewTripClass.NewTripFile(trip_filename)
+                    self.log_file.printLogVeh(self.LEVEL3_FULL, id, "assignTrip: Creating new tripfile {} for map {}\n".format( trip_filename, veh_maps))
                     new_trip.weight_maps=veh_maps
                     self.trip_file_list.append(new_trip)
                     self.vehicle_list[index].setTripFile(new_trip.getFileName())
@@ -431,10 +438,12 @@ class simulated_traffic:
     
     def prepareTrips(self, id_list):
         
+        traci_time=int(traci.simulation.getCurrentTime()/1000)
         for id in id_list:
             index=self.dict_index[id]
             if self.vehicle_list[index].isRerouted():
                 t_f_name=self.vehicle_list[index].getTripFile()
+                trip_time=self.vehicle_list[index].getDepartTime()
                 for trip_f in self.trip_file_list:
                     if t_f_name==trip_f.getFileName():
                         veh_running=traci.vehicle.getIDList()
@@ -442,12 +451,17 @@ class simulated_traffic:
                         if self.vehicle_list[index].getId() in veh_running:
                             cur_edge=traci.vehicle.getRoadID(self.vehicle_list[index].getId())
                             if self.validEdge(cur_edge):
-                                trip_f.addTrip(self.vehicle_list[index].getId(), self.vehicle_list[index].getDepartTime(), cur_edge, self.vehicle_list[index].getDestiny())
+                                # XXXX AQUI PUEDE ESTAR EL PROBLEMA ; ANTES ERA getDepartTime(), ahora traci_time
+                                trip_time=traci_time
+                                self.log_file.printLogVeh(self.LEVEL3_FULL, id, "prepareTrips: Vehicle running positioned at edge {}, creating trip (TIME {}: FROM {}-> TO {})\n".format(cur_edge,trip_time,cur_edge,self.vehicle_list[index].getDestiny()))
+                                trip_f.addTrip(self.vehicle_list[index].getId(), trip_time, cur_edge, self.vehicle_list[index].getDestiny())
                             else:
+                                self.log_file.printLogVeh(self.LEVEL3_FULL, id, "Vehicle is positioned at INVALID EDGE: {}\n".format(cur_edge))
                                 self.addPending(self.vehicle_list[index].getId())
                             break
                         else:
-                            trip_f.addTrip(self.vehicle_list[index].getId(), self.vehicle_list[index].getDepartTime(), self.vehicle_list[index].getOrigin(), self.vehicle_list[index].getDestiny())
+                            self.log_file.printLogVeh(self.LEVEL3_FULL, id, "prepareTrips: Vehicle pending, creating trip (TIME {}: FROM {} -> TO {})\n".format(trip_time,self.vehicle_list[index].getOrigin(),self.vehicle_list[index].getDestiny()))
+                            trip_f.addTrip(self.vehicle_list[index].getId(), trip_time, self.vehicle_list[index].getOrigin(), self.vehicle_list[index].getDestiny())
                             break
 
                 #if pulse:
@@ -461,7 +475,7 @@ class simulated_traffic:
         
         cont=0
         for trip_f in self.trip_file_list:
-            trip_f.dumpTripFile("dump_trip_"+str(cont))
+            trip_f.dumpTripFile("trips_dump_{}.txt".format(cont))
             cont=cont+1
         
         return
@@ -475,11 +489,11 @@ class simulated_traffic:
             trip_f.generateFile()
             if self.balanced:
                 map_file_name=self.prepareMap(trip_f.getWeightMaps())
-                self.getRouteForVehicle(now,trip_f.getFileName(), map_file_name, self.dump_dir, self.new_routes_file, "router_")
+                self.getRouteForVehicle(now,trip_f.getFileName(), map_file_name, self.dump_dir, self.new_routes_file, "ReRouted-TWM")
             else:
-                self.getRouteForVehicle(now,trip_f.getFileName(), "", self.dump_dir, self.new_routes_file, "router_")
+                self.getRouteForVehicle(now,trip_f.getFileName(), "", self.dump_dir, self.new_routes_file, "ReRouted-NoTWM")
 
-            self.saveNewRoutes(self.dump_dir + self.new_routes_file)
+            self.readNewRoutes(self.dump_dir + self.new_routes_file)
             self.recoverPendings(self.sumo_log_file)
 
         for trip_f in self.trip_file_list:
@@ -490,6 +504,7 @@ class simulated_traffic:
     def emptyTrips(self):
         for trip_f in self.trip_file_list:
             trip_f.deleteTrips()
+        self.trip_file_list=[]
         return
     
     def preparePendings(self):
@@ -520,7 +535,7 @@ class simulated_traffic:
         for inc in self.incident_list:
             if not inc.isRestored():
                 if inc.getEdge()==edge:
-                    self.log_file.printLogEdge(self.LEVEL3_FULL, edge, "incident=" + str(inc.getId()) + "Restoring service"+ "\n")
+                    self.log_file.printLogEdge(self.LEVEL3_FULL, edge, "incident=" + str(inc.getId()) + "Restoring service\n")
                     r_maps=inc.getIncMaps()
                     self.log_file.printLog(self.LEVEL3_FULL, "Deleting maps: " + str(r_maps) + "\n")
                     for veh in self.vehicle_list:
@@ -573,7 +588,7 @@ class simulated_traffic:
                 else:
                     line[id]=travel_time
 
-        file_name="weights_total.xml"
+        file_name="new_map_weights_t{}.xml".format(int(self.now()))
 
         if os.path.isfile(file_name):
             os.remove(file_name)
@@ -607,7 +622,7 @@ class simulated_traffic:
             file_veh.write("\tRoutes: ")
             file_veh.writelines(veh.getRoute())
             file_veh.write("\n")
-            if veh.isAttended():
+            if veh.usesTWMRouting():
                 file_veh.writelines("\tSystem attended: True")
             else:
                 file_veh.writelines("\tSystem attended: False")
@@ -705,7 +720,7 @@ class simulated_traffic:
         map_name=self.dump_dir + "jam_map_" + str(cur_time) + "_" + veh_id + ".xml"
         self.genJamMap(pen_edges, map_name, veh_id, penalty)
 
-        self.getRouteForVehicle(cur_time,trip_f.getFileName(), map_name, self.dump_dir, jam_routes, "jam_")
+        self.getRouteForVehicle(cur_time,trip_f.getFileName(), map_name, self.dump_dir, jam_routes, "JammingRouted")
         result=self.readJamFile(self.dump_dir+"/"+jam_routes)
 
         return result
@@ -803,7 +818,7 @@ class simulated_traffic:
     @log_computing_time('getRouteForVehicle')
     def getRouteForVehicle(self,cur_time,trip_file, map_file, dump_dir, output_file, dump_prefix ):
         xmlfile = dump_dir + "/" + output_file
-        outfile = dump_dir + "/" + dump_prefix + str(cur_time) + "_" + str(self.duarouter_sec) + ".out"
+        outfile = "{}/duarouter-{}-t{}-{}.xml".format(dump_dir,dump_prefix,int(cur_time),self.duarouter_sec)
         duarouter_opts = " --ignore-errors --no-warnings --remove-loops true --max-alternatives 10 --repair true --repair.to true --repair.from true "
         duarouter_opts = ""
 
@@ -860,7 +875,7 @@ class simulated_traffic:
 
         id_list=self.getIdList()
         self.distMaps(maps_file)
-        self.assingTrips(id_list)
+        self.assignTrips(id_list)
         self.prepareTrips(id_list)
         self.calcNewRoutes()
 
@@ -876,21 +891,32 @@ class simulated_traffic:
             veh=self.vehicle_list[index]
             if veh.isRerouted():
                 cont=cont+1
-                new_route=self.getRoute(veh_id)
-                self.log_file.printLogVeh(self.LEVEL2_CPU_TIME, veh_id, "Rerouting - New route: "  + str(new_route) + "\n")
-                self.log_file.printLogVeh(self.LEVEL3_FULL, veh_id, "Sumo's route by traci - Route : " + str(traci.vehicle.getRoute(veh_id)) + "\n")
+
                 edge=traci.vehicle.getRoadID(veh_id)
-                self.log_file.printLogEdge(self.LEVEL3_FULL, edge, "\n")
+                self.log_file.printLogVeh(self.LEVEL3_FULL, veh_id, "Vehicle is now located at edge {}\n".format(edge))
+
+                new_route=self.getRoute(veh_id).copy()
+                cur_route=traci.vehicle.getRoute(veh_id)
+                diff_route=list(set(new_route).symmetric_difference(set(cur_route)))
+                self.log_file.printLogVeh(self.LEVEL3_FULL, veh_id, "Current SUMO route (traci): " + str(cur_route) + "\n")
+                self.log_file.printLogVeh(self.LEVEL2_CPU_TIME, veh_id, "Proposed route: "  + str(new_route) + "\n")
+                self.log_file.printLogVeh(self.LEVEL2_CPU_TIME, veh_id, "Proposed route diff (unsorted): "  + str(diff_route) + "\n")
                 try:
                   traci.vehicle.setRoute(veh_id,new_route)
-                  veh.setRerouted(False)
-                  color=traci.vehicle.getColor(veh_id)
+
+                  # XXXXXXXXX
+                  # time.sleep(1)
+
+                  # color=traci.vehicle.getColor(veh_id)
                   traci.vehicle.setColor(veh_id, (255,0,0,0))
-                  self.log_file.printLogVeh(self.LEVEL3_FULL, veh_id, "Final route: " + str(traci.vehicle.getRoute(veh_id)) + "\n")
+                  final_route=traci.vehicle.getRoute(veh_id)
+                  diff_route=list(set(final_route).symmetric_difference(set(cur_route)))
+                  self.log_file.printLogVeh(self.LEVEL3_FULL, veh_id, "New route obtained: " + str(final_route) + "\n")
+                  self.log_file.printLogVeh(self.LEVEL2_CPU_TIME, veh_id, "New route diff (unsorted): "  + str(diff_route) + "\n")
                 except:
                   self.log_file.printLogVeh(self.LEVEL3_FULL, veh_id, "ERROR ROUTING VEHICLE" + str(sys.exc_info()) + "\n")
                   self.log_file.printLogVeh(self.LEVEL3_FULL, veh_id, "Removed from routing queue\n")
-                  veh.setRerouted(False)
+                veh.setRerouted(False)
 
         return
     # -----------------------------------------------
@@ -955,7 +981,7 @@ class simulated_traffic:
                 path_num += 1
                 path_distance += float(self.edge_lengths[edge])
             file.write(sep + str(path_num) + sep + str(path_distance) + sep )
-            if veh.isAttended():
+            if veh.usesTWMRouting():
                 file.write("True")
             else:
                 file.write("False")
@@ -985,7 +1011,7 @@ class simulated_traffic:
             for id in id_list:
                 index=self.dict_index[id]
                 self.vehicle_list[index].setRerouted(True)
-            self.assingTrips(id_list)
+            self.assignTrips(id_list)
             self.prepareTrips(id_list)
             self.calcNewRoutes()
             self.reroute(id_list)

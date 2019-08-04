@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<commands>
+  <!-- INCIDENTS SECTION -->
+  <!-- Incidents placed in the most occupied edges -->
+
+  <!-- Incident 1-->
+  <command time="2000" name="Incident" param="23957447" />
+  <command time="4800" name="Restore"  param="23957447" />
+
+  <!-- Incident 2-->
+  <command time="2000" name="Incident" param="180049723#1" />
+  <command time="4800" name="Restore"  param="180049723#1" />
+
+  <!-- Incident 3-->
+  <command time="2000" name="Incident" param="180049723#0" />
+  <command time="4800" name="Restore"  param="180049723#0" />
+
+  <!-- COMMAND TO CLEAR CONGESTION IN THE INCIDENTS AREAS -->
+  <command time="2000" name="Maps" param="../../../scenes/__PREFIX__/__PREFIX__.maps.xml" />
+</commands>

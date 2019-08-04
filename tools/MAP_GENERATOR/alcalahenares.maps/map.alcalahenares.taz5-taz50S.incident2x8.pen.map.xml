@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<meandata>
+	<interval begin="0" end="10000" id="whatever">
+		<edge id="23904700" traveltime="363.4251683724324"/>
+		<edge id="23904701#0" traveltime="30.0973654475181"/>
+		<edge id="23904701#6" traveltime="33.237981204903534"/>
+		<edge id="23957428#0" traveltime="36.433252925938255"/>
+		<edge id="23957428#5" traveltime="30.656537998699175"/>
+		<edge id="23904701#1" traveltime="30.646027236458927"/>
+		<edge id="23957447" traveltime="364.0600184117432"/>
+		<edge id="23904701#5" traveltime="27.669379370021325"/>
+		<edge id="23904729#1" traveltime="35.39058531170587"/>
+		<edge id="23957428#1" traveltime="30.776360688237975"/>
+		<edge id="23957432#0" traveltime="59.80918814824486"/>
+		<edge id="23957428#4" traveltime="36.8032317567949"/>
+		<edge id="23904701#2" traveltime="33.84129895749365"/>
+		<edge id="23904701#4" traveltime="35.12571410325168"/>
+		<edge id="77806028#0" traveltime="38.12548564661782"/>
+		<edge id="-23907673#0" traveltime="28.52495541637733"/>
+		<edge id="23904729#0" traveltime="120.7043402633328"/>
+		<edge id="23907673#0" traveltime="28.52495541637733"/>
+		<edge id="23957428#2" traveltime="30.730113334380896"/>
+		<edge id="23957429#1" traveltime="67.12257651500786"/>
+		<edge id="23957432#1" traveltime="33.145486497189374"/>
+		<edge id="180049723#1" traveltime="225.43147307269362"/>
+		<edge id="23957428#3" traveltime="27.888003224618437"/>
+		<edge id="23904701#3" traveltime="29.489843390031893"/>
+		<edge id="23904702" traveltime="162.93448079219226"/>
+		<edge id="23141213" traveltime="163.10055083558814"/>
+		<edge id="19916362#4" traveltime="29.93970401391441"/>
+		<edge id="19916362#5" traveltime="30.334908674147655"/>
+		<edge id="77806028#1" traveltime="40.715337462614386"/>
+		<edge id="-23907673#1" traveltime="56.53823893908037"/>
+		<edge id="23907673#1" traveltime="56.53823893908037"/>
+		<edge id="77806026#1" traveltime="25.657619477238285"/>
+		<edge id="77806026#2" traveltime="25.657619477238285"/>
+		<edge id="180049723#0" traveltime="110.71491183020319"/>
+		<edge id="126777129#0" traveltime="45.089916707004676"/>
+		<edge id="19916362#3" traveltime="32.573701031320006"/>
+		<edge id="19916362#6" traveltime="31.104296470133644"/>
+		<edge id="126777129#1" traveltime="219.39409124189646"/>
+		<edge id="126777129#2" traveltime="97.17705006476663"/>
+		<edge id="23957429#0" traveltime="29.25019801095429"/>
+		<edge id="23957432#2" traveltime="29.258606620746487"/>
+		<edge id="22725997#4" traveltime="36.10720548620564"/>
+		<edge id="22725997#5" traveltime="36.743221075388675"/>
+	</interval>
+</meandata>

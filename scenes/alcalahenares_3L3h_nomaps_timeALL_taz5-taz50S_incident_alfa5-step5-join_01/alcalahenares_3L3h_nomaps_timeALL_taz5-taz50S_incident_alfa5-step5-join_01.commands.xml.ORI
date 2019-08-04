@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<commands>
+  <!-- INCIDENTS SECTION -->
+  <!-- Calle de Luis de Astrana MarÃ­n 2, Alcala de Henares located at: (40.4845899, -3.3690635) -->
+  <command time="2000" name="Incident" param="23867499#1" />
+  <command time="4800" name="Restore"  param="23867499#1" />
+  <!--  antes de la rotonda de la Avda. Complutense -->
+  <command time="2000" name="Incident" param="-32403591" />
+  <command time="4800" name="Restore"  param="-32403591" />
+  <!--  Lope de Figueroa -->
+  <command time="2000" name="Incident" param="151292453#0" />
+  <command time="4800" name="Restore"  param="151292453#0" />
+
+  <!-- COMMAND TO CLEAR CONGESTION IN THE INCIDENTS AREAS -->
+  <command time="2000" name="Maps" param="../../../scenes/alcalahenares_3L3h_nomaps_timeALL_taz5-taz50S_incident_alfa5-step5-join_01/alcalahenares_3L3h_nomaps_timeALL_taz5-taz50S_incident_alfa5-step5-join_01.maps.xml" />
+</commands>

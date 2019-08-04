@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<trips>
+  <trip id="63" depart="1.0" from="left15to0/15" to="15/0tobottom15" fromTaz="1" toTaz="4" departLane="best" departSpeed="0"/>
+  <trip id="519" depart="2.0" from="right15to15/15" to="0/0tobottom0" fromTaz="3" toTaz="2" departLane="best" departSpeed="0"/>
+</trips>

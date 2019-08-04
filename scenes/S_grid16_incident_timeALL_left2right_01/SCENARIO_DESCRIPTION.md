@@ -1,0 +1,59 @@
+.............................................
+    MUTRAFF SIMULATION TOOL
+    ESCENARIO: S_grid16_incident_timeALL_left2right_01
+
+    alvaro.paricio@uah.es
+(This file has been generated automatically by generate_city_epochs.sh)
+.............................................
+__ADD_COMMANDS=_grid16_incident
+__BASTRA_FORESIGHT_HALTING=0
+__BASTRA_FORESIGHT_PENALTY=1
+__BASTRA_FORESIGHT_STEPS=0
+__BASTRA_FORESIGHT_TRIES=0
+__BASTRA_LOGIT=0.0
+__BASTRA_USE_BALANCE=false
+__GEN_PREFIX=cityname_noBastra_adhocmaps_randomtraffic
+__GRID_SIZE=16
+__LANES=1
+__MAP_GPS_LAT_FROM=40.462099
+__MAP_GPS_LAT_SCALE=6281.82
+__MAP_GPS_LAT_TO=40.5187581
+__MAP_GPS_LONG_FROM=-3.4088516
+__MAP_GPS_LONG_SCALE=8087.43
+__MAP_GPS_LONG_TO=-3.3123779
+__MAP_IMAGE=
+__MAP_TIME_END=1000
+__MAP_TIME_INI=0
+__MAP_USAGE=nomaps
+__MAX_SPEED=13.9
+__NET_NAME=grid16
+__NET_TYPE=grid
+__ODMAT_FILE=
+__OUT_BASTRA_FILE=bastra.conf.xml
+__OUT_CMDS_FILE=S_grid16_incident_timeALL_left2right_01.commands.xml
+__OUT_DUA_FILE=S_grid16_incident_timeALL_left2right_01.duarouter.conf
+__OUT_MAPS_FILE=S_grid16_incident_timeALL_left2right_01.maps.xml
+__OUT_NETGEN_FILE=S_grid16_incident_timeALL_left2right_01.net.xml
+__OUT_NET_FILE=S_grid16_incident_timeALL_left2right_01.net.grid.conf
+__OUT_ODMAT_FILE=S_grid16_incident_timeALL_left2right_01.odmat.xml
+__OUT_OD_FILE=S_grid16_incident_timeALL_left2right_01.od.conf
+__OUT_SUMO_FILE=S_grid16_incident_timeALL_left2right_01.sumo.conf
+__OUT_TAZ_FILE=S_grid16_incident_timeALL_left2right_01.grid16.taz.xml
+__OUT_VEH_FILE=S_grid16_incident_timeALL_left2right_01.vehicle_distrib.conf
+__PREDEFINED_TRAFFIC_DEMAND=../DEMANDS/grid16/grid16.left2right.S.typed-routes.xml
+__PREFIX=S_grid16_incident_timeALL_left2right_01
+__ROADLENGTH=50
+__ROUTING_ALGORITHM=
+__SET_AS_PREDEFINED_TRAFFIC_DEMAND=
+__SIMUL_TIME_END=1000
+__SIMUL_TIME_INI=0
+__SPIDER_ARMS=0
+__SPIDER_CIRCLES=0
+__SUMO_GUI=false
+__SUMO_PORT=4080
+__TELEPORTING=30
+__TRAFFIC_BASELINE=0
+__TRAFFIC_BRANCH=300
+__TRAFFIC_TYPE=left2right
+__USE_BASTRA=noTWM
+LOCATION=    <location netOffset="0.00,0.00" convBoundary="0.00,0.00,1560.00,1560.00" origBoundary="0.00,0.00,1560.00,1560.00" projParameter="!"/>

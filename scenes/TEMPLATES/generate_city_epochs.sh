@@ -1,4 +1,5 @@
 #!/bin/bash
+# set -x
 # ----------------------------------------------------------------
 # MUTRAFF - "generate_city_multiple.sh"
 # Generate city configuration with multiple experiments

@@ -20,10 +20,16 @@ class vehicle:
     car_maps=[]
     trip_file_name=""
     path=[]
-    sys_attend=False
+    uses_TWM_routing=False
     jam_check=False
     type=""
     finished=False
+    
+    VEH_STATUS_PENDING=1
+    VEH_STATUS_RUNNING=2
+    VEH_STATUS_FINISHED=3
+    VEH_STATUS_CANCELLED=4
+    veh_status=VEH_STATUS_PENDING
 
     def __init__(self, id, depart, origin, destiny, route, logit, type):
         self.id=id
@@ -31,14 +37,15 @@ class vehicle:
         self.origin_edge=origin
         self.destiny_edge=destiny
         self.route=route
-	# Number of times that the vehicle's route has been recalculated
+        # Number of times that the vehicle's route has been recalculated
         self.route_calc=0
         self.type=type
+        self.veh_status=self.VEH_STATUS_PENDING
 
         num_logit=float(logit)
         rand=random.random()
         if rand < num_logit:
-            self.setAttended(True)
+            self.setTWMRoutingUsage(True)
         return
 
     def setId(self, cad):
@@ -88,7 +95,7 @@ class vehicle:
 
     def setRerouted(self, value):
         if value==True:
-            if self.isAttended():
+            if self.usesTWMRouting():
                 self.rerouted=True
         else:
             self.rerouted=False
@@ -171,12 +178,12 @@ class vehicle:
         aux_path.extend(self.path)
         return aux_path
 
-    def setAttended(self, value):
-        self.sys_attend=value
+    def setTWMRoutingUsage(self, value):
+        self.uses_TWM_routing=value
         return
 
-    def isAttended(self):
-        return self.sys_attend
+    def usesTWMRouting(self):
+        return self.uses_TWM_routing
 
 
     def setJamCheck(self, value):
@@ -193,8 +200,15 @@ class vehicle:
     def getType(self):
         return self.type
 
-    def hasFinished(self):
+    def setStatus(self,status):
+        self.veh_status=status
+
+    def getStatus(self):
+        return self.veh_status
+
+    def setFinished(self):
         self.finished=True
+        self.setStatus( VEH_STATUS_FINISHED )
 
     def isFinished(self):
         return self.finished

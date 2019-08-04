@@ -1,3 +1,4 @@
+import os
 import pandas as pd
 import numpy as np
 import argparse as arg
@@ -27,18 +28,41 @@ def is_found( row, line):
   	found = True
 
 # ----------------------------------------
-getConfig()
-df = pd.read_csv(opts['filter_file'], header=None)
+def filterFile(data_file,filter_file):
+  df = pd.read_csv(filter_file, header=None)
 
-with open(opts['data_file']) as f:
-  for line in f:
-    found = False
-    line = line.rstrip("\n")
-    df['found']=df.apply( lambda x: is_found(x, line), axis=1)
-    #print("LINE:'{}'->{}'".format(line,found))
-    if( opts['v']== '' ):
-      if( found ):
-        print(line)
-    else:
-      if( not found ):
-        print(line)
+  with open(data_file) as f:
+    for line in f:
+      found = False
+      line = line.rstrip("\n")
+      df['found']=df.apply( lambda x: is_found(x, line), axis=1)
+      #print("LINE:'{}'->{}'".format(line,found))
+      if( opts['v']== '' ):
+        if( found ):
+          print(line)
+      else:
+        if( not found ):
+          print(line)
+  f.close()
+
+# ----------------------------------------
+def filterNoFile(data_file):
+  if( opts['v']== '' ):
+    with open(data_file) as f:
+      for line in f:
+          print(line)
+    f.close()
+  else:
+    # Nada
+    return
+
+# ----------------------------------------
+getConfig()
+
+if os.stat(opts['data_file']).st_size == 0:
+  exit(0)
+
+if os.stat(opts['filter_file']).st_size == 0:
+  filterNoFile(opts['data_file'])
+else:
+  filterFile(opts['data_file'],opts['filter_file'])

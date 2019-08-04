@@ -44,9 +44,10 @@ class NewTripFile:
             os.remove(f_name)
         dump_file=open(f_name, "w+")
         
-        dump_file.write("Nombre: " + self.file_name + "\n")
+        dump_file.write("Tripfile: " + self.file_name + "\n")
+        dump_file.write("Weight maps: \n")
         for trip_map in self.weight_maps:
-            dump_file.write(trip_map)
+            dump_file.write(trip_map+"\n")
         dump_file.write(self.trip_list)       
         dump_file.close()
         return

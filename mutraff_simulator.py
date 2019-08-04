@@ -261,44 +261,31 @@ if __name__ == '__main__':
         #   print( "------> STEP COMMAND: {:05d}:{}:{}".format(c.time,c.name,c.param))
         # while len(commands_sequence)>0 and commands_sequence[0].getTime()==sim.getCurTime():
         #     command=commands_sequence.pop(0)
-            log_file.printLog(LEVEL3_FULL,str(command.getTime()) + ": " + command.getName() + "\n")
-            log_file.printLog (LEVEL3_FULL,str(command.getParams()) + "\n")
+            # log_file.printLog (LEVEL3_FULL,str(command.getParams()) + "\n")
             com_name=command.getName().lower()
             com_params=command.getParams()
 
 	    # if there is a MAP-APPLY command
             if com_name=="maps":
-                errTxt = """
----------------------------------------
-NEW TWM TO BE APPLIED: {}
----------------------------------------
-""".format( com_params[0] )
+                errTxt = "+++++++++ NEW TWM TO BE APPLIED: {}\n".format( com_params[0] )
                 log_file.printLog (LEVEL1_ERRORS, errTxt )
                 sim.processMaps(com_params[0])
 
 	    # If there is a road-incident
             elif com_name=="incident":
-                errTxt = """
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-INCIDENT DETECTION AT: {}
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-""".format( com_params[0] )
+                errTxt = ">>>>>>>> INCIDENT DETECTION AT: {}\n".format( com_params[0] )
                 log_file.printLog (LEVEL1_ERRORS, errTxt )
                 sim.processIncident(com_params[0])
 
 	    # If there is a road-incident restoration
             elif com_name=="restore":
-                errTxt = """
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-INCIDENT CLEARANCE AT: {}
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-""".format( com_params[0] )
+                errTxt = "<<<<<<<< INCIDENT CLEARANCE AT: {}\n".format( com_params[0] )
                 log_file.printLog (LEVEL1_ERRORS, errTxt )
                 sim.processRestore(com_params[0])
 
 	    # Unknown command
             else:
-                log_file.printLog(LEVEL1_ERRORS,"Command " + com_name + " not recognized \n")
+                log_file.printLog(LEVEL3_FULL, "COMMAND NOT RECOGNIZED {}:{}\n".format( com_name, com_params ))
 
 	# Reroute vehicles if necessary
         veh_list=traci.vehicle.getIDList()

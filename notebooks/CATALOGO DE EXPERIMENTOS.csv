@@ -407,68 +407,41 @@
 2511,alcalahenares_3L3h_nomaps_tele600_timeALL_fulltraffic_01_190604_212948,Alcala H - 3L3h - Analizar efecto teleporting,alcalahenares(3L3h)  No TWM -  -  Full-Traffic Teleport 600,Full-Traffic Teleport 600,No TWM,alcalahenares,OpenStreet,,3L3h,fulltraffic,Dijkstra,600,,,,,
 2512,alcalahenares_3L3h_nomaps_tele600_timeALL_crosstraffic_01_190604_221325,Alcala H - 3L3h - Analizar accidente con crosstraffic,alcalahenares(3L3h)  No TWM -  -  Cross-Traffic Teleport 600,Cross-Traffic Teleport 600,No TWM,alcalahenares,OpenStreet,,3L3h,crosstraffic,Dijkstra,600,,,,,
 2513,alcalahenares_3L3h_nomaps_tele600_timeALL_crosstraffic_incident_01_190604_225622,Alcala H - 3L3h - Analizar accidente con crosstraffic,alcalahenares(3L3h)  No TWM -  -  Cross-Traffic Teleport 600 Incident,Cross-Traffic Teleport 600 Incident,No TWM,alcalahenares,OpenStreet,,3L3h,crosstraffic,Dijkstra,600,,,,,
-2600,alcalahenares_3L3h_nomaps_tele60_timeALL_taz5-taz50_01_190605_001806,Alcala H - 3L3h - Analizar accidente con trafico entre Taz5 y Taz50,alcalahenares(3L3h)  No TWM -  -  No incidents,No incidents,No TWM,alcalahenares,OpenStreet,,3L3h,taz5-taz50,Dijkstra,60,,,1,,Error: Tiene TELE60
-2601,alcalahenares_3L3h_nomaps_tele60_timeALL_taz5-taz50_incident_01_190605_112944,Alcala H - 3L3h - Analizar accidente con trafico entre Taz5 y Taz50,alcalahenares(3L3h)  No TWM -  -  Incident,Incident,No TWM,alcalahenares,OpenStreet,,3L3h,taz5-taz50,Dijkstra,60,,,1,,Error: Tiene TELE60
-2602,alcalahenares_3L3h_nomaps_timeALL_taz5-taz50S_01_190627_170247,Alcala H - 3L3h - Analizar accidente con trafico entre Taz5 y Taz50,alcalahenares(3L3h)  No TWM -  -  No incidents,No incidents,No TWM,alcalahenares,OpenStreet,,3L3h,taz5-taz50,Dijkstra,60,,,1,,Error: Tiene TELE60
-2603,alcalahenares_3L3h_nomaps_timeALL_taz5-taz50S_incident_01_190627_221837,Alcala H - 3L3h - Analizar accidente con trafico entre Taz5 y Taz50,"alcalahenares(3L3h)  No TWM -  -  Incident entre T(10,4800)","Incident entre T(10,4800)",No TWM,alcalahenares,OpenStreet,,3L3h,taz5-taz50,Dijkstra,60,,,1,,Error: Tiene TELE60
-2604,alcalahenares_3L3h_nomaps_timeALL_taz5-taz50S_incident_01_190628_052629,Alcala H - 3L3h - Analizar accidente con trafico entre Taz5 y Taz50,"alcalahenares(3L3h)  No TWM -  -  Incident entre T(2000,4800)","Incident entre T(2000,4800)",No TWM,alcalahenares,OpenStreet,,3L3h,taz5-taz50,Dijkstra,60,,,1,,Error: Tiene TELE60
+2600,alcalahenares_3L3h_nomaps_tele60_timeALL_taz5-taz50_01_190605_001806,Alcala H - Taz5-Taz50S con Incidente,alcalahenares(3L3h)  No TWM -  -  No incidents,No incidents,No TWM,alcalahenares,OpenStreet,,3L3h,taz5-taz50,Dijkstra,60,,,1,,Error: Tiene TELE60
+2601,alcalahenares_3L3h_nomaps_tele60_timeALL_taz5-taz50_incident_01_190605_112944,Alcala H - Taz5-Taz50S con Incidente,alcalahenares(3L3h)  No TWM -  -  Incident,Incident,No TWM,alcalahenares,OpenStreet,,3L3h,taz5-taz50,Dijkstra,60,,,1,,Error: Tiene TELE60
+2602,alcalahenares_3L3h_nomaps_timeALL_taz5-taz50S_01_190627_170247,Alcala H - Taz5-Taz50S con Incidente,alcalahenares(3L3h)  No TWM -  -  No incidents,No incidents,No TWM,alcalahenares,OpenStreet,,3L3h,taz5-taz50,Dijkstra,60,,,1,,Error: Tiene TELE60
+2603,alcalahenares_3L3h_nomaps_timeALL_taz5-taz50S_incident_01_190627_221837,Alcala H - Taz5-Taz50S con Incidente,"alcalahenares(3L3h)  No TWM -  -  Incident entre T(10,4800)","Incident entre T(10,4800)",No TWM,alcalahenares,OpenStreet,,3L3h,taz5-taz50,Dijkstra,60,,,1,,Error: Tiene TELE60
+2604,alcalahenares_3L3h_nomaps_timeALL_taz5-taz50S_incident_01_190628_052629,Alcala H - Taz5-Taz50S con Incidente,"alcalahenares(3L3h)  No TWM -  -  Incident entre T(2000,4800)","Incident entre T(2000,4800)",No TWM,alcalahenares,OpenStreet,,3L3h,taz5-taz50,Dijkstra,60,,,1,,Error: Tiene TELE60
 2605,alcalahenares_3L3h_nomaps_timeALL_taz5-taz50S_fore1-1-4-10_01_190627_173503,Alcala H - 3L3h - Analizar accidente trafico Taz5 y Taz50 y forecast 1-1-4-10,alcalahenares(3L3h)  No TWM -  -  No incidents,No incidents,No TWM,alcalahenares,OpenStreet,,3L3h,taz5-taz50,Dijkstra,60,,,1,,Error: Tiene TELE60
 2606,alcalahenares_3L3h_nomaps_timeALL_taz5-taz50S_fore1-1-4-10_incident_01_190628_000434,Alcala H - 3L3h - Analizar accidente trafico Taz5 y Taz50 y forecast 1-1-4-10,"alcalahenares(3L3h)  No TWM -  -  Forecast(1-1-4-10) + Incident entre T(2000,4800)","Forecast(1-1-4-10) + Incident entre T(2000,4800)",No TWM,alcalahenares,OpenStreet,,3L3h,taz5-taz50,Dijkstra,60,,,1,,Error: Tiene TELE60
 2607,alcalahenares_3L3h_nomaps_timeALL_taz5-taz50S_fore2-3-4-10_01_190628_083335,Alcala H - 3L3h - Analizar accidente trafico Taz5 y Taz50 y forecast 2-3-4-10,alcalahenares(3L3h)  No TWM -  -  Forecast(1-1-4-10) + No incidents,Forecast(1-1-4-10) + No incidents,No TWM,alcalahenares,OpenStreet,,3L3h,taz5-taz50,Dijkstra,60,,,1,,Error: Tiene TELE60
 2608,alcalahenares_3L3h_nomaps_timeALL_taz5-taz50S_fore2-3-4-10_incident_01_190628_182504,Alcala H - 3L3h - Analizar accidente trafico Taz5 y Taz50 y forecast 2-3-4-10,"alcalahenares(3L3h)  No TWM -  -  Forecast(2-3-4-10) + Incident entre T(2000,4800)","Forecast(2-3-4-10) + Incident entre T(2000,4800)",No TWM,alcalahenares,OpenStreet,,3L3h,taz5-taz50,Dijkstra,60,,,1,,Error: Tiene TELE60
 2609,alcalahenares_3L3h_nomaps_timeALL_taz5-taz50S_fore1-1-4-10_incident_alfa5-step5_01_190630_110423,Alcala H - 3L3h - Analizar accidente trafico Taz5 y Taz50 y forecast 1-1-4-10,"alcalahenares(3L3h)  TWM -  -  Forecast(2-3-4-10) + Incident entre T(2000,4800)","Forecast(2-3-4-10) + Incident entre T(2000,4800)",TWM,alcalahenares,OpenStreet,,3L3h,taz5-taz50,Dijkstra,60,,,1,,Error: Tiene TELE60
-2620,alcalahenares_3L3h_nomaps_timeALL_fulltraffic_01_190702_002658,Alcala H - 3L3h - No Tele y TWM,alcalahenares(3L3h)   -  -  ,,,alcalahenares,OpenStreet,,3L3h,fulltraffic,Dijkstra,No,,,1,,
-2621,alcalahenares_3L3h_mutraff_uni5x16_timeALL_fulltraffic_logit10_01_190702_012858,Alcala H - 3L3h - No Tele y TWM,alcalahenares(3L3h) 16  - uniform(5) - logit10 ,,,alcalahenares,OpenStreet,logit10,3L3h,fulltraffic,Dijkstra,No,uniform(5),16,1,,
-2622,alcalahenares_3L3h_mutraff_uni5x16_timeALL_fulltraffic_logit20_01_190702_021107,Alcala H - 3L3h - No Tele y TWM,alcalahenares(3L3h) 16  - uniform(5) - logit20 ,,,alcalahenares,OpenStreet,logit20,3L3h,fulltraffic,Dijkstra,No,uniform(5),16,1,,
-2623,alcalahenares_3L3h_mutraff_uni5x16_timeALL_fulltraffic_logit50_01_190702_030022,Alcala H - 3L3h - No Tele y TWM,alcalahenares(3L3h) 16  - uniform(5) - logit50 ,,,alcalahenares,OpenStreet,logit50,3L3h,fulltraffic,Dijkstra,No,uniform(5),16,1,,
-2624,alcalahenares_3L3h_mutraff_uni5x16_timeALL_fulltraffic_logit100_01_190702_065406,Alcala H - 3L3h - No Tele y TWM,alcalahenares(3L3h) 16  - uniform(5) - logit100 ,,,alcalahenares,OpenStreet,logit100,3L3h,fulltraffic,Dijkstra,No,uniform(5),16,1,,
-2625,alcalahenares_3L3h_mutraff_uni5x8_timeALL_fulltraffic_logit10_01_190702_074302,Alcala H - 3L3h - No Tele y TWM,alcalahenares(3L3h) 8  - uniform(5) - logit10 ,,,alcalahenares,OpenStreet,logit10,3L3h,fulltraffic,Dijkstra,No,uniform(5),8,1,,
-2626,alcalahenares_3L3h_mutraff_uni5x8_timeALL_fulltraffic_logit20_01_190702_082003,Alcala H - 3L3h - No Tele y TWM,alcalahenares(3L3h) 8  - uniform(5) - logit20 ,,,alcalahenares,OpenStreet,logit20,3L3h,fulltraffic,Dijkstra,No,uniform(5),8,1,,
-2627,alcalahenares_3L3h_mutraff_uni5x8_timeALL_fulltraffic_logit100_01_190702_091406,Alcala H - 3L3h - No Tele y TWM,alcalahenares(3L3h) 8  - uniform(5) - logit50 ,,,alcalahenares,OpenStreet,logit50,3L3h,fulltraffic,Dijkstra,No,uniform(5),8,1,,
-2628,alcalahenares_3L3h_mutraff_uni5x8_timeALL_fulltraffic_logit50_01_190702_095547,Alcala H - 3L3h - No Tele y TWM,alcalahenares(3L3h) 8  - uniform(5) - logit100 ,,,alcalahenares,OpenStreet,logit100,3L3h,fulltraffic,Dijkstra,No,uniform(5),8,1,,
-2630,alcalahenares_L3h_nomaps_timeALL_fulltraffic_01_190702_084640,Alcala H - L3h - No Tele y TWM,alcalahenares(L3h)   -  -  ,,,alcalahenares,OpenStreet,,L3h,fulltraffic,Dijkstra,No,,,1,,
-2631,alcalahenares_L3h_mutraff_uni5x16_timeALL_fulltraffic_logit50_01_190702_090540,Alcala H - L3h - No Tele y TWM,alcalahenares(L3h) 16  - uniform(5) - logit50 ,,,alcalahenares,OpenStreet,logit50,L3h,fulltraffic,Dijkstra,No,uniform(5),16,1,,
-2632,alcalahenares_L3h_mutraff_uni5x8_timeALL_fulltraffic_logit50_01_190702_093202,Alcala H - L3h - No Tele y TWM,alcalahenares(L3h) 8  - uniform(5) - logit50 ,,,alcalahenares,OpenStreet,logit50,L3h,fulltraffic,Dijkstra,No,uniform(5),8,1,,
-,,,()   -  -  ,,,,,,,,,,,,,,
-,,,()   -  -  ,,,,,,,,,,,,,,
-,,,()   -  -  ,,,,,,,,,,,,,,
-,,,()   -  -  ,,,,,,,,,,,,,,
-,,,()   -  -  ,,,,,,,,,,,,,,
-,,,()   -  -  ,,,,,,,,,,,,,,
-,,,()   -  -  ,,,,,,,,,,,,,,
-,,,()   -  -  ,,,,,,,,,,,,,,
-,,,()   -  -  ,,,,,,,,,,,,,,
-,,,()   -  -  ,,,,,,,,,,,,,,
-,,,()   -  -  ,,,,,,,,,,,,,,
-,,,()   -  -  ,,,,,,,,,,,,,,
-,,,()   -  -  ,,,,,,,,,,,,,,
-,,,()   -  -  ,,,,,,,,,,,,,,
-,,,()   -  -  ,,,,,,,,,,,,,,
-,,,()   -  -  ,,,,,,,,,,,,,,
-,,,()   -  -  ,,,,,,,,,,,,,,
-,,,()   -  -  ,,,,,,,,,,,,,,
-,,,()   -  -  ,,,,,,,,,,,,,,
-,,,()   -  -  ,,,,,,,,,,,,,,
-,,,()   -  -  ,,,,,,,,,,,,,,
-,,,()   -  -  ,,,,,,,,,,,,,,
-,,,()   -  -  ,,,,,,,,,,,,,,
-,,,()   -  -  ,,,,,,,,,,,,,,
-,,,()   -  -  ,,,,,,,,,,,,,,
-,,,()   -  -  ,,,,,,,,,,,,,,
-,,,()   -  -  ,,,,,,,,,,,,,,
-,,,()   -  -  ,,,,,,,,,,,,,,
-,,,()   -  -  ,,,,,,,,,,,,,,
-,,,()   -  -  ,,,,,,,,,,,,,,
-,,,()   -  -  ,,,,,,,,,,,,,,
-,,,()   -  -  ,,,,,,,,,,,,,,
-,,,()   -  -  ,,,,,,,,,,,,,,
-,,,()   -  -  ,,,,,,,,,,,,,,
-,,,()   -  -  ,,,,,,,,,,,,,,
-,,,()   -  -  ,,,,,,,,,,,,,,
-,,,()   -  -  ,,,,,,,,,,,,,,
-,,,()   -  -  ,,,,,,,,,,,,,,
-,,,()   -  -  ,,,,,,,,,,,,,,
-,,,()   -  -  ,,,,,,,,,,,,,,
-,,,()   -  -  ,,,,,,,,,,,,,,
-,,,()   -  -  ,,,,,,,,,,,,,,
-,,,()   -  -  ,,,,,,,,,,,,,,
+2610,alcalahenares_3L3h_nomaps_timeALL_taz5-taz50S_incident_alfa5-step5-join_01_190716_174312,Alcala H - Taz5-Taz50S con Incidente,"alcalahenares(3L3h) 1 TWM - uniform(5) -  Incident entre T(2000,4800) +TWM","Incident entre T(2000,4800) +TWM",TWM,alcalahenares,OpenStreet,,3L3h,taz5-taz50,Dijkstra,60,uniform(5),1,1,,Error: Tiene TELE60
+2611,alcalahenares_3L3h_nomaps_timeALL_taz5-taz50S_incident2_01_190802_141018,Alcala H - Taz5-Taz50S con Incidente,"alcalahenares(3L3h) 1 TWM - -  Incidente2 entre T(2000,4800) +noTWM","Incident entre T(2000,4800) +noTWM",noTWM,alcalahenares,OpenStreet,,3L3h,taz5-taz50,Dijkstra,60,,1,1,,Error: Tiene TELE60
+2612,alcalahenares_3L3h_nomaps_timeALL_taz5-taz50S_incident2_alfa5-step5-join_01_190802_144017,Alcala H - Taz5-Taz50S con Incidente,"alcalahenares(3L3h) 1 TWM - -  Incidente2 entre T(2000,4800) +TWM","Incident entre T(2000,4800) +TWM",TWM,alcalahenares,OpenStreet,,3L3h,taz5-taz50,Dijkstra,60,,1,1,,Error: Tiene TELE60
+2613,alcalahenares_3L3h_nomaps_timeALL_taz5-taz50S_01_190804_082908,Alcala H - Taz5-Taz50S con Incidente,"alcalahenares(3L3h) 1 TWM - - Sin incidente","Sin Incidente",noTWM,alcalahenares,OpenStreet,,3L3h,taz5-taz50,Dijkstra,NO,,1,1,,(vacio)
+2614,alcalahenares_3L3h_TWM_timeALL_taz5-taz50S_incident2x1-join_01_190804_094839,Alcala H - Taz5-Taz50S con Incidente,"alcalahenares(3L3h) noTWM - -  Incidente2 entre T(2000,4800)","Incidente2 entre T(2000,4800), noTWM",TWM,alcalahenares,OpenStreet,,3L3h,taz5-taz50,Dijkstra,NO,,1,1,,(vacio)
+2615,alcalahenares_3L3h_nomaps_timeALL_taz5-taz50S_incident3_01_190804_101923,Alcala H - Taz5-Taz50S con Incidente,"alcalahenares(3L3h) 1 TWM - -  Incidente3 entre T(2000,4800) sin TWM","Incidente3 entre T(2000,4800), noTWM",noTWM,alcalahenares,OpenStreet,,3L3h,taz5-taz50,Dijkstra,NO,,1,1,,(vacio)
+2616,alcalahenares_3L3h_TWM_timeALL_taz5-taz50S_incident3x1-join_01_190804_105207,Alcala H - Taz5-Taz50S con Incidente,"alcalahenares(3L3h) 1 TWM - -  Incidente3 entre T(2000,4800) +TWM","Incidente3 entre T(2000,4800) +TWM",TWM,alcalahenares,OpenStreet,,3L3h,taz5-taz50,Dijkstra,NO,,1,1,,(vacio)
+2620,alcalahenares_3L3h_nomaps_timeALL_fulltraffic_01_190702_002658,Alcala H - 3L3h - No Tele y TWM,alcalahenares(3L3h)  No TWM -  -  ,,No TWM,alcalahenares,OpenStreet,,3L3h,fulltraffic,Dijkstra,No,,,1,,
+2621,alcalahenares_3L3h_mutraff_uni5x16_timeALL_fulltraffic_logit10_01_190702_012858,Alcala H - 3L3h - No Tele y TWM,alcalahenares(3L3h) 16 TWM - uniform(5) - logit10 ,,TWM,alcalahenares,OpenStreet,logit10,3L3h,fulltraffic,Dijkstra,No,uniform(5),16,1,,
+2622,alcalahenares_3L3h_mutraff_uni5x16_timeALL_fulltraffic_logit20_01_190702_021107,Alcala H - 3L3h - No Tele y TWM,alcalahenares(3L3h) 16 TWM - uniform(5) - logit20 ,,TWM,alcalahenares,OpenStreet,logit20,3L3h,fulltraffic,Dijkstra,No,uniform(5),16,1,,
+2623,alcalahenares_3L3h_mutraff_uni5x16_timeALL_fulltraffic_logit50_01_190702_030022,Alcala H - 3L3h - No Tele y TWM,alcalahenares(3L3h) 16 TWM - uniform(5) - logit50 ,,TWM,alcalahenares,OpenStreet,logit50,3L3h,fulltraffic,Dijkstra,No,uniform(5),16,1,,
+2624,alcalahenares_3L3h_mutraff_uni5x16_timeALL_fulltraffic_logit100_01_190702_065406,Alcala H - 3L3h - No Tele y TWM,alcalahenares(3L3h) 16 TWM - uniform(5) - logit100 ,,TWM,alcalahenares,OpenStreet,logit100,3L3h,fulltraffic,Dijkstra,No,uniform(5),16,1,,
+2625,alcalahenares_3L3h_mutraff_uni5x8_timeALL_fulltraffic_logit10_01_190702_074302,Alcala H - 3L3h - No Tele y TWM,alcalahenares(3L3h) 8 TWM - uniform(5) - logit10 ,,TWM,alcalahenares,OpenStreet,logit10,3L3h,fulltraffic,Dijkstra,No,uniform(5),8,1,,
+2626,alcalahenares_3L3h_mutraff_uni5x8_timeALL_fulltraffic_logit20_01_190702_082003,Alcala H - 3L3h - No Tele y TWM,alcalahenares(3L3h) 8 TWM - uniform(5) - logit20 ,,TWM,alcalahenares,OpenStreet,logit20,3L3h,fulltraffic,Dijkstra,No,uniform(5),8,1,,
+2627,alcalahenares_3L3h_mutraff_uni5x8_timeALL_fulltraffic_logit100_01_190702_091406,Alcala H - 3L3h - No Tele y TWM,alcalahenares(3L3h) 8 TWM - uniform(5) - logit50 ,,TWM,alcalahenares,OpenStreet,logit50,3L3h,fulltraffic,Dijkstra,No,uniform(5),8,1,,
+2628,alcalahenares_3L3h_mutraff_uni5x8_timeALL_fulltraffic_logit50_01_190702_095547,Alcala H - 3L3h - No Tele y TWM,alcalahenares(3L3h) 8 TWM - uniform(5) - logit100 ,,TWM,alcalahenares,OpenStreet,logit100,3L3h,fulltraffic,Dijkstra,No,uniform(5),8,1,,
+2630,alcalahenares_L3h_nomaps_timeALL_fulltraffic_01_190702_084640,Alcala H - L3h - No Tele y TWM,alcalahenares(L3h)  No TWM -  -  ,,No TWM,alcalahenares,OpenStreet,,L3h,fulltraffic,Dijkstra,No,,,1,,
+2631,alcalahenares_L3h_mutraff_uni5x16_timeALL_fulltraffic_logit50_01_190702_090540,Alcala H - L3h - No Tele y TWM,alcalahenares(L3h) 16 TWM - uniform(5) - logit50 ,,TWM,alcalahenares,OpenStreet,logit50,L3h,fulltraffic,Dijkstra,No,uniform(5),16,1,,
+2632,alcalahenares_L3h_mutraff_uni5x8_timeALL_fulltraffic_logit50_01_190702_093202,Alcala H - L3h - No Tele y TWM,alcalahenares(L3h) 8 TWM - uniform(5) - logit50 ,,TWM,alcalahenares,OpenStreet,logit50,L3h,fulltraffic,Dijkstra,No,uniform(5),8,1,,
+2633,alcalahenares_L3h_nomaps_tele30_timeALL_fulltraffic_01_190704_232707,Alcala H - L3h - Tele30 y TWM,alcalahenares(L3h)  No TWM -  -  ,,No TWM,alcalahenares,OpenStreet,,L3h,fulltraffic,Dijkstra,30,,,1,,
+2700,S_grid16_noTWM_timeALL_left2right_01_190801_090620,GRID16 - M - noTWM,GRID16 - M - noTWM,,No TWM,grid16,OpenStreet,,M,left2right,Dijkstra,NO,,,1,,
+2701,S_grid16_incident_timeALL_left2right_01_190801_090835,GRID16 - M - noTWM,GRID16 - M - noTWM - INCIDENTS 300/700,,No TWM,grid16,OpenStreet,,M,left2right,Dijkstra,NO,,,1,,
+2702,S_grid16_noTWM_timeALL_left2right_01_190801_091642,GRID16 - M - noTWM,GRID16 - M - noTWM,,No TWM,grid16,OpenStreet,,M,left2right,Dijkstra,NO,,,1,,
+2703,S_grid16_incident_timeALL_left2right_01_190801_091857,GRID16 - M - noTWM,GRID16 - M - noTWM - INCIDENTS 200/700,,No TWM,grid16,OpenStreet,,M,left2right,Dijkstra,NO,,,1,,
+2704,S_grid16_noTWM_timeALL_left2right_01_190801_093639,GRID16 - M - noTWM,GRID16 - M - noTWM-Balance false,,No TWM,grid16,OpenStreet,,M,left2right,Dijkstra,NO,,,1,,
+2705,S_grid16_incident_timeALL_left2right_01_190801_093856,GRID16 - M - noTWM,GRID16 - M - noTWM - INCIDENTS 200/700-Balance false,,No TWM,grid16,OpenStreet,,M,left2right,Dijkstra,NO,,,1,,
+2706,S_grid16_incidentTWM_timeALL_left2right_01_190801_101311,GRID16 - M - TWM,GRID16 - M - TWM - INCIDENTS 200/700-Logit100,,TWM,grid16,OpenStreet,,M,left2right,Dijkstra,NO,,,1,,
+2707,S_grid16_incidentTWM_logit50_timeALL_left2right_01_190801_110230,GRID16 - M - TWM,GRID16 - M - TWM - INCIDENTS 200/700-Logit50,,TWM,grid16,OpenStreet,,M,left2right,Dijkstra,NO,,,1,,

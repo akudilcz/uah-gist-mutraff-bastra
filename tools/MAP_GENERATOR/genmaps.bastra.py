@@ -52,7 +52,10 @@ def load_config():
     dict_conf["net_file"]=readOption("net_file")
     dict_conf["output_prefix"]=readOption("output_prefix")
     dict_conf["output_dir"]=readOption("output_dir")
-    dict_conf["weight_function"]=readOption("weight_function")
+    dict_conf["weight_factor"]="1"
+    dict_conf["weight_factor"]=readOption("weight_factor")
+    dict_conf["weight_add"]="0"
+    dict_conf["weight_add"]=readOption("weight_add")
     dict_conf["num_maps"]=readOption("num_maps")
     dict_conf["begin"]=readOption("begin")
     dict_conf["end"]=readOption("end")
@@ -99,7 +102,8 @@ def genRandMap(file_name):
     if os.path.isfile(file_name):
         os.remove(file_name)
 
-    command=config["weight_function"]
+    weight_factor=eval(config["weight_factor"])
+    weight_add=eval(config["weight_add"])
 
     xml_file=open(file_name, "w+")
     xml_file.write("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n")
@@ -109,8 +113,7 @@ def genRandMap(file_name):
                         + config["end"] + "\" id=\"whatever\">\n")
     for edge in dict_edges.keys():
         weight=dict_edges[edge]
-        penalty=eval(command)
-        weight=weight * penalty
+        weight=weight * weight_factor + weight_add
         if weight<=0:
             print("Configuration error: weight funtion with result of 0 or less")
             exit (1)
@@ -167,14 +170,15 @@ def generatePenEdges(edges_list):
     for edge in edges_list:
         algo(edge, connections, int(config["steps"]))
 
-    command=config["weight_function"]
+    weight_factor=eval(config["weight_factor"])
+    weight_add=eval(config["weight_add"])
+
     new_dict_edges={}
     for edge in new_pen_edges:
         # ALVARO: Patched on 02/06/19
         # if not new_dict_edges.has_key(edge):
         if not edge in new_dict_edges:
-            penalty=eval(command)
-            weight=dict_edges[edge] * penalty
+            weight=dict_edges[edge] * weight_factor + weight_add
             new_dict_edges[edge]=weight
 
     file_name=config["output_dir"] + prefix + ".pen.map.xml"

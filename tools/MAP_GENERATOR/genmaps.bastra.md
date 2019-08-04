@@ -20,7 +20,8 @@ When starting the program, it expects to receive as to parameter the location of
     <net_file value="../Grid.net.xml"/>
     <output_prefix value="map1"/>
     <output_dir value="./"/>
-    <weight_function value="3"/>
+    <weight_factor value="3"/>
+    <weight_add value="0"/>
     <num_maps value="6"/>
     <begin value="0"/>
     <end value="10000"/>

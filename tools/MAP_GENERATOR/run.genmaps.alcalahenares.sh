@@ -10,5 +10,10 @@ mkdir alcalahenares.maps
 
 # python genmaps.bastra.py -c gmp.alcalahenares.directedPenalty.1.conf
 # python genmaps.bastra.py -c gmp.alcalahenares.directedPenalty.2.conf
-python genmaps.bastra.py -c gmp.alcalahenares.taz5-taz50S.incident.alfa5-step5.conf
-python genmaps.bastra.py -c gmp.alcalahenares.taz5-taz50S.incident.alfa5-step5-join.conf
+
+# python genmaps.bastra.py -c gmp.alcalahenares.taz5-taz50S.incident.alfa5-step5.conf
+# python genmaps.bastra.py -c gmp.alcalahenares.taz5-taz50S.incident.alfa5-step5-join.conf
+python genmaps.bastra.py -c gmp.alcalahenares.taz5-taz50S.incident2x1.join.conf
+python genmaps.bastra.py -c gmp.alcalahenares.taz5-taz50S.incident3x1.join.conf
+python genmaps.bastra.py -c gmp.alcalahenares.taz5-taz50S.incident2x8.join.conf
+python genmaps.bastra.py -c gmp.alcalahenares.taz5-taz50S.incident3x8.join.conf

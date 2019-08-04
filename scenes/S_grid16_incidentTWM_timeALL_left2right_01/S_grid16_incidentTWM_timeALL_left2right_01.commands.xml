@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<commands>
+<!-- No maps are defined -->
+  <!-- INCIDENTS SECTION -->
+  <!-- 1 -->
+  <command time="200" name="Incident" param="7/7to8/7" />
+  <command time="700" name="Restore"  param="7/7to8/7" />
+  <!-- 2 -->
+  <command time="200" name="Incident" param="7/6to8/6" />
+  <command time="700" name="Restore"  param="7/6to8/6" />
+  <!-- 3 -->
+  <command time="200" name="Incident" param="7/9to8/9" />
+  <command time="700" name="Restore"  param="7/9to8/9" />
+
+  <!-- COMMAND TO CLEAR CONGESTION IN THE INCIDENTS AREAS -->
+  <command time="200" name="Maps" param="../../../scenes/S_grid16_incidentTWM_timeALL_left2right_01/S_grid16_incidentTWM_timeALL_left2right_01.maps.xml" />
+</commands>

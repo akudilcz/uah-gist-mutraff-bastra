@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<trips>
+<trip id="63" depart="0.79" from="180049722" to="29289692#17" fromTaz="5" toTaz="50" departLane="best" departSpeed="0"/>
+<trip id="519" depart="4.77" from="180049722" to="50170637" fromTaz="5" toTaz="50" departLane="best" departSpeed="0"/>
+</trips>
+<!--
+<trip id="63" depart="30" from="180049722" to="29289692#17" />
+<trip id="519" depart="30" from="180049722" to="50170637" />
+-->

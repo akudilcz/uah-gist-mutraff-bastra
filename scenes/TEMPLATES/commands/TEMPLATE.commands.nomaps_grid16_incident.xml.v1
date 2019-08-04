@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<commands>
+<!-- No maps are defined -->
+  <!-- INCIDENTS SECTION -->
+  <!-- 1 -->
+  <command time="300" name="Incident" param="6/0to5/0" />
+  <command time="700" name="Restore"  param="6/0to5/0" />
+  <!-- 2 -->
+  <command time="300" name="Incident" param="5/0to4/0" />
+  <command time="700" name="Restore"  param="5/0to4/0" />
+  <!-- 3 -->
+  <command time="300" name="Incident" param="4/0to3/0" />
+  <command time="700" name="Restore"  param="4/0to3/0" />
+</commands>

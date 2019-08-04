@@ -34,7 +34,7 @@
   </Bastra>
 
   <Sumo>
-    <port value="4080"/>
+    <port value="4090"/>
     <interactive value="false"/>
     <sumo_config value="../../../scenes/alcalahenares_3L3h_nomaps_timeALL_taz5-taz50S_01/alcalahenares_3L3h_nomaps_timeALL_taz5-taz50S_01.sumo.conf"/>
     <net_file value="../../../scenes/alcalahenares_3L3h_nomaps_timeALL_taz5-taz50S_01/alcalahenares_3L3h_nomaps_timeALL_taz5-taz50S_01.net.xml"/>
