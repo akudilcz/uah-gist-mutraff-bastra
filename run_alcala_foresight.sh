@@ -35,6 +35,18 @@ SCENES="\
   alcalahenares_3L3h_TWM_timeALL_taz5-taz50S_incident3x1-join_01 \
 "
 
+SCENES="\
+  alcalahenares_nomaps_timeALL_taz5-taz50XS_01 \
+  alcalahenares_nomaps_timeALL_taz5-taz50XS_incident3_01 \
+  alcalahenares_TWM_timeALL_taz5-taz50XS_incident3x1-join_01 \
+"
+
+SCENES="\
+  alcalahenares_TWM_timeALL_taz5-taz50XS_incident3x1_logit10-join_01 \
+  alcalahenares_TWM_timeALL_taz5-taz50XS_incident3x1_logit20-join_01 \
+  alcalahenares_TWM_timeALL_taz5-taz50XS_incident3x1_logit50-join_01 \
+"
+
 for i in $SCENES
 do
   echo "===================================="

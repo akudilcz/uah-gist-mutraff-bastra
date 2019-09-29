@@ -1127,6 +1127,9 @@ class simulated_traffic:
         consum_epower = traci.edge.getElectricityConsumption(e)
         consum_fuel = traci.edge.getFuelConsumption(e)
 
+        if emission_co2 > 0:
+          self.log_file.printLogVeh(self.LEVEL3_FULL, e, "co2={}\n".format(emission_co2))
+
         # --------------------------------
         # Save values
         self.edge_stats[i]['vals'].append(

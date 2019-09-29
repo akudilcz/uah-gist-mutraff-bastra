@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<maps>
+  <map tag="car" prob="1" file="../../../scenes/grid16EMISSIONS_noBastra_reference_fulltraffic_01/maps/map.grid16.reference.mapR.xml" />
+  <map tag="taxi" prob="1" file="../../../scenes/grid16EMISSIONS_noBastra_reference_fulltraffic_01/maps/map.grid16.reference.mapR.xml" />
+  <map tag="bus" prob="1" file="../../../scenes/grid16EMISSIONS_noBastra_reference_fulltraffic_01/maps/map.grid16.reference.mapR.xml" />
+  <map tag="motorcycle" prob="1" file="../../../scenes/grid16EMISSIONS_noBastra_reference_fulltraffic_01/maps/map.grid16.reference.mapR.xml" />
+</maps>

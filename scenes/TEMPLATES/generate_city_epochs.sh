@@ -519,3 +519,6 @@ for i in $(seq 1 $EPOCHS); do
   configure_epoch $EPOCH $1
 done
 
+echo "-- END OF PROCESSING --"
+echo "Press intro for more or CTRL-C to quit"
+read

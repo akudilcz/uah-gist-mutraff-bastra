@@ -86,17 +86,9 @@ def readSumoNet(net_file):
     return dict_edges
 
 
-def generateRandom(num_maps, name):
-    iter=0
-    maps=[]
-    while iter < num_maps:
-        name_map=config["output_dir"] + name + ".rand." + str(iter+1) + ".xml"
-        maps.append(genRandMap(name_map))
-        iter=iter+1
-
-    return maps
-
-
+# ----------------------------------------------------
+# Generate a simple random XML file
+# ----------------------------------------------------
 def genRandMap(file_name):
 
     if os.path.isfile(file_name):
@@ -125,6 +117,9 @@ def genRandMap(file_name):
 
     return file_name
 
+# ----------------------------------------------------
+# Generate a single reference MAP
+# ----------------------------------------------------
 def generateMapR():
 
     file_name= config["output_dir"] + prefix + ".mapR.xml"
@@ -145,6 +140,20 @@ def generateMapR():
     xml_file.close()
 
     return file_name
+
+# ----------------------------------------------------
+# Generate a list of N random XML files
+# ----------------------------------------------------
+def generateNRandom(num_maps, name):
+    iter=0
+    maps=[]
+    while iter < num_maps:
+        name_map=config["output_dir"] + name + ".rand." + str(iter+1) + ".xml"
+        maps.append(genRandMap(name_map))
+        iter=iter+1
+
+    return maps
+
 
 
 def readConnections(net_file):
@@ -304,7 +313,7 @@ if __name__ == '__main__':
     if config["mode"]=="map_r":
         maps.append(generateMapR())
     elif config["mode"]=="random":
-        maps.extend(generateRandom(num_maps, prefix))
+        maps.extend(generateNRandom(num_maps, prefix))
     elif config["mode"]=="penalty":
         if len(config["pen_edges"])>0:
             str_pen_edges=config["pen_edges"]

@@ -2,13 +2,13 @@
 
 <commands>
   <!-- INCIDENTS SECTION -->
-  <!-- Incidents placed in the most occupied edges -->
 
-  <!-- Incident 1-->
+  <!-- Traffic Incident 1-->
+  <!-- Avenida Lope de Figueroa -->
   <command time="2000" name="Incident" param="151292453#1" />
   <command time="4800" name="Restore"  param="151292453#1" />
 
-  <!-- Incident 2-->
-
-  <!-- Incident 3-->
 </commands>
+
+
+

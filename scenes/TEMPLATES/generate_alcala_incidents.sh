@@ -28,11 +28,19 @@ EPOCHS=1
 #generate_city_epochs.sh param/alcalahenares_3L3h_nomaps_timeALL_taz5-taz50S.incident2.alfa5-step5-join.param $EPOCHS
 # NEW NAMES ARE:
 # generate_city_epochs.sh param/alcalahenares_3L3h_nomaps_timeALL_taz5-taz50S.incident2.param $EPOCHS
-generate_city_epochs.sh param/alcalahenares_3L3h_nomaps_timeALL_taz5-taz50S.incident2x1.join.param $EPOCHS
+# generate_city_epochs.sh param/alcalahenares_3L3h_nomaps_timeALL_taz5-taz50S.incident2x1.join.param $EPOCHS
 # generate_city_epochs.sh param/alcalahenares_3L3h_nomaps_timeALL_taz5-taz50S.incident2x8.join.param $EPOCHS
-generate_city_epochs.sh param/alcalahenares_3L3h_nomaps_timeALL_taz5-taz50S.incident3.param $EPOCHS
-generate_city_epochs.sh param/alcalahenares_3L3h_nomaps_timeALL_taz5-taz50S.incident3x1.join.param $EPOCHS
+# generate_city_epochs.sh param/alcalahenares_3L3h_nomaps_timeALL_taz5-taz50S.incident3.param $EPOCHS
+# generate_city_epochs.sh param/alcalahenares_3L3h_nomaps_timeALL_taz5-taz50S.incident3x1.join.param $EPOCHS
 # generate_city_epochs.sh param/alcalahenares_3L3h_nomaps_timeALL_taz5-taz50S.incident3x8.join.param $EPOCHS
+
+# generate_city_epochs.sh param/alcalahenares_nomaps_timeALL_taz5-taz50XS.param $EPOCHS
+# generate_city_epochs.sh param/alcalahenares_nomaps_timeALL_taz5-taz50XS.incident3.param $EPOCHS
+# generate_city_epochs.sh param/alcalahenares_nomaps_timeALL_taz5-taz50XS.incident3x1.join.param $EPOCHS
+generate_city_epochs.sh param/alcalahenares_nomaps_timeALL_taz5-taz50XS.incident3x1_logit10.join.param $EPOCHS
+generate_city_epochs.sh param/alcalahenares_nomaps_timeALL_taz5-taz50XS.incident3x1_logit20.join.param $EPOCHS
+generate_city_epochs.sh param/alcalahenares_nomaps_timeALL_taz5-taz50XS.incident3x1_logit50.join.param $EPOCHS
+# generate_city_epochs.sh param/alcalahenares_nomaps_timeALL_taz5-taz50XS.incident3x8.join.param $EPOCHS
 
 # ------------------
 # UNI5 x 8

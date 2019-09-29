@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<maps>
+  <map tag="car" prob="1" file="../../../scenes/alcalahenares_TWM_timeALL_taz5-taz50XS_incident3x1_logit50-join_01/maps/map.alcalahenares.taz5-taz50S.incident3x1.join_map_1.xml" />
+  <map tag="taxi" prob="1" file="../../../scenes/alcalahenares_TWM_timeALL_taz5-taz50XS_incident3x1_logit50-join_01/maps/map.alcalahenares.taz5-taz50S.incident3x1.join_map_1.xml" />
+  <map tag="motorcycle" prob="1" file="../../../scenes/alcalahenares_TWM_timeALL_taz5-taz50XS_incident3x1_logit50-join_01/maps/map.alcalahenares.taz5-taz50S.incident3x1.join_map_1.xml" />
+  <map tag="bus" prob="1" file="../../../scenes/alcalahenares_TWM_timeALL_taz5-taz50XS_incident3x1_logit50-join_01/maps/map.alcalahenares.reference.mapR.xml" />
+</maps>

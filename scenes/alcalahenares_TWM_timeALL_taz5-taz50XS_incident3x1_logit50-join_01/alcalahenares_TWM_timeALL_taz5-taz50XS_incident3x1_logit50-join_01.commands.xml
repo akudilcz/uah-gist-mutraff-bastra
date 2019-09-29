@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<commands>
+  <!-- INCIDENTS SECTION -->
+  <!-- Incidents placed in the most occupied edges -->
+
+  <!-- Incident 1-->
+  <command time="2000" name="Incident" param="151292453#1" />
+  <command time="4800" name="Restore"  param="151292453#1" />
+
+  <!-- Incident 2-->
+
+  <!-- Incident 3-->
+
+  <!-- COMMAND TO CLEAR CONGESTION IN THE INCIDENTS AREAS -->
+  <command time="2000" name="Maps" param="../../../scenes/alcalahenares_TWM_timeALL_taz5-taz50XS_incident3x1_logit50-join_01/alcalahenares_TWM_timeALL_taz5-taz50XS_incident3x1_logit50-join_01.maps.xml" />
+</commands>

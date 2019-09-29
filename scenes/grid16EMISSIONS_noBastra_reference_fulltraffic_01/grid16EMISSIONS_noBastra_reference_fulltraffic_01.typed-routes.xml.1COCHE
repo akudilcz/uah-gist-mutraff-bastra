@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on Wed Aug 14 20:27:27 2019 by SUMO duarouter Version 0.27.1
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/duarouterConfiguration.xsd">
+
+    <input>
+        <net-file value="grid16EMISSIONS_noBastra_reference_fulltraffic_01.net.xml"/>
+        <trip-files value="grid16EMISSIONS_noBastra_reference_fulltraffic_01.trip.xml"/>
+    </input>
+
+    <output>
+        <output-file value="grid16EMISSIONS_noBastra_reference_fulltraffic_01.routes.xml"/>
+    </output>
+
+    <processing>
+        <ignore-errors value="true"/>
+        <max-alternatives value="10"/>
+        <remove-loops value="true"/>
+        <repair value="true"/>
+        <repair.from value="true"/>
+        <repair.to value="true"/>
+    </processing>
+
+    <time>
+        <begin value="0"/>
+        <end value="3600"/>
+    </time>
+
+</configuration>
+-->
+
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">
+	<vType id="motorcycle" vClass="motorcycle" emissionClass="HBEFA3/PC_G_EU4" />
+	<vType id="car" vClass="passenger" emissionClass="HBEFA3/PC_G_EU4" />
+	<vType id="taxi" vClass="passenger" emissionClass="HBEFA3/PC_G_EU4" />
+	<vType id="bus" vClass="bus" emissionClass="HBEFA3/PC_G_EU4" />
+	<vehicle id="110" depart="0.65" departLane="best" departSpeed="0.00" fromTaz="10" toTaz="20" type="taxi" >
+		<route edges="left6to0/6 0/6to1/6 1/6to2/6 2/6to3/6 3/6to4/6 4/6to5/6 5/6to6/6 6/6to7/6 7/6to8/6 8/6to9/6 9/6to10/6 10/6to11/6 11/6to12/6 12/6to13/6 13/6to14/6 14/6to15/6 15/6toright6"/>
+	</vehicle>
+</routes>
