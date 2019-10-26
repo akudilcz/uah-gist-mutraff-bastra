@@ -30,19 +30,19 @@ def printBanner():
   print("")
 
 # --------------------------------------------------------------
-opts		= {}
-edge_types_speeds	= defaultdict(dict)
-od_trips	= defaultdict(dict)
-od_grouped_trips	= defaultdict(dict)
-od_nodes	= defaultdict(dict)
-od_edgeIds	= defaultdict(dict)
-od_edges	= defaultdict(dict)
-od_types	= defaultdict(dict)
-od_weights	= defaultdict(dict)
-od_names	= defaultdict(dict)
-od_priorities	= defaultdict(dict)
-od_tazs		= defaultdict(dict)
-od_taz_nodes	= defaultdict(dict)
+opts              = {}
+edge_types_speeds = defaultdict(dict)
+od_trips          = defaultdict(dict)
+od_grouped_trips  = defaultdict(dict)
+od_nodes          = defaultdict(dict)
+od_edgeIds        = defaultdict(dict)
+od_edges          = defaultdict(dict)
+od_types          = defaultdict(dict)
+od_weights        = defaultdict(dict)
+od_names          = defaultdict(dict)
+od_priorities     = defaultdict(dict)
+od_tazs           = defaultdict(dict)
+od_taz_nodes      = defaultdict(dict)
 
 # --------------------------------------------------------------
 def error(code,msg):
@@ -52,9 +52,9 @@ def error(code,msg):
 # --------------------------------------------------------------
 def getConfig():
   parser = arg.ArgumentParser(
-  	prog="mutraff_odgen",
-	formatter_class=arg.RawDescriptionHelpFormatter,
-  	description='''\
+      prog="mutraff_odgen",
+      formatter_class=arg.RawDescriptionHelpFormatter,
+      description='''\
 MuTRAFF Origin/Destination Demand Matrices generator.
 Generates different kinds of O/D matrices from the SUMO simulation files: network and trip files.
 Examples:
@@ -166,16 +166,16 @@ def parseNodes(opts):
     if( elem.tag ):
       if( elem.tag == 'node' ):
         id=elem.attrib['id']
-	x= float(elem.attrib['x'])
-	y= float(elem.attrib['y'])
+        x= float(elem.attrib['x'])
+        y= float(elem.attrib['y'])
         od_nodes[id]['x'] = x
         od_nodes[id]['y'] = y
         od_nodes[id]['taz'] = ''
-	x_min = x if x < x_min else x_min
-	x_max = x if x > x_max else x_max
-	y_min = y if y < y_min else y_min
-	y_min = y if y > y_max else y_max
-	#print( "Pushed node:{}".format(id) )
+        x_min = x if x < x_min else x_min
+        x_max = x if x > x_max else x_max
+        y_min = y if y < y_min else y_min
+        y_min = y if y > y_max else y_max
+        #print( "Pushed node:{}".format(id) )
    except:
      error(3,"Error parsing XML tree. Exception: "+sys.exc_info())
   print( "End parsing nodes file" )
@@ -184,13 +184,13 @@ def parseNodes(opts):
   for x in od_nodes:
     #print "--> {}".format(x)
     for y in od_nodes:
-      od_edgeIds[x][y]		= ''
-      od_types[x][y]		= ''
-      od_weights[x][y]		= 0
-      od_names[x][y]		= 0
-      od_priorities[x][y]	= 0
-      od_trips[x][y]		= 0
-      od_grouped_trips[x][y]	= 0
+      od_edgeIds[x][y] = ''
+      od_types[x][y] = ''
+      od_weights[x][y] = 0
+      od_names[x][y] = 0
+      od_priorities[x][y] = 0
+      od_trips[x][y] = 0
+      od_grouped_trips[x][y] = 0
 
 # --------------------------------------------------------------
 def parseNet(opts):
@@ -232,88 +232,97 @@ def parseNet(opts):
       # ----------------------------------------------
       if( elem.tag == 'edge' ):
         if( not ('function' in elem.attrib and elem.attrib['function'] == 'internal' )):
-	  id = elem.attrib['id']
-	  #print('edge['+vfrom+','+vto+']='+id)
-	  #print(elem.attrib)
+          id = elem.attrib['id']
+          #print('edge['+vfrom+','+vto+']='+id)
+          #print(elem.attrib)
 
-	  vfrom = elem.attrib['from']
-	  vto = elem.attrib['to']
+          vfrom = elem.attrib['from']
+          vto = elem.attrib['to']
 
-	  # -----------------
-	  od_edgeIds[vfrom][vto] = id
+          # -----------------
+          od_edgeIds[vfrom][vto] = id
 
-	  # -----------------
-	  od_edges[id]['from'] = vfrom
-	  od_edges[id]['to'] = vto
+          # -----------------
+          od_edges[id]['from'] = vfrom
+          od_edges[id]['to'] = vto
 
-	  # -----------------
-	  vtype = elem.attrib['type']
-	  od_types[vfrom][vto] = vtype
+          # -----------------
+          vtype = elem.attrib['type']
+          od_types[vfrom][vto] = vtype
 
-	  # -----------------
-	  speed = 0
-	  if vtype in edge_types_speeds:
-	    speed = float(edge_types_speeds[vtype])
-	  od_weights[vfrom][vto] = speed
+          # -----------------
+          speed = 0
+          if vtype in edge_types_speeds:
+            speed = float(edge_types_speeds[vtype])
+          od_weights[vfrom][vto] = speed
 
-	  od_edges[id]['speed'] = speed
-	  lat1 = od_nodes[vfrom]['y']
-	  lon1 = od_nodes[vfrom]['x']
-	  lat2 = od_nodes[vto]['y']
-	  lon2 = od_nodes[vto]['x']
-	  d = distance(lat1, lon1, lat2, lon2)
-	  od_edges[id]['length'] = d
-	  weight = 999
-	  if speed > 0:
-	      weight = d/speed
-	  od_edges[id]['weight'] = weight
-	  #print("EDGE({})-> dist:{}, speed:{}, time:{}".format( id, d, speed, weight ))
+          od_edges[id]['speed'] = speed
+          lat1 = od_nodes[vfrom]['y']
+          lon1 = od_nodes[vfrom]['x']
+          lat2 = od_nodes[vto]['y']
+          lon2 = od_nodes[vto]['x']
+          d = distance(lat1, lon1, lat2, lon2)
+          od_edges[id]['length'] = d
+          weight = 999
+          if speed > 0:
+             weight = d/speed
+          od_edges[id]['weight'] = weight
+          #print("EDGE({})-> dist:{}, speed:{}, time:{}".format( id, d, speed, weight ))
 
-	  # -----------------
-	  od_names[vfrom][vto] = elem.attrib['name'] if 'name' in elem.attrib else ''
-	  # -----------------
-	  od_priorities[vfrom][vto] = elem.attrib['priority'] if 'priority' in elem.attrib else 0
+          # -----------------
+          od_names[vfrom][vto] = elem.attrib['name'] if 'name' in elem.attrib else ''
+          # -----------------
+          od_priorities[vfrom][vto] = elem.attrib['priority'] if 'priority' in elem.attrib else 0
 
       # ----------------------------------------------
       if( elem.tag == 'tazs' ):
         for e2 in elem:
           try:
-	    # --- ADD A NEW TAZ ------------------------
+            # --- ADD A NEW TAZ ------------------------
             if( e2.tag and e2.tag == 'taz' ):
-	      taz_id = e2.attrib['id']
-	      #print("Adding taz {}".format(taz_id))
+              # print("TAZ: {}".format(e2.attrib['edges']))
+              taz_id = e2.attrib['id']
+              #print("Adding taz {}".format(taz_id))
 
-              od_tazs[taz_id]['edges']	= e2.attrib['edges'].split(' ')
-              od_tazs[taz_id]['nodes']		= {}
-              od_tazs[taz_id]['nodes']['from']	= []
-              od_tazs[taz_id]['nodes']['to']	= []
+              od_tazs[taz_id]['edges'] = e2.attrib['edges'].split(' ')
+              od_tazs[taz_id]['nodes']  = {}
+              od_tazs[taz_id]['nodes']['from'] = []
+              od_tazs[taz_id]['nodes']['to'] = []
               od_tazs[taz_id]['nodes']['leader_from']=None
               od_tazs[taz_id]['nodes']['leader_to']=None
 
-	      # -- Create nodes list  ---------------
+              # -- Create nodes list  ---------------
               for e in od_tazs[taz_id]['edges']:
 
-                vfrom = od_edges[e]['from']
-                vto   = od_edges[e]['to']
+                try:
+                  vfrom = od_edges[e]['from']
+                except:
+                  print("Warning: TAZ parsing: found edge from-node {} out of the map".format(e))
+                  continue
+                try:
+                  vto   = od_edges[e]['to']
+                except:
+                  print("Warning: TAZ parsing: found edge to-node {} out of the map".format(e))
+                  continue
                 od_tazs[taz_id]['nodes']['from'].append(vfrom)
                 od_tazs[taz_id]['nodes']['to'].append(vto)
 
                 if not vfrom in od_taz_nodes['from']:
-	          od_taz_nodes['from'][vfrom]=[]
+                  od_taz_nodes['from'][vfrom]=[]
                 od_taz_nodes['from'][vfrom].append(taz_id)
 
                 if not vto in od_taz_nodes['from']:
-	          od_taz_nodes['from'][vto]=[]
+                  od_taz_nodes['from'][vto]=[]
                 od_taz_nodes['from'][vto].append(taz_id)
 
-		od_nodes[vfrom]['taz'] = taz_id
-		od_nodes[vto]['taz'] = taz_id
+                od_nodes[vfrom]['taz'] = taz_id
+                od_nodes[vto]['taz'] = taz_id
 
-	      # -- Calculate TAZ centroids  ---------------
-	      x =  y = 0
-	      for node in od_tazs[taz_id]['nodes']['from']:
-		#print("--> {},{}".format(  od_nodes[node]['x'],  od_nodes[node]['y'] ))
-		#print("<-- {},{}".format(  float(od_nodes[node]['x']),  float(od_nodes[node]['y']) ))
+              # -- Calculate TAZ centroids  ---------------
+              x =  y = 0
+              for node in od_tazs[taz_id]['nodes']['from']:
+                #print("--> {},{}".format(  od_nodes[node]['x'],  od_nodes[node]['y'] ))
+                #print("<-- {},{}".format(  float(od_nodes[node]['x']),  float(od_nodes[node]['y']) ))
                 x += od_nodes[node]['x']
                 y += od_nodes[node]['y']
               x = x/len(od_tazs[taz_id]['nodes']['from'])
@@ -358,7 +367,7 @@ def calculate_taz_leaders(opts):
       #print("n:{} --> Taz[{}] --> far node:{}".format(n,taz,leader))
       if d1 > d:
         d=d1
-	leader=n
+        leader=n
 
     print("   Taz[{}] --> distance leader node:{}".format(taz,leader))
     od_tazs[taz]['nodes']['leader']=leader
@@ -437,28 +446,28 @@ def parseDemand(opts):
    try:
     if( elem.tag ):
       if( elem.tag == 'trip' ):
-	tot_trips += 1
-	# print(elem.attrib)
-	edgeFrom = elem.attrib['from']
-	edgeTo = elem.attrib['to']
-	depart = float(elem.attrib['depart'])
-	consider = True
+        tot_trips += 1
+        # print(elem.attrib)
+        edgeFrom = elem.attrib['from']
+        edgeTo = elem.attrib['to']
+        depart = float(elem.attrib['depart'])
+        consider = True
 
-	if( opts['filter_time_ini'] and depart < opts['filter_time_ini'] ):
-	  consider = False
-	if( opts['filter_time_end'] and depart > opts['filter_time_end'] ):
-	  consider = False
+        if( opts['filter_time_ini'] and depart < opts['filter_time_ini'] ):
+          consider = False
+        if( opts['filter_time_end'] and depart > opts['filter_time_end'] ):
+          consider = False
 
-	if( consider ):
-	  vfrom = od_edges[edgeFrom]['from']
-	  vto   = od_edges[edgeTo]['to']
-	  count_trips += 1
+        if( consider ):
+          vfrom = od_edges[edgeFrom]['from']
+          vto   = od_edges[edgeTo]['to']
+          count_trips += 1
 
-	  # Count individual trips
+          # Count individual trips
           count_individual_trips(vfrom,vto)
 
-	  # Count leader trips
-	  count_group_trips( vfrom, vto );
+          # Count leader trips
+          count_group_trips( vfrom, vto );
    except:
      error(3,"Error setting value. Exception: "+str(sys.exc_info()))
   print( "End parsing demand file" );

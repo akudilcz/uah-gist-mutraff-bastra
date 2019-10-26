@@ -69,7 +69,7 @@ def load_config():
 
 def readSumoNet(net_file):
 
-    dict_edges={}
+    dict_edge_weights={}
     tree=etree.parse(net_file)
     root=tree.getroot()
     l_edges=root.findall("edge")
@@ -81,9 +81,9 @@ def readSumoNet(net_file):
             speed=lane.get("speed")
             length=lane.get("length")
             traveltime=float(length)/float(speed)
-            dict_edges[edge_id]=traveltime
+            dict_edge_weights[edge_id]=traveltime
 
-    return dict_edges
+    return dict_edge_weights
 
 
 # ----------------------------------------------------
@@ -103,8 +103,8 @@ def genRandMap(file_name):
     xml_file.write("<meandata>\n")
     xml_file.write("\t<interval begin=\"" + config["begin"] + "\" end=\""
                         + config["end"] + "\" id=\"whatever\">\n")
-    for edge in dict_edges.keys():
-        weight=dict_edges[edge]
+    for edge in dict_edge_weights.keys():
+        weight=dict_edge_weights[edge]
         weight=weight * weight_factor + weight_add
         if weight<=0:
             print("Configuration error: weight funtion with result of 0 or less")
@@ -131,8 +131,8 @@ def generateMapR():
     xml_file.write("<meandata>\n")
     xml_file.write("\t<interval begin=\"" + config["begin"] + "\" end=\""
                         + config["end"] + "\" id=\"whatever\">\n")
-    for edge in dict_edges.keys():
-        weight=dict_edges[edge]
+    for edge in dict_edge_weights.keys():
+        weight=dict_edge_weights[edge]
         xml_file.write("\t\t<edge id=\"" + edge
                                    + "\" traveltime=\"" + str(weight) + "\"/>\n")
     xml_file.write("\t</interval>\n")
@@ -182,13 +182,13 @@ def generatePenEdges(edges_list):
     weight_factor=eval(config["weight_factor"])
     weight_add=eval(config["weight_add"])
 
-    new_dict_edges={}
+    new_dict_edge_weights={}
     for edge in new_pen_edges:
         # ALVARO: Patched on 02/06/19
-        # if not new_dict_edges.has_key(edge):
-        if not edge in new_dict_edges:
-            weight=dict_edges[edge] * weight_factor + weight_add
-            new_dict_edges[edge]=weight
+        # if not new_dict_edge_weights.has_key(edge):
+        if not edge in new_dict_edge_weights:
+            weight=dict_edge_weights[edge] * weight_factor + weight_add
+            new_dict_edge_weights[edge]=weight
 
     file_name=config["output_dir"] + prefix + ".pen.map.xml"
     if os.path.isfile(file_name):
@@ -199,8 +199,8 @@ def generatePenEdges(edges_list):
     xml_file.write("<meandata>\n")
     xml_file.write("\t<interval begin=\"" + config["begin"] + "\" end=\""
                        + config["end"] + "\" id=\"whatever\">\n")
-    for edge in new_dict_edges.keys():
-        weight=new_dict_edges[edge]
+    for edge in new_dict_edge_weights.keys():
+        weight=new_dict_edge_weights[edge]
         xml_file.write("\t\t<edge id=\"" + edge
                            + "\" traveltime=\"" + str(weight) + "\"/>\n")
     xml_file.write("\t</interval>\n")
@@ -231,7 +231,7 @@ def algo(edge, connections, dist):
 
 def join(list_maps, map_file):
     index=0
-    new_dict_edges={}
+    new_dict_edge_weights={}
     for map in list_maps:
         tree=etree.parse(map)
         root=tree.getroot()
@@ -242,15 +242,15 @@ def join(list_maps, map_file):
             edge_id=edge.get("id")
             traveltime=float(edge.get("traveltime"))
             # ALVARO: Patched on 02/06/19
-            # if not new_dict_edges.has_key(edge_id):
-            if not edge_id in new_dict_edges:
-                new_dict_edges[edge_id]=traveltime
+            # if not new_dict_edge_weights.has_key(edge_id):
+            if not edge_id in new_dict_edge_weights:
+                new_dict_edge_weights[edge_id]=traveltime
             else:
                 if config["join_option"]=="add":
-                    new_dict_edges[edge_id]=new_dict_edges[edge_id]+traveltime
+                    new_dict_edge_weights[edge_id]=new_dict_edge_weights[edge_id]+traveltime
                 elif config["join_option"]=="max":
-                    if new_dict_edges[edge_id]< traveltime:
-                        new_dict_edges[edge_id]=traveltime
+                    if new_dict_edge_weights[edge_id]< traveltime:
+                        new_dict_edge_weights[edge_id]=traveltime
                 else:
                     print ("Config error: no correct option for join in " + config_file)
                     exit(1)
@@ -264,15 +264,15 @@ def join(list_maps, map_file):
             edge_id=edge.get("id")
             traveltime=float(edge.get("traveltime"))
             # ALVARO: Patched on 02/06/19
-            # if not new_dict_edges.has_key(edge_id):
-            if not edge_id in new_dict_edges:
-                new_dict_edges[edge_id]=traveltime
+            # if not new_dict_edge_weights.has_key(edge_id):
+            if not edge_id in new_dict_edge_weights:
+                new_dict_edge_weights[edge_id]=traveltime
             else:
                 if config["join_option"]=="add":
-                    new_dict_edges[edge_id]=new_dict_edges[edge_id]+traveltime
+                    new_dict_edge_weights[edge_id]=new_dict_edge_weights[edge_id]+traveltime
                 elif config["join_option"]=="max":
-                    if new_dict_edges[edge_id]< traveltime:
-                        new_dict_edges[edge_id]=traveltime
+                    if new_dict_edge_weights[edge_id]< traveltime:
+                        new_dict_edge_weights[edge_id]=traveltime
                 else:
                     print ("Config error: no correct option for join in " + config_file)
                     exit(1)
@@ -286,14 +286,14 @@ def join(list_maps, map_file):
         xml_file.write("<meandata>\n")
         xml_file.write("\t<interval begin=\"" + config["begin"] + "\" end=\""
                        + config["end"] + "\" id=\"whatever\">\n")
-        for edge in new_dict_edges.keys():
-            weight=new_dict_edges[edge]
+        for edge in new_dict_edge_weights.keys():
+            weight=new_dict_edge_weights[edge]
             xml_file.write("\t\t<edge id=\"" + edge
                            + "\" traveltime=\"" + str(weight) + "\"/>\n")
         xml_file.write("\t</interval>\n")
         xml_file.write("</meandata>\n")
         xml_file.close()
-        new_dict_edges.clear()
+        new_dict_edge_weights.clear()
         index=index+1
 
 
@@ -306,7 +306,7 @@ if __name__ == '__main__':
     config_file=param.config_file
     config=load_config().copy()
 
-    dict_edges=readSumoNet(config["net_file"])
+    dict_edge_weights=readSumoNet(config["net_file"])
     num_maps=int(config["num_maps"])
     prefix=config["output_prefix"]
     maps=[]

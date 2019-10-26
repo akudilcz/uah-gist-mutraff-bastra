@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<maps>
+  <!-- car -->
+  <map tag="car" prob="1.0" file="../../../scenes/__PREFIX__/maps/map.alcalahenares.XL_top_used_edges.join_map_1.xml" />
+  <!-- taxi -->
+  <map tag="taxi" prob="1.0" file="../../../scenes/__PREFIX__/maps/map.alcalahenares.XL_top_used_edges.join_map_1.xml" />
+  <!-- motorcycle -->
+  <map tag="motorcycle" prob="1.0" file="../../../scenes/__PREFIX__/map.alcalahenares.XL_top_used_edges.join_map_1.xml.xml" />
+  <!-- truck -->
+  <map tag="truck" prob="1.0" file="../../../scenes/__PREFIX__/maps/map.alcalahenares.XL_top_used_edges.join_map_1.xml" />
+  <!-- trailer -->
+  <map tag="trailer" prob="1.0" file="../../../scenes/__PREFIX__/maps/map.alcalahenares.XL_top_used_edges.join_map_1.xml" />
+  <!-- bus -->
+  <map tag="bus" prob="1.0" file="../../../scenes/__PREFIX__/maps/map.alcalahenares.reference.mapR.xml" />
+</maps>

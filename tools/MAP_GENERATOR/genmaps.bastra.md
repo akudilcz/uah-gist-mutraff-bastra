@@ -79,11 +79,13 @@ As an example of this calculation, if the variable \<pen_edges_steps\> is equal 
 Finally, note that the name of the resulting file will be \<output_prefix\> .pen.map.xml .
 
 ## Maps  fusion
-Genmaps.bastra.py implements functionality as added to the map generation weights, which allows fusion(join)map resulting from its implementation with a previously built in SUMO map format. To do this, the map location we wantmerge with / the resulting / s genmaps.bastra.py the normal operation in the configuration variableshould be included \<join_map\>.
+Genmaps.bastra.py implements additional functionality to the TWM map generation, allowing fusion(join) of maps: one resulting from the caculus and other coming from a previously built (in SUMO map format). To use this capability, use the option \<join_map\> to indicate the map location we want to merge with the result obtained from the standard transformation of  genmaps.bastra.py.
 
-The procedure for this union depends on the option chosenin the Variable \<join_option\>.The program runs filesresult of the execution, retrieving the values of weights for each section, and then runs the file to merge. Then poured into a final file (or several, if the output of genmaps.bastra.py is a set of files) sections and their weights. If a section is reflected in both files, the final weight for the tranchedepend on the option chosen merger. If the string entered in \<join_option\> is"max",the weight for the same will be up to those contained in the maps tojoined. Conversely, if the chosen option is "add", the weight applicable totranche will correspond to the sum of each of the weights.
+The merge can use several policies depending on the parameter \<join_option\>. The program runs filesresult of the execution, retrieving the values of weights for each section, and then runs the file to merge. Then poured into a final file (or several, if the output of genmaps.bastra.py is a set of files) sections and their weights. If a section is reflected in both files, the final weight for the edge depend on the option chosen merger.
+	* If \<join_option\> is "max", the resulting weight will be the max value of the merged maps.
+	* If \<join_option\> is "add", the resulting weight will be the sum of both weights.
 
-The file with the merger of the maps will be named as \<output_prefix\> .join_map_ \<n\>.xml,where \<n\> it is the sequence of the resulting files. Therefore, it is equal to 1 when only have an output file for the program in its normal operation (modes reference map and penalty tranche) and will correspond to the file corresponding sequence in the case of multiple output program (random).
+The file with the merger of the maps will be named as \<output_prefix\> .join_map_ \<n\>.xml,where \<n\> it is the sequence of the resulting files. Therefore, it is equal to 1 when only have an output file for the program in its normal operation (modes reference map and penalty edge) and will correspond to the file corresponding sequence in the case of multiple output program (random).
 
 Finally, note that both files resulting from the merger as it will be obtained prior to output the program.
     

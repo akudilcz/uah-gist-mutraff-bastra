@@ -69,6 +69,10 @@ SCENES="\
   alcalahenares_3L3h_nomaps_timeALL_ecotraffic_01
 "
 
+SCENES="\
+  alcalahenares_3L3h_TopEdges_timeALL_fulltraffic_01
+"
+
 for i in $SCENES
 do
   echo "===================================="
