@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- MUTRAFF TAZ-CALC version="0.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/nodes_file.xsd"> -->
 <mutazs>
+
 <mutaz id="Firemen_path">
 <vertex id="Firemen_path-0" x="-3.385062008079558" y="40.48900689858017"/>
 <vertex id="Firemen_path-1" x="-3.3843539048996263" y="40.48845204296424"/>
@@ -41,6 +42,42 @@
 <vertex id="Policemen_path_1-8" x="-3.361565857109099" y="40.48887634473031"/>
 <vertex id="Policemen_path_1-9" x="-3.3607290078964525" y="40.490100277102435"/>
 <vertex id="Policemen_path_1-10" x="-3.3580038835373216" y="40.492613348265984"/>
+</mutaz>
+
+<mutaz id="Emergency_1">
+<vertex id="Emergency_1-0" x="-3.361694603141814" y="40.48667321020983"/>
+<vertex id="Emergency_1-1" x="-3.3625314523544603" y="40.486216254735155"/>
+<vertex id="Emergency_1-2" x="-3.3621452142563157" y="40.48556345580306"/>
+<vertex id="Emergency_1-3" x="-3.361136703666716" y="40.485857216108215"/>
+</mutaz>
+
+<mutaz id="Emergency_2">
+<vertex id="Emergency_2-0" x="-3.3624241639938646" y="40.48845204296429"/>
+<vertex id="Emergency_2-1" x="-3.3656213571396165" y="40.48719544122851"/>
+<vertex id="Emergency_2-2" x="-3.3633683015671068" y="40.48349077711264"/>
+<vertex id="Emergency_2-3" x="-3.3587763597336107" y="40.48515545324632"/>
+<vertex id="Emergency_2-4" x="-3.361265449699431" y="40.48890898321663"/>
+</mutaz>
+
+<mutaz id="Police_station">
+<vertex id="Police_station-0" x="-3.357262058186052" y="40.49474004039484"/>
+<vertex id="Police_station-1" x="-3.358635349201677" y="40.49364673746991"/>
+<vertex id="Police_station-2" x="-3.3576912116284348" y="40.492977692565574"/>
+<vertex id="Police_station-3" x="-3.35630719177675" y="40.49406284739934"/>
+</mutaz>
+
+<mutaz id="Fire_station">
+<vertex id="Fire_station-0" x="-3.384127063679216" y="40.489191751826596"/>
+<vertex id="Fire_station-1" x="-3.3854681681866623" y="40.488212594459036"/>
+<vertex id="Fire_station-2" x="-3.3848888110394455" y="40.487747489704915"/>
+<vertex id="Fire_station-3" x="-3.383429689335344" y="40.4887429731398"/>
+</mutaz>
+
+<mutaz id="Fire_station_2">
+<vertex id="Fire_station_2-0" x="-3.384202165531633" y="40.489403900706606"/>
+<vertex id="Fire_station_2-1" x="-3.384631318974016" y="40.489110155924955"/>
+<vertex id="Fire_station_2-2" x="-3.3829147052044846" y="40.48782092751196"/>
+<vertex id="Fire_station_2-3" x="-3.3823675345654465" y="40.48822075416281"/>
 </mutaz>
 
 </mutazs>

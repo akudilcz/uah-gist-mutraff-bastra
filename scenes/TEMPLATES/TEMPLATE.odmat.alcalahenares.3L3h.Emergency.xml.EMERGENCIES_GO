@@ -1,0 +1,13 @@
+<demand xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo-sim.org/xsd/amitran/od.xsd">
+
+   <!-- From Fire_station and Police_station to Emergency_1 -->
+   <actorConfig id="1">
+     <!-- TRANSITORIO DE 1 HORA DE CARGA DE LA RED -->
+
+     <!-- TIMESLICES ARE MEASURED IN MILISECONDS -->
+     <timeSlice startTime="600000" duration="1800000" >
+       <odPair origin="1120005" destination="1120003" amount="50" />
+       <odPair origin="1120006" destination="1120003" amount="50" />
+     </timeSlice>
+   </actorConfig>
+</demand>

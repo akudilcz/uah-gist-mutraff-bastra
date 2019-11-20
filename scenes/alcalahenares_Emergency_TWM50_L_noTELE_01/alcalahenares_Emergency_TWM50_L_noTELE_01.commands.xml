@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<commands>
+  <!-- INCIDENTS SECTION -->
+  <!-- Incidents placed in the most occupied edges -->
+
+  <!-- THERE ARE NO INCIDENTS IN THE NETWORK
+  <command time="2000" name="Incident" param="23957447" />
+  <command time="4800" name="Restore"  param="23957447" />
+  -->
+
+  <!-- COMMAND TO CLEAR CONGESTION IN THE INCIDENTS AREAS -->
+  <command time="600" name="Maps" param="../../../scenes/alcalahenares_Emergency_TWM50_L_noTELE_01/alcalahenares_Emergency_TWM50_L_noTELE_01.maps.xml" />
+</commands>

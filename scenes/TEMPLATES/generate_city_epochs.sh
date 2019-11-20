@@ -371,9 +371,9 @@ EOF
     fi
   else
     echo "   Generating the DEMAND od2trips "
-    #set -x
+    set -x
     od2trips -c ${__OUT_OD_FILE} 
-    #set +x
+    set +x
 
     # ----------------------------------------------------------------
     echo "  Calculating shortest-path routes for the selected trips duarouter"
