@@ -455,7 +455,9 @@
 2804,alcalahenares_TWM_timeALL_taz5-taz50XS_incident3x1_logit50-join_01_190806_162426,Alcala H - Taz5-Taz50XS con Incidente,"Alcala H, 1xTWM for Incident t[2000,4800] adh.50%","Incident during T(2000,4800) +TWM adh.50%",TWM,alcalahenares,OpenStreet,logit50,XS,taz5-taz50,Dijkstra,NO,,1,1,,(vacio)
 2805,alcalahenares_TWM_timeALL_taz5-taz50XS_incident3x1-join_01_190806_093859,Alcala H - Taz5-Taz50XS con Incidente,"Alcala H, 1xTWM for Incident t[2000,4800] adh.100%","Incident during T(2000,4800) +TWM adh.100%",TWM,alcalahenares,OpenStreet,logit100,XS,taz5-taz50,Dijkstra,NO,,1,1,,(vacio)
 2900,alcalahenares_3L3h_nomaps_timeALL_ecotraffic_01_190928_110547,Alcala H - L con EcoFleets,"Alcala H, noTWM, EcoFleets","noTWM, EcoFleets",TWM,alcalahenares,OpenStreet,1,L,fulltraffic,Dijkstra,NO,,1,1,,(vacio)
-2910,alcalahenares_3L3h_Emergency_noTWM_L_01_191120_201621,Alcala H - L Emergencies,"Alcala H, noTWM T60, Emergencies","noTWM, Emergencies",no,alcalahenares,OpenStreet,1,L,fulltraffic,Dijkstra,60,,1,1,,(vacio)
-2911,alcalahenares_Emergency_noTWM_L_noTELE_01_191120_230811,Alcala H - L Emergencies,"Alcala H, noTWM noT, Emergencies","noTWM, Emergencies",no,alcalahenares,OpenStreet,1,L,fulltraffic,Dijkstra,no,,1,1,,(vacio)
-2920,alcalahenares_3L3h_Emergency_TWM50_L_01_191120_204040,Alcala H - L Emergencies,"Alcala H, TWM T60, Emergencies","TWM, Emergencies",TWM,alcalahenares,OpenStreet,logit50,L,fulltraffic,Dijkstra,60,,1,1,,(vacio)
-2921,alcalahenares_Emergency_TWM50_L_noTELE_01_191120_230831,Alcala H - L Emergencies,"Alcala H, TWM noT, Emergencies","TWM, Emergencies",TWM,alcalahenares,OpenStreet,logit50,L,fulltraffic,Dijkstra,no,,1,1,,(vacio)
+2910,alcalahenares_Emergency_noTWM_L_T60_01_191121_132012,Alcala H - L Emergencies,"Alcala H, noTWM T60, Emergencies","noTWM, Emergencies",no,alcalahenares,OpenStreet,1,L,fulltraffic,Dijkstra,60,,1,1,,(vacio)
+2911,alcalahenares_Emergency_noTWM_L_noTELE_01_191121_132107,Alcala H - L Emergencies,"Alcala H, noTWM noT, Emergencies","noTWM, Emergencies",no,alcalahenares,OpenStreet,1,L,fulltraffic,Dijkstra,no,,1,1,,(vacio)
+2920,alcalahenares_Emergency_TWM50_L_T60_01_191121_132034,Alcala H - L Emergencies,"Alcala H, TWM T60, Emergencies","TWM, Emergencies",TWM,alcalahenares,OpenStreet,logit50,L,fulltraffic,Dijkstra,60,,1,1,,(vacio)
+2921,alcalahenares_Emergency_TWM50_L_noTELE_01_191121_132101,Alcala H - L Emergencies,"Alcala H, TWM noT, Emergencies","TWM, Emergencies",TWM,alcalahenares,OpenStreet,logit50,L,fulltraffic,Dijkstra,no,,1,1,,(vacio)
+
+

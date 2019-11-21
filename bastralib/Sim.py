@@ -72,6 +72,23 @@ class simulated_traffic:
     edge_stats = []
     edge_desc = {}
     edge_ruleset = {}
+
+    # --------------------------------------------------
+    def dumpList( self, listname, theList ):
+        txt = listname
+        for v in theList:
+          txt = "{},{}".format(txt,v.id)
+        print(txt + "\n")
+        return
+
+    # --------------------------------------------------
+    def getVehicleDepartTime( self, veh ):
+    	return veh.getDepartTime()
+
+    def sortVehiclesByDepart( self ):
+        self.vehicle_list.sort(key=self.getVehicleDepartTime)
+        return 
+    # --------------------------------------------------
     
     def __init__(self, config, bastra_log_file):
         self.log_file=bastra_log_file
@@ -124,8 +141,16 @@ class simulated_traffic:
                 type=""
             self.add_vehicle(id, start, init, end, l_edges, self.logit, type)
 
+        #self.dumpList( "Vehicles not Ordered", self.vehicle_list )
+        self.sortVehiclesByDepart()
+        #self.dumpList( "Vehicles Ordered", self.vehicle_list )
         self.loadEdges()
-            
+
+    def add_vehicle(self, id, start, init, end, route, logit, type):
+        pos=len(self.dict_index)
+        self.dict_index[id]=pos
+        obj_vehicle=Vehicle.vehicle(id, start, init, end, route, logit, type)
+        self.vehicle_list.append(obj_vehicle)
         return
 
     def now(self):

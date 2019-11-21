@@ -249,7 +249,7 @@ if __name__ == '__main__':
 	# Update simulation timestamp
         sim.actCurTime()
         if ( (sim.getCurTime() % config["log_every_n_steps"]) == 0 ):
-           log_file.printLog(LEVEL1_ERRORS,"Hour:{} - Processing step:{}\n".format( int(sim.getCurTime() / config["log_every_n_steps"]), sim.getCurTime() ))
+           log_file.printLog(LEVEL1_ERRORS,"Minute:{} - Processing step:{}\n".format( int(sim.getCurTime() / config["log_every_n_steps"]), sim.getCurTime() ))
         # Process pending vehicle movements
         sim.processPendings()
         # ---------------------------------------------

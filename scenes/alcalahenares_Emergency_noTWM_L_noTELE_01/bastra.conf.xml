@@ -27,14 +27,14 @@
     <foresight_penalty value="1"/>
     <!-- Simulation from/to -->
     <begin value="0"/>
-    <end value="2000"/>
+    <end value="3600"/>
 
     <!-- Routing Algorithm: dijstra, astar, ch, chwrapper -->
     <routing_algorithm value=""/>
   </Bastra>
 
   <Sumo>
-    <port value="4080"/>
+    <port value="4083"/>
     <interactive value="false"/>
     <sumo_config value="../../../scenes/alcalahenares_Emergency_noTWM_L_noTELE_01/alcalahenares_Emergency_noTWM_L_noTELE_01.sumo.conf"/>
     <net_file value="../../../scenes/alcalahenares_Emergency_noTWM_L_noTELE_01/alcalahenares_Emergency_noTWM_L_noTELE_01.net.xml"/>

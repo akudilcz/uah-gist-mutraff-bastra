@@ -5,8 +5,8 @@ BUS=es.uah.gist.mutraff.toc1
 SCENE_DIR=scenes
 # -------------------------------------------------------------
 SCENES="\
-  alcalahenares_3L3h_Emergency_TWM50_L_01
-  alcalahenares_3L3h_Emergency_noTWM_L_01
+  alcalahenares_Emergency_TWM50_L_T60_01
+  alcalahenares_Emergency_noTWM_L_T60_01
 "
 
 SCENES="\
