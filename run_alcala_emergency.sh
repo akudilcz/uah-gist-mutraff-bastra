@@ -3,6 +3,13 @@
 # 
 BUS=es.uah.gist.mutraff.toc1
 SCENE_DIR=scenes
+
+set -x
+nohup ./run_darwin.sh alcalahenares_Emergency_noTWM_L_T60_01 2>&1 >nohup1.out &
+nohup ./run_darwin.sh alcalahenares_Emergency_TWM50_L_T60_01 2>&1 >nohup2.out &
+nohup ./run_darwin.sh alcalahenares_Emergency_noTWM_L_noTELE_01 2>&1 >nohup3.out &
+nohup ./run_darwin.sh alcalahenares_Emergency_TWM50_L_noTELE_01 2>&1 >nohup4.out &
+exit
 # -------------------------------------------------------------
 SCENES="\
   alcalahenares_Emergency_TWM50_L_T60_01

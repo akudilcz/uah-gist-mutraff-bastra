@@ -6,7 +6,8 @@ http://sumo.sourceforge.net/userdoc/Models/Emissions/HBEFA3-based.html
 -->
 
 <vTypes>
-  <type emissionClass="HBEFA3/Bus"       id="9999"    vClass="bus"        weight="50" />
-  <type emissionClass="HBEFA3/Bus"       id="FIREMEN"    vClass="bus"        weight="50" />
+  <!--
   <type emissionClass="HBEFA3/PC_G_EU4"  id="POLICEMEN"  vClass="passenger"  weight="50" />
+  -->
+  <type emissionClass="HBEFA3/Bus"       id="FIREMEN"    vClass="bus"        weight="50" />
 </vTypes>
