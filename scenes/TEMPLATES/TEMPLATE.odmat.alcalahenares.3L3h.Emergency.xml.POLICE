@@ -5,7 +5,6 @@
    <!-- "1120005":police-station, "1120006":Fire_station, "1120003":Emergency -->
 
    <!-- POLICEMEN -->
-   <!--
    <actorConfig id="0">
 
      <timeSlice startTime="600000" duration="1800000" >
@@ -16,9 +15,9 @@
        <odPair origin="1120003" destination="1120005" amount="50" />
      </timeSlice>
    </actorConfig>
-   -->
 
    <!-- FIREMEN -->
+   <!--
    <actorConfig id="1">
 
      <timeSlice startTime="600000" duration="1800000" >
@@ -29,4 +28,5 @@
        <odPair origin="1120003" destination="1120006" amount="50" />
      </timeSlice>
    </actorConfig>
+   -->
 </demand>

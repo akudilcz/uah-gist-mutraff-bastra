@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Emission classes as defined in:
+http://sumo.sourceforge.net/userdoc/Models/Emissions.html
+http://sumo.sourceforge.net/userdoc/Models/Emissions/HBEFA3-based.html
+-->
+
+<vTypes>
+  <type emissionClass="HBEFA3/PC_G_EU4"  id="motorcycle" vClass="motorcycle" weight="20" />
+  <type emissionClass="HBEFA3/PC_G_EU4"  id="g-car"      vClass="passenger"  weight="20" />
+  <type emissionClass="HBEFA3/LDV_D_EU4" id="d-car"      vClass="passenger"  weight="20" />
+  <type emissionClass="HBEFA3/LDV_D_EU5" id="d-delivery" vClass="delivery"   weight="0" />
+  <type emissionClass="HBEFA3/LDV_D_EU4" id="d-taxi"     vClass="taxi"       weight="20" />
+  <type emissionClass="HBEFA3/Bus"       id="bus"        vClass="bus"        weight="6" />
+  <type emissionClass="zero"             id="e-car"      vClass="evehicle"   weight="10" />
+  <type emissionClass="HBEFA3/Coach"     id="coach"      vClass="coach"      weight="4" />
+
+  <!--
+  <type emissionClass="HBEFA3/PC_G_EU4"  id="POLICEMEN"  vClass="passenger"  weight="20" />
+  <type emissionClass="HBEFA3/Bus"       id="FIREMEN"    vClass="bus"        weight="100" />
+  -->
+</vTypes>

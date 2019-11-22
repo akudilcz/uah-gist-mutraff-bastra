@@ -14,7 +14,8 @@ class Vehicle:
     max_speed=""
     color=""
     route=""
-    depart=""
+    # depart=""
+    depart=0
     departLane=""
     departPos=""
     departSpeed=""
@@ -71,7 +72,7 @@ class Vehicle:
     def getroutes(self):
         return self.routes
     def setDepart(self, depart):
-        self.depart=depart
+        self.depart=float(depart)
         return
     def getDepart(self):
         return self.depart
@@ -580,7 +581,11 @@ def getRule(type_list):
     return rule
 
 
-def chooseType(rules):
+def chooseType(veh,rules):
+    if( veh.id.startswith("1100") ):
+      return "POLICEMEN"
+    if( veh.id.startswith("1200") ):
+      return "FIREMEN"
     rand=random.random()
     acul=0
     for a_rule in rules:
@@ -593,8 +598,21 @@ def chooseType(rules):
 def printVehicles(vehicle_list, type_list, file):
 
     rule=getRule(type_list)
+    # ---------------------------
+    # Sort vehicles
+    # ---------------------------
+    # vehicle_list.sort(key=lambda x: x.count, reverse=True)
+    vehicle_list.sort(key=lambda x: x.depart)
+
+    # ---------------------------
+    # Print vehicles
+    # ---------------------------
     for veh in vehicle_list:
-        file.write("\t<vehicle id=\"" + veh.getId() + "\" ")
+        file.write("\t<vehicle ")
+        # if len(veh.getDepart())>0:
+            # file.write("depart=\"" + veh.getDepart() + "\" ")
+        file.write("depart=\"{}\" ".format( veh.getDepart() ))
+        file.write("id=\"" + veh.getId() + "\" ")
         if len(veh.getAccel())>0:
             file.write("accel=\"" + veh.getAccel() + "\" ")
         if len(veh.getDecel())>0:
@@ -605,8 +623,6 @@ def printVehicles(vehicle_list, type_list, file):
             file.write("maxSpeed=\"" + veh.getMaxSpeed() + "\" ")
         if len(veh.getColor())>0:
             file.write("color=\"" + veh.getColor() + "\" ")
-        if len(veh.getDepart())>0:
-            file.write("depart=\"" + veh.getDepart() + "\" ")
         if len(veh.getDepartLane())>0:
             file.write("departLane=\"" + veh.getDepartLane() + "\" ")
         if len(veh.getDepartPos())>0:
@@ -632,7 +648,7 @@ def printVehicles(vehicle_list, type_list, file):
         if len(veh.getType())>0:
             file.write("type=\"" + veh.getType() + "\" " )
         else:
-            file.write("type=\"" + chooseType(rule)+ "\" " )
+            file.write("type=\"" + chooseType(veh,rule)+ "\" " )
         file.write(">\n\t\t<route edges=\"" + veh.getroutes() + "\"/>\n")
         file.write("\t</vehicle>\n")
 

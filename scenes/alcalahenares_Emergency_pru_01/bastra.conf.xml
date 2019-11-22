@@ -34,7 +34,7 @@
   </Bastra>
 
   <Sumo>
-    <port value="4082"/>
+    <port value="4089"/>
     <interactive value="false"/>
     <sumo_config value="../../../scenes/alcalahenares_Emergency_pru_01/alcalahenares_Emergency_pru_01.sumo.conf"/>
     <net_file value="../../../scenes/alcalahenares_Emergency_pru_01/alcalahenares_Emergency_pru_01.net.xml"/>

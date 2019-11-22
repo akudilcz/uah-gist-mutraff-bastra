@@ -87,7 +87,13 @@ class simulated_traffic:
 
     def sortVehiclesByDepart( self ):
         self.vehicle_list.sort(key=self.getVehicleDepartTime)
+        self.dict_index={}
+        pos=0
+        for v in self.vehicle_list:
+           self.dict_index[v.getId()] = pos
+           pos += 1
         return 
+
     # --------------------------------------------------
     
     def __init__(self, config, bastra_log_file):
@@ -142,7 +148,7 @@ class simulated_traffic:
             self.add_vehicle(id, start, init, end, l_edges, self.logit, type)
 
         #self.dumpList( "Vehicles not Ordered", self.vehicle_list )
-        self.sortVehiclesByDepart()
+        # self.sortVehiclesByDepart()
         #self.dumpList( "Vehicles Ordered", self.vehicle_list )
         self.loadEdges()
 

@@ -373,6 +373,10 @@ EOF
     echo "   Generating the DEMAND od2trips "
     set -x
     od2trips -c ${__OUT_OD_FILE} 
+    # ALVARO PATCH FOR COMPLEX DEMAND GENERATION
+    ls -l ${PREFIX}.trip.xml
+    cp /Users/alvaro/Desktop/workspace/mutraff/uah-gist-mutraff-bastra/scenes/TEMPLATES/MUTRAFF_DEMAND_GENERATOR.EMERGENCIES/alcalahenares.trips.xml ${__PREFIX}.trip.xml
+    # ALVARO PATCH FOR COMPLEX DEMAND GENERATION
     set +x
 
     # ----------------------------------------------------------------
