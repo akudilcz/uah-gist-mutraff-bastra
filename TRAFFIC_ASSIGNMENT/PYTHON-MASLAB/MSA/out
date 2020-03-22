@@ -1,0 +1,2358 @@
+-- [ ITER 1 ] ----------------------------
+   min[A|L] : Added route [[A-C, C-G, G-J, J-I, I-L]]
+   min[A|M] : Added route [[A-C, C-D, D-H, H-K, K-M]]
+   min[B|L] : Added route [[B-D, D-G, G-J, J-I, I-L]]
+   min[B|M] : Added route [[B-E, E-H, H-K, K-M]]
+   CALCULATING VNA for o/d [A|L]
+      Route [A-C - C-G - G-J - J-I - I-L]	[phi=1.000] fa=600, vprev=0, vna=600
+   CALCULATING VNA for o/d [A|M]
+      Route [A-C - C-D - D-H - H-K - K-M]	[phi=1.000] fa=400, vprev=0, vna=400
+   CALCULATING VNA for o/d [B|L]
+      Route [B-D - D-G - G-J - J-I - I-L]	[phi=1.000] fa=300, vprev=0, vna=300
+   CALCULATING VNA for o/d [B|M]
+      Route [B-E - E-H - H-K - K-M]	[phi=1.000] fa=400, vprev=0, vna=400
+-- [ ITER 2 ] ----------------------------
+   min[A|L] : Added route [[A-D, D-G, G-J, J-L]]
+   min[A|M] : Added route [[A-D, D-G, G-K, K-M]]
+   min[B|L] : Added route [[B-D, D-G, G-J, J-L]]
+   min[B|M] : Added route [[B-D, D-G, G-K, K-M]]
+   CALCULATING VNA for o/d [A|L]
+      Route [A-C - C-G - G-J - J-I - I-L]	[phi=0.500] fa=  0, vprev=600, vna=300
+      Route [A-D - D-G - G-J - J-L]	[phi=0.500] fa=600, vprev=0, vna=300
+   CALCULATING VNA for o/d [A|M]
+      Route [A-C - C-D - D-H - H-K - K-M]	[phi=0.500] fa=  0, vprev=400, vna=200
+      Route [A-D - D-G - G-K - K-M]	[phi=0.500] fa=400, vprev=0, vna=200
+   CALCULATING VNA for o/d [B|L]
+      Route [B-D - D-G - G-J - J-I - I-L]	[phi=0.500] fa=  0, vprev=300, vna=150
+      Route [B-D - D-G - G-J - J-L]	[phi=0.500] fa=300, vprev=0, vna=150
+   CALCULATING VNA for o/d [B|M]
+      Route [B-E - E-H - H-K - K-M]	[phi=0.500] fa=  0, vprev=400, vna=200
+      Route [B-D - D-G - G-K - K-M]	[phi=0.500] fa=400, vprev=0, vna=200
+-- [ ITER 3 ] ----------------------------
+   min[A|L] : Added route [[A-C, C-F, F-I, I-L]]
+   min[A|M] : Added route [[A-C, C-F, F-I, I-J, J-M]]
+   min[B|L] : Added route [[B-A, A-C, C-F, F-I, I-L]]
+   CALCULATING VNA for o/d [A|L]
+      Route [A-C - C-G - G-J - J-I - I-L]	[phi=0.333] fa=  0, vprev=300, vna=200
+      Route [A-D - D-G - G-J - J-L]	[phi=0.333] fa=  0, vprev=300, vna=200
+      Route [A-C - C-F - F-I - I-L]	[phi=0.333] fa=600, vprev=0, vna=200
+   CALCULATING VNA for o/d [A|M]
+      Route [A-C - C-D - D-H - H-K - K-M]	[phi=0.333] fa=  0, vprev=200, vna=133
+      Route [A-D - D-G - G-K - K-M]	[phi=0.333] fa=  0, vprev=200, vna=133
+      Route [A-C - C-F - F-I - I-J - J-M]	[phi=0.333] fa=400, vprev=0, vna=133
+   CALCULATING VNA for o/d [B|L]
+      Route [B-D - D-G - G-J - J-I - I-L]	[phi=0.333] fa=  0, vprev=150, vna=100
+      Route [B-D - D-G - G-J - J-L]	[phi=0.333] fa=  0, vprev=150, vna=100
+      Route [B-A - A-C - C-F - F-I - I-L]	[phi=0.333] fa=300, vprev=0, vna=100
+   CALCULATING VNA for o/d [B|M]
+      Route [B-E - E-H - H-K - K-M]	[phi=0.333] fa=400, vprev=200, vna=266
+      Route [B-D - D-G - G-K - K-M]	[phi=0.333] fa=  0, vprev=200, vna=133
+-- [ ITER 4 ] ----------------------------
+   min[A|L] : Added route [[A-C, C-G, G-J, J-L]]
+   min[A|M] : Added route [[A-D, D-H, H-K, K-M]]
+   min[B|L] : Added route [[B-E, E-H, H-K, K-J, J-L]]
+   CALCULATING VNA for o/d [A|L]
+      Route [A-C - C-G - G-J - J-I - I-L]	[phi=0.250] fa=  0, vprev=200, vna=150
+      Route [A-D - D-G - G-J - J-L]	[phi=0.250] fa=  0, vprev=200, vna=150
+      Route [A-C - C-F - F-I - I-L]	[phi=0.250] fa=  0, vprev=200, vna=150
+      Route [A-C - C-G - G-J - J-L]	[phi=0.250] fa=600, vprev=0, vna=150
+   CALCULATING VNA for o/d [A|M]
+      Route [A-C - C-D - D-H - H-K - K-M]	[phi=0.250] fa=  0, vprev=133, vna=100
+      Route [A-D - D-G - G-K - K-M]	[phi=0.250] fa=  0, vprev=133, vna=100
+      Route [A-C - C-F - F-I - I-J - J-M]	[phi=0.250] fa=  0, vprev=133, vna=99
+      Route [A-D - D-H - H-K - K-M]	[phi=0.250] fa=400, vprev=0, vna=100
+   CALCULATING VNA for o/d [B|L]
+      Route [B-D - D-G - G-J - J-I - I-L]	[phi=0.250] fa=  0, vprev=100, vna=75
+      Route [B-D - D-G - G-J - J-L]	[phi=0.250] fa=  0, vprev=100, vna=75
+      Route [B-A - A-C - C-F - F-I - I-L]	[phi=0.250] fa=  0, vprev=100, vna=75
+      Route [B-E - E-H - H-K - K-J - J-L]	[phi=0.250] fa=300, vprev=0, vna=75
+   CALCULATING VNA for o/d [B|M]
+      Route [B-E - E-H - H-K - K-M]	[phi=0.250] fa=400, vprev=266, vna=300
+      Route [B-D - D-G - G-K - K-M]	[phi=0.250] fa=  0, vprev=133, vna=100
+-- [ ITER 5 ] ----------------------------
+   min[A|M] : Added route [[A-C, C-G, G-J, J-M]]
+   min[B|M] : Added route [[B-D, D-H, H-K, K-M]]
+   CALCULATING VNA for o/d [A|L]
+      Route [A-C - C-G - G-J - J-I - I-L]	[phi=0.200] fa=  0, vprev=150, vna=120
+      Route [A-D - D-G - G-J - J-L]	[phi=0.200] fa=  0, vprev=150, vna=120
+      Route [A-C - C-F - F-I - I-L]	[phi=0.200] fa=600, vprev=150, vna=240
+      Route [A-C - C-G - G-J - J-L]	[phi=0.200] fa=  0, vprev=150, vna=120
+   CALCULATING VNA for o/d [A|M]
+      Route [A-C - C-D - D-H - H-K - K-M]	[phi=0.200] fa=  0, vprev=100, vna=80
+      Route [A-D - D-G - G-K - K-M]	[phi=0.200] fa=  0, vprev=100, vna=80
+      Route [A-C - C-F - F-I - I-J - J-M]	[phi=0.200] fa=  0, vprev=99, vna=80
+      Route [A-D - D-H - H-K - K-M]	[phi=0.200] fa=  0, vprev=100, vna=80
+      Route [A-C - C-G - G-J - J-M]	[phi=0.200] fa=400, vprev=0, vna=80
+   CALCULATING VNA for o/d [B|L]
+      Route [B-D - D-G - G-J - J-I - I-L]	[phi=0.200] fa=  0, vprev=75, vna=60
+      Route [B-D - D-G - G-J - J-L]	[phi=0.200] fa=300, vprev=75, vna=120
+      Route [B-A - A-C - C-F - F-I - I-L]	[phi=0.200] fa=  0, vprev=75, vna=60
+      Route [B-E - E-H - H-K - K-J - J-L]	[phi=0.200] fa=  0, vprev=75, vna=60
+   CALCULATING VNA for o/d [B|M]
+      Route [B-E - E-H - H-K - K-M]	[phi=0.200] fa=  0, vprev=300, vna=240
+      Route [B-D - D-G - G-K - K-M]	[phi=0.200] fa=  0, vprev=100, vna=80
+      Route [B-D - D-H - H-K - K-M]	[phi=0.200] fa=400, vprev=0, vna=80
+-- [ ITER 6 ] ----------------------------
+   CALCULATING VNA for o/d [A|L]
+      Route [A-C - C-G - G-J - J-I - I-L]	[phi=0.167] fa=  0, vprev=120, vna=100
+      Route [A-D - D-G - G-J - J-L]	[phi=0.167] fa=  0, vprev=120, vna=100
+      Route [A-C - C-F - F-I - I-L]	[phi=0.167] fa=600, vprev=240, vna=300
+      Route [A-C - C-G - G-J - J-L]	[phi=0.167] fa=  0, vprev=120, vna=100
+   CALCULATING VNA for o/d [A|M]
+      Route [A-C - C-D - D-H - H-K - K-M]	[phi=0.167] fa=  0, vprev=80, vna=66
+      Route [A-D - D-G - G-K - K-M]	[phi=0.167] fa=  0, vprev=80, vna=66
+      Route [A-C - C-F - F-I - I-J - J-M]	[phi=0.167] fa=  0, vprev=80, vna=66
+      Route [A-D - D-H - H-K - K-M]	[phi=0.167] fa=400, vprev=80, vna=133
+      Route [A-C - C-G - G-J - J-M]	[phi=0.167] fa=  0, vprev=80, vna=66
+   CALCULATING VNA for o/d [B|L]
+      Route [B-D - D-G - G-J - J-I - I-L]	[phi=0.167] fa=  0, vprev=60, vna=50
+      Route [B-D - D-G - G-J - J-L]	[phi=0.167] fa=300, vprev=120, vna=150
+      Route [B-A - A-C - C-F - F-I - I-L]	[phi=0.167] fa=  0, vprev=60, vna=50
+      Route [B-E - E-H - H-K - K-J - J-L]	[phi=0.167] fa=  0, vprev=60, vna=50
+   CALCULATING VNA for o/d [B|M]
+      Route [B-E - E-H - H-K - K-M]	[phi=0.167] fa=400, vprev=240, vna=266
+      Route [B-D - D-G - G-K - K-M]	[phi=0.167] fa=  0, vprev=80, vna=66
+      Route [B-D - D-H - H-K - K-M]	[phi=0.167] fa=  0, vprev=80, vna=66
+-- [ ITER 7 ] ----------------------------
+   CALCULATING VNA for o/d [A|L]
+      Route [A-C - C-G - G-J - J-I - I-L]	[phi=0.143] fa=  0, vprev=100, vna=85
+      Route [A-D - D-G - G-J - J-L]	[phi=0.143] fa=  0, vprev=100, vna=85
+      Route [A-C - C-F - F-I - I-L]	[phi=0.143] fa=  0, vprev=300, vna=257
+      Route [A-C - C-G - G-J - J-L]	[phi=0.143] fa=600, vprev=100, vna=171
+   CALCULATING VNA for o/d [A|M]
+      Route [A-C - C-D - D-H - H-K - K-M]	[phi=0.143] fa=  0, vprev=66, vna=57
+      Route [A-D - D-G - G-K - K-M]	[phi=0.143] fa=  0, vprev=66, vna=57
+      Route [A-C - C-F - F-I - I-J - J-M]	[phi=0.143] fa=  0, vprev=66, vna=57
+      Route [A-D - D-H - H-K - K-M]	[phi=0.143] fa=  0, vprev=133, vna=114
+      Route [A-C - C-G - G-J - J-M]	[phi=0.143] fa=400, vprev=66, vna=114
+   CALCULATING VNA for o/d [B|L]
+      Route [B-D - D-G - G-J - J-I - I-L]	[phi=0.143] fa=  0, vprev=50, vna=42
+      Route [B-D - D-G - G-J - J-L]	[phi=0.143] fa=300, vprev=150, vna=171
+      Route [B-A - A-C - C-F - F-I - I-L]	[phi=0.143] fa=  0, vprev=50, vna=42
+      Route [B-E - E-H - H-K - K-J - J-L]	[phi=0.143] fa=  0, vprev=50, vna=42
+   CALCULATING VNA for o/d [B|M]
+      Route [B-E - E-H - H-K - K-M]	[phi=0.143] fa=400, vprev=266, vna=285
+      Route [B-D - D-G - G-K - K-M]	[phi=0.143] fa=  0, vprev=66, vna=57
+      Route [B-D - D-H - H-K - K-M]	[phi=0.143] fa=  0, vprev=66, vna=57
+-- [ ITER 8 ] ----------------------------
+   CALCULATING VNA for o/d [A|L]
+      Route [A-C - C-G - G-J - J-I - I-L]	[phi=0.125] fa=  0, vprev=85, vna=75
+      Route [A-D - D-G - G-J - J-L]	[phi=0.125] fa=  0, vprev=85, vna=75
+      Route [A-C - C-F - F-I - I-L]	[phi=0.125] fa=600, vprev=257, vna=300
+      Route [A-C - C-G - G-J - J-L]	[phi=0.125] fa=  0, vprev=171, vna=150
+   CALCULATING VNA for o/d [A|M]
+      Route [A-C - C-D - D-H - H-K - K-M]	[phi=0.125] fa=  0, vprev=57, vna=50
+      Route [A-D - D-G - G-K - K-M]	[phi=0.125] fa=  0, vprev=57, vna=50
+      Route [A-C - C-F - F-I - I-J - J-M]	[phi=0.125] fa=  0, vprev=57, vna=50
+      Route [A-D - D-H - H-K - K-M]	[phi=0.125] fa=400, vprev=114, vna=150
+      Route [A-C - C-G - G-J - J-M]	[phi=0.125] fa=  0, vprev=114, vna=100
+   CALCULATING VNA for o/d [B|L]
+      Route [B-D - D-G - G-J - J-I - I-L]	[phi=0.125] fa=  0, vprev=42, vna=37
+      Route [B-D - D-G - G-J - J-L]	[phi=0.125] fa=300, vprev=171, vna=187
+      Route [B-A - A-C - C-F - F-I - I-L]	[phi=0.125] fa=  0, vprev=42, vna=37
+      Route [B-E - E-H - H-K - K-J - J-L]	[phi=0.125] fa=  0, vprev=42, vna=37
+   CALCULATING VNA for o/d [B|M]
+      Route [B-E - E-H - H-K - K-M]	[phi=0.125] fa=400, vprev=285, vna=299
+      Route [B-D - D-G - G-K - K-M]	[phi=0.125] fa=  0, vprev=57, vna=50
+      Route [B-D - D-H - H-K - K-M]	[phi=0.125] fa=  0, vprev=57, vna=50
+-- [ ITER 9 ] ----------------------------
+   CALCULATING VNA for o/d [A|L]
+      Route [A-C - C-G - G-J - J-I - I-L]	[phi=0.111] fa=  0, vprev=75, vna=66
+      Route [A-D - D-G - G-J - J-L]	[phi=0.111] fa=  0, vprev=75, vna=66
+      Route [A-C - C-F - F-I - I-L]	[phi=0.111] fa=600, vprev=300, vna=333
+      Route [A-C - C-G - G-J - J-L]	[phi=0.111] fa=  0, vprev=150, vna=133
+   CALCULATING VNA for o/d [A|M]
+      Route [A-C - C-D - D-H - H-K - K-M]	[phi=0.111] fa=  0, vprev=50, vna=44
+      Route [A-D - D-G - G-K - K-M]	[phi=0.111] fa=  0, vprev=50, vna=44
+      Route [A-C - C-F - F-I - I-J - J-M]	[phi=0.111] fa=  0, vprev=50, vna=44
+      Route [A-D - D-H - H-K - K-M]	[phi=0.111] fa=400, vprev=150, vna=177
+      Route [A-C - C-G - G-J - J-M]	[phi=0.111] fa=  0, vprev=100, vna=88
+   CALCULATING VNA for o/d [B|L]
+      Route [B-D - D-G - G-J - J-I - I-L]	[phi=0.111] fa=  0, vprev=37, vna=33
+      Route [B-D - D-G - G-J - J-L]	[phi=0.111] fa=300, vprev=187, vna=200
+      Route [B-A - A-C - C-F - F-I - I-L]	[phi=0.111] fa=  0, vprev=37, vna=33
+      Route [B-E - E-H - H-K - K-J - J-L]	[phi=0.111] fa=  0, vprev=37, vna=33
+   CALCULATING VNA for o/d [B|M]
+      Route [B-E - E-H - H-K - K-M]	[phi=0.111] fa=  0, vprev=299, vna=266
+      Route [B-D - D-G - G-K - K-M]	[phi=0.111] fa=  0, vprev=50, vna=44
+      Route [B-D - D-H - H-K - K-M]	[phi=0.111] fa=400, vprev=50, vna=88
+-- [ ITER 10 ] ----------------------------
+   CALCULATING VNA for o/d [A|L]
+      Route [A-C - C-G - G-J - J-I - I-L]	[phi=0.100] fa=  0, vprev=66, vna=60
+      Route [A-D - D-G - G-J - J-L]	[phi=0.100] fa=  0, vprev=66, vna=60
+      Route [A-C - C-F - F-I - I-L]	[phi=0.100] fa=  0, vprev=333, vna=299
+      Route [A-C - C-G - G-J - J-L]	[phi=0.100] fa=600, vprev=133, vna=180
+   CALCULATING VNA for o/d [A|M]
+      Route [A-C - C-D - D-H - H-K - K-M]	[phi=0.100] fa=  0, vprev=44, vna=40
+      Route [A-D - D-G - G-K - K-M]	[phi=0.100] fa=  0, vprev=44, vna=40
+      Route [A-C - C-F - F-I - I-J - J-M]	[phi=0.100] fa=  0, vprev=44, vna=40
+      Route [A-D - D-H - H-K - K-M]	[phi=0.100] fa=  0, vprev=177, vna=160
+      Route [A-C - C-G - G-J - J-M]	[phi=0.100] fa=400, vprev=88, vna=120
+   CALCULATING VNA for o/d [B|L]
+      Route [B-D - D-G - G-J - J-I - I-L]	[phi=0.100] fa=  0, vprev=33, vna=30
+      Route [B-D - D-G - G-J - J-L]	[phi=0.100] fa=300, vprev=200, vna=210
+      Route [B-A - A-C - C-F - F-I - I-L]	[phi=0.100] fa=  0, vprev=33, vna=29
+      Route [B-E - E-H - H-K - K-J - J-L]	[phi=0.100] fa=  0, vprev=33, vna=29
+   CALCULATING VNA for o/d [B|M]
+      Route [B-E - E-H - H-K - K-M]	[phi=0.100] fa=400, vprev=266, vna=280
+      Route [B-D - D-G - G-K - K-M]	[phi=0.100] fa=  0, vprev=44, vna=40
+      Route [B-D - D-H - H-K - K-M]	[phi=0.100] fa=  0, vprev=88, vna=80
+-- [ ITER 11 ] ----------------------------
+   CALCULATING VNA for o/d [A|L]
+      Route [A-C - C-G - G-J - J-I - I-L]	[phi=0.091] fa=  0, vprev=60, vna=54
+      Route [A-D - D-G - G-J - J-L]	[phi=0.091] fa=  0, vprev=60, vna=54
+      Route [A-C - C-F - F-I - I-L]	[phi=0.091] fa=600, vprev=299, vna=327
+      Route [A-C - C-G - G-J - J-L]	[phi=0.091] fa=  0, vprev=180, vna=163
+   CALCULATING VNA for o/d [A|M]
+      Route [A-C - C-D - D-H - H-K - K-M]	[phi=0.091] fa=  0, vprev=40, vna=36
+      Route [A-D - D-G - G-K - K-M]	[phi=0.091] fa=400, vprev=40, vna=72
+      Route [A-C - C-F - F-I - I-J - J-M]	[phi=0.091] fa=  0, vprev=40, vna=36
+      Route [A-D - D-H - H-K - K-M]	[phi=0.091] fa=  0, vprev=160, vna=145
+      Route [A-C - C-G - G-J - J-M]	[phi=0.091] fa=  0, vprev=120, vna=109
+   CALCULATING VNA for o/d [B|L]
+      Route [B-D - D-G - G-J - J-I - I-L]	[phi=0.091] fa=300, vprev=30, vna=54
+      Route [B-D - D-G - G-J - J-L]	[phi=0.091] fa=  0, vprev=210, vna=190
+      Route [B-A - A-C - C-F - F-I - I-L]	[phi=0.091] fa=  0, vprev=29, vna=27
+      Route [B-E - E-H - H-K - K-J - J-L]	[phi=0.091] fa=  0, vprev=29, vna=27
+   CALCULATING VNA for o/d [B|M]
+      Route [B-E - E-H - H-K - K-M]	[phi=0.091] fa=400, vprev=280, vna=290
+      Route [B-D - D-G - G-K - K-M]	[phi=0.091] fa=  0, vprev=40, vna=36
+      Route [B-D - D-H - H-K - K-M]	[phi=0.091] fa=  0, vprev=80, vna=72
+-- [ ITER 12 ] ----------------------------
+   CALCULATING VNA for o/d [A|L]
+      Route [A-C - C-G - G-J - J-I - I-L]	[phi=0.083] fa=  0, vprev=54, vna=50
+      Route [A-D - D-G - G-J - J-L]	[phi=0.083] fa=  0, vprev=54, vna=50
+      Route [A-C - C-F - F-I - I-L]	[phi=0.083] fa=600, vprev=327, vna=349
+      Route [A-C - C-G - G-J - J-L]	[phi=0.083] fa=  0, vprev=163, vna=149
+   CALCULATING VNA for o/d [A|M]
+      Route [A-C - C-D - D-H - H-K - K-M]	[phi=0.083] fa=  0, vprev=36, vna=33
+      Route [A-D - D-G - G-K - K-M]	[phi=0.083] fa=  0, vprev=72, vna=66
+      Route [A-C - C-F - F-I - I-J - J-M]	[phi=0.083] fa=  0, vprev=36, vna=33
+      Route [A-D - D-H - H-K - K-M]	[phi=0.083] fa=400, vprev=145, vna=166
+      Route [A-C - C-G - G-J - J-M]	[phi=0.083] fa=  0, vprev=109, vna=100
+   CALCULATING VNA for o/d [B|L]
+      Route [B-D - D-G - G-J - J-I - I-L]	[phi=0.083] fa=  0, vprev=54, vna=50
+      Route [B-D - D-G - G-J - J-L]	[phi=0.083] fa=300, vprev=190, vna=200
+      Route [B-A - A-C - C-F - F-I - I-L]	[phi=0.083] fa=  0, vprev=27, vna=24
+      Route [B-E - E-H - H-K - K-J - J-L]	[phi=0.083] fa=  0, vprev=27, vna=24
+   CALCULATING VNA for o/d [B|M]
+      Route [B-E - E-H - H-K - K-M]	[phi=0.083] fa=400, vprev=290, vna=299
+      Route [B-D - D-G - G-K - K-M]	[phi=0.083] fa=  0, vprev=36, vna=33
+      Route [B-D - D-H - H-K - K-M]	[phi=0.083] fa=  0, vprev=72, vna=66
+-- [ ITER 13 ] ----------------------------
+   CALCULATING VNA for o/d [A|L]
+      Route [A-C - C-G - G-J - J-I - I-L]	[phi=0.077] fa=  0, vprev=50, vna=46
+      Route [A-D - D-G - G-J - J-L]	[phi=0.077] fa=  0, vprev=50, vna=46
+      Route [A-C - C-F - F-I - I-L]	[phi=0.077] fa=  0, vprev=349, vna=323
+      Route [A-C - C-G - G-J - J-L]	[phi=0.077] fa=600, vprev=149, vna=184
+   CALCULATING VNA for o/d [A|M]
+      Route [A-C - C-D - D-H - H-K - K-M]	[phi=0.077] fa=  0, vprev=33, vna=30
+      Route [A-D - D-G - G-K - K-M]	[phi=0.077] fa=  0, vprev=66, vna=61
+      Route [A-C - C-F - F-I - I-J - J-M]	[phi=0.077] fa=  0, vprev=33, vna=30
+      Route [A-D - D-H - H-K - K-M]	[phi=0.077] fa=  0, vprev=166, vna=153
+      Route [A-C - C-G - G-J - J-M]	[phi=0.077] fa=400, vprev=100, vna=123
+   CALCULATING VNA for o/d [B|L]
+      Route [B-D - D-G - G-J - J-I - I-L]	[phi=0.077] fa=  0, vprev=50, vna=46
+      Route [B-D - D-G - G-J - J-L]	[phi=0.077] fa=300, vprev=200, vna=207
+      Route [B-A - A-C - C-F - F-I - I-L]	[phi=0.077] fa=  0, vprev=24, vna=23
+      Route [B-E - E-H - H-K - K-J - J-L]	[phi=0.077] fa=  0, vprev=24, vna=23
+   CALCULATING VNA for o/d [B|M]
+      Route [B-E - E-H - H-K - K-M]	[phi=0.077] fa=400, vprev=299, vna=307
+      Route [B-D - D-G - G-K - K-M]	[phi=0.077] fa=  0, vprev=33, vna=30
+      Route [B-D - D-H - H-K - K-M]	[phi=0.077] fa=  0, vprev=66, vna=61
+-- [ ITER 14 ] ----------------------------
+   CALCULATING VNA for o/d [A|L]
+      Route [A-C - C-G - G-J - J-I - I-L]	[phi=0.071] fa=  0, vprev=46, vna=42
+      Route [A-D - D-G - G-J - J-L]	[phi=0.071] fa=  0, vprev=46, vna=42
+      Route [A-C - C-F - F-I - I-L]	[phi=0.071] fa=600, vprev=323, vna=342
+      Route [A-C - C-G - G-J - J-L]	[phi=0.071] fa=  0, vprev=184, vna=171
+   CALCULATING VNA for o/d [A|M]
+      Route [A-C - C-D - D-H - H-K - K-M]	[phi=0.071] fa=  0, vprev=30, vna=28
+      Route [A-D - D-G - G-K - K-M]	[phi=0.071] fa=  0, vprev=61, vna=57
+      Route [A-C - C-F - F-I - I-J - J-M]	[phi=0.071] fa=  0, vprev=30, vna=28
+      Route [A-D - D-H - H-K - K-M]	[phi=0.071] fa=400, vprev=153, vna=171
+      Route [A-C - C-G - G-J - J-M]	[phi=0.071] fa=  0, vprev=123, vna=114
+   CALCULATING VNA for o/d [B|L]
+      Route [B-D - D-G - G-J - J-I - I-L]	[phi=0.071] fa=  0, vprev=46, vna=42
+      Route [B-D - D-G - G-J - J-L]	[phi=0.071] fa=300, vprev=207, vna=214
+      Route [B-A - A-C - C-F - F-I - I-L]	[phi=0.071] fa=  0, vprev=23, vna=21
+      Route [B-E - E-H - H-K - K-J - J-L]	[phi=0.071] fa=  0, vprev=23, vna=21
+   CALCULATING VNA for o/d [B|M]
+      Route [B-E - E-H - H-K - K-M]	[phi=0.071] fa=400, vprev=307, vna=314
+      Route [B-D - D-G - G-K - K-M]	[phi=0.071] fa=  0, vprev=30, vna=28
+      Route [B-D - D-H - H-K - K-M]	[phi=0.071] fa=  0, vprev=61, vna=57
+-- [ ITER 15 ] ----------------------------
+   CALCULATING VNA for o/d [A|L]
+      Route [A-C - C-G - G-J - J-I - I-L]	[phi=0.067] fa=  0, vprev=42, vna=40
+      Route [A-D - D-G - G-J - J-L]	[phi=0.067] fa=  0, vprev=42, vna=40
+      Route [A-C - C-F - F-I - I-L]	[phi=0.067] fa=600, vprev=342, vna=360
+      Route [A-C - C-G - G-J - J-L]	[phi=0.067] fa=  0, vprev=171, vna=160
+   CALCULATING VNA for o/d [A|M]
+      Route [A-C - C-D - D-H - H-K - K-M]	[phi=0.067] fa=  0, vprev=28, vna=26
+      Route [A-D - D-G - G-K - K-M]	[phi=0.067] fa=  0, vprev=57, vna=53
+      Route [A-C - C-F - F-I - I-J - J-M]	[phi=0.067] fa=  0, vprev=28, vna=26
+      Route [A-D - D-H - H-K - K-M]	[phi=0.067] fa=400, vprev=171, vna=186
+      Route [A-C - C-G - G-J - J-M]	[phi=0.067] fa=  0, vprev=114, vna=106
+   CALCULATING VNA for o/d [B|L]
+      Route [B-D - D-G - G-J - J-I - I-L]	[phi=0.067] fa=  0, vprev=42, vna=40
+      Route [B-D - D-G - G-J - J-L]	[phi=0.067] fa=300, vprev=214, vna=220
+      Route [B-A - A-C - C-F - F-I - I-L]	[phi=0.067] fa=  0, vprev=21, vna=20
+      Route [B-E - E-H - H-K - K-J - J-L]	[phi=0.067] fa=  0, vprev=21, vna=20
+   CALCULATING VNA for o/d [B|M]
+      Route [B-E - E-H - H-K - K-M]	[phi=0.067] fa=400, vprev=314, vna=320
+      Route [B-D - D-G - G-K - K-M]	[phi=0.067] fa=  0, vprev=28, vna=26
+      Route [B-D - D-H - H-K - K-M]	[phi=0.067] fa=  0, vprev=57, vna=53
+-- [ ITER 16 ] ----------------------------
+   CALCULATING VNA for o/d [A|L]
+      Route [A-C - C-G - G-J - J-I - I-L]	[phi=0.062] fa=  0, vprev=40, vna=37
+      Route [A-D - D-G - G-J - J-L]	[phi=0.062] fa=  0, vprev=40, vna=37
+      Route [A-C - C-F - F-I - I-L]	[phi=0.062] fa=  0, vprev=360, vna=337
+      Route [A-C - C-G - G-J - J-L]	[phi=0.062] fa=600, vprev=160, vna=187
+   CALCULATING VNA for o/d [A|M]
+      Route [A-C - C-D - D-H - H-K - K-M]	[phi=0.062] fa=  0, vprev=26, vna=25
+      Route [A-D - D-G - G-K - K-M]	[phi=0.062] fa=  0, vprev=53, vna=50
+      Route [A-C - C-F - F-I - I-J - J-M]	[phi=0.062] fa=  0, vprev=26, vna=25
+      Route [A-D - D-H - H-K - K-M]	[phi=0.062] fa=  0, vprev=186, vna=174
+      Route [A-C - C-G - G-J - J-M]	[phi=0.062] fa=400, vprev=106, vna=125
+   CALCULATING VNA for o/d [B|L]
+      Route [B-D - D-G - G-J - J-I - I-L]	[phi=0.062] fa=  0, vprev=40, vna=37
+      Route [B-D - D-G - G-J - J-L]	[phi=0.062] fa=300, vprev=220, vna=225
+      Route [B-A - A-C - C-F - F-I - I-L]	[phi=0.062] fa=  0, vprev=20, vna=18
+      Route [B-E - E-H - H-K - K-J - J-L]	[phi=0.062] fa=  0, vprev=20, vna=18
+   CALCULATING VNA for o/d [B|M]
+      Route [B-E - E-H - H-K - K-M]	[phi=0.062] fa=400, vprev=320, vna=325
+      Route [B-D - D-G - G-K - K-M]	[phi=0.062] fa=  0, vprev=26, vna=25
+      Route [B-D - D-H - H-K - K-M]	[phi=0.062] fa=  0, vprev=53, vna=49
+-- [ ITER 17 ] ----------------------------
+   CALCULATING VNA for o/d [A|L]
+      Route [A-C - C-G - G-J - J-I - I-L]	[phi=0.059] fa=  0, vprev=37, vna=35
+      Route [A-D - D-G - G-J - J-L]	[phi=0.059] fa=  0, vprev=37, vna=35
+      Route [A-C - C-F - F-I - I-L]	[phi=0.059] fa=600, vprev=337, vna=352
+      Route [A-C - C-G - G-J - J-L]	[phi=0.059] fa=  0, vprev=187, vna=176
+   CALCULATING VNA for o/d [A|M]
+      Route [A-C - C-D - D-H - H-K - K-M]	[phi=0.059] fa=  0, vprev=25, vna=23
+      Route [A-D - D-G - G-K - K-M]	[phi=0.059] fa=  0, vprev=50, vna=47
+      Route [A-C - C-F - F-I - I-J - J-M]	[phi=0.059] fa=  0, vprev=25, vna=23
+      Route [A-D - D-H - H-K - K-M]	[phi=0.059] fa=400, vprev=174, vna=188
+      Route [A-C - C-G - G-J - J-M]	[phi=0.059] fa=  0, vprev=125, vna=117
+   CALCULATING VNA for o/d [B|L]
+      Route [B-D - D-G - G-J - J-I - I-L]	[phi=0.059] fa=300, vprev=37, vna=52
+      Route [B-D - D-G - G-J - J-L]	[phi=0.059] fa=  0, vprev=225, vna=211
+      Route [B-A - A-C - C-F - F-I - I-L]	[phi=0.059] fa=  0, vprev=18, vna=17
+      Route [B-E - E-H - H-K - K-J - J-L]	[phi=0.059] fa=  0, vprev=18, vna=17
+   CALCULATING VNA for o/d [B|M]
+      Route [B-E - E-H - H-K - K-M]	[phi=0.059] fa=  0, vprev=325, vna=305
+      Route [B-D - D-G - G-K - K-M]	[phi=0.059] fa=  0, vprev=25, vna=23
+      Route [B-D - D-H - H-K - K-M]	[phi=0.059] fa=400, vprev=49, vna=70
+-- [ ITER 18 ] ----------------------------
+   CALCULATING VNA for o/d [A|L]
+      Route [A-C - C-G - G-J - J-I - I-L]	[phi=0.056] fa=  0, vprev=35, vna=33
+      Route [A-D - D-G - G-J - J-L]	[phi=0.056] fa=  0, vprev=35, vna=33
+      Route [A-C - C-F - F-I - I-L]	[phi=0.056] fa=600, vprev=352, vna=366
+      Route [A-C - C-G - G-J - J-L]	[phi=0.056] fa=  0, vprev=176, vna=166
+   CALCULATING VNA for o/d [A|M]
+      Route [A-C - C-D - D-H - H-K - K-M]	[phi=0.056] fa=  0, vprev=23, vna=22
+      Route [A-D - D-G - G-K - K-M]	[phi=0.056] fa=400, vprev=47, vna=66
+      Route [A-C - C-F - F-I - I-J - J-M]	[phi=0.056] fa=  0, vprev=23, vna=22
+      Route [A-D - D-H - H-K - K-M]	[phi=0.056] fa=  0, vprev=188, vna=177
+      Route [A-C - C-G - G-J - J-M]	[phi=0.056] fa=  0, vprev=117, vna=111
+   CALCULATING VNA for o/d [B|L]
+      Route [B-D - D-G - G-J - J-I - I-L]	[phi=0.056] fa=  0, vprev=52, vna=50
+      Route [B-D - D-G - G-J - J-L]	[phi=0.056] fa=300, vprev=211, vna=216
+      Route [B-A - A-C - C-F - F-I - I-L]	[phi=0.056] fa=  0, vprev=17, vna=16
+      Route [B-E - E-H - H-K - K-J - J-L]	[phi=0.056] fa=  0, vprev=17, vna=16
+   CALCULATING VNA for o/d [B|M]
+      Route [B-E - E-H - H-K - K-M]	[phi=0.056] fa=400, vprev=305, vna=311
+      Route [B-D - D-G - G-K - K-M]	[phi=0.056] fa=  0, vprev=23, vna=22
+      Route [B-D - D-H - H-K - K-M]	[phi=0.056] fa=  0, vprev=70, vna=66
+-- [ ITER 19 ] ----------------------------
+   CALCULATING VNA for o/d [A|L]
+      Route [A-C - C-G - G-J - J-I - I-L]	[phi=0.053] fa=  0, vprev=33, vna=31
+      Route [A-D - D-G - G-J - J-L]	[phi=0.053] fa=  0, vprev=33, vna=31
+      Route [A-C - C-F - F-I - I-L]	[phi=0.053] fa=  0, vprev=366, vna=347
+      Route [A-C - C-G - G-J - J-L]	[phi=0.053] fa=600, vprev=166, vna=189
+   CALCULATING VNA for o/d [A|M]
+      Route [A-C - C-D - D-H - H-K - K-M]	[phi=0.053] fa=  0, vprev=22, vna=21
+      Route [A-D - D-G - G-K - K-M]	[phi=0.053] fa=  0, vprev=66, vna=63
+      Route [A-C - C-F - F-I - I-J - J-M]	[phi=0.053] fa=  0, vprev=22, vna=21
+      Route [A-D - D-H - H-K - K-M]	[phi=0.053] fa=  0, vprev=177, vna=168
+      Route [A-C - C-G - G-J - J-M]	[phi=0.053] fa=400, vprev=111, vna=126
+   CALCULATING VNA for o/d [B|L]
+      Route [B-D - D-G - G-J - J-I - I-L]	[phi=0.053] fa=  0, vprev=50, vna=47
+      Route [B-D - D-G - G-J - J-L]	[phi=0.053] fa=300, vprev=216, vna=221
+      Route [B-A - A-C - C-F - F-I - I-L]	[phi=0.053] fa=  0, vprev=16, vna=15
+      Route [B-E - E-H - H-K - K-J - J-L]	[phi=0.053] fa=  0, vprev=16, vna=15
+   CALCULATING VNA for o/d [B|M]
+      Route [B-E - E-H - H-K - K-M]	[phi=0.053] fa=400, vprev=311, vna=315
+      Route [B-D - D-G - G-K - K-M]	[phi=0.053] fa=  0, vprev=22, vna=21
+      Route [B-D - D-H - H-K - K-M]	[phi=0.053] fa=  0, vprev=66, vna=63
+-- [ ITER 20 ] ----------------------------
+   CALCULATING VNA for o/d [A|L]
+      Route [A-C - C-G - G-J - J-I - I-L]	[phi=0.050] fa=  0, vprev=31, vna=30
+      Route [A-D - D-G - G-J - J-L]	[phi=0.050] fa=  0, vprev=31, vna=30
+      Route [A-C - C-F - F-I - I-L]	[phi=0.050] fa=600, vprev=347, vna=359
+      Route [A-C - C-G - G-J - J-L]	[phi=0.050] fa=  0, vprev=189, vna=180
+   CALCULATING VNA for o/d [A|M]
+      Route [A-C - C-D - D-H - H-K - K-M]	[phi=0.050] fa=  0, vprev=21, vna=20
+      Route [A-D - D-G - G-K - K-M]	[phi=0.050] fa=  0, vprev=63, vna=60
+      Route [A-C - C-F - F-I - I-J - J-M]	[phi=0.050] fa=  0, vprev=21, vna=20
+      Route [A-D - D-H - H-K - K-M]	[phi=0.050] fa=400, vprev=168, vna=180
+      Route [A-C - C-G - G-J - J-M]	[phi=0.050] fa=  0, vprev=126, vna=119
+   CALCULATING VNA for o/d [B|L]
+      Route [B-D - D-G - G-J - J-I - I-L]	[phi=0.050] fa=  0, vprev=47, vna=45
+      Route [B-D - D-G - G-J - J-L]	[phi=0.050] fa=300, vprev=221, vna=224
+      Route [B-A - A-C - C-F - F-I - I-L]	[phi=0.050] fa=  0, vprev=15, vna=15
+      Route [B-E - E-H - H-K - K-J - J-L]	[phi=0.050] fa=  0, vprev=15, vna=15
+   CALCULATING VNA for o/d [B|M]
+      Route [B-E - E-H - H-K - K-M]	[phi=0.050] fa=400, vprev=315, vna=320
+      Route [B-D - D-G - G-K - K-M]	[phi=0.050] fa=  0, vprev=21, vna=20
+      Route [B-D - D-H - H-K - K-M]	[phi=0.050] fa=  0, vprev=63, vna=59
+-- [ ITER 21 ] ----------------------------
+   CALCULATING VNA for o/d [A|L]
+      Route [A-C - C-G - G-J - J-I - I-L]	[phi=0.048] fa=  0, vprev=30, vna=28
+      Route [A-D - D-G - G-J - J-L]	[phi=0.048] fa=  0, vprev=30, vna=28
+      Route [A-C - C-F - F-I - I-L]	[phi=0.048] fa=600, vprev=359, vna=371
+      Route [A-C - C-G - G-J - J-L]	[phi=0.048] fa=  0, vprev=180, vna=171
+   CALCULATING VNA for o/d [A|M]
+      Route [A-C - C-D - D-H - H-K - K-M]	[phi=0.048] fa=  0, vprev=20, vna=19
+      Route [A-D - D-G - G-K - K-M]	[phi=0.048] fa=  0, vprev=60, vna=57
+      Route [A-C - C-F - F-I - I-J - J-M]	[phi=0.048] fa=  0, vprev=20, vna=19
+      Route [A-D - D-H - H-K - K-M]	[phi=0.048] fa=400, vprev=180, vna=190
+      Route [A-C - C-G - G-J - J-M]	[phi=0.048] fa=  0, vprev=119, vna=114
+   CALCULATING VNA for o/d [B|L]
+      Route [B-D - D-G - G-J - J-I - I-L]	[phi=0.048] fa=  0, vprev=45, vna=42
+      Route [B-D - D-G - G-J - J-L]	[phi=0.048] fa=300, vprev=224, vna=228
+      Route [B-A - A-C - C-F - F-I - I-L]	[phi=0.048] fa=  0, vprev=15, vna=14
+      Route [B-E - E-H - H-K - K-J - J-L]	[phi=0.048] fa=  0, vprev=15, vna=14
+   CALCULATING VNA for o/d [B|M]
+      Route [B-E - E-H - H-K - K-M]	[phi=0.048] fa=400, vprev=320, vna=323
+      Route [B-D - D-G - G-K - K-M]	[phi=0.048] fa=  0, vprev=20, vna=19
+      Route [B-D - D-H - H-K - K-M]	[phi=0.048] fa=  0, vprev=59, vna=57
+-- [ ITER 22 ] ----------------------------
+   min[A|M] : Added route [[A-C, C-G, G-K, K-M]]
+   CALCULATING VNA for o/d [A|L]
+      Route [A-C - C-G - G-J - J-I - I-L]	[phi=0.045] fa=  0, vprev=28, vna=27
+      Route [A-D - D-G - G-J - J-L]	[phi=0.045] fa=  0, vprev=28, vna=27
+      Route [A-C - C-F - F-I - I-L]	[phi=0.045] fa=600, vprev=371, vna=381
+      Route [A-C - C-G - G-J - J-L]	[phi=0.045] fa=  0, vprev=171, vna=163
+   CALCULATING VNA for o/d [A|M]
+      Route [A-C - C-D - D-H - H-K - K-M]	[phi=0.045] fa=  0, vprev=19, vna=18
+      Route [A-D - D-G - G-K - K-M]	[phi=0.045] fa=  0, vprev=57, vna=54
+      Route [A-C - C-F - F-I - I-J - J-M]	[phi=0.045] fa=  0, vprev=19, vna=18
+      Route [A-D - D-H - H-K - K-M]	[phi=0.045] fa=  0, vprev=190, vna=181
+      Route [A-C - C-G - G-J - J-M]	[phi=0.045] fa=  0, vprev=114, vna=109
+      Route [A-C - C-G - G-K - K-M]	[phi=0.045] fa=400, vprev=0, vna=18
+   CALCULATING VNA for o/d [B|L]
+      Route [B-D - D-G - G-J - J-I - I-L]	[phi=0.045] fa=  0, vprev=42, vna=40
+      Route [B-D - D-G - G-J - J-L]	[phi=0.045] fa=300, vprev=228, vna=231
+      Route [B-A - A-C - C-F - F-I - I-L]	[phi=0.045] fa=  0, vprev=14, vna=13
+      Route [B-E - E-H - H-K - K-J - J-L]	[phi=0.045] fa=  0, vprev=14, vna=13
+   CALCULATING VNA for o/d [B|M]
+      Route [B-E - E-H - H-K - K-M]	[phi=0.045] fa=400, vprev=323, vna=327
+      Route [B-D - D-G - G-K - K-M]	[phi=0.045] fa=  0, vprev=19, vna=18
+      Route [B-D - D-H - H-K - K-M]	[phi=0.045] fa=  0, vprev=57, vna=54
+-- [ ITER 23 ] ----------------------------
+   min[A|M] : Added route [[A-D, D-G, G-J, J-M]]
+   min[B|M] : Added route [[B-D, D-G, G-J, J-M]]
+   CALCULATING VNA for o/d [A|L]
+      Route [A-C - C-G - G-J - J-I - I-L]	[phi=0.043] fa=  0, vprev=27, vna=26
+      Route [A-D - D-G - G-J - J-L]	[phi=0.043] fa=600, vprev=27, vna=52
+      Route [A-C - C-F - F-I - I-L]	[phi=0.043] fa=  0, vprev=381, vna=365
+      Route [A-C - C-G - G-J - J-L]	[phi=0.043] fa=  0, vprev=163, vna=156
+   CALCULATING VNA for o/d [A|M]
+      Route [A-C - C-D - D-H - H-K - K-M]	[phi=0.043] fa=  0, vprev=18, vna=17
+      Route [A-D - D-G - G-K - K-M]	[phi=0.043] fa=  0, vprev=54, vna=52
+      Route [A-C - C-F - F-I - I-J - J-M]	[phi=0.043] fa=  0, vprev=18, vna=17
+      Route [A-D - D-H - H-K - K-M]	[phi=0.043] fa=  0, vprev=181, vna=173
+      Route [A-C - C-G - G-J - J-M]	[phi=0.043] fa=  0, vprev=109, vna=104
+      Route [A-C - C-G - G-K - K-M]	[phi=0.043] fa=  0, vprev=18, vna=17
+      Route [A-D - D-G - G-J - J-M]	[phi=0.043] fa=400, vprev=0, vna=17
+   CALCULATING VNA for o/d [B|L]
+      Route [B-D - D-G - G-J - J-I - I-L]	[phi=0.043] fa=  0, vprev=40, vna=39
+      Route [B-D - D-G - G-J - J-L]	[phi=0.043] fa=300, vprev=231, vna=234
+      Route [B-A - A-C - C-F - F-I - I-L]	[phi=0.043] fa=  0, vprev=13, vna=13
+      Route [B-E - E-H - H-K - K-J - J-L]	[phi=0.043] fa=  0, vprev=13, vna=13
+   CALCULATING VNA for o/d [B|M]
+      Route [B-E - E-H - H-K - K-M]	[phi=0.043] fa=  0, vprev=327, vna=313
+      Route [B-D - D-G - G-K - K-M]	[phi=0.043] fa=  0, vprev=18, vna=17
+      Route [B-D - D-H - H-K - K-M]	[phi=0.043] fa=  0, vprev=54, vna=52
+      Route [B-D - D-G - G-J - J-M]	[phi=0.043] fa=400, vprev=0, vna=17
+-- [ ITER 24 ] ----------------------------
+   CALCULATING VNA for o/d [A|L]
+      Route [A-C - C-G - G-J - J-I - I-L]	[phi=0.042] fa=  0, vprev=26, vna=25
+      Route [A-D - D-G - G-J - J-L]	[phi=0.042] fa=  0, vprev=52, vna=50
+      Route [A-C - C-F - F-I - I-L]	[phi=0.042] fa=600, vprev=365, vna=374
+      Route [A-C - C-G - G-J - J-L]	[phi=0.042] fa=  0, vprev=156, vna=150
+   CALCULATING VNA for o/d [A|M]
+      Route [A-C - C-D - D-H - H-K - K-M]	[phi=0.042] fa=  0, vprev=17, vna=16
+      Route [A-D - D-G - G-K - K-M]	[phi=0.042] fa=  0, vprev=52, vna=50
+      Route [A-C - C-F - F-I - I-J - J-M]	[phi=0.042] fa=  0, vprev=17, vna=16
+      Route [A-D - D-H - H-K - K-M]	[phi=0.042] fa=400, vprev=173, vna=183
+      Route [A-C - C-G - G-J - J-M]	[phi=0.042] fa=  0, vprev=104, vna=100
+      Route [A-C - C-G - G-K - K-M]	[phi=0.042] fa=  0, vprev=17, vna=16
+      Route [A-D - D-G - G-J - J-M]	[phi=0.042] fa=  0, vprev=17, vna=16
+   CALCULATING VNA for o/d [B|L]
+      Route [B-D - D-G - G-J - J-I - I-L]	[phi=0.042] fa=  0, vprev=39, vna=37
+      Route [B-D - D-G - G-J - J-L]	[phi=0.042] fa=300, vprev=234, vna=237
+      Route [B-A - A-C - C-F - F-I - I-L]	[phi=0.042] fa=  0, vprev=13, vna=12
+      Route [B-E - E-H - H-K - K-J - J-L]	[phi=0.042] fa=  0, vprev=13, vna=12
+   CALCULATING VNA for o/d [B|M]
+      Route [B-E - E-H - H-K - K-M]	[phi=0.042] fa=400, vprev=313, vna=316
+      Route [B-D - D-G - G-K - K-M]	[phi=0.042] fa=  0, vprev=17, vna=16
+      Route [B-D - D-H - H-K - K-M]	[phi=0.042] fa=  0, vprev=52, vna=50
+      Route [B-D - D-G - G-J - J-M]	[phi=0.042] fa=  0, vprev=17, vna=16
+-- [ ITER 25 ] ----------------------------
+   CALCULATING VNA for o/d [A|L]
+      Route [A-C - C-G - G-J - J-I - I-L]	[phi=0.040] fa=  0, vprev=25, vna=24
+      Route [A-D - D-G - G-J - J-L]	[phi=0.040] fa=  0, vprev=50, vna=48
+      Route [A-C - C-F - F-I - I-L]	[phi=0.040] fa=600, vprev=374, vna=383
+      Route [A-C - C-G - G-J - J-L]	[phi=0.040] fa=  0, vprev=150, vna=144
+   CALCULATING VNA for o/d [A|M]
+      Route [A-C - C-D - D-H - H-K - K-M]	[phi=0.040] fa=  0, vprev=16, vna=16
+      Route [A-D - D-G - G-K - K-M]	[phi=0.040] fa=  0, vprev=50, vna=48
+      Route [A-C - C-F - F-I - I-J - J-M]	[phi=0.040] fa=  0, vprev=16, vna=16
+      Route [A-D - D-H - H-K - K-M]	[phi=0.040] fa=  0, vprev=183, vna=176
+      Route [A-C - C-G - G-J - J-M]	[phi=0.040] fa=  0, vprev=100, vna=96
+      Route [A-C - C-G - G-K - K-M]	[phi=0.040] fa=400, vprev=16, vna=32
+      Route [A-D - D-G - G-J - J-M]	[phi=0.040] fa=  0, vprev=16, vna=16
+   CALCULATING VNA for o/d [B|L]
+      Route [B-D - D-G - G-J - J-I - I-L]	[phi=0.040] fa=  0, vprev=37, vna=36
+      Route [B-D - D-G - G-J - J-L]	[phi=0.040] fa=300, vprev=237, vna=240
+      Route [B-A - A-C - C-F - F-I - I-L]	[phi=0.040] fa=  0, vprev=12, vna=12
+      Route [B-E - E-H - H-K - K-J - J-L]	[phi=0.040] fa=  0, vprev=12, vna=12
+   CALCULATING VNA for o/d [B|M]
+      Route [B-E - E-H - H-K - K-M]	[phi=0.040] fa=400, vprev=316, vna=320
+      Route [B-D - D-G - G-K - K-M]	[phi=0.040] fa=  0, vprev=16, vna=16
+      Route [B-D - D-H - H-K - K-M]	[phi=0.040] fa=  0, vprev=50, vna=48
+      Route [B-D - D-G - G-J - J-M]	[phi=0.040] fa=  0, vprev=16, vna=16
+-- [ ITER 26 ] ----------------------------
+   CALCULATING VNA for o/d [A|L]
+      Route [A-C - C-G - G-J - J-I - I-L]	[phi=0.038] fa=  0, vprev=24, vna=23
+      Route [A-D - D-G - G-J - J-L]	[phi=0.038] fa=  0, vprev=48, vna=46
+      Route [A-C - C-F - F-I - I-L]	[phi=0.038] fa=  0, vprev=383, vna=369
+      Route [A-C - C-G - G-J - J-L]	[phi=0.038] fa=600, vprev=144, vna=161
+   CALCULATING VNA for o/d [A|M]
+      Route [A-C - C-D - D-H - H-K - K-M]	[phi=0.038] fa=  0, vprev=16, vna=15
+      Route [A-D - D-G - G-K - K-M]	[phi=0.038] fa=  0, vprev=48, vna=46
+      Route [A-C - C-F - F-I - I-J - J-M]	[phi=0.038] fa=  0, vprev=16, vna=15
+      Route [A-D - D-H - H-K - K-M]	[phi=0.038] fa=400, vprev=176, vna=184
+      Route [A-C - C-G - G-J - J-M]	[phi=0.038] fa=  0, vprev=96, vna=92
+      Route [A-C - C-G - G-K - K-M]	[phi=0.038] fa=  0, vprev=32, vna=30
+      Route [A-D - D-G - G-J - J-M]	[phi=0.038] fa=  0, vprev=16, vna=15
+   CALCULATING VNA for o/d [B|L]
+      Route [B-D - D-G - G-J - J-I - I-L]	[phi=0.038] fa=  0, vprev=36, vna=34
+      Route [B-D - D-G - G-J - J-L]	[phi=0.038] fa=300, vprev=240, vna=242
+      Route [B-A - A-C - C-F - F-I - I-L]	[phi=0.038] fa=  0, vprev=12, vna=11
+      Route [B-E - E-H - H-K - K-J - J-L]	[phi=0.038] fa=  0, vprev=12, vna=11
+   CALCULATING VNA for o/d [B|M]
+      Route [B-E - E-H - H-K - K-M]	[phi=0.038] fa=400, vprev=320, vna=323
+      Route [B-D - D-G - G-K - K-M]	[phi=0.038] fa=  0, vprev=16, vna=15
+      Route [B-D - D-H - H-K - K-M]	[phi=0.038] fa=  0, vprev=48, vna=46
+      Route [B-D - D-G - G-J - J-M]	[phi=0.038] fa=  0, vprev=16, vna=15
+-- [ ITER 27 ] ----------------------------
+   CALCULATING VNA for o/d [A|L]
+      Route [A-C - C-G - G-J - J-I - I-L]	[phi=0.037] fa=  0, vprev=23, vna=22
+      Route [A-D - D-G - G-J - J-L]	[phi=0.037] fa=  0, vprev=46, vna=44
+      Route [A-C - C-F - F-I - I-L]	[phi=0.037] fa=600, vprev=369, vna=377
+      Route [A-C - C-G - G-J - J-L]	[phi=0.037] fa=  0, vprev=161, vna=155
+   CALCULATING VNA for o/d [A|M]
+      Route [A-C - C-D - D-H - H-K - K-M]	[phi=0.037] fa=  0, vprev=15, vna=14
+      Route [A-D - D-G - G-K - K-M]	[phi=0.037] fa=  0, vprev=46, vna=44
+      Route [A-C - C-F - F-I - I-J - J-M]	[phi=0.037] fa=  0, vprev=15, vna=14
+      Route [A-D - D-H - H-K - K-M]	[phi=0.037] fa=  0, vprev=184, vna=177
+      Route [A-C - C-G - G-J - J-M]	[phi=0.037] fa=  0, vprev=92, vna=88
+      Route [A-C - C-G - G-K - K-M]	[phi=0.037] fa=400, vprev=30, vna=44
+      Route [A-D - D-G - G-J - J-M]	[phi=0.037] fa=  0, vprev=15, vna=14
+   CALCULATING VNA for o/d [B|L]
+      Route [B-D - D-G - G-J - J-I - I-L]	[phi=0.037] fa=300, vprev=34, vna=44
+      Route [B-D - D-G - G-J - J-L]	[phi=0.037] fa=  0, vprev=242, vna=233
+      Route [B-A - A-C - C-F - F-I - I-L]	[phi=0.037] fa=  0, vprev=11, vna=11
+      Route [B-E - E-H - H-K - K-J - J-L]	[phi=0.037] fa=  0, vprev=11, vna=11
+   CALCULATING VNA for o/d [B|M]
+      Route [B-E - E-H - H-K - K-M]	[phi=0.037] fa=400, vprev=323, vna=325
+      Route [B-D - D-G - G-K - K-M]	[phi=0.037] fa=  0, vprev=15, vna=14
+      Route [B-D - D-H - H-K - K-M]	[phi=0.037] fa=  0, vprev=46, vna=44
+      Route [B-D - D-G - G-J - J-M]	[phi=0.037] fa=  0, vprev=15, vna=14
+-- [ ITER 28 ] ----------------------------
+   CALCULATING VNA for o/d [A|L]
+      Route [A-C - C-G - G-J - J-I - I-L]	[phi=0.036] fa=  0, vprev=22, vna=21
+      Route [A-D - D-G - G-J - J-L]	[phi=0.036] fa=  0, vprev=44, vna=42
+      Route [A-C - C-F - F-I - I-L]	[phi=0.036] fa=600, vprev=377, vna=385
+      Route [A-C - C-G - G-J - J-L]	[phi=0.036] fa=  0, vprev=155, vna=150
+   CALCULATING VNA for o/d [A|M]
+      Route [A-C - C-D - D-H - H-K - K-M]	[phi=0.036] fa=  0, vprev=14, vna=14
+      Route [A-D - D-G - G-K - K-M]	[phi=0.036] fa=  0, vprev=44, vna=42
+      Route [A-C - C-F - F-I - I-J - J-M]	[phi=0.036] fa=  0, vprev=14, vna=14
+      Route [A-D - D-H - H-K - K-M]	[phi=0.036] fa=400, vprev=177, vna=185
+      Route [A-C - C-G - G-J - J-M]	[phi=0.036] fa=  0, vprev=88, vna=85
+      Route [A-C - C-G - G-K - K-M]	[phi=0.036] fa=  0, vprev=44, vna=42
+      Route [A-D - D-G - G-J - J-M]	[phi=0.036] fa=  0, vprev=14, vna=14
+   CALCULATING VNA for o/d [B|L]
+      Route [B-D - D-G - G-J - J-I - I-L]	[phi=0.036] fa=  0, vprev=44, vna=42
+      Route [B-D - D-G - G-J - J-L]	[phi=0.036] fa=300, vprev=233, vna=235
+      Route [B-A - A-C - C-F - F-I - I-L]	[phi=0.036] fa=  0, vprev=11, vna=10
+      Route [B-E - E-H - H-K - K-J - J-L]	[phi=0.036] fa=  0, vprev=11, vna=10
+   CALCULATING VNA for o/d [B|M]
+      Route [B-E - E-H - H-K - K-M]	[phi=0.036] fa=400, vprev=325, vna=328
+      Route [B-D - D-G - G-K - K-M]	[phi=0.036] fa=  0, vprev=14, vna=14
+      Route [B-D - D-H - H-K - K-M]	[phi=0.036] fa=  0, vprev=44, vna=42
+      Route [B-D - D-G - G-J - J-M]	[phi=0.036] fa=  0, vprev=14, vna=14
+-- [ ITER 29 ] ----------------------------
+   CALCULATING VNA for o/d [A|L]
+      Route [A-C - C-G - G-J - J-I - I-L]	[phi=0.034] fa=  0, vprev=21, vna=20
+      Route [A-D - D-G - G-J - J-L]	[phi=0.034] fa=  0, vprev=42, vna=41
+      Route [A-C - C-F - F-I - I-L]	[phi=0.034] fa=  0, vprev=385, vna=372
+      Route [A-C - C-G - G-J - J-L]	[phi=0.034] fa=600, vprev=150, vna=165
+   CALCULATING VNA for o/d [A|M]
+      Route [A-C - C-D - D-H - H-K - K-M]	[phi=0.034] fa=  0, vprev=14, vna=13
+      Route [A-D - D-G - G-K - K-M]	[phi=0.034] fa=  0, vprev=42, vna=41
+      Route [A-C - C-F - F-I - I-J - J-M]	[phi=0.034] fa=  0, vprev=14, vna=13
+      Route [A-D - D-H - H-K - K-M]	[phi=0.034] fa=  0, vprev=185, vna=179
+      Route [A-C - C-G - G-J - J-M]	[phi=0.034] fa=400, vprev=85, vna=96
+      Route [A-C - C-G - G-K - K-M]	[phi=0.034] fa=  0, vprev=42, vna=41
+      Route [A-D - D-G - G-J - J-M]	[phi=0.034] fa=  0, vprev=14, vna=13
+   CALCULATING VNA for o/d [B|L]
+      Route [B-D - D-G - G-J - J-I - I-L]	[phi=0.034] fa=  0, vprev=42, vna=41
+      Route [B-D - D-G - G-J - J-L]	[phi=0.034] fa=300, vprev=235, vna=237
+      Route [B-A - A-C - C-F - F-I - I-L]	[phi=0.034] fa=  0, vprev=10, vna=10
+      Route [B-E - E-H - H-K - K-J - J-L]	[phi=0.034] fa=  0, vprev=10, vna=10
+   CALCULATING VNA for o/d [B|M]
+      Route [B-E - E-H - H-K - K-M]	[phi=0.034] fa=400, vprev=328, vna=331
+      Route [B-D - D-G - G-K - K-M]	[phi=0.034] fa=  0, vprev=14, vna=13
+      Route [B-D - D-H - H-K - K-M]	[phi=0.034] fa=  0, vprev=42, vna=41
+      Route [B-D - D-G - G-J - J-M]	[phi=0.034] fa=  0, vprev=14, vna=13
+-- [ ITER 30 ] ----------------------------
+   CALCULATING VNA for o/d [A|L]
+      Route [A-C - C-G - G-J - J-I - I-L]	[phi=0.033] fa=  0, vprev=20, vna=20
+      Route [A-D - D-G - G-J - J-L]	[phi=0.033] fa=  0, vprev=41, vna=40
+      Route [A-C - C-F - F-I - I-L]	[phi=0.033] fa=600, vprev=372, vna=380
+      Route [A-C - C-G - G-J - J-L]	[phi=0.033] fa=  0, vprev=165, vna=160
+   CALCULATING VNA for o/d [A|M]
+      Route [A-C - C-D - D-H - H-K - K-M]	[phi=0.033] fa=  0, vprev=13, vna=13
+      Route [A-D - D-G - G-K - K-M]	[phi=0.033] fa=  0, vprev=41, vna=40
+      Route [A-C - C-F - F-I - I-J - J-M]	[phi=0.033] fa=  0, vprev=13, vna=13
+      Route [A-D - D-H - H-K - K-M]	[phi=0.033] fa=400, vprev=179, vna=186
+      Route [A-C - C-G - G-J - J-M]	[phi=0.033] fa=  0, vprev=96, vna=93
+      Route [A-C - C-G - G-K - K-M]	[phi=0.033] fa=  0, vprev=41, vna=40
+      Route [A-D - D-G - G-J - J-M]	[phi=0.033] fa=  0, vprev=13, vna=13
+   CALCULATING VNA for o/d [B|L]
+      Route [B-D - D-G - G-J - J-I - I-L]	[phi=0.033] fa=  0, vprev=41, vna=40
+      Route [B-D - D-G - G-J - J-L]	[phi=0.033] fa=300, vprev=237, vna=240
+      Route [B-A - A-C - C-F - F-I - I-L]	[phi=0.033] fa=  0, vprev=10, vna=10
+      Route [B-E - E-H - H-K - K-J - J-L]	[phi=0.033] fa=  0, vprev=10, vna=10
+   CALCULATING VNA for o/d [B|M]
+      Route [B-E - E-H - H-K - K-M]	[phi=0.033] fa=400, vprev=331, vna=333
+      Route [B-D - D-G - G-K - K-M]	[phi=0.033] fa=  0, vprev=13, vna=13
+      Route [B-D - D-H - H-K - K-M]	[phi=0.033] fa=  0, vprev=41, vna=40
+      Route [B-D - D-G - G-J - J-M]	[phi=0.033] fa=  0, vprev=13, vna=13
+-- [ ITER 31 ] ----------------------------
+   CALCULATING VNA for o/d [A|L]
+      Route [A-C - C-G - G-J - J-I - I-L]	[phi=0.032] fa=  0, vprev=20, vna=19
+      Route [A-D - D-G - G-J - J-L]	[phi=0.032] fa=  0, vprev=40, vna=38
+      Route [A-C - C-F - F-I - I-L]	[phi=0.032] fa=600, vprev=380, vna=387
+      Route [A-C - C-G - G-J - J-L]	[phi=0.032] fa=  0, vprev=160, vna=154
+   CALCULATING VNA for o/d [A|M]
+      Route [A-C - C-D - D-H - H-K - K-M]	[phi=0.032] fa=  0, vprev=13, vna=12
+      Route [A-D - D-G - G-K - K-M]	[phi=0.032] fa=  0, vprev=40, vna=38
+      Route [A-C - C-F - F-I - I-J - J-M]	[phi=0.032] fa=  0, vprev=13, vna=12
+      Route [A-D - D-H - H-K - K-M]	[phi=0.032] fa=400, vprev=186, vna=193
+      Route [A-C - C-G - G-J - J-M]	[phi=0.032] fa=  0, vprev=93, vna=90
+      Route [A-C - C-G - G-K - K-M]	[phi=0.032] fa=  0, vprev=40, vna=38
+      Route [A-D - D-G - G-J - J-M]	[phi=0.032] fa=  0, vprev=13, vna=12
+   CALCULATING VNA for o/d [B|L]
+      Route [B-D - D-G - G-J - J-I - I-L]	[phi=0.032] fa=  0, vprev=40, vna=38
+      Route [B-D - D-G - G-J - J-L]	[phi=0.032] fa=300, vprev=240, vna=241
+      Route [B-A - A-C - C-F - F-I - I-L]	[phi=0.032] fa=  0, vprev=10, vna=9
+      Route [B-E - E-H - H-K - K-J - J-L]	[phi=0.032] fa=  0, vprev=10, vna=9
+   CALCULATING VNA for o/d [B|M]
+      Route [B-E - E-H - H-K - K-M]	[phi=0.032] fa=400, vprev=333, vna=335
+      Route [B-D - D-G - G-K - K-M]	[phi=0.032] fa=  0, vprev=13, vna=12
+      Route [B-D - D-H - H-K - K-M]	[phi=0.032] fa=  0, vprev=40, vna=38
+      Route [B-D - D-G - G-J - J-M]	[phi=0.032] fa=  0, vprev=13, vna=12
+-- [ ITER 32 ] ----------------------------
+   CALCULATING VNA for o/d [A|L]
+      Route [A-C - C-G - G-J - J-I - I-L]	[phi=0.031] fa=  0, vprev=19, vna=18
+      Route [A-D - D-G - G-J - J-L]	[phi=0.031] fa=  0, vprev=38, vna=37
+      Route [A-C - C-F - F-I - I-L]	[phi=0.031] fa=  0, vprev=387, vna=375
+      Route [A-C - C-G - G-J - J-L]	[phi=0.031] fa=600, vprev=154, vna=168
+   CALCULATING VNA for o/d [A|M]
+      Route [A-C - C-D - D-H - H-K - K-M]	[phi=0.031] fa=  0, vprev=12, vna=12
+      Route [A-D - D-G - G-K - K-M]	[phi=0.031] fa=  0, vprev=38, vna=37
+      Route [A-C - C-F - F-I - I-J - J-M]	[phi=0.031] fa=  0, vprev=12, vna=12
+      Route [A-D - D-H - H-K - K-M]	[phi=0.031] fa=  0, vprev=193, vna=187
+      Route [A-C - C-G - G-J - J-M]	[phi=0.031] fa=400, vprev=90, vna=100
+      Route [A-C - C-G - G-K - K-M]	[phi=0.031] fa=  0, vprev=38, vna=37
+      Route [A-D - D-G - G-J - J-M]	[phi=0.031] fa=  0, vprev=12, vna=12
+   CALCULATING VNA for o/d [B|L]
+      Route [B-D - D-G - G-J - J-I - I-L]	[phi=0.031] fa=  0, vprev=38, vna=37
+      Route [B-D - D-G - G-J - J-L]	[phi=0.031] fa=300, vprev=241, vna=243
+      Route [B-A - A-C - C-F - F-I - I-L]	[phi=0.031] fa=  0, vprev=9, vna=9
+      Route [B-E - E-H - H-K - K-J - J-L]	[phi=0.031] fa=  0, vprev=9, vna=9
+   CALCULATING VNA for o/d [B|M]
+      Route [B-E - E-H - H-K - K-M]	[phi=0.031] fa=400, vprev=335, vna=337
+      Route [B-D - D-G - G-K - K-M]	[phi=0.031] fa=  0, vprev=12, vna=12
+      Route [B-D - D-H - H-K - K-M]	[phi=0.031] fa=  0, vprev=38, vna=37
+      Route [B-D - D-G - G-J - J-M]	[phi=0.031] fa=  0, vprev=12, vna=12
+-- [ ITER 33 ] ----------------------------
+   CALCULATING VNA for o/d [A|L]
+      Route [A-C - C-G - G-J - J-I - I-L]	[phi=0.030] fa=  0, vprev=18, vna=18
+      Route [A-D - D-G - G-J - J-L]	[phi=0.030] fa=  0, vprev=37, vna=36
+      Route [A-C - C-F - F-I - I-L]	[phi=0.030] fa=600, vprev=375, vna=381
+      Route [A-C - C-G - G-J - J-L]	[phi=0.030] fa=  0, vprev=168, vna=163
+   CALCULATING VNA for o/d [A|M]
+      Route [A-C - C-D - D-H - H-K - K-M]	[phi=0.030] fa=  0, vprev=12, vna=12
+      Route [A-D - D-G - G-K - K-M]	[phi=0.030] fa=  0, vprev=37, vna=36
+      Route [A-C - C-F - F-I - I-J - J-M]	[phi=0.030] fa=  0, vprev=12, vna=12
+      Route [A-D - D-H - H-K - K-M]	[phi=0.030] fa=400, vprev=187, vna=193
+      Route [A-C - C-G - G-J - J-M]	[phi=0.030] fa=  0, vprev=100, vna=96
+      Route [A-C - C-G - G-K - K-M]	[phi=0.030] fa=  0, vprev=37, vna=36
+      Route [A-D - D-G - G-J - J-M]	[phi=0.030] fa=  0, vprev=12, vna=12
+   CALCULATING VNA for o/d [B|L]
+      Route [B-D - D-G - G-J - J-I - I-L]	[phi=0.030] fa=300, vprev=37, vna=45
+      Route [B-D - D-G - G-J - J-L]	[phi=0.030] fa=  0, vprev=243, vna=236
+      Route [B-A - A-C - C-F - F-I - I-L]	[phi=0.030] fa=  0, vprev=9, vna=9
+      Route [B-E - E-H - H-K - K-J - J-L]	[phi=0.030] fa=  0, vprev=9, vna=9
+   CALCULATING VNA for o/d [B|M]
+      Route [B-E - E-H - H-K - K-M]	[phi=0.030] fa=  0, vprev=337, vna=327
+      Route [B-D - D-G - G-K - K-M]	[phi=0.030] fa=  0, vprev=12, vna=12
+      Route [B-D - D-H - H-K - K-M]	[phi=0.030] fa=400, vprev=37, vna=48
+      Route [B-D - D-G - G-J - J-M]	[phi=0.030] fa=  0, vprev=12, vna=12
+-- [ ITER 34 ] ----------------------------
+   CALCULATING VNA for o/d [A|L]
+      Route [A-C - C-G - G-J - J-I - I-L]	[phi=0.029] fa=  0, vprev=18, vna=17
+      Route [A-D - D-G - G-J - J-L]	[phi=0.029] fa=  0, vprev=36, vna=35
+      Route [A-C - C-F - F-I - I-L]	[phi=0.029] fa=600, vprev=381, vna=388
+      Route [A-C - C-G - G-J - J-L]	[phi=0.029] fa=  0, vprev=163, vna=158
+   CALCULATING VNA for o/d [A|M]
+      Route [A-C - C-D - D-H - H-K - K-M]	[phi=0.029] fa=  0, vprev=12, vna=11
+      Route [A-D - D-G - G-K - K-M]	[phi=0.029] fa=  0, vprev=36, vna=35
+      Route [A-C - C-F - F-I - I-J - J-M]	[phi=0.029] fa=  0, vprev=12, vna=11
+      Route [A-D - D-H - H-K - K-M]	[phi=0.029] fa=400, vprev=193, vna=199
+      Route [A-C - C-G - G-J - J-M]	[phi=0.029] fa=  0, vprev=96, vna=94
+      Route [A-C - C-G - G-K - K-M]	[phi=0.029] fa=  0, vprev=36, vna=35
+      Route [A-D - D-G - G-J - J-M]	[phi=0.029] fa=  0, vprev=12, vna=11
+   CALCULATING VNA for o/d [B|L]
+      Route [B-D - D-G - G-J - J-I - I-L]	[phi=0.029] fa=  0, vprev=45, vna=44
+      Route [B-D - D-G - G-J - J-L]	[phi=0.029] fa=300, vprev=236, vna=238
+      Route [B-A - A-C - C-F - F-I - I-L]	[phi=0.029] fa=  0, vprev=9, vna=8
+      Route [B-E - E-H - H-K - K-J - J-L]	[phi=0.029] fa=  0, vprev=9, vna=8
+   CALCULATING VNA for o/d [B|M]
+      Route [B-E - E-H - H-K - K-M]	[phi=0.029] fa=400, vprev=327, vna=329
+      Route [B-D - D-G - G-K - K-M]	[phi=0.029] fa=  0, vprev=12, vna=11
+      Route [B-D - D-H - H-K - K-M]	[phi=0.029] fa=  0, vprev=48, vna=47
+      Route [B-D - D-G - G-J - J-M]	[phi=0.029] fa=  0, vprev=12, vna=11
+-- [ ITER 35 ] ----------------------------
+   CALCULATING VNA for o/d [A|L]
+      Route [A-C - C-G - G-J - J-I - I-L]	[phi=0.029] fa=  0, vprev=17, vna=17
+      Route [A-D - D-G - G-J - J-L]	[phi=0.029] fa=  0, vprev=35, vna=34
+      Route [A-C - C-F - F-I - I-L]	[phi=0.029] fa=  0, vprev=388, vna=377
+      Route [A-C - C-G - G-J - J-L]	[phi=0.029] fa=600, vprev=158, vna=171
+   CALCULATING VNA for o/d [A|M]
+      Route [A-C - C-D - D-H - H-K - K-M]	[phi=0.029] fa=  0, vprev=11, vna=11
+      Route [A-D - D-G - G-K - K-M]	[phi=0.029] fa=  0, vprev=35, vna=34
+      Route [A-C - C-F - F-I - I-J - J-M]	[phi=0.029] fa=  0, vprev=11, vna=11
+      Route [A-D - D-H - H-K - K-M]	[phi=0.029] fa=  0, vprev=199, vna=194
+      Route [A-C - C-G - G-J - J-M]	[phi=0.029] fa=400, vprev=94, vna=102
+      Route [A-C - C-G - G-K - K-M]	[phi=0.029] fa=  0, vprev=35, vna=34
+      Route [A-D - D-G - G-J - J-M]	[phi=0.029] fa=  0, vprev=11, vna=11
+   CALCULATING VNA for o/d [B|L]
+      Route [B-D - D-G - G-J - J-I - I-L]	[phi=0.029] fa=  0, vprev=44, vna=42
+      Route [B-D - D-G - G-J - J-L]	[phi=0.029] fa=300, vprev=238, vna=240
+      Route [B-A - A-C - C-F - F-I - I-L]	[phi=0.029] fa=  0, vprev=8, vna=8
+      Route [B-E - E-H - H-K - K-J - J-L]	[phi=0.029] fa=  0, vprev=8, vna=8
+   CALCULATING VNA for o/d [B|M]
+      Route [B-E - E-H - H-K - K-M]	[phi=0.029] fa=400, vprev=329, vna=331
+      Route [B-D - D-G - G-K - K-M]	[phi=0.029] fa=  0, vprev=11, vna=11
+      Route [B-D - D-H - H-K - K-M]	[phi=0.029] fa=  0, vprev=47, vna=45
+      Route [B-D - D-G - G-J - J-M]	[phi=0.029] fa=  0, vprev=11, vna=11
+-- [ ITER 36 ] ----------------------------
+   CALCULATING VNA for o/d [A|L]
+      Route [A-C - C-G - G-J - J-I - I-L]	[phi=0.028] fa=  0, vprev=17, vna=16
+      Route [A-D - D-G - G-J - J-L]	[phi=0.028] fa=  0, vprev=34, vna=33
+      Route [A-C - C-F - F-I - I-L]	[phi=0.028] fa=600, vprev=377, vna=383
+      Route [A-C - C-G - G-J - J-L]	[phi=0.028] fa=  0, vprev=171, vna=166
+   CALCULATING VNA for o/d [A|M]
+      Route [A-C - C-D - D-H - H-K - K-M]	[phi=0.028] fa=  0, vprev=11, vna=11
+      Route [A-D - D-G - G-K - K-M]	[phi=0.028] fa=  0, vprev=34, vna=33
+      Route [A-C - C-F - F-I - I-J - J-M]	[phi=0.028] fa=  0, vprev=11, vna=11
+      Route [A-D - D-H - H-K - K-M]	[phi=0.028] fa=400, vprev=194, vna=199
+      Route [A-C - C-G - G-J - J-M]	[phi=0.028] fa=  0, vprev=102, vna=99
+      Route [A-C - C-G - G-K - K-M]	[phi=0.028] fa=  0, vprev=34, vna=33
+      Route [A-D - D-G - G-J - J-M]	[phi=0.028] fa=  0, vprev=11, vna=11
+   CALCULATING VNA for o/d [B|L]
+      Route [B-D - D-G - G-J - J-I - I-L]	[phi=0.028] fa=  0, vprev=42, vna=41
+      Route [B-D - D-G - G-J - J-L]	[phi=0.028] fa=300, vprev=240, vna=241
+      Route [B-A - A-C - C-F - F-I - I-L]	[phi=0.028] fa=  0, vprev=8, vna=8
+      Route [B-E - E-H - H-K - K-J - J-L]	[phi=0.028] fa=  0, vprev=8, vna=8
+   CALCULATING VNA for o/d [B|M]
+      Route [B-E - E-H - H-K - K-M]	[phi=0.028] fa=400, vprev=331, vna=333
+      Route [B-D - D-G - G-K - K-M]	[phi=0.028] fa=  0, vprev=11, vna=11
+      Route [B-D - D-H - H-K - K-M]	[phi=0.028] fa=  0, vprev=45, vna=44
+      Route [B-D - D-G - G-J - J-M]	[phi=0.028] fa=  0, vprev=11, vna=11
+-- [ ITER 37 ] ----------------------------
+   CALCULATING VNA for o/d [A|L]
+      Route [A-C - C-G - G-J - J-I - I-L]	[phi=0.027] fa=  0, vprev=16, vna=16
+      Route [A-D - D-G - G-J - J-L]	[phi=0.027] fa=  0, vprev=33, vna=32
+      Route [A-C - C-F - F-I - I-L]	[phi=0.027] fa=600, vprev=383, vna=389
+      Route [A-C - C-G - G-J - J-L]	[phi=0.027] fa=  0, vprev=166, vna=162
+   CALCULATING VNA for o/d [A|M]
+      Route [A-C - C-D - D-H - H-K - K-M]	[phi=0.027] fa=  0, vprev=11, vna=10
+      Route [A-D - D-G - G-K - K-M]	[phi=0.027] fa=  0, vprev=33, vna=32
+      Route [A-C - C-F - F-I - I-J - J-M]	[phi=0.027] fa=  0, vprev=11, vna=10
+      Route [A-D - D-H - H-K - K-M]	[phi=0.027] fa=  0, vprev=199, vna=194
+      Route [A-C - C-G - G-J - J-M]	[phi=0.027] fa=  0, vprev=99, vna=97
+      Route [A-C - C-G - G-K - K-M]	[phi=0.027] fa=400, vprev=33, vna=43
+      Route [A-D - D-G - G-J - J-M]	[phi=0.027] fa=  0, vprev=11, vna=10
+   CALCULATING VNA for o/d [B|L]
+      Route [B-D - D-G - G-J - J-I - I-L]	[phi=0.027] fa=  0, vprev=41, vna=40
+      Route [B-D - D-G - G-J - J-L]	[phi=0.027] fa=300, vprev=241, vna=243
+      Route [B-A - A-C - C-F - F-I - I-L]	[phi=0.027] fa=  0, vprev=8, vna=8
+      Route [B-E - E-H - H-K - K-J - J-L]	[phi=0.027] fa=  0, vprev=8, vna=8
+   CALCULATING VNA for o/d [B|M]
+      Route [B-E - E-H - H-K - K-M]	[phi=0.027] fa=400, vprev=333, vna=335
+      Route [B-D - D-G - G-K - K-M]	[phi=0.027] fa=  0, vprev=11, vna=10
+      Route [B-D - D-H - H-K - K-M]	[phi=0.027] fa=  0, vprev=44, vna=43
+      Route [B-D - D-G - G-J - J-M]	[phi=0.027] fa=  0, vprev=11, vna=10
+-- [ ITER 38 ] ----------------------------
+   CALCULATING VNA for o/d [A|L]
+      Route [A-C - C-G - G-J - J-I - I-L]	[phi=0.026] fa=  0, vprev=16, vna=15
+      Route [A-D - D-G - G-J - J-L]	[phi=0.026] fa=  0, vprev=32, vna=31
+      Route [A-C - C-F - F-I - I-L]	[phi=0.026] fa=600, vprev=389, vna=394
+      Route [A-C - C-G - G-J - J-L]	[phi=0.026] fa=  0, vprev=162, vna=157
+   CALCULATING VNA for o/d [A|M]
+      Route [A-C - C-D - D-H - H-K - K-M]	[phi=0.026] fa=  0, vprev=10, vna=10
+      Route [A-D - D-G - G-K - K-M]	[phi=0.026] fa=  0, vprev=32, vna=31
+      Route [A-C - C-F - F-I - I-J - J-M]	[phi=0.026] fa=  0, vprev=10, vna=10
+      Route [A-D - D-H - H-K - K-M]	[phi=0.026] fa=400, vprev=194, vna=199
+      Route [A-C - C-G - G-J - J-M]	[phi=0.026] fa=  0, vprev=97, vna=94
+      Route [A-C - C-G - G-K - K-M]	[phi=0.026] fa=  0, vprev=43, vna=42
+      Route [A-D - D-G - G-J - J-M]	[phi=0.026] fa=  0, vprev=10, vna=10
+   CALCULATING VNA for o/d [B|L]
+      Route [B-D - D-G - G-J - J-I - I-L]	[phi=0.026] fa=  0, vprev=40, vna=39
+      Route [B-D - D-G - G-J - J-L]	[phi=0.026] fa=300, vprev=243, vna=244
+      Route [B-A - A-C - C-F - F-I - I-L]	[phi=0.026] fa=  0, vprev=8, vna=7
+      Route [B-E - E-H - H-K - K-J - J-L]	[phi=0.026] fa=  0, vprev=8, vna=7
+   CALCULATING VNA for o/d [B|M]
+      Route [B-E - E-H - H-K - K-M]	[phi=0.026] fa=400, vprev=335, vna=336
+      Route [B-D - D-G - G-K - K-M]	[phi=0.026] fa=  0, vprev=10, vna=10
+      Route [B-D - D-H - H-K - K-M]	[phi=0.026] fa=  0, vprev=43, vna=42
+      Route [B-D - D-G - G-J - J-M]	[phi=0.026] fa=  0, vprev=10, vna=10
+-- [ ITER 39 ] ----------------------------
+   CALCULATING VNA for o/d [A|L]
+      Route [A-C - C-G - G-J - J-I - I-L]	[phi=0.026] fa=  0, vprev=15, vna=15
+      Route [A-D - D-G - G-J - J-L]	[phi=0.026] fa=  0, vprev=31, vna=30
+      Route [A-C - C-F - F-I - I-L]	[phi=0.026] fa=  0, vprev=394, vna=384
+      Route [A-C - C-G - G-J - J-L]	[phi=0.026] fa=600, vprev=157, vna=169
+   CALCULATING VNA for o/d [A|M]
+      Route [A-C - C-D - D-H - H-K - K-M]	[phi=0.026] fa=  0, vprev=10, vna=10
+      Route [A-D - D-G - G-K - K-M]	[phi=0.026] fa=  0, vprev=31, vna=30
+      Route [A-C - C-F - F-I - I-J - J-M]	[phi=0.026] fa=  0, vprev=10, vna=10
+      Route [A-D - D-H - H-K - K-M]	[phi=0.026] fa=  0, vprev=199, vna=194
+      Route [A-C - C-G - G-J - J-M]	[phi=0.026] fa=400, vprev=94, vna=102
+      Route [A-C - C-G - G-K - K-M]	[phi=0.026] fa=  0, vprev=42, vna=41
+      Route [A-D - D-G - G-J - J-M]	[phi=0.026] fa=  0, vprev=10, vna=10
+   CALCULATING VNA for o/d [B|L]
+      Route [B-D - D-G - G-J - J-I - I-L]	[phi=0.026] fa=  0, vprev=39, vna=38
+      Route [B-D - D-G - G-J - J-L]	[phi=0.026] fa=300, vprev=244, vna=246
+      Route [B-A - A-C - C-F - F-I - I-L]	[phi=0.026] fa=  0, vprev=7, vna=7
+      Route [B-E - E-H - H-K - K-J - J-L]	[phi=0.026] fa=  0, vprev=7, vna=7
+   CALCULATING VNA for o/d [B|M]
+      Route [B-E - E-H - H-K - K-M]	[phi=0.026] fa=  0, vprev=336, vna=328
+      Route [B-D - D-G - G-K - K-M]	[phi=0.026] fa=  0, vprev=10, vna=10
+      Route [B-D - D-H - H-K - K-M]	[phi=0.026] fa=  0, vprev=42, vna=41
+      Route [B-D - D-G - G-J - J-M]	[phi=0.026] fa=400, vprev=10, vna=20
+-- [ ITER 40 ] ----------------------------
+   CALCULATING VNA for o/d [A|L]
+      Route [A-C - C-G - G-J - J-I - I-L]	[phi=0.025] fa=  0, vprev=15, vna=15
+      Route [A-D - D-G - G-J - J-L]	[phi=0.025] fa=  0, vprev=30, vna=30
+      Route [A-C - C-F - F-I - I-L]	[phi=0.025] fa=600, vprev=384, vna=389
+      Route [A-C - C-G - G-J - J-L]	[phi=0.025] fa=  0, vprev=169, vna=165
+   CALCULATING VNA for o/d [A|M]
+      Route [A-C - C-D - D-H - H-K - K-M]	[phi=0.025] fa=  0, vprev=10, vna=10
+      Route [A-D - D-G - G-K - K-M]	[phi=0.025] fa=  0, vprev=30, vna=30
+      Route [A-C - C-F - F-I - I-J - J-M]	[phi=0.025] fa=  0, vprev=10, vna=10
+      Route [A-D - D-H - H-K - K-M]	[phi=0.025] fa=400, vprev=194, vna=199
+      Route [A-C - C-G - G-J - J-M]	[phi=0.025] fa=  0, vprev=102, vna=99
+      Route [A-C - C-G - G-K - K-M]	[phi=0.025] fa=  0, vprev=41, vna=40
+      Route [A-D - D-G - G-J - J-M]	[phi=0.025] fa=  0, vprev=10, vna=10
+   CALCULATING VNA for o/d [B|L]
+      Route [B-D - D-G - G-J - J-I - I-L]	[phi=0.025] fa=300, vprev=38, vna=45
+      Route [B-D - D-G - G-J - J-L]	[phi=0.025] fa=  0, vprev=246, vna=240
+      Route [B-A - A-C - C-F - F-I - I-L]	[phi=0.025] fa=  0, vprev=7, vna=7
+      Route [B-E - E-H - H-K - K-J - J-L]	[phi=0.025] fa=  0, vprev=7, vna=7
+   CALCULATING VNA for o/d [B|M]
+      Route [B-E - E-H - H-K - K-M]	[phi=0.025] fa=400, vprev=328, vna=329
+      Route [B-D - D-G - G-K - K-M]	[phi=0.025] fa=  0, vprev=10, vna=10
+      Route [B-D - D-H - H-K - K-M]	[phi=0.025] fa=  0, vprev=41, vna=40
+      Route [B-D - D-G - G-J - J-M]	[phi=0.025] fa=  0, vprev=20, vna=20
+-- [ ITER 41 ] ----------------------------
+   CALCULATING VNA for o/d [A|L]
+      Route [A-C - C-G - G-J - J-I - I-L]	[phi=0.024] fa=  0, vprev=15, vna=14
+      Route [A-D - D-G - G-J - J-L]	[phi=0.024] fa=  0, vprev=30, vna=29
+      Route [A-C - C-F - F-I - I-L]	[phi=0.024] fa=600, vprev=389, vna=395
+      Route [A-C - C-G - G-J - J-L]	[phi=0.024] fa=  0, vprev=165, vna=160
+   CALCULATING VNA for o/d [A|M]
+      Route [A-C - C-D - D-H - H-K - K-M]	[phi=0.024] fa=  0, vprev=10, vna=9
+      Route [A-D - D-G - G-K - K-M]	[phi=0.024] fa=  0, vprev=30, vna=29
+      Route [A-C - C-F - F-I - I-J - J-M]	[phi=0.024] fa=  0, vprev=10, vna=9
+      Route [A-D - D-H - H-K - K-M]	[phi=0.024] fa=400, vprev=199, vna=204
+      Route [A-C - C-G - G-J - J-M]	[phi=0.024] fa=  0, vprev=99, vna=97
+      Route [A-C - C-G - G-K - K-M]	[phi=0.024] fa=  0, vprev=40, vna=39
+      Route [A-D - D-G - G-J - J-M]	[phi=0.024] fa=  0, vprev=10, vna=9
+   CALCULATING VNA for o/d [B|L]
+      Route [B-D - D-G - G-J - J-I - I-L]	[phi=0.024] fa=  0, vprev=45, vna=43
+      Route [B-D - D-G - G-J - J-L]	[phi=0.024] fa=300, vprev=240, vna=241
+      Route [B-A - A-C - C-F - F-I - I-L]	[phi=0.024] fa=  0, vprev=7, vna=7
+      Route [B-E - E-H - H-K - K-J - J-L]	[phi=0.024] fa=  0, vprev=7, vna=7
+   CALCULATING VNA for o/d [B|M]
+      Route [B-E - E-H - H-K - K-M]	[phi=0.024] fa=400, vprev=329, vna=331
+      Route [B-D - D-G - G-K - K-M]	[phi=0.024] fa=  0, vprev=10, vna=9
+      Route [B-D - D-H - H-K - K-M]	[phi=0.024] fa=  0, vprev=40, vna=39
+      Route [B-D - D-G - G-J - J-M]	[phi=0.024] fa=  0, vprev=20, vna=19
+-- [ ITER 42 ] ----------------------------
+   CALCULATING VNA for o/d [A|L]
+      Route [A-C - C-G - G-J - J-I - I-L]	[phi=0.024] fa=  0, vprev=14, vna=14
+      Route [A-D - D-G - G-J - J-L]	[phi=0.024] fa=  0, vprev=29, vna=28
+      Route [A-C - C-F - F-I - I-L]	[phi=0.024] fa=  0, vprev=395, vna=385
+      Route [A-C - C-G - G-J - J-L]	[phi=0.024] fa=600, vprev=160, vna=171
+   CALCULATING VNA for o/d [A|M]
+      Route [A-C - C-D - D-H - H-K - K-M]	[phi=0.024] fa=  0, vprev=9, vna=9
+      Route [A-D - D-G - G-K - K-M]	[phi=0.024] fa=  0, vprev=29, vna=28
+      Route [A-C - C-F - F-I - I-J - J-M]	[phi=0.024] fa=  0, vprev=9, vna=9
+      Route [A-D - D-H - H-K - K-M]	[phi=0.024] fa=400, vprev=204, vna=209
+      Route [A-C - C-G - G-J - J-M]	[phi=0.024] fa=  0, vprev=97, vna=95
+      Route [A-C - C-G - G-K - K-M]	[phi=0.024] fa=  0, vprev=39, vna=38
+      Route [A-D - D-G - G-J - J-M]	[phi=0.024] fa=  0, vprev=9, vna=9
+   CALCULATING VNA for o/d [B|L]
+      Route [B-D - D-G - G-J - J-I - I-L]	[phi=0.024] fa=  0, vprev=43, vna=42
+      Route [B-D - D-G - G-J - J-L]	[phi=0.024] fa=300, vprev=241, vna=242
+      Route [B-A - A-C - C-F - F-I - I-L]	[phi=0.024] fa=  0, vprev=7, vna=7
+      Route [B-E - E-H - H-K - K-J - J-L]	[phi=0.024] fa=  0, vprev=7, vna=7
+   CALCULATING VNA for o/d [B|M]
+      Route [B-E - E-H - H-K - K-M]	[phi=0.024] fa=400, vprev=331, vna=333
+      Route [B-D - D-G - G-K - K-M]	[phi=0.024] fa=  0, vprev=9, vna=9
+      Route [B-D - D-H - H-K - K-M]	[phi=0.024] fa=  0, vprev=39, vna=38
+      Route [B-D - D-G - G-J - J-M]	[phi=0.024] fa=  0, vprev=19, vna=19
+-- [ ITER 43 ] ----------------------------
+   CALCULATING VNA for o/d [A|L]
+      Route [A-C - C-G - G-J - J-I - I-L]	[phi=0.023] fa=  0, vprev=14, vna=13
+      Route [A-D - D-G - G-J - J-L]	[phi=0.023] fa=  0, vprev=28, vna=27
+      Route [A-C - C-F - F-I - I-L]	[phi=0.023] fa=600, vprev=385, vna=390
+      Route [A-C - C-G - G-J - J-L]	[phi=0.023] fa=  0, vprev=171, vna=167
+   CALCULATING VNA for o/d [A|M]
+      Route [A-C - C-D - D-H - H-K - K-M]	[phi=0.023] fa=  0, vprev=9, vna=9
+      Route [A-D - D-G - G-K - K-M]	[phi=0.023] fa=  0, vprev=28, vna=27
+      Route [A-C - C-F - F-I - I-J - J-M]	[phi=0.023] fa=  0, vprev=9, vna=9
+      Route [A-D - D-H - H-K - K-M]	[phi=0.023] fa=  0, vprev=209, vna=204
+      Route [A-C - C-G - G-J - J-M]	[phi=0.023] fa=  0, vprev=95, vna=93
+      Route [A-C - C-G - G-K - K-M]	[phi=0.023] fa=400, vprev=38, vna=46
+      Route [A-D - D-G - G-J - J-M]	[phi=0.023] fa=  0, vprev=9, vna=9
+   CALCULATING VNA for o/d [B|L]
+      Route [B-D - D-G - G-J - J-I - I-L]	[phi=0.023] fa=  0, vprev=42, vna=41
+      Route [B-D - D-G - G-J - J-L]	[phi=0.023] fa=300, vprev=242, vna=244
+      Route [B-A - A-C - C-F - F-I - I-L]	[phi=0.023] fa=  0, vprev=7, vna=6
+      Route [B-E - E-H - H-K - K-J - J-L]	[phi=0.023] fa=  0, vprev=7, vna=6
+   CALCULATING VNA for o/d [B|M]
+      Route [B-E - E-H - H-K - K-M]	[phi=0.023] fa=400, vprev=333, vna=334
+      Route [B-D - D-G - G-K - K-M]	[phi=0.023] fa=  0, vprev=9, vna=9
+      Route [B-D - D-H - H-K - K-M]	[phi=0.023] fa=  0, vprev=38, vna=37
+      Route [B-D - D-G - G-J - J-M]	[phi=0.023] fa=  0, vprev=19, vna=18
+-- [ ITER 44 ] ----------------------------
+   CALCULATING VNA for o/d [A|L]
+      Route [A-C - C-G - G-J - J-I - I-L]	[phi=0.023] fa=  0, vprev=13, vna=13
+      Route [A-D - D-G - G-J - J-L]	[phi=0.023] fa=  0, vprev=27, vna=27
+      Route [A-C - C-F - F-I - I-L]	[phi=0.023] fa=600, vprev=390, vna=395
+      Route [A-C - C-G - G-J - J-L]	[phi=0.023] fa=  0, vprev=167, vna=163
+   CALCULATING VNA for o/d [A|M]
+      Route [A-C - C-D - D-H - H-K - K-M]	[phi=0.023] fa=  0, vprev=9, vna=9
+      Route [A-D - D-G - G-K - K-M]	[phi=0.023] fa=  0, vprev=27, vna=27
+      Route [A-C - C-F - F-I - I-J - J-M]	[phi=0.023] fa=  0, vprev=9, vna=9
+      Route [A-D - D-H - H-K - K-M]	[phi=0.023] fa=400, vprev=204, vna=209
+      Route [A-C - C-G - G-J - J-M]	[phi=0.023] fa=  0, vprev=93, vna=90
+      Route [A-C - C-G - G-K - K-M]	[phi=0.023] fa=  0, vprev=46, vna=45
+      Route [A-D - D-G - G-J - J-M]	[phi=0.023] fa=  0, vprev=9, vna=9
+   CALCULATING VNA for o/d [B|L]
+      Route [B-D - D-G - G-J - J-I - I-L]	[phi=0.023] fa=  0, vprev=41, vna=40
+      Route [B-D - D-G - G-J - J-L]	[phi=0.023] fa=300, vprev=244, vna=245
+      Route [B-A - A-C - C-F - F-I - I-L]	[phi=0.023] fa=  0, vprev=6, vna=6
+      Route [B-E - E-H - H-K - K-J - J-L]	[phi=0.023] fa=  0, vprev=6, vna=6
+   CALCULATING VNA for o/d [B|M]
+      Route [B-E - E-H - H-K - K-M]	[phi=0.023] fa=400, vprev=334, vna=336
+      Route [B-D - D-G - G-K - K-M]	[phi=0.023] fa=  0, vprev=9, vna=9
+      Route [B-D - D-H - H-K - K-M]	[phi=0.023] fa=  0, vprev=37, vna=36
+      Route [B-D - D-G - G-J - J-M]	[phi=0.023] fa=  0, vprev=18, vna=18
+-- [ ITER 45 ] ----------------------------
+   CALCULATING VNA for o/d [A|L]
+      Route [A-C - C-G - G-J - J-I - I-L]	[phi=0.022] fa=  0, vprev=13, vna=13
+      Route [A-D - D-G - G-J - J-L]	[phi=0.022] fa=  0, vprev=27, vna=26
+      Route [A-C - C-F - F-I - I-L]	[phi=0.022] fa=  0, vprev=395, vna=386
+      Route [A-C - C-G - G-J - J-L]	[phi=0.022] fa=600, vprev=163, vna=173
+   CALCULATING VNA for o/d [A|M]
+      Route [A-C - C-D - D-H - H-K - K-M]	[phi=0.022] fa=  0, vprev=9, vna=8
+      Route [A-D - D-G - G-K - K-M]	[phi=0.022] fa=  0, vprev=27, vna=26
+      Route [A-C - C-F - F-I - I-J - J-M]	[phi=0.022] fa=  0, vprev=9, vna=8
+      Route [A-D - D-H - H-K - K-M]	[phi=0.022] fa=  0, vprev=209, vna=204
+      Route [A-C - C-G - G-J - J-M]	[phi=0.022] fa=400, vprev=90, vna=97
+      Route [A-C - C-G - G-K - K-M]	[phi=0.022] fa=  0, vprev=45, vna=44
+      Route [A-D - D-G - G-J - J-M]	[phi=0.022] fa=  0, vprev=9, vna=8
+   CALCULATING VNA for o/d [B|L]
+      Route [B-D - D-G - G-J - J-I - I-L]	[phi=0.022] fa=  0, vprev=40, vna=40
+      Route [B-D - D-G - G-J - J-L]	[phi=0.022] fa=300, vprev=245, vna=246
+      Route [B-A - A-C - C-F - F-I - I-L]	[phi=0.022] fa=  0, vprev=6, vna=6
+      Route [B-E - E-H - H-K - K-J - J-L]	[phi=0.022] fa=  0, vprev=6, vna=6
+   CALCULATING VNA for o/d [B|M]
+      Route [B-E - E-H - H-K - K-M]	[phi=0.022] fa=400, vprev=336, vna=337
+      Route [B-D - D-G - G-K - K-M]	[phi=0.022] fa=  0, vprev=9, vna=8
+      Route [B-D - D-H - H-K - K-M]	[phi=0.022] fa=  0, vprev=36, vna=35
+      Route [B-D - D-G - G-J - J-M]	[phi=0.022] fa=  0, vprev=18, vna=17
+-- [ ITER 46 ] ----------------------------
+   CALCULATING VNA for o/d [A|L]
+      Route [A-C - C-G - G-J - J-I - I-L]	[phi=0.022] fa=  0, vprev=13, vna=13
+      Route [A-D - D-G - G-J - J-L]	[phi=0.022] fa=  0, vprev=26, vna=26
+      Route [A-C - C-F - F-I - I-L]	[phi=0.022] fa=600, vprev=386, vna=391
+      Route [A-C - C-G - G-J - J-L]	[phi=0.022] fa=  0, vprev=173, vna=169
+   CALCULATING VNA for o/d [A|M]
+      Route [A-C - C-D - D-H - H-K - K-M]	[phi=0.022] fa=  0, vprev=8, vna=8
+      Route [A-D - D-G - G-K - K-M]	[phi=0.022] fa=  0, vprev=26, vna=26
+      Route [A-C - C-F - F-I - I-J - J-M]	[phi=0.022] fa=  0, vprev=8, vna=8
+      Route [A-D - D-H - H-K - K-M]	[phi=0.022] fa=400, vprev=204, vna=208
+      Route [A-C - C-G - G-J - J-M]	[phi=0.022] fa=  0, vprev=97, vna=95
+      Route [A-C - C-G - G-K - K-M]	[phi=0.022] fa=  0, vprev=44, vna=43
+      Route [A-D - D-G - G-J - J-M]	[phi=0.022] fa=  0, vprev=8, vna=8
+   CALCULATING VNA for o/d [B|L]
+      Route [B-D - D-G - G-J - J-I - I-L]	[phi=0.022] fa=300, vprev=40, vna=45
+      Route [B-D - D-G - G-J - J-L]	[phi=0.022] fa=  0, vprev=246, vna=241
+      Route [B-A - A-C - C-F - F-I - I-L]	[phi=0.022] fa=  0, vprev=6, vna=6
+      Route [B-E - E-H - H-K - K-J - J-L]	[phi=0.022] fa=  0, vprev=6, vna=6
+   CALCULATING VNA for o/d [B|M]
+      Route [B-E - E-H - H-K - K-M]	[phi=0.022] fa=400, vprev=337, vna=339
+      Route [B-D - D-G - G-K - K-M]	[phi=0.022] fa=  0, vprev=8, vna=8
+      Route [B-D - D-H - H-K - K-M]	[phi=0.022] fa=  0, vprev=35, vna=34
+      Route [B-D - D-G - G-J - J-M]	[phi=0.022] fa=  0, vprev=17, vna=17
+-- [ ITER 47 ] ----------------------------
+   CALCULATING VNA for o/d [A|L]
+      Route [A-C - C-G - G-J - J-I - I-L]	[phi=0.021] fa=  0, vprev=13, vna=12
+      Route [A-D - D-G - G-J - J-L]	[phi=0.021] fa=600, vprev=26, vna=38
+      Route [A-C - C-F - F-I - I-L]	[phi=0.021] fa=  0, vprev=391, vna=382
+      Route [A-C - C-G - G-J - J-L]	[phi=0.021] fa=  0, vprev=169, vna=165
+   CALCULATING VNA for o/d [A|M]
+      Route [A-C - C-D - D-H - H-K - K-M]	[phi=0.021] fa=  0, vprev=8, vna=8
+      Route [A-D - D-G - G-K - K-M]	[phi=0.021] fa=  0, vprev=26, vna=25
+      Route [A-C - C-F - F-I - I-J - J-M]	[phi=0.021] fa=  0, vprev=8, vna=8
+      Route [A-D - D-H - H-K - K-M]	[phi=0.021] fa=400, vprev=208, vna=212
+      Route [A-C - C-G - G-J - J-M]	[phi=0.021] fa=  0, vprev=95, vna=93
+      Route [A-C - C-G - G-K - K-M]	[phi=0.021] fa=  0, vprev=43, vna=42
+      Route [A-D - D-G - G-J - J-M]	[phi=0.021] fa=  0, vprev=8, vna=8
+   CALCULATING VNA for o/d [B|L]
+      Route [B-D - D-G - G-J - J-I - I-L]	[phi=0.021] fa=  0, vprev=45, vna=44
+      Route [B-D - D-G - G-J - J-L]	[phi=0.021] fa=300, vprev=241, vna=242
+      Route [B-A - A-C - C-F - F-I - I-L]	[phi=0.021] fa=  0, vprev=6, vna=6
+      Route [B-E - E-H - H-K - K-J - J-L]	[phi=0.021] fa=  0, vprev=6, vna=6
+   CALCULATING VNA for o/d [B|M]
+      Route [B-E - E-H - H-K - K-M]	[phi=0.021] fa=400, vprev=339, vna=340
+      Route [B-D - D-G - G-K - K-M]	[phi=0.021] fa=  0, vprev=8, vna=8
+      Route [B-D - D-H - H-K - K-M]	[phi=0.021] fa=  0, vprev=34, vna=34
+      Route [B-D - D-G - G-J - J-M]	[phi=0.021] fa=  0, vprev=17, vna=17
+-- [ ITER 48 ] ----------------------------
+   CALCULATING VNA for o/d [A|L]
+      Route [A-C - C-G - G-J - J-I - I-L]	[phi=0.021] fa=  0, vprev=12, vna=12
+      Route [A-D - D-G - G-J - J-L]	[phi=0.021] fa=  0, vprev=38, vna=37
+      Route [A-C - C-F - F-I - I-L]	[phi=0.021] fa=600, vprev=382, vna=387
+      Route [A-C - C-G - G-J - J-L]	[phi=0.021] fa=  0, vprev=165, vna=162
+   CALCULATING VNA for o/d [A|M]
+      Route [A-C - C-D - D-H - H-K - K-M]	[phi=0.021] fa=  0, vprev=8, vna=8
+      Route [A-D - D-G - G-K - K-M]	[phi=0.021] fa=  0, vprev=25, vna=25
+      Route [A-C - C-F - F-I - I-J - J-M]	[phi=0.021] fa=  0, vprev=8, vna=8
+      Route [A-D - D-H - H-K - K-M]	[phi=0.021] fa=  0, vprev=212, vna=208
+      Route [A-C - C-G - G-J - J-M]	[phi=0.021] fa=  0, vprev=93, vna=91
+      Route [A-C - C-G - G-K - K-M]	[phi=0.021] fa=400, vprev=42, vna=50
+      Route [A-D - D-G - G-J - J-M]	[phi=0.021] fa=  0, vprev=8, vna=8
+   CALCULATING VNA for o/d [B|L]
+      Route [B-D - D-G - G-J - J-I - I-L]	[phi=0.021] fa=  0, vprev=44, vna=43
+      Route [B-D - D-G - G-J - J-L]	[phi=0.021] fa=300, vprev=242, vna=243
+      Route [B-A - A-C - C-F - F-I - I-L]	[phi=0.021] fa=  0, vprev=6, vna=6
+      Route [B-E - E-H - H-K - K-J - J-L]	[phi=0.021] fa=  0, vprev=6, vna=6
+   CALCULATING VNA for o/d [B|M]
+      Route [B-E - E-H - H-K - K-M]	[phi=0.021] fa=400, vprev=340, vna=341
+      Route [B-D - D-G - G-K - K-M]	[phi=0.021] fa=  0, vprev=8, vna=8
+      Route [B-D - D-H - H-K - K-M]	[phi=0.021] fa=  0, vprev=34, vna=33
+      Route [B-D - D-G - G-J - J-M]	[phi=0.021] fa=  0, vprev=17, vna=16
+-- [ ITER 49 ] ----------------------------
+   CALCULATING VNA for o/d [A|L]
+      Route [A-C - C-G - G-J - J-I - I-L]	[phi=0.020] fa=  0, vprev=12, vna=12
+      Route [A-D - D-G - G-J - J-L]	[phi=0.020] fa=  0, vprev=37, vna=36
+      Route [A-C - C-F - F-I - I-L]	[phi=0.020] fa=600, vprev=387, vna=391
+      Route [A-C - C-G - G-J - J-L]	[phi=0.020] fa=  0, vprev=162, vna=159
+   CALCULATING VNA for o/d [A|M]
+      Route [A-C - C-D - D-H - H-K - K-M]	[phi=0.020] fa=  0, vprev=8, vna=8
+      Route [A-D - D-G - G-K - K-M]	[phi=0.020] fa=  0, vprev=25, vna=24
+      Route [A-C - C-F - F-I - I-J - J-M]	[phi=0.020] fa=  0, vprev=8, vna=8
+      Route [A-D - D-H - H-K - K-M]	[phi=0.020] fa=  0, vprev=208, vna=204
+      Route [A-C - C-G - G-J - J-M]	[phi=0.020] fa=400, vprev=91, vna=97
+      Route [A-C - C-G - G-K - K-M]	[phi=0.020] fa=  0, vprev=50, vna=48
+      Route [A-D - D-G - G-J - J-M]	[phi=0.020] fa=  0, vprev=8, vna=8
+   CALCULATING VNA for o/d [B|L]
+      Route [B-D - D-G - G-J - J-I - I-L]	[phi=0.020] fa=  0, vprev=43, vna=42
+      Route [B-D - D-G - G-J - J-L]	[phi=0.020] fa=300, vprev=243, vna=244
+      Route [B-A - A-C - C-F - F-I - I-L]	[phi=0.020] fa=  0, vprev=6, vna=6
+      Route [B-E - E-H - H-K - K-J - J-L]	[phi=0.020] fa=  0, vprev=6, vna=6
+   CALCULATING VNA for o/d [B|M]
+      Route [B-E - E-H - H-K - K-M]	[phi=0.020] fa=  0, vprev=341, vna=334
+      Route [B-D - D-G - G-K - K-M]	[phi=0.020] fa=  0, vprev=8, vna=8
+      Route [B-D - D-H - H-K - K-M]	[phi=0.020] fa=400, vprev=33, vna=40
+      Route [B-D - D-G - G-J - J-M]	[phi=0.020] fa=  0, vprev=16, vna=16
+-- [ ITER 50 ] ----------------------------
+   CALCULATING VNA for o/d [A|L]
+      Route [A-C - C-G - G-J - J-I - I-L]	[phi=0.020] fa=  0, vprev=12, vna=12
+      Route [A-D - D-G - G-J - J-L]	[phi=0.020] fa=  0, vprev=36, vna=35
+      Route [A-C - C-F - F-I - I-L]	[phi=0.020] fa=600, vprev=391, vna=395
+      Route [A-C - C-G - G-J - J-L]	[phi=0.020] fa=  0, vprev=159, vna=156
+   CALCULATING VNA for o/d [A|M]
+      Route [A-C - C-D - D-H - H-K - K-M]	[phi=0.020] fa=  0, vprev=8, vna=8
+      Route [A-D - D-G - G-K - K-M]	[phi=0.020] fa=  0, vprev=24, vna=24
+      Route [A-C - C-F - F-I - I-J - J-M]	[phi=0.020] fa=  0, vprev=8, vna=8
+      Route [A-D - D-H - H-K - K-M]	[phi=0.020] fa=400, vprev=204, vna=207
+      Route [A-C - C-G - G-J - J-M]	[phi=0.020] fa=  0, vprev=97, vna=95
+      Route [A-C - C-G - G-K - K-M]	[phi=0.020] fa=  0, vprev=48, vna=48
+      Route [A-D - D-G - G-J - J-M]	[phi=0.020] fa=  0, vprev=8, vna=8
+   CALCULATING VNA for o/d [B|L]
+      Route [B-D - D-G - G-J - J-I - I-L]	[phi=0.020] fa=  0, vprev=42, vna=42
+      Route [B-D - D-G - G-J - J-L]	[phi=0.020] fa=300, vprev=244, vna=245
+      Route [B-A - A-C - C-F - F-I - I-L]	[phi=0.020] fa=  0, vprev=6, vna=6
+      Route [B-E - E-H - H-K - K-J - J-L]	[phi=0.020] fa=  0, vprev=6, vna=6
+   CALCULATING VNA for o/d [B|M]
+      Route [B-E - E-H - H-K - K-M]	[phi=0.020] fa=400, vprev=334, vna=335
+      Route [B-D - D-G - G-K - K-M]	[phi=0.020] fa=  0, vprev=8, vna=8
+      Route [B-D - D-H - H-K - K-M]	[phi=0.020] fa=  0, vprev=40, vna=40
+      Route [B-D - D-G - G-J - J-M]	[phi=0.020] fa=  0, vprev=16, vna=15
+-- [ ITER 51 ] ----------------------------
+   CALCULATING VNA for o/d [A|L]
+      Route [A-C - C-G - G-J - J-I - I-L]	[phi=0.020] fa=  0, vprev=12, vna=11
+      Route [A-D - D-G - G-J - J-L]	[phi=0.020] fa=  0, vprev=35, vna=35
+      Route [A-C - C-F - F-I - I-L]	[phi=0.020] fa=  0, vprev=395, vna=388
+      Route [A-C - C-G - G-J - J-L]	[phi=0.020] fa=600, vprev=156, vna=164
+   CALCULATING VNA for o/d [A|M]
+      Route [A-C - C-D - D-H - H-K - K-M]	[phi=0.020] fa=  0, vprev=8, vna=7
+      Route [A-D - D-G - G-K - K-M]	[phi=0.020] fa=  0, vprev=24, vna=23
+      Route [A-C - C-F - F-I - I-J - J-M]	[phi=0.020] fa=  0, vprev=8, vna=7
+      Route [A-D - D-H - H-K - K-M]	[phi=0.020] fa=  0, vprev=207, vna=203
+      Route [A-C - C-G - G-J - J-M]	[phi=0.020] fa=400, vprev=95, vna=101
+      Route [A-C - C-G - G-K - K-M]	[phi=0.020] fa=  0, vprev=48, vna=47
+      Route [A-D - D-G - G-J - J-M]	[phi=0.020] fa=  0, vprev=8, vna=7
+   CALCULATING VNA for o/d [B|L]
+      Route [B-D - D-G - G-J - J-I - I-L]	[phi=0.020] fa=  0, vprev=42, vna=41
+      Route [B-D - D-G - G-J - J-L]	[phi=0.020] fa=300, vprev=245, vna=247
+      Route [B-A - A-C - C-F - F-I - I-L]	[phi=0.020] fa=  0, vprev=6, vna=5
+      Route [B-E - E-H - H-K - K-J - J-L]	[phi=0.020] fa=  0, vprev=6, vna=5
+   CALCULATING VNA for o/d [B|M]
+      Route [B-E - E-H - H-K - K-M]	[phi=0.020] fa=400, vprev=335, vna=337
+      Route [B-D - D-G - G-K - K-M]	[phi=0.020] fa=  0, vprev=8, vna=7
+      Route [B-D - D-H - H-K - K-M]	[phi=0.020] fa=  0, vprev=40, vna=39
+      Route [B-D - D-G - G-J - J-M]	[phi=0.020] fa=  0, vprev=15, vna=15
+-- [ ITER 52 ] ----------------------------
+   CALCULATING VNA for o/d [A|L]
+      Route [A-C - C-G - G-J - J-I - I-L]	[phi=0.019] fa=  0, vprev=11, vna=11
+      Route [A-D - D-G - G-J - J-L]	[phi=0.019] fa=  0, vprev=35, vna=34
+      Route [A-C - C-F - F-I - I-L]	[phi=0.019] fa=600, vprev=388, vna=392
+      Route [A-C - C-G - G-J - J-L]	[phi=0.019] fa=  0, vprev=164, vna=161
+   CALCULATING VNA for o/d [A|M]
+      Route [A-C - C-D - D-H - H-K - K-M]	[phi=0.019] fa=  0, vprev=7, vna=7
+      Route [A-D - D-G - G-K - K-M]	[phi=0.019] fa=  0, vprev=23, vna=23
+      Route [A-C - C-F - F-I - I-J - J-M]	[phi=0.019] fa=  0, vprev=7, vna=7
+      Route [A-D - D-H - H-K - K-M]	[phi=0.019] fa=400, vprev=203, vna=207
+      Route [A-C - C-G - G-J - J-M]	[phi=0.019] fa=  0, vprev=101, vna=99
+      Route [A-C - C-G - G-K - K-M]	[phi=0.019] fa=  0, vprev=47, vna=46
+      Route [A-D - D-G - G-J - J-M]	[phi=0.019] fa=  0, vprev=7, vna=7
+   CALCULATING VNA for o/d [B|L]
+      Route [B-D - D-G - G-J - J-I - I-L]	[phi=0.019] fa=300, vprev=41, vna=46
+      Route [B-D - D-G - G-J - J-L]	[phi=0.019] fa=  0, vprev=247, vna=242
+      Route [B-A - A-C - C-F - F-I - I-L]	[phi=0.019] fa=  0, vprev=5, vna=5
+      Route [B-E - E-H - H-K - K-J - J-L]	[phi=0.019] fa=  0, vprev=5, vna=5
+   CALCULATING VNA for o/d [B|M]
+      Route [B-E - E-H - H-K - K-M]	[phi=0.019] fa=400, vprev=337, vna=338
+      Route [B-D - D-G - G-K - K-M]	[phi=0.019] fa=  0, vprev=7, vna=7
+      Route [B-D - D-H - H-K - K-M]	[phi=0.019] fa=  0, vprev=39, vna=38
+      Route [B-D - D-G - G-J - J-M]	[phi=0.019] fa=  0, vprev=15, vna=15
+-- [ ITER 53 ] ----------------------------
+   CALCULATING VNA for o/d [A|L]
+      Route [A-C - C-G - G-J - J-I - I-L]	[phi=0.019] fa=  0, vprev=11, vna=11
+      Route [A-D - D-G - G-J - J-L]	[phi=0.019] fa=  0, vprev=34, vna=33
+      Route [A-C - C-F - F-I - I-L]	[phi=0.019] fa=600, vprev=392, vna=396
+      Route [A-C - C-G - G-J - J-L]	[phi=0.019] fa=  0, vprev=161, vna=158
+   CALCULATING VNA for o/d [A|M]
+      Route [A-C - C-D - D-H - H-K - K-M]	[phi=0.019] fa=  0, vprev=7, vna=7
+      Route [A-D - D-G - G-K - K-M]	[phi=0.019] fa=  0, vprev=23, vna=22
+      Route [A-C - C-F - F-I - I-J - J-M]	[phi=0.019] fa=  0, vprev=7, vna=7
+      Route [A-D - D-H - H-K - K-M]	[phi=0.019] fa=400, vprev=207, vna=211
+      Route [A-C - C-G - G-J - J-M]	[phi=0.019] fa=  0, vprev=99, vna=98
+      Route [A-C - C-G - G-K - K-M]	[phi=0.019] fa=  0, vprev=46, vna=45
+      Route [A-D - D-G - G-J - J-M]	[phi=0.019] fa=  0, vprev=7, vna=7
+   CALCULATING VNA for o/d [B|L]
+      Route [B-D - D-G - G-J - J-I - I-L]	[phi=0.019] fa=  0, vprev=46, vna=45
+      Route [B-D - D-G - G-J - J-L]	[phi=0.019] fa=300, vprev=242, vna=243
+      Route [B-A - A-C - C-F - F-I - I-L]	[phi=0.019] fa=  0, vprev=5, vna=5
+      Route [B-E - E-H - H-K - K-J - J-L]	[phi=0.019] fa=  0, vprev=5, vna=5
+   CALCULATING VNA for o/d [B|M]
+      Route [B-E - E-H - H-K - K-M]	[phi=0.019] fa=400, vprev=338, vna=339
+      Route [B-D - D-G - G-K - K-M]	[phi=0.019] fa=  0, vprev=7, vna=7
+      Route [B-D - D-H - H-K - K-M]	[phi=0.019] fa=  0, vprev=38, vna=37
+      Route [B-D - D-G - G-J - J-M]	[phi=0.019] fa=  0, vprev=15, vna=15
+-- [ ITER 54 ] ----------------------------
+   CALCULATING VNA for o/d [A|L]
+      Route [A-C - C-G - G-J - J-I - I-L]	[phi=0.019] fa=  0, vprev=11, vna=11
+      Route [A-D - D-G - G-J - J-L]	[phi=0.019] fa=  0, vprev=33, vna=33
+      Route [A-C - C-F - F-I - I-L]	[phi=0.019] fa=  0, vprev=396, vna=388
+      Route [A-C - C-G - G-J - J-L]	[phi=0.019] fa=600, vprev=158, vna=166
+   CALCULATING VNA for o/d [A|M]
+      Route [A-C - C-D - D-H - H-K - K-M]	[phi=0.019] fa=  0, vprev=7, vna=7
+      Route [A-D - D-G - G-K - K-M]	[phi=0.019] fa=  0, vprev=22, vna=22
+      Route [A-C - C-F - F-I - I-J - J-M]	[phi=0.019] fa=  0, vprev=7, vna=7
+      Route [A-D - D-H - H-K - K-M]	[phi=0.019] fa=  0, vprev=211, vna=207
+      Route [A-C - C-G - G-J - J-M]	[phi=0.019] fa=400, vprev=98, vna=103
+      Route [A-C - C-G - G-K - K-M]	[phi=0.019] fa=  0, vprev=45, vna=44
+      Route [A-D - D-G - G-J - J-M]	[phi=0.019] fa=  0, vprev=7, vna=7
+   CALCULATING VNA for o/d [B|L]
+      Route [B-D - D-G - G-J - J-I - I-L]	[phi=0.019] fa=  0, vprev=45, vna=44
+      Route [B-D - D-G - G-J - J-L]	[phi=0.019] fa=300, vprev=243, vna=244
+      Route [B-A - A-C - C-F - F-I - I-L]	[phi=0.019] fa=  0, vprev=5, vna=5
+      Route [B-E - E-H - H-K - K-J - J-L]	[phi=0.019] fa=  0, vprev=5, vna=5
+   CALCULATING VNA for o/d [B|M]
+      Route [B-E - E-H - H-K - K-M]	[phi=0.019] fa=400, vprev=339, vna=340
+      Route [B-D - D-G - G-K - K-M]	[phi=0.019] fa=  0, vprev=7, vna=7
+      Route [B-D - D-H - H-K - K-M]	[phi=0.019] fa=  0, vprev=37, vna=37
+      Route [B-D - D-G - G-J - J-M]	[phi=0.019] fa=  0, vprev=15, vna=14
+-- [ ITER 55 ] ----------------------------
+   CALCULATING VNA for o/d [A|L]
+      Route [A-C - C-G - G-J - J-I - I-L]	[phi=0.018] fa=  0, vprev=11, vna=10
+      Route [A-D - D-G - G-J - J-L]	[phi=0.018] fa=  0, vprev=33, vna=32
+      Route [A-C - C-F - F-I - I-L]	[phi=0.018] fa=600, vprev=388, vna=392
+      Route [A-C - C-G - G-J - J-L]	[phi=0.018] fa=  0, vprev=166, vna=163
+   CALCULATING VNA for o/d [A|M]
+      Route [A-C - C-D - D-H - H-K - K-M]	[phi=0.018] fa=  0, vprev=7, vna=7
+      Route [A-D - D-G - G-K - K-M]	[phi=0.018] fa=400, vprev=22, vna=29
+      Route [A-C - C-F - F-I - I-J - J-M]	[phi=0.018] fa=  0, vprev=7, vna=7
+      Route [A-D - D-H - H-K - K-M]	[phi=0.018] fa=  0, vprev=207, vna=203
+      Route [A-C - C-G - G-J - J-M]	[phi=0.018] fa=  0, vprev=103, vna=101
+      Route [A-C - C-G - G-K - K-M]	[phi=0.018] fa=  0, vprev=44, vna=43
+      Route [A-D - D-G - G-J - J-M]	[phi=0.018] fa=  0, vprev=7, vna=7
+   CALCULATING VNA for o/d [B|L]
+      Route [B-D - D-G - G-J - J-I - I-L]	[phi=0.018] fa=  0, vprev=44, vna=43
+      Route [B-D - D-G - G-J - J-L]	[phi=0.018] fa=300, vprev=244, vna=245
+      Route [B-A - A-C - C-F - F-I - I-L]	[phi=0.018] fa=  0, vprev=5, vna=5
+      Route [B-E - E-H - H-K - K-J - J-L]	[phi=0.018] fa=  0, vprev=5, vna=5
+   CALCULATING VNA for o/d [B|M]
+      Route [B-E - E-H - H-K - K-M]	[phi=0.018] fa=400, vprev=340, vna=341
+      Route [B-D - D-G - G-K - K-M]	[phi=0.018] fa=  0, vprev=7, vna=7
+      Route [B-D - D-H - H-K - K-M]	[phi=0.018] fa=  0, vprev=37, vna=36
+      Route [B-D - D-G - G-J - J-M]	[phi=0.018] fa=  0, vprev=14, vna=14
+-- [ ITER 56 ] ----------------------------
+   CALCULATING VNA for o/d [A|L]
+      Route [A-C - C-G - G-J - J-I - I-L]	[phi=0.018] fa=  0, vprev=10, vna=10
+      Route [A-D - D-G - G-J - J-L]	[phi=0.018] fa=  0, vprev=32, vna=32
+      Route [A-C - C-F - F-I - I-L]	[phi=0.018] fa=600, vprev=392, vna=396
+      Route [A-C - C-G - G-J - J-L]	[phi=0.018] fa=  0, vprev=163, vna=160
+   CALCULATING VNA for o/d [A|M]
+      Route [A-C - C-D - D-H - H-K - K-M]	[phi=0.018] fa=  0, vprev=7, vna=7
+      Route [A-D - D-G - G-K - K-M]	[phi=0.018] fa=  0, vprev=29, vna=28
+      Route [A-C - C-F - F-I - I-J - J-M]	[phi=0.018] fa=  0, vprev=7, vna=7
+      Route [A-D - D-H - H-K - K-M]	[phi=0.018] fa=400, vprev=203, vna=207
+      Route [A-C - C-G - G-J - J-M]	[phi=0.018] fa=  0, vprev=101, vna=99
+      Route [A-C - C-G - G-K - K-M]	[phi=0.018] fa=  0, vprev=43, vna=42
+      Route [A-D - D-G - G-J - J-M]	[phi=0.018] fa=  0, vprev=7, vna=7
+   CALCULATING VNA for o/d [B|L]
+      Route [B-D - D-G - G-J - J-I - I-L]	[phi=0.018] fa=  0, vprev=43, vna=42
+      Route [B-D - D-G - G-J - J-L]	[phi=0.018] fa=300, vprev=245, vna=246
+      Route [B-A - A-C - C-F - F-I - I-L]	[phi=0.018] fa=  0, vprev=5, vna=5
+      Route [B-E - E-H - H-K - K-J - J-L]	[phi=0.018] fa=  0, vprev=5, vna=5
+   CALCULATING VNA for o/d [B|M]
+      Route [B-E - E-H - H-K - K-M]	[phi=0.018] fa=  0, vprev=341, vna=335
+      Route [B-D - D-G - G-K - K-M]	[phi=0.018] fa=  0, vprev=7, vna=7
+      Route [B-D - D-H - H-K - K-M]	[phi=0.018] fa=400, vprev=36, vna=42
+      Route [B-D - D-G - G-J - J-M]	[phi=0.018] fa=  0, vprev=14, vna=14
+-- [ ITER 57 ] ----------------------------
+   CALCULATING VNA for o/d [A|L]
+      Route [A-C - C-G - G-J - J-I - I-L]	[phi=0.018] fa=  0, vprev=10, vna=10
+      Route [A-D - D-G - G-J - J-L]	[phi=0.018] fa=  0, vprev=32, vna=31
+      Route [A-C - C-F - F-I - I-L]	[phi=0.018] fa=  0, vprev=396, vna=389
+      Route [A-C - C-G - G-J - J-L]	[phi=0.018] fa=600, vprev=160, vna=168
+   CALCULATING VNA for o/d [A|M]
+      Route [A-C - C-D - D-H - H-K - K-M]	[phi=0.018] fa=  0, vprev=7, vna=7
+      Route [A-D - D-G - G-K - K-M]	[phi=0.018] fa=  0, vprev=28, vna=28
+      Route [A-C - C-F - F-I - I-J - J-M]	[phi=0.018] fa=  0, vprev=7, vna=7
+      Route [A-D - D-H - H-K - K-M]	[phi=0.018] fa=  0, vprev=207, vna=203
+      Route [A-C - C-G - G-J - J-M]	[phi=0.018] fa=400, vprev=99, vna=105
+      Route [A-C - C-G - G-K - K-M]	[phi=0.018] fa=  0, vprev=42, vna=42
+      Route [A-D - D-G - G-J - J-M]	[phi=0.018] fa=  0, vprev=7, vna=7
+   CALCULATING VNA for o/d [B|L]
+      Route [B-D - D-G - G-J - J-I - I-L]	[phi=0.018] fa=  0, vprev=42, vna=42
+      Route [B-D - D-G - G-J - J-L]	[phi=0.018] fa=300, vprev=246, vna=247
+      Route [B-A - A-C - C-F - F-I - I-L]	[phi=0.018] fa=  0, vprev=5, vna=5
+      Route [B-E - E-H - H-K - K-J - J-L]	[phi=0.018] fa=  0, vprev=5, vna=5
+   CALCULATING VNA for o/d [B|M]
+      Route [B-E - E-H - H-K - K-M]	[phi=0.018] fa=400, vprev=335, vna=336
+      Route [B-D - D-G - G-K - K-M]	[phi=0.018] fa=  0, vprev=7, vna=7
+      Route [B-D - D-H - H-K - K-M]	[phi=0.018] fa=  0, vprev=42, vna=42
+      Route [B-D - D-G - G-J - J-M]	[phi=0.018] fa=  0, vprev=14, vna=14
+-- [ ITER 58 ] ----------------------------
+   CALCULATING VNA for o/d [A|L]
+      Route [A-C - C-G - G-J - J-I - I-L]	[phi=0.017] fa=  0, vprev=10, vna=10
+      Route [A-D - D-G - G-J - J-L]	[phi=0.017] fa=  0, vprev=31, vna=31
+      Route [A-C - C-F - F-I - I-L]	[phi=0.017] fa=600, vprev=389, vna=393
+      Route [A-C - C-G - G-J - J-L]	[phi=0.017] fa=  0, vprev=168, vna=165
+   CALCULATING VNA for o/d [A|M]
+      Route [A-C - C-D - D-H - H-K - K-M]	[phi=0.017] fa=  0, vprev=7, vna=6
+      Route [A-D - D-G - G-K - K-M]	[phi=0.017] fa=  0, vprev=28, vna=27
+      Route [A-C - C-F - F-I - I-J - J-M]	[phi=0.017] fa=  0, vprev=7, vna=6
+      Route [A-D - D-H - H-K - K-M]	[phi=0.017] fa=400, vprev=203, vna=206
+      Route [A-C - C-G - G-J - J-M]	[phi=0.017] fa=  0, vprev=105, vna=103
+      Route [A-C - C-G - G-K - K-M]	[phi=0.017] fa=  0, vprev=42, vna=41
+      Route [A-D - D-G - G-J - J-M]	[phi=0.017] fa=  0, vprev=7, vna=6
+   CALCULATING VNA for o/d [B|L]
+      Route [B-D - D-G - G-J - J-I - I-L]	[phi=0.017] fa=300, vprev=42, vna=46
+      Route [B-D - D-G - G-J - J-L]	[phi=0.017] fa=  0, vprev=247, vna=243
+      Route [B-A - A-C - C-F - F-I - I-L]	[phi=0.017] fa=  0, vprev=5, vna=5
+      Route [B-E - E-H - H-K - K-J - J-L]	[phi=0.017] fa=  0, vprev=5, vna=5
+   CALCULATING VNA for o/d [B|M]
+      Route [B-E - E-H - H-K - K-M]	[phi=0.017] fa=400, vprev=336, vna=337
+      Route [B-D - D-G - G-K - K-M]	[phi=0.017] fa=  0, vprev=7, vna=6
+      Route [B-D - D-H - H-K - K-M]	[phi=0.017] fa=  0, vprev=42, vna=41
+      Route [B-D - D-G - G-J - J-M]	[phi=0.017] fa=  0, vprev=14, vna=13
+-- [ ITER 59 ] ----------------------------
+   CALCULATING VNA for o/d [A|L]
+      Route [A-C - C-G - G-J - J-I - I-L]	[phi=0.017] fa=  0, vprev=10, vna=10
+      Route [A-D - D-G - G-J - J-L]	[phi=0.017] fa=  0, vprev=31, vna=30
+      Route [A-C - C-F - F-I - I-L]	[phi=0.017] fa=600, vprev=393, vna=396
+      Route [A-C - C-G - G-J - J-L]	[phi=0.017] fa=  0, vprev=165, vna=162
+   CALCULATING VNA for o/d [A|M]
+      Route [A-C - C-D - D-H - H-K - K-M]	[phi=0.017] fa=  0, vprev=6, vna=6
+      Route [A-D - D-G - G-K - K-M]	[phi=0.017] fa=400, vprev=27, vna=33
+      Route [A-C - C-F - F-I - I-J - J-M]	[phi=0.017] fa=  0, vprev=6, vna=6
+      Route [A-D - D-H - H-K - K-M]	[phi=0.017] fa=  0, vprev=206, vna=203
+      Route [A-C - C-G - G-J - J-M]	[phi=0.017] fa=  0, vprev=103, vna=101
+      Route [A-C - C-G - G-K - K-M]	[phi=0.017] fa=  0, vprev=41, vna=40
+      Route [A-D - D-G - G-J - J-M]	[phi=0.017] fa=  0, vprev=6, vna=6
+   CALCULATING VNA for o/d [B|L]
+      Route [B-D - D-G - G-J - J-I - I-L]	[phi=0.017] fa=  0, vprev=46, vna=45
+      Route [B-D - D-G - G-J - J-L]	[phi=0.017] fa=300, vprev=243, vna=244
+      Route [B-A - A-C - C-F - F-I - I-L]	[phi=0.017] fa=  0, vprev=5, vna=5
+      Route [B-E - E-H - H-K - K-J - J-L]	[phi=0.017] fa=  0, vprev=5, vna=5
+   CALCULATING VNA for o/d [B|M]
+      Route [B-E - E-H - H-K - K-M]	[phi=0.017] fa=400, vprev=337, vna=338
+      Route [B-D - D-G - G-K - K-M]	[phi=0.017] fa=  0, vprev=6, vna=6
+      Route [B-D - D-H - H-K - K-M]	[phi=0.017] fa=  0, vprev=41, vna=40
+      Route [B-D - D-G - G-J - J-M]	[phi=0.017] fa=  0, vprev=13, vna=13
+-- [ ITER 60 ] ----------------------------
+   CALCULATING VNA for o/d [A|L]
+      Route [A-C - C-G - G-J - J-I - I-L]	[phi=0.017] fa=  0, vprev=10, vna=10
+      Route [A-D - D-G - G-J - J-L]	[phi=0.017] fa=  0, vprev=30, vna=29
+      Route [A-C - C-F - F-I - I-L]	[phi=0.017] fa=  0, vprev=396, vna=389
+      Route [A-C - C-G - G-J - J-L]	[phi=0.017] fa=600, vprev=162, vna=169
+   CALCULATING VNA for o/d [A|M]
+      Route [A-C - C-D - D-H - H-K - K-M]	[phi=0.017] fa=  0, vprev=6, vna=6
+      Route [A-D - D-G - G-K - K-M]	[phi=0.017] fa=  0, vprev=33, vna=33
+      Route [A-C - C-F - F-I - I-J - J-M]	[phi=0.017] fa=  0, vprev=6, vna=6
+      Route [A-D - D-H - H-K - K-M]	[phi=0.017] fa=  0, vprev=203, vna=199
+      Route [A-C - C-G - G-J - J-M]	[phi=0.017] fa=400, vprev=101, vna=106
+      Route [A-C - C-G - G-K - K-M]	[phi=0.017] fa=  0, vprev=40, vna=39
+      Route [A-D - D-G - G-J - J-M]	[phi=0.017] fa=  0, vprev=6, vna=6
+   CALCULATING VNA for o/d [B|L]
+      Route [B-D - D-G - G-J - J-I - I-L]	[phi=0.017] fa=  0, vprev=45, vna=44
+      Route [B-D - D-G - G-J - J-L]	[phi=0.017] fa=300, vprev=244, vna=244
+      Route [B-A - A-C - C-F - F-I - I-L]	[phi=0.017] fa=  0, vprev=5, vna=5
+      Route [B-E - E-H - H-K - K-J - J-L]	[phi=0.017] fa=  0, vprev=5, vna=5
+   CALCULATING VNA for o/d [B|M]
+      Route [B-E - E-H - H-K - K-M]	[phi=0.017] fa=400, vprev=338, vna=339
+      Route [B-D - D-G - G-K - K-M]	[phi=0.017] fa=  0, vprev=6, vna=6
+      Route [B-D - D-H - H-K - K-M]	[phi=0.017] fa=  0, vprev=40, vna=39
+      Route [B-D - D-G - G-J - J-M]	[phi=0.017] fa=  0, vprev=13, vna=13
+-- [ ITER 61 ] ----------------------------
+   CALCULATING VNA for o/d [A|L]
+      Route [A-C - C-G - G-J - J-I - I-L]	[phi=0.016] fa=  0, vprev=10, vna=9
+      Route [A-D - D-G - G-J - J-L]	[phi=0.016] fa=  0, vprev=29, vna=29
+      Route [A-C - C-F - F-I - I-L]	[phi=0.016] fa=600, vprev=389, vna=393
+      Route [A-C - C-G - G-J - J-L]	[phi=0.016] fa=  0, vprev=169, vna=167
+   CALCULATING VNA for o/d [A|M]
+      Route [A-C - C-D - D-H - H-K - K-M]	[phi=0.016] fa=  0, vprev=6, vna=6
+      Route [A-D - D-G - G-K - K-M]	[phi=0.016] fa=  0, vprev=33, vna=32
+      Route [A-C - C-F - F-I - I-J - J-M]	[phi=0.016] fa=  0, vprev=6, vna=6
+      Route [A-D - D-H - H-K - K-M]	[phi=0.016] fa=400, vprev=199, vna=203
+      Route [A-C - C-G - G-J - J-M]	[phi=0.016] fa=  0, vprev=106, vna=104
+      Route [A-C - C-G - G-K - K-M]	[phi=0.016] fa=  0, vprev=39, vna=39
+      Route [A-D - D-G - G-J - J-M]	[phi=0.016] fa=  0, vprev=6, vna=6
+   CALCULATING VNA for o/d [B|L]
+      Route [B-D - D-G - G-J - J-I - I-L]	[phi=0.016] fa=  0, vprev=44, vna=44
+      Route [B-D - D-G - G-J - J-L]	[phi=0.016] fa=300, vprev=244, vna=245
+      Route [B-A - A-C - C-F - F-I - I-L]	[phi=0.016] fa=  0, vprev=5, vna=4
+      Route [B-E - E-H - H-K - K-J - J-L]	[phi=0.016] fa=  0, vprev=5, vna=4
+   CALCULATING VNA for o/d [B|M]
+      Route [B-E - E-H - H-K - K-M]	[phi=0.016] fa=400, vprev=339, vna=340
+      Route [B-D - D-G - G-K - K-M]	[phi=0.016] fa=  0, vprev=6, vna=6
+      Route [B-D - D-H - H-K - K-M]	[phi=0.016] fa=  0, vprev=39, vna=39
+      Route [B-D - D-G - G-J - J-M]	[phi=0.016] fa=  0, vprev=13, vna=13
+-- [ ITER 62 ] ----------------------------
+   CALCULATING VNA for o/d [A|L]
+      Route [A-C - C-G - G-J - J-I - I-L]	[phi=0.016] fa=  0, vprev=9, vna=9
+      Route [A-D - D-G - G-J - J-L]	[phi=0.016] fa=  0, vprev=29, vna=29
+      Route [A-C - C-F - F-I - I-L]	[phi=0.016] fa=600, vprev=393, vna=396
+      Route [A-C - C-G - G-J - J-L]	[phi=0.016] fa=  0, vprev=167, vna=164
+   CALCULATING VNA for o/d [A|M]
+      Route [A-C - C-D - D-H - H-K - K-M]	[phi=0.016] fa=  0, vprev=6, vna=6
+      Route [A-D - D-G - G-K - K-M]	[phi=0.016] fa=  0, vprev=32, vna=32
+      Route [A-C - C-F - F-I - I-J - J-M]	[phi=0.016] fa=  0, vprev=6, vna=6
+      Route [A-D - D-H - H-K - K-M]	[phi=0.016] fa=400, vprev=203, vna=206
+      Route [A-C - C-G - G-J - J-M]	[phi=0.016] fa=  0, vprev=104, vna=103
+      Route [A-C - C-G - G-K - K-M]	[phi=0.016] fa=  0, vprev=39, vna=38
+      Route [A-D - D-G - G-J - J-M]	[phi=0.016] fa=  0, vprev=6, vna=6
+   CALCULATING VNA for o/d [B|L]
+      Route [B-D - D-G - G-J - J-I - I-L]	[phi=0.016] fa=  0, vprev=44, vna=43
+      Route [B-D - D-G - G-J - J-L]	[phi=0.016] fa=300, vprev=245, vna=246
+      Route [B-A - A-C - C-F - F-I - I-L]	[phi=0.016] fa=  0, vprev=4, vna=4
+      Route [B-E - E-H - H-K - K-J - J-L]	[phi=0.016] fa=  0, vprev=4, vna=4
+   CALCULATING VNA for o/d [B|M]
+      Route [B-E - E-H - H-K - K-M]	[phi=0.016] fa=400, vprev=340, vna=341
+      Route [B-D - D-G - G-K - K-M]	[phi=0.016] fa=  0, vprev=6, vna=6
+      Route [B-D - D-H - H-K - K-M]	[phi=0.016] fa=  0, vprev=39, vna=38
+      Route [B-D - D-G - G-J - J-M]	[phi=0.016] fa=  0, vprev=13, vna=12
+-- [ ITER 63 ] ----------------------------
+   CALCULATING VNA for o/d [A|L]
+      Route [A-C - C-G - G-J - J-I - I-L]	[phi=0.016] fa=  0, vprev=9, vna=9
+      Route [A-D - D-G - G-J - J-L]	[phi=0.016] fa=  0, vprev=29, vna=28
+      Route [A-C - C-F - F-I - I-L]	[phi=0.016] fa=600, vprev=396, vna=400
+      Route [A-C - C-G - G-J - J-L]	[phi=0.016] fa=  0, vprev=164, vna=161
+   CALCULATING VNA for o/d [A|M]
+      Route [A-C - C-D - D-H - H-K - K-M]	[phi=0.016] fa=  0, vprev=6, vna=6
+      Route [A-D - D-G - G-K - K-M]	[phi=0.016] fa=  0, vprev=32, vna=31
+      Route [A-C - C-F - F-I - I-J - J-M]	[phi=0.016] fa=  0, vprev=6, vna=6
+      Route [A-D - D-H - H-K - K-M]	[phi=0.016] fa=  0, vprev=206, vna=203
+      Route [A-C - C-G - G-J - J-M]	[phi=0.016] fa=400, vprev=103, vna=107
+      Route [A-C - C-G - G-K - K-M]	[phi=0.016] fa=  0, vprev=38, vna=38
+      Route [A-D - D-G - G-J - J-M]	[phi=0.016] fa=  0, vprev=6, vna=6
+   CALCULATING VNA for o/d [B|L]
+      Route [B-D - D-G - G-J - J-I - I-L]	[phi=0.016] fa=  0, vprev=43, vna=42
+      Route [B-D - D-G - G-J - J-L]	[phi=0.016] fa=300, vprev=246, vna=247
+      Route [B-A - A-C - C-F - F-I - I-L]	[phi=0.016] fa=  0, vprev=4, vna=4
+      Route [B-E - E-H - H-K - K-J - J-L]	[phi=0.016] fa=  0, vprev=4, vna=4
+   CALCULATING VNA for o/d [B|M]
+      Route [B-E - E-H - H-K - K-M]	[phi=0.016] fa=400, vprev=341, vna=342
+      Route [B-D - D-G - G-K - K-M]	[phi=0.016] fa=  0, vprev=6, vna=6
+      Route [B-D - D-H - H-K - K-M]	[phi=0.016] fa=  0, vprev=38, vna=38
+      Route [B-D - D-G - G-J - J-M]	[phi=0.016] fa=  0, vprev=12, vna=12
+-- [ ITER 64 ] ----------------------------
+   CALCULATING VNA for o/d [A|L]
+      Route [A-C - C-G - G-J - J-I - I-L]	[phi=0.016] fa=  0, vprev=9, vna=9
+      Route [A-D - D-G - G-J - J-L]	[phi=0.016] fa=600, vprev=28, vna=37
+      Route [A-C - C-F - F-I - I-L]	[phi=0.016] fa=  0, vprev=400, vna=393
+      Route [A-C - C-G - G-J - J-L]	[phi=0.016] fa=  0, vprev=161, vna=159
+   CALCULATING VNA for o/d [A|M]
+      Route [A-C - C-D - D-H - H-K - K-M]	[phi=0.016] fa=  0, vprev=6, vna=6
+      Route [A-D - D-G - G-K - K-M]	[phi=0.016] fa=  0, vprev=31, vna=31
+      Route [A-C - C-F - F-I - I-J - J-M]	[phi=0.016] fa=  0, vprev=6, vna=6
+      Route [A-D - D-H - H-K - K-M]	[phi=0.016] fa=400, vprev=203, vna=206
+      Route [A-C - C-G - G-J - J-M]	[phi=0.016] fa=  0, vprev=107, vna=106
+      Route [A-C - C-G - G-K - K-M]	[phi=0.016] fa=  0, vprev=38, vna=37
+      Route [A-D - D-G - G-J - J-M]	[phi=0.016] fa=  0, vprev=6, vna=6
+   CALCULATING VNA for o/d [B|L]
+      Route [B-D - D-G - G-J - J-I - I-L]	[phi=0.016] fa=  0, vprev=42, vna=42
+      Route [B-D - D-G - G-J - J-L]	[phi=0.016] fa=300, vprev=247, vna=248
+      Route [B-A - A-C - C-F - F-I - I-L]	[phi=0.016] fa=  0, vprev=4, vna=4
+      Route [B-E - E-H - H-K - K-J - J-L]	[phi=0.016] fa=  0, vprev=4, vna=4
+   CALCULATING VNA for o/d [B|M]
+      Route [B-E - E-H - H-K - K-M]	[phi=0.016] fa=400, vprev=342, vna=343
+      Route [B-D - D-G - G-K - K-M]	[phi=0.016] fa=  0, vprev=6, vna=6
+      Route [B-D - D-H - H-K - K-M]	[phi=0.016] fa=  0, vprev=38, vna=37
+      Route [B-D - D-G - G-J - J-M]	[phi=0.016] fa=  0, vprev=12, vna=12
+-- [ ITER 65 ] ----------------------------
+   CALCULATING VNA for o/d [A|L]
+      Route [A-C - C-G - G-J - J-I - I-L]	[phi=0.015] fa=  0, vprev=9, vna=9
+      Route [A-D - D-G - G-J - J-L]	[phi=0.015] fa=  0, vprev=37, vna=36
+      Route [A-C - C-F - F-I - I-L]	[phi=0.015] fa=600, vprev=393, vna=396
+      Route [A-C - C-G - G-J - J-L]	[phi=0.015] fa=  0, vprev=159, vna=156
+   CALCULATING VNA for o/d [A|M]
+      Route [A-C - C-D - D-H - H-K - K-M]	[phi=0.015] fa=  0, vprev=6, vna=6
+      Route [A-D - D-G - G-K - K-M]	[phi=0.015] fa=  0, vprev=31, vna=30
+      Route [A-C - C-F - F-I - I-J - J-M]	[phi=0.015] fa=  0, vprev=6, vna=6
+      Route [A-D - D-H - H-K - K-M]	[phi=0.015] fa=  0, vprev=206, vna=203
+      Route [A-C - C-G - G-J - J-M]	[phi=0.015] fa=  0, vprev=106, vna=104
+      Route [A-C - C-G - G-K - K-M]	[phi=0.015] fa=400, vprev=37, vna=43
+      Route [A-D - D-G - G-J - J-M]	[phi=0.015] fa=  0, vprev=6, vna=6
+   CALCULATING VNA for o/d [B|L]
+      Route [B-D - D-G - G-J - J-I - I-L]	[phi=0.015] fa=  0, vprev=42, vna=41
+      Route [B-D - D-G - G-J - J-L]	[phi=0.015] fa=300, vprev=248, vna=249
+      Route [B-A - A-C - C-F - F-I - I-L]	[phi=0.015] fa=  0, vprev=4, vna=4
+      Route [B-E - E-H - H-K - K-J - J-L]	[phi=0.015] fa=  0, vprev=4, vna=4
+   CALCULATING VNA for o/d [B|M]
+      Route [B-E - E-H - H-K - K-M]	[phi=0.015] fa=400, vprev=343, vna=344
+      Route [B-D - D-G - G-K - K-M]	[phi=0.015] fa=  0, vprev=6, vna=6
+      Route [B-D - D-H - H-K - K-M]	[phi=0.015] fa=  0, vprev=37, vna=36
+      Route [B-D - D-G - G-J - J-M]	[phi=0.015] fa=  0, vprev=12, vna=12
+-- [ ITER 66 ] ----------------------------
+   CALCULATING VNA for o/d [A|L]
+      Route [A-C - C-G - G-J - J-I - I-L]	[phi=0.015] fa=  0, vprev=9, vna=9
+      Route [A-D - D-G - G-J - J-L]	[phi=0.015] fa=  0, vprev=36, vna=36
+      Route [A-C - C-F - F-I - I-L]	[phi=0.015] fa=600, vprev=396, vna=400
+      Route [A-C - C-G - G-J - J-L]	[phi=0.015] fa=  0, vprev=156, vna=154
+   CALCULATING VNA for o/d [A|M]
+      Route [A-C - C-D - D-H - H-K - K-M]	[phi=0.015] fa=  0, vprev=6, vna=6
+      Route [A-D - D-G - G-K - K-M]	[phi=0.015] fa=  0, vprev=30, vna=30
+      Route [A-C - C-F - F-I - I-J - J-M]	[phi=0.015] fa=  0, vprev=6, vna=6
+      Route [A-D - D-H - H-K - K-M]	[phi=0.015] fa=  0, vprev=203, vna=199
+      Route [A-C - C-G - G-J - J-M]	[phi=0.015] fa=400, vprev=104, vna=109
+      Route [A-C - C-G - G-K - K-M]	[phi=0.015] fa=  0, vprev=43, vna=42
+      Route [A-D - D-G - G-J - J-M]	[phi=0.015] fa=  0, vprev=6, vna=6
+   CALCULATING VNA for o/d [B|L]
+      Route [B-D - D-G - G-J - J-I - I-L]	[phi=0.015] fa=  0, vprev=41, vna=40
+      Route [B-D - D-G - G-J - J-L]	[phi=0.015] fa=300, vprev=249, vna=249
+      Route [B-A - A-C - C-F - F-I - I-L]	[phi=0.015] fa=  0, vprev=4, vna=4
+      Route [B-E - E-H - H-K - K-J - J-L]	[phi=0.015] fa=  0, vprev=4, vna=4
+   CALCULATING VNA for o/d [B|M]
+      Route [B-E - E-H - H-K - K-M]	[phi=0.015] fa=  0, vprev=344, vna=339
+      Route [B-D - D-G - G-K - K-M]	[phi=0.015] fa=  0, vprev=6, vna=6
+      Route [B-D - D-H - H-K - K-M]	[phi=0.015] fa=400, vprev=36, vna=42
+      Route [B-D - D-G - G-J - J-M]	[phi=0.015] fa=  0, vprev=12, vna=12
+-- [ ITER 67 ] ----------------------------
+   CALCULATING VNA for o/d [A|L]
+      Route [A-C - C-G - G-J - J-I - I-L]	[phi=0.015] fa=  0, vprev=9, vna=8
+      Route [A-D - D-G - G-J - J-L]	[phi=0.015] fa=  0, vprev=36, vna=35
+      Route [A-C - C-F - F-I - I-L]	[phi=0.015] fa=600, vprev=400, vna=402
+      Route [A-C - C-G - G-J - J-L]	[phi=0.015] fa=  0, vprev=154, vna=152
+   CALCULATING VNA for o/d [A|M]
+      Route [A-C - C-D - D-H - H-K - K-M]	[phi=0.015] fa=  0, vprev=6, vna=5
+      Route [A-D - D-G - G-K - K-M]	[phi=0.015] fa=  0, vprev=30, vna=29
+      Route [A-C - C-F - F-I - I-J - J-M]	[phi=0.015] fa=  0, vprev=6, vna=5
+      Route [A-D - D-H - H-K - K-M]	[phi=0.015] fa=400, vprev=199, vna=202
+      Route [A-C - C-G - G-J - J-M]	[phi=0.015] fa=  0, vprev=109, vna=107
+      Route [A-C - C-G - G-K - K-M]	[phi=0.015] fa=  0, vprev=42, vna=41
+      Route [A-D - D-G - G-J - J-M]	[phi=0.015] fa=  0, vprev=6, vna=5
+   CALCULATING VNA for o/d [B|L]
+      Route [B-D - D-G - G-J - J-I - I-L]	[phi=0.015] fa=  0, vprev=40, vna=40
+      Route [B-D - D-G - G-J - J-L]	[phi=0.015] fa=300, vprev=249, vna=250
+      Route [B-A - A-C - C-F - F-I - I-L]	[phi=0.015] fa=  0, vprev=4, vna=4
+      Route [B-E - E-H - H-K - K-J - J-L]	[phi=0.015] fa=  0, vprev=4, vna=4
+   CALCULATING VNA for o/d [B|M]
+      Route [B-E - E-H - H-K - K-M]	[phi=0.015] fa=400, vprev=339, vna=340
+      Route [B-D - D-G - G-K - K-M]	[phi=0.015] fa=  0, vprev=6, vna=5
+      Route [B-D - D-H - H-K - K-M]	[phi=0.015] fa=  0, vprev=42, vna=41
+      Route [B-D - D-G - G-J - J-M]	[phi=0.015] fa=  0, vprev=12, vna=11
+-- [ ITER 68 ] ----------------------------
+   CALCULATING VNA for o/d [A|L]
+      Route [A-C - C-G - G-J - J-I - I-L]	[phi=0.015] fa=  0, vprev=8, vna=8
+      Route [A-D - D-G - G-J - J-L]	[phi=0.015] fa=  0, vprev=35, vna=35
+      Route [A-C - C-F - F-I - I-L]	[phi=0.015] fa=  0, vprev=402, vna=397
+      Route [A-C - C-G - G-J - J-L]	[phi=0.015] fa=600, vprev=152, vna=158
+   CALCULATING VNA for o/d [A|M]
+      Route [A-C - C-D - D-H - H-K - K-M]	[phi=0.015] fa=  0, vprev=5, vna=5
+      Route [A-D - D-G - G-K - K-M]	[phi=0.015] fa=  0, vprev=29, vna=29
+      Route [A-C - C-F - F-I - I-J - J-M]	[phi=0.015] fa=  0, vprev=5, vna=5
+      Route [A-D - D-H - H-K - K-M]	[phi=0.015] fa=  0, vprev=202, vna=199
+      Route [A-C - C-G - G-J - J-M]	[phi=0.015] fa=400, vprev=107, vna=111
+      Route [A-C - C-G - G-K - K-M]	[phi=0.015] fa=  0, vprev=41, vna=41
+      Route [A-D - D-G - G-J - J-M]	[phi=0.015] fa=  0, vprev=5, vna=5
+   CALCULATING VNA for o/d [B|L]
+      Route [B-D - D-G - G-J - J-I - I-L]	[phi=0.015] fa=  0, vprev=40, vna=39
+      Route [B-D - D-G - G-J - J-L]	[phi=0.015] fa=300, vprev=250, vna=251
+      Route [B-A - A-C - C-F - F-I - I-L]	[phi=0.015] fa=  0, vprev=4, vna=4
+      Route [B-E - E-H - H-K - K-J - J-L]	[phi=0.015] fa=  0, vprev=4, vna=4
+   CALCULATING VNA for o/d [B|M]
+      Route [B-E - E-H - H-K - K-M]	[phi=0.015] fa=400, vprev=340, vna=341
+      Route [B-D - D-G - G-K - K-M]	[phi=0.015] fa=  0, vprev=5, vna=5
+      Route [B-D - D-H - H-K - K-M]	[phi=0.015] fa=  0, vprev=41, vna=41
+      Route [B-D - D-G - G-J - J-M]	[phi=0.015] fa=  0, vprev=11, vna=11
+-- [ ITER 69 ] ----------------------------
+   CALCULATING VNA for o/d [A|L]
+      Route [A-C - C-G - G-J - J-I - I-L]	[phi=0.014] fa=  0, vprev=8, vna=8
+      Route [A-D - D-G - G-J - J-L]	[phi=0.014] fa=  0, vprev=35, vna=34
+      Route [A-C - C-F - F-I - I-L]	[phi=0.014] fa=600, vprev=397, vna=400
+      Route [A-C - C-G - G-J - J-L]	[phi=0.014] fa=  0, vprev=158, vna=156
+   CALCULATING VNA for o/d [A|M]
+      Route [A-C - C-D - D-H - H-K - K-M]	[phi=0.014] fa=  0, vprev=5, vna=5
+      Route [A-D - D-G - G-K - K-M]	[phi=0.014] fa=  0, vprev=29, vna=28
+      Route [A-C - C-F - F-I - I-J - J-M]	[phi=0.014] fa=  0, vprev=5, vna=5
+      Route [A-D - D-H - H-K - K-M]	[phi=0.014] fa=400, vprev=199, vna=202
+      Route [A-C - C-G - G-J - J-M]	[phi=0.014] fa=  0, vprev=111, vna=110
+      Route [A-C - C-G - G-K - K-M]	[phi=0.014] fa=  0, vprev=41, vna=40
+      Route [A-D - D-G - G-J - J-M]	[phi=0.014] fa=  0, vprev=5, vna=5
+   CALCULATING VNA for o/d [B|L]
+      Route [B-D - D-G - G-J - J-I - I-L]	[phi=0.014] fa=300, vprev=39, vna=43
+      Route [B-D - D-G - G-J - J-L]	[phi=0.014] fa=  0, vprev=251, vna=247
+      Route [B-A - A-C - C-F - F-I - I-L]	[phi=0.014] fa=  0, vprev=4, vna=4
+      Route [B-E - E-H - H-K - K-J - J-L]	[phi=0.014] fa=  0, vprev=4, vna=4
+   CALCULATING VNA for o/d [B|M]
+      Route [B-E - E-H - H-K - K-M]	[phi=0.014] fa=400, vprev=341, vna=342
+      Route [B-D - D-G - G-K - K-M]	[phi=0.014] fa=  0, vprev=5, vna=5
+      Route [B-D - D-H - H-K - K-M]	[phi=0.014] fa=  0, vprev=41, vna=40
+      Route [B-D - D-G - G-J - J-M]	[phi=0.014] fa=  0, vprev=11, vna=11
+-- [ ITER 70 ] ----------------------------
+   CALCULATING VNA for o/d [A|L]
+      Route [A-C - C-G - G-J - J-I - I-L]	[phi=0.014] fa=  0, vprev=8, vna=8
+      Route [A-D - D-G - G-J - J-L]	[phi=0.014] fa=  0, vprev=34, vna=34
+      Route [A-C - C-F - F-I - I-L]	[phi=0.014] fa=600, vprev=400, vna=402
+      Route [A-C - C-G - G-J - J-L]	[phi=0.014] fa=  0, vprev=156, vna=154
+   CALCULATING VNA for o/d [A|M]
+      Route [A-C - C-D - D-H - H-K - K-M]	[phi=0.014] fa=  0, vprev=5, vna=5
+      Route [A-D - D-G - G-K - K-M]	[phi=0.014] fa=  0, vprev=28, vna=28
+      Route [A-C - C-F - F-I - I-J - J-M]	[phi=0.014] fa=  0, vprev=5, vna=5
+      Route [A-D - D-H - H-K - K-M]	[phi=0.014] fa=400, vprev=202, vna=205
+      Route [A-C - C-G - G-J - J-M]	[phi=0.014] fa=  0, vprev=110, vna=108
+      Route [A-C - C-G - G-K - K-M]	[phi=0.014] fa=  0, vprev=40, vna=40
+      Route [A-D - D-G - G-J - J-M]	[phi=0.014] fa=  0, vprev=5, vna=5
+   CALCULATING VNA for o/d [B|L]
+      Route [B-D - D-G - G-J - J-I - I-L]	[phi=0.014] fa=  0, vprev=43, vna=42
+      Route [B-D - D-G - G-J - J-L]	[phi=0.014] fa=300, vprev=247, vna=248
+      Route [B-A - A-C - C-F - F-I - I-L]	[phi=0.014] fa=  0, vprev=4, vna=4
+      Route [B-E - E-H - H-K - K-J - J-L]	[phi=0.014] fa=  0, vprev=4, vna=4
+   CALCULATING VNA for o/d [B|M]
+      Route [B-E - E-H - H-K - K-M]	[phi=0.014] fa=400, vprev=342, vna=342
+      Route [B-D - D-G - G-K - K-M]	[phi=0.014] fa=  0, vprev=5, vna=5
+      Route [B-D - D-H - H-K - K-M]	[phi=0.014] fa=  0, vprev=40, vna=40
+      Route [B-D - D-G - G-J - J-M]	[phi=0.014] fa=  0, vprev=11, vna=11
+-- [ ITER 71 ] ----------------------------
+   CALCULATING VNA for o/d [A|L]
+      Route [A-C - C-G - G-J - J-I - I-L]	[phi=0.014] fa=  0, vprev=8, vna=8
+      Route [A-D - D-G - G-J - J-L]	[phi=0.014] fa=  0, vprev=34, vna=33
+      Route [A-C - C-F - F-I - I-L]	[phi=0.014] fa=  0, vprev=402, vna=397
+      Route [A-C - C-G - G-J - J-L]	[phi=0.014] fa=600, vprev=154, vna=160
+   CALCULATING VNA for o/d [A|M]
+      Route [A-C - C-D - D-H - H-K - K-M]	[phi=0.014] fa=  0, vprev=5, vna=5
+      Route [A-D - D-G - G-K - K-M]	[phi=0.014] fa=  0, vprev=28, vna=28
+      Route [A-C - C-F - F-I - I-J - J-M]	[phi=0.014] fa=  0, vprev=5, vna=5
+      Route [A-D - D-H - H-K - K-M]	[phi=0.014] fa=  0, vprev=205, vna=202
+      Route [A-C - C-G - G-J - J-M]	[phi=0.014] fa=  0, vprev=108, vna=107
+      Route [A-C - C-G - G-K - K-M]	[phi=0.014] fa=400, vprev=40, vna=45
+      Route [A-D - D-G - G-J - J-M]	[phi=0.014] fa=  0, vprev=5, vna=5
+   CALCULATING VNA for o/d [B|L]
+      Route [B-D - D-G - G-J - J-I - I-L]	[phi=0.014] fa=  0, vprev=42, vna=42
+      Route [B-D - D-G - G-J - J-L]	[phi=0.014] fa=300, vprev=248, vna=249
+      Route [B-A - A-C - C-F - F-I - I-L]	[phi=0.014] fa=  0, vprev=4, vna=4
+      Route [B-E - E-H - H-K - K-J - J-L]	[phi=0.014] fa=  0, vprev=4, vna=4
+   CALCULATING VNA for o/d [B|M]
+      Route [B-E - E-H - H-K - K-M]	[phi=0.014] fa=400, vprev=342, vna=343
+      Route [B-D - D-G - G-K - K-M]	[phi=0.014] fa=  0, vprev=5, vna=5
+      Route [B-D - D-H - H-K - K-M]	[phi=0.014] fa=  0, vprev=40, vna=39
+      Route [B-D - D-G - G-J - J-M]	[phi=0.014] fa=  0, vprev=11, vna=11
+-- [ ITER 72 ] ----------------------------
+   CALCULATING VNA for o/d [A|L]
+      Route [A-C - C-G - G-J - J-I - I-L]	[phi=0.014] fa=  0, vprev=8, vna=8
+      Route [A-D - D-G - G-J - J-L]	[phi=0.014] fa=  0, vprev=33, vna=33
+      Route [A-C - C-F - F-I - I-L]	[phi=0.014] fa=600, vprev=397, vna=400
+      Route [A-C - C-G - G-J - J-L]	[phi=0.014] fa=  0, vprev=160, vna=158
+   CALCULATING VNA for o/d [A|M]
+      Route [A-C - C-D - D-H - H-K - K-M]	[phi=0.014] fa=  0, vprev=5, vna=5
+      Route [A-D - D-G - G-K - K-M]	[phi=0.014] fa=  0, vprev=28, vna=27
+      Route [A-C - C-F - F-I - I-J - J-M]	[phi=0.014] fa=  0, vprev=5, vna=5
+      Route [A-D - D-H - H-K - K-M]	[phi=0.014] fa=400, vprev=202, vna=205
+      Route [A-C - C-G - G-J - J-M]	[phi=0.014] fa=  0, vprev=107, vna=105
+      Route [A-C - C-G - G-K - K-M]	[phi=0.014] fa=  0, vprev=45, vna=44
+      Route [A-D - D-G - G-J - J-M]	[phi=0.014] fa=  0, vprev=5, vna=5
+   CALCULATING VNA for o/d [B|L]
+      Route [B-D - D-G - G-J - J-I - I-L]	[phi=0.014] fa=  0, vprev=42, vna=41
+      Route [B-D - D-G - G-J - J-L]	[phi=0.014] fa=300, vprev=249, vna=249
+      Route [B-A - A-C - C-F - F-I - I-L]	[phi=0.014] fa=  0, vprev=4, vna=4
+      Route [B-E - E-H - H-K - K-J - J-L]	[phi=0.014] fa=  0, vprev=4, vna=4
+   CALCULATING VNA for o/d [B|M]
+      Route [B-E - E-H - H-K - K-M]	[phi=0.014] fa=400, vprev=343, vna=344
+      Route [B-D - D-G - G-K - K-M]	[phi=0.014] fa=  0, vprev=5, vna=5
+      Route [B-D - D-H - H-K - K-M]	[phi=0.014] fa=  0, vprev=39, vna=38
+      Route [B-D - D-G - G-J - J-M]	[phi=0.014] fa=  0, vprev=11, vna=11
+-- [ ITER 73 ] ----------------------------
+   CALCULATING VNA for o/d [A|L]
+      Route [A-C - C-G - G-J - J-I - I-L]	[phi=0.014] fa=  0, vprev=8, vna=8
+      Route [A-D - D-G - G-J - J-L]	[phi=0.014] fa=  0, vprev=33, vna=32
+      Route [A-C - C-F - F-I - I-L]	[phi=0.014] fa=600, vprev=400, vna=402
+      Route [A-C - C-G - G-J - J-L]	[phi=0.014] fa=  0, vprev=158, vna=156
+   CALCULATING VNA for o/d [A|M]
+      Route [A-C - C-D - D-H - H-K - K-M]	[phi=0.014] fa=  0, vprev=5, vna=5
+      Route [A-D - D-G - G-K - K-M]	[phi=0.014] fa=  0, vprev=27, vna=27
+      Route [A-C - C-F - F-I - I-J - J-M]	[phi=0.014] fa=  0, vprev=5, vna=5
+      Route [A-D - D-H - H-K - K-M]	[phi=0.014] fa=  0, vprev=205, vna=202
+      Route [A-C - C-G - G-J - J-M]	[phi=0.014] fa=  0, vprev=105, vna=104
+      Route [A-C - C-G - G-K - K-M]	[phi=0.014] fa=  0, vprev=44, vna=43
+      Route [A-D - D-G - G-J - J-M]	[phi=0.014] fa=400, vprev=5, vna=10
+   CALCULATING VNA for o/d [B|L]
+      Route [B-D - D-G - G-J - J-I - I-L]	[phi=0.014] fa=  0, vprev=41, vna=41
+      Route [B-D - D-G - G-J - J-L]	[phi=0.014] fa=300, vprev=249, vna=250
+      Route [B-A - A-C - C-F - F-I - I-L]	[phi=0.014] fa=  0, vprev=4, vna=4
+      Route [B-E - E-H - H-K - K-J - J-L]	[phi=0.014] fa=  0, vprev=4, vna=4
+   CALCULATING VNA for o/d [B|M]
+      Route [B-E - E-H - H-K - K-M]	[phi=0.014] fa=  0, vprev=344, vna=339
+      Route [B-D - D-G - G-K - K-M]	[phi=0.014] fa=  0, vprev=5, vna=5
+      Route [B-D - D-H - H-K - K-M]	[phi=0.014] fa=  0, vprev=38, vna=38
+      Route [B-D - D-G - G-J - J-M]	[phi=0.014] fa=400, vprev=11, vna=16
+-- [ ITER 74 ] ----------------------------
+   CALCULATING VNA for o/d [A|L]
+      Route [A-C - C-G - G-J - J-I - I-L]	[phi=0.014] fa=  0, vprev=8, vna=8
+      Route [A-D - D-G - G-J - J-L]	[phi=0.014] fa=  0, vprev=32, vna=32
+      Route [A-C - C-F - F-I - I-L]	[phi=0.014] fa=  0, vprev=402, vna=397
+      Route [A-C - C-G - G-J - J-L]	[phi=0.014] fa=600, vprev=156, vna=162
+   CALCULATING VNA for o/d [A|M]
+      Route [A-C - C-D - D-H - H-K - K-M]	[phi=0.014] fa=  0, vprev=5, vna=5
+      Route [A-D - D-G - G-K - K-M]	[phi=0.014] fa=  0, vprev=27, vna=27
+      Route [A-C - C-F - F-I - I-J - J-M]	[phi=0.014] fa=  0, vprev=5, vna=5
+      Route [A-D - D-H - H-K - K-M]	[phi=0.014] fa=400, vprev=202, vna=205
+      Route [A-C - C-G - G-J - J-M]	[phi=0.014] fa=  0, vprev=104, vna=102
+      Route [A-C - C-G - G-K - K-M]	[phi=0.014] fa=  0, vprev=43, vna=43
+      Route [A-D - D-G - G-J - J-M]	[phi=0.014] fa=  0, vprev=10, vna=10
+   CALCULATING VNA for o/d [B|L]
+      Route [B-D - D-G - G-J - J-I - I-L]	[phi=0.014] fa=  0, vprev=41, vna=40
+      Route [B-D - D-G - G-J - J-L]	[phi=0.014] fa=300, vprev=250, vna=251
+      Route [B-A - A-C - C-F - F-I - I-L]	[phi=0.014] fa=  0, vprev=4, vna=4
+      Route [B-E - E-H - H-K - K-J - J-L]	[phi=0.014] fa=  0, vprev=4, vna=4
+   CALCULATING VNA for o/d [B|M]
+      Route [B-E - E-H - H-K - K-M]	[phi=0.014] fa=400, vprev=339, vna=340
+      Route [B-D - D-G - G-K - K-M]	[phi=0.014] fa=  0, vprev=5, vna=5
+      Route [B-D - D-H - H-K - K-M]	[phi=0.014] fa=  0, vprev=38, vna=37
+      Route [B-D - D-G - G-J - J-M]	[phi=0.014] fa=  0, vprev=16, vna=16
+-- [ ITER 75 ] ----------------------------
+   CALCULATING VNA for o/d [A|L]
+      Route [A-C - C-G - G-J - J-I - I-L]	[phi=0.013] fa=  0, vprev=8, vna=8
+      Route [A-D - D-G - G-J - J-L]	[phi=0.013] fa=  0, vprev=32, vna=31
+      Route [A-C - C-F - F-I - I-L]	[phi=0.013] fa=600, vprev=397, vna=400
+      Route [A-C - C-G - G-J - J-L]	[phi=0.013] fa=  0, vprev=162, vna=159
+   CALCULATING VNA for o/d [A|M]
+      Route [A-C - C-D - D-H - H-K - K-M]	[phi=0.013] fa=  0, vprev=5, vna=5
+      Route [A-D - D-G - G-K - K-M]	[phi=0.013] fa=  0, vprev=27, vna=26
+      Route [A-C - C-F - F-I - I-J - J-M]	[phi=0.013] fa=  0, vprev=5, vna=5
+      Route [A-D - D-H - H-K - K-M]	[phi=0.013] fa=400, vprev=205, vna=208
+      Route [A-C - C-G - G-J - J-M]	[phi=0.013] fa=  0, vprev=102, vna=101
+      Route [A-C - C-G - G-K - K-M]	[phi=0.013] fa=  0, vprev=43, vna=42
+      Route [A-D - D-G - G-J - J-M]	[phi=0.013] fa=  0, vprev=10, vna=10
+   CALCULATING VNA for o/d [B|L]
+      Route [B-D - D-G - G-J - J-I - I-L]	[phi=0.013] fa=300, vprev=40, vna=44
+      Route [B-D - D-G - G-J - J-L]	[phi=0.013] fa=  0, vprev=251, vna=247
+      Route [B-A - A-C - C-F - F-I - I-L]	[phi=0.013] fa=  0, vprev=4, vna=4
+      Route [B-E - E-H - H-K - K-J - J-L]	[phi=0.013] fa=  0, vprev=4, vna=4
+   CALCULATING VNA for o/d [B|M]
+      Route [B-E - E-H - H-K - K-M]	[phi=0.013] fa=400, vprev=340, vna=341
+      Route [B-D - D-G - G-K - K-M]	[phi=0.013] fa=  0, vprev=5, vna=5
+      Route [B-D - D-H - H-K - K-M]	[phi=0.013] fa=  0, vprev=37, vna=37
+      Route [B-D - D-G - G-J - J-M]	[phi=0.013] fa=  0, vprev=16, vna=15
+-- [ ITER 76 ] ----------------------------
+   CALCULATING VNA for o/d [A|L]
+      Route [A-C - C-G - G-J - J-I - I-L]	[phi=0.013] fa=  0, vprev=8, vna=7
+      Route [A-D - D-G - G-J - J-L]	[phi=0.013] fa=  0, vprev=31, vna=31
+      Route [A-C - C-F - F-I - I-L]	[phi=0.013] fa=600, vprev=400, vna=402
+      Route [A-C - C-G - G-J - J-L]	[phi=0.013] fa=  0, vprev=159, vna=157
+   CALCULATING VNA for o/d [A|M]
+      Route [A-C - C-D - D-H - H-K - K-M]	[phi=0.013] fa=  0, vprev=5, vna=5
+      Route [A-D - D-G - G-K - K-M]	[phi=0.013] fa=  0, vprev=26, vna=26
+      Route [A-C - C-F - F-I - I-J - J-M]	[phi=0.013] fa=  0, vprev=5, vna=5
+      Route [A-D - D-H - H-K - K-M]	[phi=0.013] fa=  0, vprev=208, vna=205
+      Route [A-C - C-G - G-J - J-M]	[phi=0.013] fa=  0, vprev=101, vna=100
+      Route [A-C - C-G - G-K - K-M]	[phi=0.013] fa=400, vprev=42, vna=47
+      Route [A-D - D-G - G-J - J-M]	[phi=0.013] fa=  0, vprev=10, vna=10
+   CALCULATING VNA for o/d [B|L]
+      Route [B-D - D-G - G-J - J-I - I-L]	[phi=0.013] fa=  0, vprev=44, vna=43
+      Route [B-D - D-G - G-J - J-L]	[phi=0.013] fa=300, vprev=247, vna=248
+      Route [B-A - A-C - C-F - F-I - I-L]	[phi=0.013] fa=  0, vprev=4, vna=3
+      Route [B-E - E-H - H-K - K-J - J-L]	[phi=0.013] fa=  0, vprev=4, vna=3
+   CALCULATING VNA for o/d [B|M]
+      Route [B-E - E-H - H-K - K-M]	[phi=0.013] fa=400, vprev=341, vna=342
+      Route [B-D - D-G - G-K - K-M]	[phi=0.013] fa=  0, vprev=5, vna=5
+      Route [B-D - D-H - H-K - K-M]	[phi=0.013] fa=  0, vprev=37, vna=36
+      Route [B-D - D-G - G-J - J-M]	[phi=0.013] fa=  0, vprev=15, vna=15
+-- [ ITER 77 ] ----------------------------
+   CALCULATING VNA for o/d [A|L]
+      Route [A-C - C-G - G-J - J-I - I-L]	[phi=0.013] fa=  0, vprev=7, vna=7
+      Route [A-D - D-G - G-J - J-L]	[phi=0.013] fa=  0, vprev=31, vna=31
+      Route [A-C - C-F - F-I - I-L]	[phi=0.013] fa=  0, vprev=402, vna=397
+      Route [A-C - C-G - G-J - J-L]	[phi=0.013] fa=600, vprev=157, vna=163
+   CALCULATING VNA for o/d [A|M]
+      Route [A-C - C-D - D-H - H-K - K-M]	[phi=0.013] fa=  0, vprev=5, vna=5
+      Route [A-D - D-G - G-K - K-M]	[phi=0.013] fa=  0, vprev=26, vna=25
+      Route [A-C - C-F - F-I - I-J - J-M]	[phi=0.013] fa=  0, vprev=5, vna=5
+      Route [A-D - D-H - H-K - K-M]	[phi=0.013] fa=400, vprev=205, vna=207
+      Route [A-C - C-G - G-J - J-M]	[phi=0.013] fa=  0, vprev=100, vna=98
+      Route [A-C - C-G - G-K - K-M]	[phi=0.013] fa=  0, vprev=47, vna=46
+      Route [A-D - D-G - G-J - J-M]	[phi=0.013] fa=  0, vprev=10, vna=10
+   CALCULATING VNA for o/d [B|L]
+      Route [B-D - D-G - G-J - J-I - I-L]	[phi=0.013] fa=  0, vprev=43, vna=42
+      Route [B-D - D-G - G-J - J-L]	[phi=0.013] fa=300, vprev=248, vna=249
+      Route [B-A - A-C - C-F - F-I - I-L]	[phi=0.013] fa=  0, vprev=3, vna=3
+      Route [B-E - E-H - H-K - K-J - J-L]	[phi=0.013] fa=  0, vprev=3, vna=3
+   CALCULATING VNA for o/d [B|M]
+      Route [B-E - E-H - H-K - K-M]	[phi=0.013] fa=400, vprev=342, vna=342
+      Route [B-D - D-G - G-K - K-M]	[phi=0.013] fa=  0, vprev=5, vna=5
+      Route [B-D - D-H - H-K - K-M]	[phi=0.013] fa=  0, vprev=36, vna=36
+      Route [B-D - D-G - G-J - J-M]	[phi=0.013] fa=  0, vprev=15, vna=15
+-- [ ITER 78 ] ----------------------------
+   CALCULATING VNA for o/d [A|L]
+      Route [A-C - C-G - G-J - J-I - I-L]	[phi=0.013] fa=  0, vprev=7, vna=7
+      Route [A-D - D-G - G-J - J-L]	[phi=0.013] fa=  0, vprev=31, vna=30
+      Route [A-C - C-F - F-I - I-L]	[phi=0.013] fa=600, vprev=397, vna=400
+      Route [A-C - C-G - G-J - J-L]	[phi=0.013] fa=  0, vprev=163, vna=161
+   CALCULATING VNA for o/d [A|M]
+      Route [A-C - C-D - D-H - H-K - K-M]	[phi=0.013] fa=  0, vprev=5, vna=5
+      Route [A-D - D-G - G-K - K-M]	[phi=0.013] fa=  0, vprev=25, vna=25
+      Route [A-C - C-F - F-I - I-J - J-M]	[phi=0.013] fa=  0, vprev=5, vna=5
+      Route [A-D - D-H - H-K - K-M]	[phi=0.013] fa=400, vprev=207, vna=210
+      Route [A-C - C-G - G-J - J-M]	[phi=0.013] fa=  0, vprev=98, vna=97
+      Route [A-C - C-G - G-K - K-M]	[phi=0.013] fa=  0, vprev=46, vna=46
+      Route [A-D - D-G - G-J - J-M]	[phi=0.013] fa=  0, vprev=10, vna=10
+   CALCULATING VNA for o/d [B|L]
+      Route [B-D - D-G - G-J - J-I - I-L]	[phi=0.013] fa=  0, vprev=42, vna=42
+      Route [B-D - D-G - G-J - J-L]	[phi=0.013] fa=300, vprev=249, vna=249
+      Route [B-A - A-C - C-F - F-I - I-L]	[phi=0.013] fa=  0, vprev=3, vna=3
+      Route [B-E - E-H - H-K - K-J - J-L]	[phi=0.013] fa=  0, vprev=3, vna=3
+   CALCULATING VNA for o/d [B|M]
+      Route [B-E - E-H - H-K - K-M]	[phi=0.013] fa=400, vprev=342, vna=343
+      Route [B-D - D-G - G-K - K-M]	[phi=0.013] fa=  0, vprev=5, vna=5
+      Route [B-D - D-H - H-K - K-M]	[phi=0.013] fa=  0, vprev=36, vna=35
+      Route [B-D - D-G - G-J - J-M]	[phi=0.013] fa=  0, vprev=15, vna=15
+-- [ ITER 79 ] ----------------------------
+   CALCULATING VNA for o/d [A|L]
+      Route [A-C - C-G - G-J - J-I - I-L]	[phi=0.013] fa=  0, vprev=7, vna=7
+      Route [A-D - D-G - G-J - J-L]	[phi=0.013] fa=  0, vprev=30, vna=30
+      Route [A-C - C-F - F-I - I-L]	[phi=0.013] fa=600, vprev=400, vna=402
+      Route [A-C - C-G - G-J - J-L]	[phi=0.013] fa=  0, vprev=161, vna=159
+   CALCULATING VNA for o/d [A|M]
+      Route [A-C - C-D - D-H - H-K - K-M]	[phi=0.013] fa=  0, vprev=5, vna=5
+      Route [A-D - D-G - G-K - K-M]	[phi=0.013] fa=  0, vprev=25, vna=25
+      Route [A-C - C-F - F-I - I-J - J-M]	[phi=0.013] fa=  0, vprev=5, vna=5
+      Route [A-D - D-H - H-K - K-M]	[phi=0.013] fa=  0, vprev=210, vna=207
+      Route [A-C - C-G - G-J - J-M]	[phi=0.013] fa=400, vprev=97, vna=101
+      Route [A-C - C-G - G-K - K-M]	[phi=0.013] fa=  0, vprev=46, vna=45
+      Route [A-D - D-G - G-J - J-M]	[phi=0.013] fa=  0, vprev=10, vna=10
+   CALCULATING VNA for o/d [B|L]
+      Route [B-D - D-G - G-J - J-I - I-L]	[phi=0.013] fa=  0, vprev=42, vna=41
+      Route [B-D - D-G - G-J - J-L]	[phi=0.013] fa=300, vprev=249, vna=250
+      Route [B-A - A-C - C-F - F-I - I-L]	[phi=0.013] fa=  0, vprev=3, vna=3
+      Route [B-E - E-H - H-K - K-J - J-L]	[phi=0.013] fa=  0, vprev=3, vna=3
+   CALCULATING VNA for o/d [B|M]
+      Route [B-E - E-H - H-K - K-M]	[phi=0.013] fa=400, vprev=343, vna=344
+      Route [B-D - D-G - G-K - K-M]	[phi=0.013] fa=  0, vprev=5, vna=5
+      Route [B-D - D-H - H-K - K-M]	[phi=0.013] fa=  0, vprev=35, vna=35
+      Route [B-D - D-G - G-J - J-M]	[phi=0.013] fa=  0, vprev=15, vna=15
+-- [ ITER 80 ] ----------------------------
+   CALCULATING VNA for o/d [A|L]
+      Route [A-C - C-G - G-J - J-I - I-L]	[phi=0.013] fa=  0, vprev=7, vna=7
+      Route [A-D - D-G - G-J - J-L]	[phi=0.013] fa=  0, vprev=30, vna=29
+      Route [A-C - C-F - F-I - I-L]	[phi=0.013] fa=  0, vprev=402, vna=397
+      Route [A-C - C-G - G-J - J-L]	[phi=0.013] fa=600, vprev=159, vna=165
+   CALCULATING VNA for o/d [A|M]
+      Route [A-C - C-D - D-H - H-K - K-M]	[phi=0.013] fa=  0, vprev=5, vna=5
+      Route [A-D - D-G - G-K - K-M]	[phi=0.013] fa=  0, vprev=25, vna=25
+      Route [A-C - C-F - F-I - I-J - J-M]	[phi=0.013] fa=  0, vprev=5, vna=5
+      Route [A-D - D-H - H-K - K-M]	[phi=0.013] fa=400, vprev=207, vna=210
+      Route [A-C - C-G - G-J - J-M]	[phi=0.013] fa=  0, vprev=101, vna=100
+      Route [A-C - C-G - G-K - K-M]	[phi=0.013] fa=  0, vprev=45, vna=45
+      Route [A-D - D-G - G-J - J-M]	[phi=0.013] fa=  0, vprev=10, vna=10
+   CALCULATING VNA for o/d [B|L]
+      Route [B-D - D-G - G-J - J-I - I-L]	[phi=0.013] fa=  0, vprev=41, vna=41
+      Route [B-D - D-G - G-J - J-L]	[phi=0.013] fa=300, vprev=250, vna=251
+      Route [B-A - A-C - C-F - F-I - I-L]	[phi=0.013] fa=  0, vprev=3, vna=3
+      Route [B-E - E-H - H-K - K-J - J-L]	[phi=0.013] fa=  0, vprev=3, vna=3
+   CALCULATING VNA for o/d [B|M]
+      Route [B-E - E-H - H-K - K-M]	[phi=0.013] fa=400, vprev=344, vna=344
+      Route [B-D - D-G - G-K - K-M]	[phi=0.013] fa=  0, vprev=5, vna=5
+      Route [B-D - D-H - H-K - K-M]	[phi=0.013] fa=  0, vprev=35, vna=35
+      Route [B-D - D-G - G-J - J-M]	[phi=0.013] fa=  0, vprev=15, vna=14
+-- [ ITER 81 ] ----------------------------
+   CALCULATING VNA for o/d [A|L]
+      Route [A-C - C-G - G-J - J-I - I-L]	[phi=0.012] fa=  0, vprev=7, vna=7
+      Route [A-D - D-G - G-J - J-L]	[phi=0.012] fa=  0, vprev=29, vna=29
+      Route [A-C - C-F - F-I - I-L]	[phi=0.012] fa=600, vprev=397, vna=399
+      Route [A-C - C-G - G-J - J-L]	[phi=0.012] fa=  0, vprev=165, vna=162
+   CALCULATING VNA for o/d [A|M]
+      Route [A-C - C-D - D-H - H-K - K-M]	[phi=0.012] fa=  0, vprev=5, vna=4
+      Route [A-D - D-G - G-K - K-M]	[phi=0.012] fa=  0, vprev=25, vna=24
+      Route [A-C - C-F - F-I - I-J - J-M]	[phi=0.012] fa=  0, vprev=5, vna=4
+      Route [A-D - D-H - H-K - K-M]	[phi=0.012] fa=  0, vprev=210, vna=207
+      Route [A-C - C-G - G-J - J-M]	[phi=0.012] fa=  0, vprev=100, vna=98
+      Route [A-C - C-G - G-K - K-M]	[phi=0.012] fa=400, vprev=45, vna=49
+      Route [A-D - D-G - G-J - J-M]	[phi=0.012] fa=  0, vprev=10, vna=9
+   CALCULATING VNA for o/d [B|L]
+      Route [B-D - D-G - G-J - J-I - I-L]	[phi=0.012] fa=300, vprev=41, vna=44
+      Route [B-D - D-G - G-J - J-L]	[phi=0.012] fa=  0, vprev=251, vna=248
+      Route [B-A - A-C - C-F - F-I - I-L]	[phi=0.012] fa=  0, vprev=3, vna=3
+      Route [B-E - E-H - H-K - K-J - J-L]	[phi=0.012] fa=  0, vprev=3, vna=3
+   CALCULATING VNA for o/d [B|M]
+      Route [B-E - E-H - H-K - K-M]	[phi=0.012] fa=400, vprev=344, vna=345
+      Route [B-D - D-G - G-K - K-M]	[phi=0.012] fa=  0, vprev=5, vna=4
+      Route [B-D - D-H - H-K - K-M]	[phi=0.012] fa=  0, vprev=35, vna=34
+      Route [B-D - D-G - G-J - J-M]	[phi=0.012] fa=  0, vprev=14, vna=14
+-- [ ITER 82 ] ----------------------------
+   CALCULATING VNA for o/d [A|L]
+      Route [A-C - C-G - G-J - J-I - I-L]	[phi=0.012] fa=  0, vprev=7, vna=7
+      Route [A-D - D-G - G-J - J-L]	[phi=0.012] fa=  0, vprev=29, vna=29
+      Route [A-C - C-F - F-I - I-L]	[phi=0.012] fa=600, vprev=399, vna=402
+      Route [A-C - C-G - G-J - J-L]	[phi=0.012] fa=  0, vprev=162, vna=160
+   CALCULATING VNA for o/d [A|M]
+      Route [A-C - C-D - D-H - H-K - K-M]	[phi=0.012] fa=  0, vprev=4, vna=4
+      Route [A-D - D-G - G-K - K-M]	[phi=0.012] fa=  0, vprev=24, vna=24
+      Route [A-C - C-F - F-I - I-J - J-M]	[phi=0.012] fa=  0, vprev=4, vna=4
+      Route [A-D - D-H - H-K - K-M]	[phi=0.012] fa=400, vprev=207, vna=209
+      Route [A-C - C-G - G-J - J-M]	[phi=0.012] fa=  0, vprev=98, vna=97
+      Route [A-C - C-G - G-K - K-M]	[phi=0.012] fa=  0, vprev=49, vna=48
+      Route [A-D - D-G - G-J - J-M]	[phi=0.012] fa=  0, vprev=9, vna=9
+   CALCULATING VNA for o/d [B|L]
+      Route [B-D - D-G - G-J - J-I - I-L]	[phi=0.012] fa=  0, vprev=44, vna=43
+      Route [B-D - D-G - G-J - J-L]	[phi=0.012] fa=300, vprev=248, vna=248
+      Route [B-A - A-C - C-F - F-I - I-L]	[phi=0.012] fa=  0, vprev=3, vna=3
+      Route [B-E - E-H - H-K - K-J - J-L]	[phi=0.012] fa=  0, vprev=3, vna=3
+   CALCULATING VNA for o/d [B|M]
+      Route [B-E - E-H - H-K - K-M]	[phi=0.012] fa=  0, vprev=345, vna=341
+      Route [B-D - D-G - G-K - K-M]	[phi=0.012] fa=  0, vprev=4, vna=4
+      Route [B-D - D-H - H-K - K-M]	[phi=0.012] fa=400, vprev=34, vna=39
+      Route [B-D - D-G - G-J - J-M]	[phi=0.012] fa=  0, vprev=14, vna=14
+-- [ ITER 83 ] ----------------------------
+   CALCULATING VNA for o/d [A|L]
+      Route [A-C - C-G - G-J - J-I - I-L]	[phi=0.012] fa=  0, vprev=7, vna=7
+      Route [A-D - D-G - G-J - J-L]	[phi=0.012] fa=  0, vprev=29, vna=28
+      Route [A-C - C-F - F-I - I-L]	[phi=0.012] fa=  0, vprev=402, vna=397
+      Route [A-C - C-G - G-J - J-L]	[phi=0.012] fa=600, vprev=160, vna=166
+   CALCULATING VNA for o/d [A|M]
+      Route [A-C - C-D - D-H - H-K - K-M]	[phi=0.012] fa=  0, vprev=4, vna=4
+      Route [A-D - D-G - G-K - K-M]	[phi=0.012] fa=  0, vprev=24, vna=24
+      Route [A-C - C-F - F-I - I-J - J-M]	[phi=0.012] fa=  0, vprev=4, vna=4
+      Route [A-D - D-H - H-K - K-M]	[phi=0.012] fa=  0, vprev=209, vna=207
+      Route [A-C - C-G - G-J - J-M]	[phi=0.012] fa=400, vprev=97, vna=101
+      Route [A-C - C-G - G-K - K-M]	[phi=0.012] fa=  0, vprev=48, vna=48
+      Route [A-D - D-G - G-J - J-M]	[phi=0.012] fa=  0, vprev=9, vna=9
+   CALCULATING VNA for o/d [B|L]
+      Route [B-D - D-G - G-J - J-I - I-L]	[phi=0.012] fa=  0, vprev=43, vna=43
+      Route [B-D - D-G - G-J - J-L]	[phi=0.012] fa=300, vprev=248, vna=249
+      Route [B-A - A-C - C-F - F-I - I-L]	[phi=0.012] fa=  0, vprev=3, vna=3
+      Route [B-E - E-H - H-K - K-J - J-L]	[phi=0.012] fa=  0, vprev=3, vna=3
+   CALCULATING VNA for o/d [B|M]
+      Route [B-E - E-H - H-K - K-M]	[phi=0.012] fa=400, vprev=341, vna=342
+      Route [B-D - D-G - G-K - K-M]	[phi=0.012] fa=  0, vprev=4, vna=4
+      Route [B-D - D-H - H-K - K-M]	[phi=0.012] fa=  0, vprev=39, vna=38
+      Route [B-D - D-G - G-J - J-M]	[phi=0.012] fa=  0, vprev=14, vna=14
+-- [ ITER 84 ] ----------------------------
+   CALCULATING VNA for o/d [A|L]
+      Route [A-C - C-G - G-J - J-I - I-L]	[phi=0.012] fa=  0, vprev=7, vna=7
+      Route [A-D - D-G - G-J - J-L]	[phi=0.012] fa=  0, vprev=28, vna=28
+      Route [A-C - C-F - F-I - I-L]	[phi=0.012] fa=600, vprev=397, vna=399
+      Route [A-C - C-G - G-J - J-L]	[phi=0.012] fa=  0, vprev=166, vna=164
+   CALCULATING VNA for o/d [A|M]
+      Route [A-C - C-D - D-H - H-K - K-M]	[phi=0.012] fa=  0, vprev=4, vna=4
+      Route [A-D - D-G - G-K - K-M]	[phi=0.012] fa=  0, vprev=24, vna=23
+      Route [A-C - C-F - F-I - I-J - J-M]	[phi=0.012] fa=  0, vprev=4, vna=4
+      Route [A-D - D-H - H-K - K-M]	[phi=0.012] fa=400, vprev=207, vna=209
+      Route [A-C - C-G - G-J - J-M]	[phi=0.012] fa=  0, vprev=101, vna=100
+      Route [A-C - C-G - G-K - K-M]	[phi=0.012] fa=  0, vprev=48, vna=47
+      Route [A-D - D-G - G-J - J-M]	[phi=0.012] fa=  0, vprev=9, vna=9
+   CALCULATING VNA for o/d [B|L]
+      Route [B-D - D-G - G-J - J-I - I-L]	[phi=0.012] fa=  0, vprev=43, vna=42
+      Route [B-D - D-G - G-J - J-L]	[phi=0.012] fa=300, vprev=249, vna=249
+      Route [B-A - A-C - C-F - F-I - I-L]	[phi=0.012] fa=  0, vprev=3, vna=3
+      Route [B-E - E-H - H-K - K-J - J-L]	[phi=0.012] fa=  0, vprev=3, vna=3
+   CALCULATING VNA for o/d [B|M]
+      Route [B-E - E-H - H-K - K-M]	[phi=0.012] fa=400, vprev=342, vna=342
+      Route [B-D - D-G - G-K - K-M]	[phi=0.012] fa=  0, vprev=4, vna=4
+      Route [B-D - D-H - H-K - K-M]	[phi=0.012] fa=  0, vprev=38, vna=38
+      Route [B-D - D-G - G-J - J-M]	[phi=0.012] fa=  0, vprev=14, vna=14
+-- [ ITER 85 ] ----------------------------
+   CALCULATING VNA for o/d [A|L]
+      Route [A-C - C-G - G-J - J-I - I-L]	[phi=0.012] fa=  0, vprev=7, vna=7
+      Route [A-D - D-G - G-J - J-L]	[phi=0.012] fa=  0, vprev=28, vna=28
+      Route [A-C - C-F - F-I - I-L]	[phi=0.012] fa=600, vprev=399, vna=402
+      Route [A-C - C-G - G-J - J-L]	[phi=0.012] fa=  0, vprev=164, vna=162
+   CALCULATING VNA for o/d [A|M]
+      Route [A-C - C-D - D-H - H-K - K-M]	[phi=0.012] fa=  0, vprev=4, vna=4
+      Route [A-D - D-G - G-K - K-M]	[phi=0.012] fa=  0, vprev=23, vna=23
+      Route [A-C - C-F - F-I - I-J - J-M]	[phi=0.012] fa=  0, vprev=4, vna=4
+      Route [A-D - D-H - H-K - K-M]	[phi=0.012] fa=  0, vprev=209, vna=207
+      Route [A-C - C-G - G-J - J-M]	[phi=0.012] fa=  0, vprev=100, vna=98
+      Route [A-C - C-G - G-K - K-M]	[phi=0.012] fa=  0, vprev=47, vna=47
+      Route [A-D - D-G - G-J - J-M]	[phi=0.012] fa=400, vprev=9, vna=14
+   CALCULATING VNA for o/d [B|L]
+      Route [B-D - D-G - G-J - J-I - I-L]	[phi=0.012] fa=  0, vprev=42, vna=42
+      Route [B-D - D-G - G-J - J-L]	[phi=0.012] fa=300, vprev=249, vna=250
+      Route [B-A - A-C - C-F - F-I - I-L]	[phi=0.012] fa=  0, vprev=3, vna=3
+      Route [B-E - E-H - H-K - K-J - J-L]	[phi=0.012] fa=  0, vprev=3, vna=3
+   CALCULATING VNA for o/d [B|M]
+      Route [B-E - E-H - H-K - K-M]	[phi=0.012] fa=400, vprev=342, vna=343
+      Route [B-D - D-G - G-K - K-M]	[phi=0.012] fa=  0, vprev=4, vna=4
+      Route [B-D - D-H - H-K - K-M]	[phi=0.012] fa=  0, vprev=38, vna=37
+      Route [B-D - D-G - G-J - J-M]	[phi=0.012] fa=  0, vprev=14, vna=14
+-- [ ITER 86 ] ----------------------------
+   CALCULATING VNA for o/d [A|L]
+      Route [A-C - C-G - G-J - J-I - I-L]	[phi=0.012] fa=  0, vprev=7, vna=6
+      Route [A-D - D-G - G-J - J-L]	[phi=0.012] fa=  0, vprev=28, vna=27
+      Route [A-C - C-F - F-I - I-L]	[phi=0.012] fa=600, vprev=402, vna=404
+      Route [A-C - C-G - G-J - J-L]	[phi=0.012] fa=  0, vprev=162, vna=160
+   CALCULATING VNA for o/d [A|M]
+      Route [A-C - C-D - D-H - H-K - K-M]	[phi=0.012] fa=  0, vprev=4, vna=4
+      Route [A-D - D-G - G-K - K-M]	[phi=0.012] fa=  0, vprev=23, vna=23
+      Route [A-C - C-F - F-I - I-J - J-M]	[phi=0.012] fa=  0, vprev=4, vna=4
+      Route [A-D - D-H - H-K - K-M]	[phi=0.012] fa=400, vprev=207, vna=209
+      Route [A-C - C-G - G-J - J-M]	[phi=0.012] fa=  0, vprev=98, vna=97
+      Route [A-C - C-G - G-K - K-M]	[phi=0.012] fa=  0, vprev=47, vna=46
+      Route [A-D - D-G - G-J - J-M]	[phi=0.012] fa=  0, vprev=14, vna=13
+   CALCULATING VNA for o/d [B|L]
+      Route [B-D - D-G - G-J - J-I - I-L]	[phi=0.012] fa=  0, vprev=42, vna=41
+      Route [B-D - D-G - G-J - J-L]	[phi=0.012] fa=300, vprev=250, vna=251
+      Route [B-A - A-C - C-F - F-I - I-L]	[phi=0.012] fa=  0, vprev=3, vna=3
+      Route [B-E - E-H - H-K - K-J - J-L]	[phi=0.012] fa=  0, vprev=3, vna=3
+   CALCULATING VNA for o/d [B|M]
+      Route [B-E - E-H - H-K - K-M]	[phi=0.012] fa=400, vprev=343, vna=344
+      Route [B-D - D-G - G-K - K-M]	[phi=0.012] fa=  0, vprev=4, vna=4
+      Route [B-D - D-H - H-K - K-M]	[phi=0.012] fa=  0, vprev=37, vna=37
+      Route [B-D - D-G - G-J - J-M]	[phi=0.012] fa=  0, vprev=14, vna=13
+-- [ ITER 87 ] ----------------------------
+   CALCULATING VNA for o/d [A|L]
+      Route [A-C - C-G - G-J - J-I - I-L]	[phi=0.011] fa=  0, vprev=6, vna=6
+      Route [A-D - D-G - G-J - J-L]	[phi=0.011] fa=  0, vprev=27, vna=27
+      Route [A-C - C-F - F-I - I-L]	[phi=0.011] fa=  0, vprev=404, vna=400
+      Route [A-C - C-G - G-J - J-L]	[phi=0.011] fa=600, vprev=160, vna=165
+   CALCULATING VNA for o/d [A|M]
+      Route [A-C - C-D - D-H - H-K - K-M]	[phi=0.011] fa=  0, vprev=4, vna=4
+      Route [A-D - D-G - G-K - K-M]	[phi=0.011] fa=  0, vprev=23, vna=22
+      Route [A-C - C-F - F-I - I-J - J-M]	[phi=0.011] fa=  0, vprev=4, vna=4
+      Route [A-D - D-H - H-K - K-M]	[phi=0.011] fa=  0, vprev=209, vna=206
+      Route [A-C - C-G - G-J - J-M]	[phi=0.011] fa=  0, vprev=97, vna=96
+      Route [A-C - C-G - G-K - K-M]	[phi=0.011] fa=400, vprev=46, vna=50
+      Route [A-D - D-G - G-J - J-M]	[phi=0.011] fa=  0, vprev=13, vna=13
+   CALCULATING VNA for o/d [B|L]
+      Route [B-D - D-G - G-J - J-I - I-L]	[phi=0.011] fa=  0, vprev=41, vna=41
+      Route [B-D - D-G - G-J - J-L]	[phi=0.011] fa=300, vprev=251, vna=251
+      Route [B-A - A-C - C-F - F-I - I-L]	[phi=0.011] fa=  0, vprev=3, vna=3
+      Route [B-E - E-H - H-K - K-J - J-L]	[phi=0.011] fa=  0, vprev=3, vna=3
+   CALCULATING VNA for o/d [B|M]
+      Route [B-E - E-H - H-K - K-M]	[phi=0.011] fa=400, vprev=344, vna=344
+      Route [B-D - D-G - G-K - K-M]	[phi=0.011] fa=  0, vprev=4, vna=4
+      Route [B-D - D-H - H-K - K-M]	[phi=0.011] fa=  0, vprev=37, vna=36
+      Route [B-D - D-G - G-J - J-M]	[phi=0.011] fa=  0, vprev=13, vna=13
+-- [ ITER 88 ] ----------------------------
+   CALCULATING VNA for o/d [A|L]
+      Route [A-C - C-G - G-J - J-I - I-L]	[phi=0.011] fa=  0, vprev=6, vna=6
+      Route [A-D - D-G - G-J - J-L]	[phi=0.011] fa=  0, vprev=27, vna=27
+      Route [A-C - C-F - F-I - I-L]	[phi=0.011] fa=600, vprev=400, vna=402
+      Route [A-C - C-G - G-J - J-L]	[phi=0.011] fa=  0, vprev=165, vna=163
+   CALCULATING VNA for o/d [A|M]
+      Route [A-C - C-D - D-H - H-K - K-M]	[phi=0.011] fa=  0, vprev=4, vna=4
+      Route [A-D - D-G - G-K - K-M]	[phi=0.011] fa=  0, vprev=22, vna=22
+      Route [A-C - C-F - F-I - I-J - J-M]	[phi=0.011] fa=  0, vprev=4, vna=4
+      Route [A-D - D-H - H-K - K-M]	[phi=0.011] fa=400, vprev=206, vna=209
+      Route [A-C - C-G - G-J - J-M]	[phi=0.011] fa=  0, vprev=96, vna=95
+      Route [A-C - C-G - G-K - K-M]	[phi=0.011] fa=  0, vprev=50, vna=49
+      Route [A-D - D-G - G-J - J-M]	[phi=0.011] fa=  0, vprev=13, vna=13
+   CALCULATING VNA for o/d [B|L]
+      Route [B-D - D-G - G-J - J-I - I-L]	[phi=0.011] fa=  0, vprev=41, vna=40
+      Route [B-D - D-G - G-J - J-L]	[phi=0.011] fa=300, vprev=251, vna=252
+      Route [B-A - A-C - C-F - F-I - I-L]	[phi=0.011] fa=  0, vprev=3, vna=3
+      Route [B-E - E-H - H-K - K-J - J-L]	[phi=0.011] fa=  0, vprev=3, vna=3
+   CALCULATING VNA for o/d [B|M]
+      Route [B-E - E-H - H-K - K-M]	[phi=0.011] fa=  0, vprev=344, vna=340
+      Route [B-D - D-G - G-K - K-M]	[phi=0.011] fa=  0, vprev=4, vna=4
+      Route [B-D - D-H - H-K - K-M]	[phi=0.011] fa=400, vprev=36, vna=40
+      Route [B-D - D-G - G-J - J-M]	[phi=0.011] fa=  0, vprev=13, vna=13
+-- [ ITER 89 ] ----------------------------
+   CALCULATING VNA for o/d [A|L]
+      Route [A-C - C-G - G-J - J-I - I-L]	[phi=0.011] fa=  0, vprev=6, vna=6
+      Route [A-D - D-G - G-J - J-L]	[phi=0.011] fa=  0, vprev=27, vna=26
+      Route [A-C - C-F - F-I - I-L]	[phi=0.011] fa=600, vprev=402, vna=404
+      Route [A-C - C-G - G-J - J-L]	[phi=0.011] fa=  0, vprev=163, vna=161
+   CALCULATING VNA for o/d [A|M]
+      Route [A-C - C-D - D-H - H-K - K-M]	[phi=0.011] fa=  0, vprev=4, vna=4
+      Route [A-D - D-G - G-K - K-M]	[phi=0.011] fa=  0, vprev=22, vna=22
+      Route [A-C - C-F - F-I - I-J - J-M]	[phi=0.011] fa=  0, vprev=4, vna=4
+      Route [A-D - D-H - H-K - K-M]	[phi=0.011] fa=  0, vprev=209, vna=206
+      Route [A-C - C-G - G-J - J-M]	[phi=0.011] fa=400, vprev=95, vna=98
+      Route [A-C - C-G - G-K - K-M]	[phi=0.011] fa=  0, vprev=49, vna=49
+      Route [A-D - D-G - G-J - J-M]	[phi=0.011] fa=  0, vprev=13, vna=13
+   CALCULATING VNA for o/d [B|L]
+      Route [B-D - D-G - G-J - J-I - I-L]	[phi=0.011] fa=  0, vprev=40, vna=40
+      Route [B-D - D-G - G-J - J-L]	[phi=0.011] fa=300, vprev=252, vna=252
+      Route [B-A - A-C - C-F - F-I - I-L]	[phi=0.011] fa=  0, vprev=3, vna=3
+      Route [B-E - E-H - H-K - K-J - J-L]	[phi=0.011] fa=  0, vprev=3, vna=3
+   CALCULATING VNA for o/d [B|M]
+      Route [B-E - E-H - H-K - K-M]	[phi=0.011] fa=400, vprev=340, vna=341
+      Route [B-D - D-G - G-K - K-M]	[phi=0.011] fa=  0, vprev=4, vna=4
+      Route [B-D - D-H - H-K - K-M]	[phi=0.011] fa=  0, vprev=40, vna=40
+      Route [B-D - D-G - G-J - J-M]	[phi=0.011] fa=  0, vprev=13, vna=13
+-- [ ITER 90 ] ----------------------------
+   CALCULATING VNA for o/d [A|L]
+      Route [A-C - C-G - G-J - J-I - I-L]	[phi=0.011] fa=  0, vprev=6, vna=6
+      Route [A-D - D-G - G-J - J-L]	[phi=0.011] fa=600, vprev=26, vna=33
+      Route [A-C - C-F - F-I - I-L]	[phi=0.011] fa=  0, vprev=404, vna=400
+      Route [A-C - C-G - G-J - J-L]	[phi=0.011] fa=  0, vprev=161, vna=160
+   CALCULATING VNA for o/d [A|M]
+      Route [A-C - C-D - D-H - H-K - K-M]	[phi=0.011] fa=  0, vprev=4, vna=4
+      Route [A-D - D-G - G-K - K-M]	[phi=0.011] fa=  0, vprev=22, vna=22
+      Route [A-C - C-F - F-I - I-J - J-M]	[phi=0.011] fa=  0, vprev=4, vna=4
+      Route [A-D - D-H - H-K - K-M]	[phi=0.011] fa=400, vprev=206, vna=208
+      Route [A-C - C-G - G-J - J-M]	[phi=0.011] fa=  0, vprev=98, vna=97
+      Route [A-C - C-G - G-K - K-M]	[phi=0.011] fa=  0, vprev=49, vna=48
+      Route [A-D - D-G - G-J - J-M]	[phi=0.011] fa=  0, vprev=13, vna=13
+   CALCULATING VNA for o/d [B|L]
+      Route [B-D - D-G - G-J - J-I - I-L]	[phi=0.011] fa=  0, vprev=40, vna=40
+      Route [B-D - D-G - G-J - J-L]	[phi=0.011] fa=300, vprev=252, vna=253
+      Route [B-A - A-C - C-F - F-I - I-L]	[phi=0.011] fa=  0, vprev=3, vna=3
+      Route [B-E - E-H - H-K - K-J - J-L]	[phi=0.011] fa=  0, vprev=3, vna=3
+   CALCULATING VNA for o/d [B|M]
+      Route [B-E - E-H - H-K - K-M]	[phi=0.011] fa=400, vprev=341, vna=342
+      Route [B-D - D-G - G-K - K-M]	[phi=0.011] fa=  0, vprev=4, vna=4
+      Route [B-D - D-H - H-K - K-M]	[phi=0.011] fa=  0, vprev=40, vna=40
+      Route [B-D - D-G - G-J - J-M]	[phi=0.011] fa=  0, vprev=13, vna=13
+-- [ ITER 91 ] ----------------------------
+   CALCULATING VNA for o/d [A|L]
+      Route [A-C - C-G - G-J - J-I - I-L]	[phi=0.011] fa=  0, vprev=6, vna=6
+      Route [A-D - D-G - G-J - J-L]	[phi=0.011] fa=  0, vprev=33, vna=32
+      Route [A-C - C-F - F-I - I-L]	[phi=0.011] fa=600, vprev=400, vna=402
+      Route [A-C - C-G - G-J - J-L]	[phi=0.011] fa=  0, vprev=160, vna=158
+   CALCULATING VNA for o/d [A|M]
+      Route [A-C - C-D - D-H - H-K - K-M]	[phi=0.011] fa=  0, vprev=4, vna=4
+      Route [A-D - D-G - G-K - K-M]	[phi=0.011] fa=  0, vprev=22, vna=21
+      Route [A-C - C-F - F-I - I-J - J-M]	[phi=0.011] fa=  0, vprev=4, vna=4
+      Route [A-D - D-H - H-K - K-M]	[phi=0.011] fa=  0, vprev=208, vna=206
+      Route [A-C - C-G - G-J - J-M]	[phi=0.011] fa=  0, vprev=97, vna=96
+      Route [A-C - C-G - G-K - K-M]	[phi=0.011] fa=400, vprev=48, vna=52
+      Route [A-D - D-G - G-J - J-M]	[phi=0.011] fa=  0, vprev=13, vna=13
+   CALCULATING VNA for o/d [B|L]
+      Route [B-D - D-G - G-J - J-I - I-L]	[phi=0.011] fa=300, vprev=40, vna=42
+      Route [B-D - D-G - G-J - J-L]	[phi=0.011] fa=  0, vprev=253, vna=250
+      Route [B-A - A-C - C-F - F-I - I-L]	[phi=0.011] fa=  0, vprev=3, vna=3
+      Route [B-E - E-H - H-K - K-J - J-L]	[phi=0.011] fa=  0, vprev=3, vna=3
+   CALCULATING VNA for o/d [B|M]
+      Route [B-E - E-H - H-K - K-M]	[phi=0.011] fa=400, vprev=342, vna=342
+      Route [B-D - D-G - G-K - K-M]	[phi=0.011] fa=  0, vprev=4, vna=4
+      Route [B-D - D-H - H-K - K-M]	[phi=0.011] fa=  0, vprev=40, vna=39
+      Route [B-D - D-G - G-J - J-M]	[phi=0.011] fa=  0, vprev=13, vna=13
+-- [ ITER 92 ] ----------------------------
+   CALCULATING VNA for o/d [A|L]
+      Route [A-C - C-G - G-J - J-I - I-L]	[phi=0.011] fa=  0, vprev=6, vna=6
+      Route [A-D - D-G - G-J - J-L]	[phi=0.011] fa=  0, vprev=32, vna=32
+      Route [A-C - C-F - F-I - I-L]	[phi=0.011] fa=  0, vprev=402, vna=397
+      Route [A-C - C-G - G-J - J-L]	[phi=0.011] fa=600, vprev=158, vna=163
+   CALCULATING VNA for o/d [A|M]
+      Route [A-C - C-D - D-H - H-K - K-M]	[phi=0.011] fa=  0, vprev=4, vna=4
+      Route [A-D - D-G - G-K - K-M]	[phi=0.011] fa=  0, vprev=21, vna=21
+      Route [A-C - C-F - F-I - I-J - J-M]	[phi=0.011] fa=  0, vprev=4, vna=4
+      Route [A-D - D-H - H-K - K-M]	[phi=0.011] fa=  0, vprev=206, vna=204
+      Route [A-C - C-G - G-J - J-M]	[phi=0.011] fa=400, vprev=96, vna=99
+      Route [A-C - C-G - G-K - K-M]	[phi=0.011] fa=  0, vprev=52, vna=52
+      Route [A-D - D-G - G-J - J-M]	[phi=0.011] fa=  0, vprev=13, vna=13
+   CALCULATING VNA for o/d [B|L]
+      Route [B-D - D-G - G-J - J-I - I-L]	[phi=0.011] fa=  0, vprev=42, vna=42
+      Route [B-D - D-G - G-J - J-L]	[phi=0.011] fa=300, vprev=250, vna=251
+      Route [B-A - A-C - C-F - F-I - I-L]	[phi=0.011] fa=  0, vprev=3, vna=3
+      Route [B-E - E-H - H-K - K-J - J-L]	[phi=0.011] fa=  0, vprev=3, vna=3
+   CALCULATING VNA for o/d [B|M]
+      Route [B-E - E-H - H-K - K-M]	[phi=0.011] fa=400, vprev=342, vna=343
+      Route [B-D - D-G - G-K - K-M]	[phi=0.011] fa=  0, vprev=4, vna=4
+      Route [B-D - D-H - H-K - K-M]	[phi=0.011] fa=  0, vprev=39, vna=39
+      Route [B-D - D-G - G-J - J-M]	[phi=0.011] fa=  0, vprev=13, vna=13
+-- [ ITER 93 ] ----------------------------
+   CALCULATING VNA for o/d [A|L]
+      Route [A-C - C-G - G-J - J-I - I-L]	[phi=0.011] fa=  0, vprev=6, vna=6
+      Route [A-D - D-G - G-J - J-L]	[phi=0.011] fa=  0, vprev=32, vna=32
+      Route [A-C - C-F - F-I - I-L]	[phi=0.011] fa=600, vprev=397, vna=400
+      Route [A-C - C-G - G-J - J-L]	[phi=0.011] fa=  0, vprev=163, vna=161
+   CALCULATING VNA for o/d [A|M]
+      Route [A-C - C-D - D-H - H-K - K-M]	[phi=0.011] fa=  0, vprev=4, vna=4
+      Route [A-D - D-G - G-K - K-M]	[phi=0.011] fa=  0, vprev=21, vna=21
+      Route [A-C - C-F - F-I - I-J - J-M]	[phi=0.011] fa=  0, vprev=4, vna=4
+      Route [A-D - D-H - H-K - K-M]	[phi=0.011] fa=400, vprev=204, vna=206
+      Route [A-C - C-G - G-J - J-M]	[phi=0.011] fa=  0, vprev=99, vna=98
+      Route [A-C - C-G - G-K - K-M]	[phi=0.011] fa=  0, vprev=52, vna=51
+      Route [A-D - D-G - G-J - J-M]	[phi=0.011] fa=  0, vprev=13, vna=12
+   CALCULATING VNA for o/d [B|L]
+      Route [B-D - D-G - G-J - J-I - I-L]	[phi=0.011] fa=300, vprev=42, vna=45
+      Route [B-D - D-G - G-J - J-L]	[phi=0.011] fa=  0, vprev=251, vna=248
+      Route [B-A - A-C - C-F - F-I - I-L]	[phi=0.011] fa=  0, vprev=3, vna=3
+      Route [B-E - E-H - H-K - K-J - J-L]	[phi=0.011] fa=  0, vprev=3, vna=3
+   CALCULATING VNA for o/d [B|M]
+      Route [B-E - E-H - H-K - K-M]	[phi=0.011] fa=400, vprev=343, vna=344
+      Route [B-D - D-G - G-K - K-M]	[phi=0.011] fa=  0, vprev=4, vna=4
+      Route [B-D - D-H - H-K - K-M]	[phi=0.011] fa=  0, vprev=39, vna=38
+      Route [B-D - D-G - G-J - J-M]	[phi=0.011] fa=  0, vprev=13, vna=12
+-- [ ITER 94 ] ----------------------------
+   CALCULATING VNA for o/d [A|L]
+      Route [A-C - C-G - G-J - J-I - I-L]	[phi=0.011] fa=  0, vprev=6, vna=6
+      Route [A-D - D-G - G-J - J-L]	[phi=0.011] fa=  0, vprev=32, vna=31
+      Route [A-C - C-F - F-I - I-L]	[phi=0.011] fa=600, vprev=400, vna=402
+      Route [A-C - C-G - G-J - J-L]	[phi=0.011] fa=  0, vprev=161, vna=159
+   CALCULATING VNA for o/d [A|M]
+      Route [A-C - C-D - D-H - H-K - K-M]	[phi=0.011] fa=  0, vprev=4, vna=4
+      Route [A-D - D-G - G-K - K-M]	[phi=0.011] fa=  0, vprev=21, vna=21
+      Route [A-C - C-F - F-I - I-J - J-M]	[phi=0.011] fa=  0, vprev=4, vna=4
+      Route [A-D - D-H - H-K - K-M]	[phi=0.011] fa=400, vprev=206, vna=208
+      Route [A-C - C-G - G-J - J-M]	[phi=0.011] fa=  0, vprev=98, vna=97
+      Route [A-C - C-G - G-K - K-M]	[phi=0.011] fa=  0, vprev=51, vna=51
+      Route [A-D - D-G - G-J - J-M]	[phi=0.011] fa=  0, vprev=12, vna=12
+   CALCULATING VNA for o/d [B|L]
+      Route [B-D - D-G - G-J - J-I - I-L]	[phi=0.011] fa=  0, vprev=45, vna=44
+      Route [B-D - D-G - G-J - J-L]	[phi=0.011] fa=300, vprev=248, vna=248
+      Route [B-A - A-C - C-F - F-I - I-L]	[phi=0.011] fa=  0, vprev=3, vna=3
+      Route [B-E - E-H - H-K - K-J - J-L]	[phi=0.011] fa=  0, vprev=3, vna=3
+   CALCULATING VNA for o/d [B|M]
+      Route [B-E - E-H - H-K - K-M]	[phi=0.011] fa=400, vprev=344, vna=344
+      Route [B-D - D-G - G-K - K-M]	[phi=0.011] fa=  0, vprev=4, vna=4
+      Route [B-D - D-H - H-K - K-M]	[phi=0.011] fa=  0, vprev=38, vna=38
+      Route [B-D - D-G - G-J - J-M]	[phi=0.011] fa=  0, vprev=12, vna=12
+-- [ ITER 95 ] ----------------------------
+   CALCULATING VNA for o/d [A|L]
+      Route [A-C - C-G - G-J - J-I - I-L]	[phi=0.011] fa=  0, vprev=6, vna=6
+      Route [A-D - D-G - G-J - J-L]	[phi=0.011] fa=  0, vprev=31, vna=31
+      Route [A-C - C-F - F-I - I-L]	[phi=0.011] fa=  0, vprev=402, vna=397
+      Route [A-C - C-G - G-J - J-L]	[phi=0.011] fa=600, vprev=159, vna=164
+   CALCULATING VNA for o/d [A|M]
+      Route [A-C - C-D - D-H - H-K - K-M]	[phi=0.011] fa=  0, vprev=4, vna=4
+      Route [A-D - D-G - G-K - K-M]	[phi=0.011] fa=  0, vprev=21, vna=21
+      Route [A-C - C-F - F-I - I-J - J-M]	[phi=0.011] fa=  0, vprev=4, vna=4
+      Route [A-D - D-H - H-K - K-M]	[phi=0.011] fa=  0, vprev=208, vna=206
+      Route [A-C - C-G - G-J - J-M]	[phi=0.011] fa=400, vprev=97, vna=101
+      Route [A-C - C-G - G-K - K-M]	[phi=0.011] fa=  0, vprev=51, vna=50
+      Route [A-D - D-G - G-J - J-M]	[phi=0.011] fa=  0, vprev=12, vna=12
+   CALCULATING VNA for o/d [B|L]
+      Route [B-D - D-G - G-J - J-I - I-L]	[phi=0.011] fa=  0, vprev=44, vna=44
+      Route [B-D - D-G - G-J - J-L]	[phi=0.011] fa=300, vprev=248, vna=249
+      Route [B-A - A-C - C-F - F-I - I-L]	[phi=0.011] fa=  0, vprev=3, vna=3
+      Route [B-E - E-H - H-K - K-J - J-L]	[phi=0.011] fa=  0, vprev=3, vna=3
+   CALCULATING VNA for o/d [B|M]
+      Route [B-E - E-H - H-K - K-M]	[phi=0.011] fa=400, vprev=344, vna=345
+      Route [B-D - D-G - G-K - K-M]	[phi=0.011] fa=  0, vprev=4, vna=4
+      Route [B-D - D-H - H-K - K-M]	[phi=0.011] fa=  0, vprev=38, vna=37
+      Route [B-D - D-G - G-J - J-M]	[phi=0.011] fa=  0, vprev=12, vna=12
+-- [ ITER 96 ] ----------------------------
+   CALCULATING VNA for o/d [A|L]
+      Route [A-C - C-G - G-J - J-I - I-L]	[phi=0.010] fa=  0, vprev=6, vna=6
+      Route [A-D - D-G - G-J - J-L]	[phi=0.010] fa=  0, vprev=31, vna=31
+      Route [A-C - C-F - F-I - I-L]	[phi=0.010] fa=600, vprev=397, vna=400
+      Route [A-C - C-G - G-J - J-L]	[phi=0.010] fa=  0, vprev=164, vna=162
+   CALCULATING VNA for o/d [A|M]
+      Route [A-C - C-D - D-H - H-K - K-M]	[phi=0.010] fa=  0, vprev=4, vna=4
+      Route [A-D - D-G - G-K - K-M]	[phi=0.010] fa=  0, vprev=21, vna=20
+      Route [A-C - C-F - F-I - I-J - J-M]	[phi=0.010] fa=  0, vprev=4, vna=4
+      Route [A-D - D-H - H-K - K-M]	[phi=0.010] fa=400, vprev=206, vna=208
+      Route [A-C - C-G - G-J - J-M]	[phi=0.010] fa=  0, vprev=101, vna=99
+      Route [A-C - C-G - G-K - K-M]	[phi=0.010] fa=  0, vprev=50, vna=49
+      Route [A-D - D-G - G-J - J-M]	[phi=0.010] fa=  0, vprev=12, vna=12
+   CALCULATING VNA for o/d [B|L]
+      Route [B-D - D-G - G-J - J-I - I-L]	[phi=0.010] fa=  0, vprev=44, vna=43
+      Route [B-D - D-G - G-J - J-L]	[phi=0.010] fa=300, vprev=249, vna=250
+      Route [B-A - A-C - C-F - F-I - I-L]	[phi=0.010] fa=  0, vprev=3, vna=3
+      Route [B-E - E-H - H-K - K-J - J-L]	[phi=0.010] fa=  0, vprev=3, vna=3
+   CALCULATING VNA for o/d [B|M]
+      Route [B-E - E-H - H-K - K-M]	[phi=0.010] fa=400, vprev=345, vna=345
+      Route [B-D - D-G - G-K - K-M]	[phi=0.010] fa=  0, vprev=4, vna=4
+      Route [B-D - D-H - H-K - K-M]	[phi=0.010] fa=  0, vprev=37, vna=37
+      Route [B-D - D-G - G-J - J-M]	[phi=0.010] fa=  0, vprev=12, vna=12
+-- [ ITER 97 ] ----------------------------
+   CALCULATING VNA for o/d [A|L]
+      Route [A-C - C-G - G-J - J-I - I-L]	[phi=0.010] fa=  0, vprev=6, vna=6
+      Route [A-D - D-G - G-J - J-L]	[phi=0.010] fa=  0, vprev=31, vna=30
+      Route [A-C - C-F - F-I - I-L]	[phi=0.010] fa=600, vprev=400, vna=402
+      Route [A-C - C-G - G-J - J-L]	[phi=0.010] fa=  0, vprev=162, vna=160
+   CALCULATING VNA for o/d [A|M]
+      Route [A-C - C-D - D-H - H-K - K-M]	[phi=0.010] fa=  0, vprev=4, vna=4
+      Route [A-D - D-G - G-K - K-M]	[phi=0.010] fa=  0, vprev=20, vna=20
+      Route [A-C - C-F - F-I - I-J - J-M]	[phi=0.010] fa=  0, vprev=4, vna=4
+      Route [A-D - D-H - H-K - K-M]	[phi=0.010] fa=400, vprev=208, vna=210
+      Route [A-C - C-G - G-J - J-M]	[phi=0.010] fa=  0, vprev=99, vna=98
+      Route [A-C - C-G - G-K - K-M]	[phi=0.010] fa=  0, vprev=49, vna=49
+      Route [A-D - D-G - G-J - J-M]	[phi=0.010] fa=  0, vprev=12, vna=12
+   CALCULATING VNA for o/d [B|L]
+      Route [B-D - D-G - G-J - J-I - I-L]	[phi=0.010] fa=  0, vprev=43, vna=43
+      Route [B-D - D-G - G-J - J-L]	[phi=0.010] fa=300, vprev=250, vna=250
+      Route [B-A - A-C - C-F - F-I - I-L]	[phi=0.010] fa=  0, vprev=3, vna=3
+      Route [B-E - E-H - H-K - K-J - J-L]	[phi=0.010] fa=  0, vprev=3, vna=3
+   CALCULATING VNA for o/d [B|M]
+      Route [B-E - E-H - H-K - K-M]	[phi=0.010] fa=400, vprev=345, vna=346
+      Route [B-D - D-G - G-K - K-M]	[phi=0.010] fa=  0, vprev=4, vna=4
+      Route [B-D - D-H - H-K - K-M]	[phi=0.010] fa=  0, vprev=37, vna=37
+      Route [B-D - D-G - G-J - J-M]	[phi=0.010] fa=  0, vprev=12, vna=12
+-- [ ITER 98 ] ----------------------------
+   CALCULATING VNA for o/d [A|L]
+      Route [A-C - C-G - G-J - J-I - I-L]	[phi=0.010] fa=  0, vprev=6, vna=6
+      Route [A-D - D-G - G-J - J-L]	[phi=0.010] fa=  0, vprev=30, vna=30
+      Route [A-C - C-F - F-I - I-L]	[phi=0.010] fa=600, vprev=402, vna=404
+      Route [A-C - C-G - G-J - J-L]	[phi=0.010] fa=  0, vprev=160, vna=159
+   CALCULATING VNA for o/d [A|M]
+      Route [A-C - C-D - D-H - H-K - K-M]	[phi=0.010] fa=  0, vprev=4, vna=4
+      Route [A-D - D-G - G-K - K-M]	[phi=0.010] fa=  0, vprev=20, vna=20
+      Route [A-C - C-F - F-I - I-J - J-M]	[phi=0.010] fa=  0, vprev=4, vna=4
+      Route [A-D - D-H - H-K - K-M]	[phi=0.010] fa=  0, vprev=210, vna=208
+      Route [A-C - C-G - G-J - J-M]	[phi=0.010] fa=400, vprev=98, vna=102
+      Route [A-C - C-G - G-K - K-M]	[phi=0.010] fa=  0, vprev=49, vna=48
+      Route [A-D - D-G - G-J - J-M]	[phi=0.010] fa=  0, vprev=12, vna=12
+   CALCULATING VNA for o/d [B|L]
+      Route [B-D - D-G - G-J - J-I - I-L]	[phi=0.010] fa=  0, vprev=43, vna=42
+      Route [B-D - D-G - G-J - J-L]	[phi=0.010] fa=300, vprev=250, vna=251
+      Route [B-A - A-C - C-F - F-I - I-L]	[phi=0.010] fa=  0, vprev=3, vna=3
+      Route [B-E - E-H - H-K - K-J - J-L]	[phi=0.010] fa=  0, vprev=3, vna=3
+   CALCULATING VNA for o/d [B|M]
+      Route [B-E - E-H - H-K - K-M]	[phi=0.010] fa=  0, vprev=346, vna=342
+      Route [B-D - D-G - G-K - K-M]	[phi=0.010] fa=  0, vprev=4, vna=4
+      Route [B-D - D-H - H-K - K-M]	[phi=0.010] fa=  0, vprev=37, vna=36
+      Route [B-D - D-G - G-J - J-M]	[phi=0.010] fa=400, vprev=12, vna=16
+-- [ ITER 99 ] ----------------------------
+   CALCULATING VNA for o/d [A|L]
+      Route [A-C - C-G - G-J - J-I - I-L]	[phi=0.010] fa=  0, vprev=6, vna=6
+      Route [A-D - D-G - G-J - J-L]	[phi=0.010] fa=  0, vprev=30, vna=30
+      Route [A-C - C-F - F-I - I-L]	[phi=0.010] fa=600, vprev=404, vna=406
+      Route [A-C - C-G - G-J - J-L]	[phi=0.010] fa=  0, vprev=159, vna=157
+   CALCULATING VNA for o/d [A|M]
+      Route [A-C - C-D - D-H - H-K - K-M]	[phi=0.010] fa=  0, vprev=4, vna=4
+      Route [A-D - D-G - G-K - K-M]	[phi=0.010] fa=  0, vprev=20, vna=20
+      Route [A-C - C-F - F-I - I-J - J-M]	[phi=0.010] fa=  0, vprev=4, vna=4
+      Route [A-D - D-H - H-K - K-M]	[phi=0.010] fa=400, vprev=208, vna=210
+      Route [A-C - C-G - G-J - J-M]	[phi=0.010] fa=  0, vprev=102, vna=101
+      Route [A-C - C-G - G-K - K-M]	[phi=0.010] fa=  0, vprev=48, vna=48
+      Route [A-D - D-G - G-J - J-M]	[phi=0.010] fa=  0, vprev=12, vna=12
+   CALCULATING VNA for o/d [B|L]
+      Route [B-D - D-G - G-J - J-I - I-L]	[phi=0.010] fa=  0, vprev=42, vna=42
+      Route [B-D - D-G - G-J - J-L]	[phi=0.010] fa=300, vprev=251, vna=251
+      Route [B-A - A-C - C-F - F-I - I-L]	[phi=0.010] fa=  0, vprev=3, vna=3
+      Route [B-E - E-H - H-K - K-J - J-L]	[phi=0.010] fa=  0, vprev=3, vna=3
+   CALCULATING VNA for o/d [B|M]
+      Route [B-E - E-H - H-K - K-M]	[phi=0.010] fa=400, vprev=342, vna=343
+      Route [B-D - D-G - G-K - K-M]	[phi=0.010] fa=  0, vprev=4, vna=4
+      Route [B-D - D-H - H-K - K-M]	[phi=0.010] fa=  0, vprev=36, vna=36
+      Route [B-D - D-G - G-J - J-M]	[phi=0.010] fa=  0, vprev=16, vna=16
+-- [ ITER 100 ] ----------------------------
+   CALCULATING VNA for o/d [A|L]
+      Route [A-C - C-G - G-J - J-I - I-L]	[phi=0.010] fa=  0, vprev=6, vna=6
+      Route [A-D - D-G - G-J - J-L]	[phi=0.010] fa=  0, vprev=30, vna=29
+      Route [A-C - C-F - F-I - I-L]	[phi=0.010] fa=  0, vprev=406, vna=402
+      Route [A-C - C-G - G-J - J-L]	[phi=0.010] fa=600, vprev=157, vna=162
+   CALCULATING VNA for o/d [A|M]
+      Route [A-C - C-D - D-H - H-K - K-M]	[phi=0.010] fa=  0, vprev=4, vna=4
+      Route [A-D - D-G - G-K - K-M]	[phi=0.010] fa=  0, vprev=20, vna=20
+      Route [A-C - C-F - F-I - I-J - J-M]	[phi=0.010] fa=  0, vprev=4, vna=4
+      Route [A-D - D-H - H-K - K-M]	[phi=0.010] fa=  0, vprev=210, vna=208
+      Route [A-C - C-G - G-J - J-M]	[phi=0.010] fa=  0, vprev=101, vna=100
+      Route [A-C - C-G - G-K - K-M]	[phi=0.010] fa=400, vprev=48, vna=52
+      Route [A-D - D-G - G-J - J-M]	[phi=0.010] fa=  0, vprev=12, vna=12
+   CALCULATING VNA for o/d [B|L]
+      Route [B-D - D-G - G-J - J-I - I-L]	[phi=0.010] fa=  0, vprev=42, vna=42
+      Route [B-D - D-G - G-J - J-L]	[phi=0.010] fa=300, vprev=251, vna=252
+      Route [B-A - A-C - C-F - F-I - I-L]	[phi=0.010] fa=  0, vprev=3, vna=3
+      Route [B-E - E-H - H-K - K-J - J-L]	[phi=0.010] fa=  0, vprev=3, vna=3
+   CALCULATING VNA for o/d [B|M]
+      Route [B-E - E-H - H-K - K-M]	[phi=0.010] fa=400, vprev=343, vna=344
+      Route [B-D - D-G - G-K - K-M]	[phi=0.010] fa=  0, vprev=4, vna=4
+      Route [B-D - D-H - H-K - K-M]	[phi=0.010] fa=  0, vprev=36, vna=36
+      Route [B-D - D-G - G-J - J-M]	[phi=0.010] fa=  0, vprev=16, vna=16
+{   'A|L': {   'A-C - C-F - F-I - I-L': [[A-C, C-F, F-I, I-L], 402.0],
+               'A-C - C-G - G-J - J-I - I-L': [   [A-C, C-G, G-J, J-I, I-L],
+                                                  6.000000000000003],
+               'A-C - C-G - G-J - J-L': [[A-C, C-G, G-J, J-L], 162.0],
+               'A-D - D-G - G-J - J-L': [   [A-D, D-G, G-J, J-L],
+                                            29.999999999999993]},
+    'A|M': {   'A-C - C-D - D-H - H-K - K-M': [   [A-C, C-D, D-H, H-K, K-M],
+                                                  4.0000000000000036],
+               'A-C - C-F - F-I - I-J - J-M': [   [A-C, C-F, F-I, I-J, J-M],
+                                                  4.0000000000000036],
+               'A-C - C-G - G-J - J-M': [[A-C, C-G, G-J, J-M], 100.0],
+               'A-C - C-G - G-K - K-M': [[A-C, C-G, G-K, K-M], 52.0],
+               'A-D - D-G - G-J - J-M': [   [A-D, D-G, G-J, J-M],
+                                            12.000000000000004],
+               'A-D - D-G - G-K - K-M': [   [A-D, D-G, G-K, K-M],
+                                            20.00000000000001],
+               'A-D - D-H - H-K - K-M': [[A-D, D-H, H-K, K-M], 208.0]},
+    'B|L': {   'B-A - A-C - C-F - F-I - I-L': [   [B-A, A-C, C-F, F-I, I-L],
+                                                  3.0000000000000013],
+               'B-D - D-G - G-J - J-I - I-L': [   [B-D, D-G, G-J, J-I, I-L],
+                                                  42.00000000000003],
+               'B-D - D-G - G-J - J-L': [   [B-D, D-G, G-J, J-L],
+                                            252.00000000000003],
+               'B-E - E-H - H-K - K-J - J-L': [   [B-E, E-H, H-K, K-J, J-L],
+                                                  3.0000000000000013]},
+    'B|M': {   'B-D - D-G - G-J - J-M': [[B-D, D-G, G-J, J-M], 16.0],
+               'B-D - D-G - G-K - K-M': [   [B-D, D-G, G-K, K-M],
+                                            4.0000000000000036],
+               'B-D - D-H - H-K - K-M': [   [B-D, D-H, H-K, K-M],
+                                            36.00000000000002],
+               'B-E - E-H - H-K - K-M': [[B-E, E-H, H-K, K-M], 344.0]}}
