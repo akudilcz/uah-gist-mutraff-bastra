@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- MUTRAFF TAZ-CALC version="0.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/nodes_file.xsd"> -->
+<mutazs>
+<mutaz id="emergencias_oeste">
+<vertex id="emergencias_oeste-0" x="-3.3568623377379936" y="40.496389306411025"/>
+<vertex id="emergencias_oeste-1" x="-3.34870842233272" y="40.48685925637258"/>
+<vertex id="emergencias_oeste-2" x="-3.3417561365661186" y="40.48992729691141"/>
+<vertex id="emergencias_oeste-3" x="-3.3505966974792045" y="40.49932637773181"/>
+</mutaz>
+
+<mutaz id="emergencias_este">
+<vertex id="emergencias_este-0" x="-3.4239819361266655" y="40.4774584292458"/>
+<vertex id="emergencias_este-1" x="-3.4180596186217826" y="40.467207416190185"/>
+<vertex id="emergencias_este-2" x="-3.410163195281939" y="40.46929692162098"/>
+<vertex id="emergencias_este-3" x="-3.4168579889831108" y="40.479417043465624"/>
+</mutaz>
+
+<mutaz id="emergencias_norte">
+<vertex id="emergencias_norte-0" x="-3.3968594385680717" y="40.49299519719339"/>
+<vertex id="emergencias_norte-1" x="-3.38990715280147" y="40.48770787736203"/>
+<vertex id="emergencias_norte-2" x="-3.3747151209411186" y="40.49625876692355"/>
+<vertex id="emergencias_norte-3" x="-3.378148348480181" y="40.50069696701178"/>
+</mutaz>
+
+<mutaz id="emergencias_sur">
+<vertex id="emergencias_sur-0" x="-3.37892082467647" y="40.471712831235294"/>
+<vertex id="emergencias_sur-1" x="-3.3735993219909233" y="40.46688092509421"/>
+<vertex id="emergencias_sur-2" x="-3.3560898615417045" y="40.47484685473494"/>
+<vertex id="emergencias_sur-3" x="-3.361325533538775" y="40.480200473154206"/>
+</mutaz>
+
+<mutaz id="emergencias_este_2">
+<vertex id="emergencias_este_2-0" x="-3.3988335444030326" y="40.480526899492794"/>
+<vertex id="emergencias_este_2-1" x="-3.3935978724059623" y="40.471712831235294"/>
+<vertex id="emergencias_este_2-2" x="-3.3870747400817436" y="40.473802196487874"/>
+<vertex id="emergencias_este_2-3" x="-3.3931687189635795" y="40.48261599047349"/>
+</mutaz>
+
+</mutazs>

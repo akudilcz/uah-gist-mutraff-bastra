@@ -21,5 +21,6 @@ mkdir alcalahenares.maps
 
 # python genmaps.bastra.py -c gmp.alcalahenares.XL_top_used_edges.join.conf
 set -x
-python genmaps.bastra.py -c gmp.alcalahenares.L.Emergency.Emergencies.conf
-python genmaps.bastra.py -c gmp.alcalahenares.L.Emergency.Vehicles.conf
+#python genmaps.bastra.py -c gmp.alcalahenares.L.Emergency.Emergencies.conf
+#python genmaps.bastra.py -c gmp.alcalahenares.L.Emergency.Vehicles.conf
+python genmaps.bastra.py -c gmp.alcalahenares.L.Emergency.Vehicles_penalty.conf

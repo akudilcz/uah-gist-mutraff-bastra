@@ -4,68 +4,21 @@
    <actorConfig id="3">
      <!-- TIMESLICES ARE MEASURED IN MILISECONDS -->
      <timeSlice startTime="0"   duration="2400000" >
-       <!-- N-II Extremo Madrid -->
-       <!-- <odPair origin="1" destination="2" amount="2000" /> -->
-       <odPair origin="1" destination="1000" amount="500" />
+       <!-- 	WEST  = "1120010"
+       		EAST1 = "112011"
+       		NORTH = "112012"
+       		SOUTH = "112013"
+       		EAST2 = "112014"
+	-->
+       <odPair origin="1120010" destination="1120014" amount="500" />
+       <odPair origin="1120014" destination="1120010" amount="500" />
 
-       <!-- N-II Extremo Barcelona -->
-       <!-- <odPair origin="2" destination="1" amount="2000" /> -->
-       <odPair origin="2" destination="1000" amount="500" />
+       <odPair origin="1120012" destination="1120013" amount="500" />
+       <odPair origin="1120013" destination="1120012" amount="500" />
 
-       <!-- M-100 Extremo Mejorada -->
-       <odPair origin="3" destination="1" amount="100" />
-       <odPair origin="3" destination="2" amount="100" />
-       <odPair origin="3" destination="4" amount="100" />
-       <odPair origin="3" destination="1000" amount="150" />
-
-       <!-- M-100 Extremo Daganzo -->
-       <odPair origin="4" destination="1" amount="100" />
-       <odPair origin="4" destination="2" amount="100" />
-       <odPair origin="4" destination="3" amount="100" />
-       <odPair origin="4" destination="1000" amount="150" />
-
-       <!-- M-300 Extremo Alcala -->
-       <odPair origin="5" destination="6" amount="100" />
-       <odPair origin="5" destination="1000" amount="150" />
-
-       <!-- M-300 Extremo Arganda -->
-       <odPair origin="6" destination="5" amount="100" />
-       <odPair origin="6" destination="2" amount="100" />
-       <odPair origin="6" destination="1000" amount="150" />
-
-       <!-- M-300 Extremo Camarma -->
-       <odPair origin="7" destination="1" amount="100" />
-       <odPair origin="7" destination="2" amount="50" />
-       <odPair origin="7" destination="1000" amount="150" />
-
-       <!-- M-300 Extremo Meco -->
-       <odPair origin="8" destination="1" amount="100" />
-       <odPair origin="8" destination="2" amount="50" />
-       <odPair origin="8" destination="1000" amount="150" />
-
-       <!-- Trafico interno de salida -->
-       <odPair origin="1000" destination="1" amount="300" />
-       <odPair origin="1000" destination="2" amount="300" />
-       <odPair origin="1000" destination="3" amount="300" />
-       <odPair origin="1000" destination="4" amount="300" />
-       <odPair origin="1000" destination="5" amount="300" />
-       <odPair origin="1000" destination="6" amount="300" />
-       <odPair origin="1000" destination="7" amount="300" />
-       <odPair origin="1000" destination="8" amount="300" />
-
-       <!-- Trafico urbano interno / interno -->
+       <!--
        <odPair origin="1000" destination="1000" amount="750" />
-
-       <!-- Trafico pruebas del tunnel
-       <odPair origin="700" destination="701" amount="2000" />
-       <odPair origin="701" destination="700" amount="2000" />
-       -->
-
-       <!-- Trafico pruebas Avda.Complutense
-       <odPair origin="702" destination="703" amount="1000" />
-       <odPair origin="703" destination="702" amount="1000" />
-       -->
-
+        -->
      </timeSlice>
    </actorConfig>
 </demand>

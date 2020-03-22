@@ -44,7 +44,12 @@ class vehicle:
 
         num_logit=float(logit)
         rand=random.random()
-        if rand < num_logit:
+        # ALVARO PATCH
+	# FOR POLICEMEN AND FIREMEN EXPERIMENTS
+        if( id.startswith("1100") or  id.startswith("1200") ):
+            self.setTWMRoutingUsage(True)
+        else:
+          if rand < num_logit:
             self.setTWMRoutingUsage(True)
         return
 

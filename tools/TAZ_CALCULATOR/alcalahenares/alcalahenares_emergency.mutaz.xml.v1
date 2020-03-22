@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- MUTRAFF TAZ-CALC version="0.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/nodes_file.xsd"> -->
+<mutazs>
+
+<mutaz id="Firemen_path">
+<vertex id="Firemen_path-0" x="-3.385062008079558" y="40.48900689858017"/>
+<vertex id="Firemen_path-1" x="-3.3843539048996263" y="40.48845204296424"/>
+<vertex id="Firemen_path-2" x="-3.3839462091293626" y="40.48872947134562"/>
+<vertex id="Firemen_path-3" x="-3.381113796409636" y="40.48660793104672"/>
+<vertex id="Firemen_path-4" x="-3.3799550821152025" y="40.486167295035415"/>
+<vertex id="Firemen_path-5" x="-3.3737323572006517" y="40.48197294818558"/>
+<vertex id="Firemen_path-6" x="-3.3724448968735032" y="40.482919555200006"/>
+<vertex id="Firemen_path-7" x="-3.3712432672348314" y="40.48350709766723"/>
+<vertex id="Firemen_path-8" x="-3.3691404153671556" y="40.4838008669723"/>
+<vertex id="Firemen_path-9" x="-3.3676383783188157" y="40.484208877763095"/>
+<vertex id="Firemen_path-10" x="-3.365664272483855" y="40.48440472206175"/>
+<vertex id="Firemen_path-11" x="-3.363561420616179" y="40.48509017260702"/>
+<vertex id="Firemen_path-12" x="-3.3612010766830736" y="40.485857216108165"/>
+<vertex id="Firemen_path-13" x="-3.361694603141814" y="40.48664057063618"/>
+<vertex id="Firemen_path-14" x="-3.362767486747771" y="40.48605305559731"/>
+<vertex id="Firemen_path-15" x="-3.3657715608444505" y="40.48494329093661"/>
+<vertex id="Firemen_path-16" x="-3.367380886253386" y="40.48479640894474"/>
+<vertex id="Firemen_path-17" x="-3.368925838645964" y="40.48474744820938"/>
+<vertex id="Firemen_path-18" x="-3.3698914338913255" y="40.484388401725326"/>
+<vertex id="Firemen_path-19" x="-3.3719084550705247" y="40.48406199416412"/>
+<vertex id="Firemen_path-20" x="-3.3738396455612474" y="40.48298483795033"/>
+<vertex id="Firemen_path-21" x="-3.3767578889694505" y="40.484731127956316"/>
+<vertex id="Firemen_path-22" x="-3.3799765397873216" y="40.48690168678044"/>
+<vertex id="Firemen_path-23" x="-3.38276603716281" y="40.4886805134793"/>
+<vertex id="Firemen_path-24" x="-3.3840534974899583" y="40.48969230212527"/>
+</mutaz>
+
+<mutaz id="Policemen_path_1">
+<vertex id="Policemen_path_1-0" x="-3.357167034324675" y="40.49416357250218"/>
+<vertex id="Policemen_path_1-1" x="-3.3558795739975267" y="40.49311921484814"/>
+<vertex id="Policemen_path_1-2" x="-3.357639103111296" y="40.4922706622855"/>
+<vertex id="Policemen_path_1-3" x="-3.3605573465194993" y="40.489529111439914"/>
+<vertex id="Policemen_path_1-4" x="-3.3620808412399583" y="40.48699960507263"/>
+<vertex id="Policemen_path_1-5" x="-3.3611796190109544" y="40.48582457613774"/>
+<vertex id="Policemen_path_1-6" x="-3.3621237565841966" y="40.48554713574836"/>
+<vertex id="Policemen_path_1-7" x="-3.3630464364853196" y="40.4873096787221"/>
+<vertex id="Policemen_path_1-8" x="-3.361565857109099" y="40.48887634473031"/>
+<vertex id="Policemen_path_1-9" x="-3.3607290078964525" y="40.490100277102435"/>
+<vertex id="Policemen_path_1-10" x="-3.3580038835373216" y="40.492613348265984"/>
+</mutaz>
+
+<mutaz id="Emergency_1">
+<vertex id="Emergency_1-0" x="-3.361694603141814" y="40.48667321020983"/>
+<vertex id="Emergency_1-1" x="-3.3625314523544603" y="40.486216254735155"/>
+<vertex id="Emergency_1-2" x="-3.3621452142563157" y="40.48556345580306"/>
+<vertex id="Emergency_1-3" x="-3.361136703666716" y="40.485857216108215"/>
+</mutaz>
+
+<mutaz id="Emergency_2">
+<vertex id="Emergency_2-0" x="-3.3624241639938646" y="40.48845204296429"/>
+<vertex id="Emergency_2-1" x="-3.3656213571396165" y="40.48719544122851"/>
+<vertex id="Emergency_2-2" x="-3.3633683015671068" y="40.48349077711264"/>
+<vertex id="Emergency_2-3" x="-3.3587763597336107" y="40.48515545324632"/>
+<vertex id="Emergency_2-4" x="-3.361265449699431" y="40.48890898321663"/>
+</mutaz>
+
+<mutaz id="Police_station">
+<vertex id="Police_station-0" x="-3.357262058186052" y="40.49474004039484"/>
+<vertex id="Police_station-1" x="-3.358635349201677" y="40.49364673746991"/>
+<vertex id="Police_station-2" x="-3.3576912116284348" y="40.492977692565574"/>
+<vertex id="Police_station-3" x="-3.35630719177675" y="40.49406284739934"/>
+</mutaz>
+
+<mutaz id="Fire_station">
+<vertex id="Fire_station-0" x="-3.384127063679216" y="40.489191751826596"/>
+<vertex id="Fire_station-1" x="-3.3854681681866623" y="40.488212594459036"/>
+<vertex id="Fire_station-2" x="-3.3848888110394455" y="40.487747489704915"/>
+<vertex id="Fire_station-3" x="-3.383429689335344" y="40.4887429731398"/>
+</mutaz>
+
+<mutaz id="Fire_station_2">
+<vertex id="Fire_station_2-0" x="-3.384202165531633" y="40.489403900706606"/>
+<vertex id="Fire_station_2-1" x="-3.384631318974016" y="40.489110155924955"/>
+<vertex id="Fire_station_2-2" x="-3.3829147052044846" y="40.48782092751196"/>
+<vertex id="Fire_station_2-3" x="-3.3823675345654465" y="40.48822075416281"/>
+</mutaz>
+
+</mutazs>

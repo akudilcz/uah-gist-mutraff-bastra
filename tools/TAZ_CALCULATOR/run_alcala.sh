@@ -12,7 +12,7 @@ python mutraff_tazcalc.py \
   -nod $DIR_MAPS/alcalahenares.nod.xml \
   -edg $DIR_MAPS/alcalahenares.edg.xml \
   -mutaz $DIR_MAPS/$MUTAZ_FILE \
-  -i 1000 \
+  -i 1120010 \
   -sumo_taz $OUT_TAZ_FILE
 
 

@@ -6,6 +6,7 @@ Created on: 14/12/2016
 '''
 
 import argparse as arg
+import os
 import sys
 import math
 from lxml import etree
@@ -38,7 +39,9 @@ od_nodes          = defaultdict(dict)
 od_edgeIds        = defaultdict(dict)
 od_edges          = defaultdict(dict)
 od_types          = defaultdict(dict)
+od_speeds         = defaultdict(dict)
 od_weights        = defaultdict(dict)
+od_lengths        = defaultdict(dict)
 od_names          = defaultdict(dict)
 od_priorities     = defaultdict(dict)
 od_tazs           = defaultdict(dict)
@@ -70,11 +73,14 @@ Examples:
   parser.add_argument( "-d","--in-demand", help='Input. SUMOs trip file', required=False)
   parser.add_argument( "-v","--verbose", help='Verbose output', default=False, action='store_true')
   parser.add_argument( "-p","--out-prefix", help='Output. prefix for O/D generated files', default="mutraff", required=False)
+  parser.add_argument( "-O","--out-dir", help='Output. Directory for generated files', default=".", required=False)
   parser.add_argument( "-A","--out-all", help='Output. Generate all the O/D matrices', default=False, action='store_true')
   parser.add_argument( "-I","--out-edge-ids", help='Output. Generate O/D matrix with edge ids', default=False, action='store_true')
   parser.add_argument( "-T","--out-edge-types", help='Output. Generate O/D matrix with edge types', default=False, action='store_true')
   parser.add_argument( "-P","--out-edge-priorities", help='Output. Generate O/D matrix with edge priorities',default=False, action='store_true')
-  parser.add_argument( "-W","--out-weights", help='Output. Generate O/D matrix with edge weights', default=False, action='store_true')
+  parser.add_argument( "-W","--out-fftt", help='Output. Generate O/D matrix with edge weights as FREE-FLOW TRAVEL TIMES', default=False, action='store_true')
+  parser.add_argument( "-L","--out-lengths", help='Output. Generate O/D matrix with edge lengths', default=False, action='store_true')
+  parser.add_argument( "-S","--out-speeds", help='Output. Generate O/D matrix with edge speeds', default=False, action='store_true')
   parser.add_argument( "-C","--out-trip-counters", help='Output. Generate O/D matrix with timeless trip counters. Requires -d option enabled', default=False, action='store_true')
   parser.add_argument( "-G","--out-group-trip-counters", help='Output. Generate O/D matrix with timeless GROUPED trip counters. Requires -d option enabled', default=False, action='store_true')
   parser.add_argument( "-N","--out-names", help='Output. Generate O/D matrix with street names', default=False, action='store_true')
@@ -89,7 +95,9 @@ Examples:
     options['out_edge_ids'] = True
     options['out_edge_types'] = True
     options['out_edge_priorities'] = True
+    options['out_speeds'] = True
     options['out_weights'] = True
+    options['out_lengths'] = True
     options['out_trip_counters'] = True
     options['out_group_trip_counters'] = True
     options['out_names'] = True
@@ -143,7 +151,9 @@ def parseNodes(opts):
   global od_edgeIds
   global od_edges
   global od_types
+  global od_speeds
   global od_weights
+  global od_lengths
   global od_names
   global od_priorities
   global od_nodes
@@ -186,7 +196,9 @@ def parseNodes(opts):
     for y in od_nodes:
       od_edgeIds[x][y] = ''
       od_types[x][y] = ''
+      od_speeds[x][y] = 0
       od_weights[x][y] = 0
+      od_lengths[x][y] = 0
       od_names[x][y] = 0
       od_priorities[x][y] = 0
       od_trips[x][y] = 0
@@ -199,12 +211,16 @@ def parseNet(opts):
   global od_edgeIds
   global od_edges
   global od_types
+  global od_speeds
   global od_weights
+  global od_lengths
   global od_names
   global od_priorities
   global od_nodes
   global od_tazs
   global od_taz_nodes
+
+  flag_debug=False
 
   print( "Start parsing netfile" );
   od_taz_nodes['from']={}
@@ -222,7 +238,8 @@ def parseNet(opts):
   # {'priority': '1', 'width': '2.00', 'allow': 'pedestrian', 'oneway': '1', 'numLanes': '1', 'speed': '2.78', 'id': 'highway.bridleway'}
 
   for elem in root:
-   #print(elem)
+   if flag_debug:
+     print(elem)
    try:
     if( elem.tag ):
       # ----------------------------------------------
@@ -232,19 +249,19 @@ def parseNet(opts):
       # ----------------------------------------------
       if( elem.tag == 'edge' ):
         if( not ('function' in elem.attrib and elem.attrib['function'] == 'internal' )):
-          id = elem.attrib['id']
-          #print('edge['+vfrom+','+vto+']='+id)
+          edge_id = elem.attrib['id']
+          #print('edge['+vfrom+','+vto+']='+edge_id)
           #print(elem.attrib)
 
           vfrom = elem.attrib['from']
           vto = elem.attrib['to']
 
           # -----------------
-          od_edgeIds[vfrom][vto] = id
+          od_edgeIds[vfrom][vto] = edge_id
 
           # -----------------
-          od_edges[id]['from'] = vfrom
-          od_edges[id]['to'] = vto
+          od_edges[edge_id]['from'] = vfrom
+          od_edges[edge_id]['to'] = vto
 
           # -----------------
           vtype = elem.attrib['type']
@@ -254,25 +271,52 @@ def parseNet(opts):
           speed = 0
           if vtype in edge_types_speeds:
             speed = float(edge_types_speeds[vtype])
-          od_weights[vfrom][vto] = speed
+          od_speeds[vfrom][vto] = speed
 
-          od_edges[id]['speed'] = speed
+          # -----------------
+          od_edges[edge_id]['speed'] = speed
           lat1 = od_nodes[vfrom]['y']
           lon1 = od_nodes[vfrom]['x']
           lat2 = od_nodes[vto]['y']
           lon2 = od_nodes[vto]['x']
-          d = distance(lat1, lon1, lat2, lon2)
-          od_edges[id]['length'] = d
+          linear_distance = distance(lat1, lon1, lat2, lon2)
+	  # Length = true path length
+	  # Distance = linear distance between origen and destiantion coordinates
+          od_edges[edge_id]['length'] = linear_distance
+          od_edges[edge_id]['distance'] = linear_distance
           weight = 999
           if speed > 0:
-             weight = d/speed
-          od_edges[id]['weight'] = weight
-          #print("EDGE({})-> dist:{}, speed:{}, time:{}".format( id, d, speed, weight ))
+             weight = linear_distance/speed
+          od_edges[edge_id]['weight'] = weight
+          od_weights[vfrom][vto] = weight
+          od_lengths[vfrom][vto] = linear_distance
+          if flag_debug:
+             print("EDGE({}: {}->{}): lindist={}, speed={}, FFTT={}".format( edge_id, vfrom, vto, linear_distance, speed, weight ))
 
           # -----------------
           od_names[vfrom][vto] = elem.attrib['name'] if 'name' in elem.attrib else ''
           # -----------------
           od_priorities[vfrom][vto] = elem.attrib['priority'] if 'priority' in elem.attrib else 0
+
+          # ----------------------------------------------
+          # edge_id, vfromm, vto --> coming from previous edge xml-tag
+          for elem2 in elem.iter("lane"):
+             if( elem2.tag == 'lane' ):
+                #print("lane:{}".format( elem2.attrib))
+                lane_id     = elem2.attrib['id']
+                lane_speed  = float(elem2.attrib['speed'])
+                lane_length = float(elem2.attrib['length'])
+                lane_weight = 999
+                if lane_speed > 0:
+                   lane_weight = lane_length/lane_speed
+                od_weights[vfrom][vto] = lane_weight
+                od_lengths[vfrom][vto] = lane_length
+                od_speeds[vfrom][vto]  = lane_speed
+                od_edges[edge_id]['weight'] = lane_weight
+                od_edges[edge_id]['speed']  = lane_speed
+                od_edges[edge_id]['length'] = lane_length
+                if flag_debug:
+                   print("   LANE({}: {}->{}): length={}, speed={}, FFTT={}".format( edge_id, vfrom, vto, lane_length, lane_speed, lane_weight ))
 
       # ----------------------------------------------
       if( elem.tag == 'tazs' ):
@@ -478,52 +522,68 @@ def parseDemand(opts):
 def dumpODmatrices():
   global od_edgeIds
   global od_types
+  global od_speeds
   global od_weights
+  global od_lengths
   global od_names
   global od_priorities
   global od_trips
   global od_grouped_trips
   global od_nodes
 
+  if not os.path.exists(opts['out_dir']):
+    print( "Creating directory "+opts['out_dir'])
+    os.makedirs(opts['out_dir'])
+
   if( opts['out_weights'] ):
     print("Generating od matrix for edge weights")
     df = pd.DataFrame(od_weights).T.fillna(0)
-    df.to_csv( opts['out_prefix']+"_od_weights.csv" )
+    df.to_csv( opts['out_dir']+'/'+opts['out_prefix']+"_od_weights.csv" )
+
+  if( opts['out_speeds'] ):
+    print("Generating od matrix for edge speeds")
+    df = pd.DataFrame(od_speeds).T.fillna(0)
+    df.to_csv( opts['out_dir']+'/'+opts['out_prefix']+"_od_speeds.csv" )
+
+  if( opts['out_lengths'] ):
+    print("Generating od matrix for edge lengths")
+    df = pd.DataFrame(od_lengths).T.fillna(0)
+    df.to_csv( opts['out_dir']+'/'+opts['out_prefix']+"_od_lengths.csv" )
 
   if( opts['out_edge_types'] ):
     print("Generating od matrix for edge types")
     df = pd.DataFrame(od_types).T.fillna(0)
-    df.to_csv( opts['out_prefix']+"_od_types.csv" )
+    df.to_csv( opts['out_dir']+'/'+opts['out_prefix']+"_od_types.csv" )
 
   if( opts['out_edge_ids'] ):
     print("Generating od matrix for edge ids")
     df = pd.DataFrame(od_edgeIds).T.fillna(0)
-    df.to_csv( opts['out_prefix']+"_od_edgeids.csv" )
+    df.to_csv( opts['out_dir']+'/'+opts['out_prefix']+"_od_edgeids.csv" )
 
   if( opts['out_names'] ):
     print("Generating od matrix for edge names")
     df = pd.DataFrame(od_names).T.fillna(0)
-    df.to_csv( opts['out_prefix']+"_od_names.csv", encoding='utf-8' )
+    df.to_csv( opts['out_dir']+'/'+opts['out_prefix']+"_od_names.csv", encoding='utf-8' )
 
   if( opts['out_edge_priorities'] ):
     print("Generating od matrix for edge priorities")
     df = pd.DataFrame(od_priorities).T.fillna(0)
-    df.to_csv( opts['out_prefix']+"_od_priorities.csv" )
+    df.to_csv( opts['out_dir']+'/'+opts['out_prefix']+"_od_priorities.csv" )
 
   if( opts['out_trip_counters'] ):
     print("Generating od matrix for trip counters")
     df = pd.DataFrame(od_trips).T.fillna(0)
-    df.to_csv( opts['out_prefix']+"_od_trips.csv" )
+    df.to_csv( opts['out_dir']+'/'+opts['out_prefix']+"_od_trips.csv" )
 
   if( opts['out_group_trip_counters'] ):
     print("Generating od matrix for grouped trip counters")
     df = pd.DataFrame(od_grouped_trips).T.fillna(0)
-    df.to_csv( opts['out_prefix']+"_od_group_trips.csv" )
+    df.to_csv( opts['out_dir']+'/'+opts['out_prefix']+"_od_group_trips.csv" )
 
   if( opts['out_nodes'] ):
     print("Generating od matrix for trip counters")
     df = pd.DataFrame(od_nodes).T
-    df.to_csv( opts['out_prefix']+"_od_nodes.csv" )
+    df.to_csv( opts['out_dir']+'/'+opts['out_prefix']+"_od_nodes.csv" )
 
 # --------------------------------------------------------------
 if __name__ == '__main__':
