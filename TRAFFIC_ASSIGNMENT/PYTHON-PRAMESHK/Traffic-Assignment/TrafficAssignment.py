@@ -12,8 +12,17 @@ import time
 import heapq
 import numpy as np
 from scipy import optimize
+from pprint import pprint
 
 flag_debug = 0
+
+# ---------------------------------------------------------------
+# Shortest-PAth travel time
+SPTT = 0.0
+# Total travel time
+TSTT = 0.0
+# Number of iterations for convergence
+ITER=0
 
 # ---------------------------------------------------------------
 class Zone:
@@ -41,6 +50,14 @@ class Node:
         self.order = 0 # Topological order
         self.wi = 0.0 # Weight of the node in Dial's algorithm
         self.xi = 0.0 # Toal flow crossing through this node in Dial's algorithm
+
+    def print( self ):
+        print("Id, label, order: {}, {}, {}".format(self.Id, self.label, self.order))
+        print("Lat,lon: {},{}".format(self.lat, self.lon))
+        print("outLinks: {}".format(self.outLinks))
+        print("inLinks: {}".format(self.inLinks))
+        print("inDegree, ouDegree: {},{}".format(self.inDegree,self.outDegree))
+        print("Dial's wi, xi: {},{}".format(self.wi, self.xi))
 
 # ---------------------------------------------------------------
 class Link:
@@ -204,7 +221,20 @@ def tracePreds(dest):
     while nodeSet[dest].pred != "NA":
         spLinks.append((prevNode, dest))
         dest = prevNode
+        if dest == "":
+          if flag_debug >= 1:
+            print(">> EMPTY NODE : no routing is possible - Return spLink empty!!!")
+          spLinks = []
+          break
+        else:
+          if flag_debug > 1:
+            print(">> dest: {} ".format(dest))
+            print(">> spLinks: {} \n".format(spLinks))
+            nodeSet[dest].print()
         prevNode = nodeSet[dest].pred
+
+    if flag_debug >= 1:
+      print("tracePred contains {} links".format( len(spLinks) ) )
     return spLinks
 
 
@@ -227,6 +257,8 @@ def loadAON():
             if r != s:
                 for spLink in tracePreds(s):
                     x_bar[spLink] = x_bar[spLink] + dem
+    if flag_debug >= 1:
+      print(" ============= End of AON ============= ")
     return SPTT, x_bar
 
 # ---------------------------------------------------------------
@@ -345,6 +377,11 @@ def assignment(loading, algorithm, accuracy = 0.01, maxIter=100):
     * Accuracy to be given for convergence
     * maxIter to stop if not converged
     '''
+    global SPTT
+    global TSTT
+    global ITER
+
+    ITER=0
     it = 1
     gap = float("inf")
     x_bar = {l: 0.0 for l in linkSet}
@@ -389,13 +426,28 @@ def assignment(loading, algorithm, accuracy = 0.01, maxIter=100):
             print("The assignment did not converge with the desired gap and max iterations are reached")
             print("current gap ", gap)
             break
+
     print("Assignment took", time.time() - startP, " seconds")
     print("assignment converged in ", it, " iterations")
+    ITER = it
 
 # ---------------------------------------------------------------
-def writeUEresults(outFile):
+def writeUEresults(args):
+    global TSTT
+    global SPTT
+    global ITER
+    now = datetime.datetime.now()
+    outFile = "{}_{}_{}_{}.csv".format(args.scenario,args.algorithm,args.loading, now.strftime( "%y%m%d_%H%M%S" )).replace(' ','-')
     print( "Dumping resutls to {}".format(outFile))
+
     outFile = open(outFile, "w")
+    outFile.write( "# Scenario = {}\n".format( args.scenario))
+    outFile.write( "# Algorithm = {}\n".format( args.algorithm))
+    outFile.write( "# Loading = {}\n".format( args.loading))
+    outFile.write( "# Accuracy = {}\n".format( args.accuracy))
+    outFile.write( "# Iterations = {}/{}\n".format( ITER, args.max_iterations))
+    outFile.write( "# Total Travel Time = {}\n".format( TSTT))
+    outFile.write( "# Shortest-Path Travel Time = {}\n".format( SPTT))
     sep = "\t"
     tmpOut = "tailNode"+sep+"headNode"+sep+"capacity"+sep+"length"+sep+"fft"+sep+"UE_travelTime"+sep+"UE_flow"
     outFile.write(tmpOut+"\n")
@@ -441,8 +493,5 @@ if __name__ == '__main__':
 
     assignment(args.loading, args.algorithm, args.accuracy, args.max_iterations)
 
-    now = datetime.datetime.now()
-
-    outFile = "{}_{}_{}_{}.csv".format(args.scenario,args.algorithm,args.loading, now.strftime( "%y%m%d_%H%M%S" )).replace(' ','-')
-    writeUEresults(outFile)
+    writeUEresults(args)
     #assignment("stochastic", "MSA", accuracy = 0.01, maxIter=100)
