@@ -40,42 +40,43 @@ Mandatory arguments:
                         Input. SUMOs XML net description file
 ```
 
-optional arguments:\
--h, --help            show this help message and exit\
+Optional arguments:
+```
+-h, --help            show this help message and exit
 -n IN_NET, --in-net IN_NET
-                        Input. SUMOs XML net description file\
+                        Input. SUMOs XML net description file
 -x IN_NODES, --in-nodes IN_NODES
-                        Input. SUMOs XML nodes description file\
+                        Input. SUMOs XML nodes description file
 -d IN_DEMAND, --in-demand IN_DEMAND
-                        Input. SUMOs trip file\
--v, --verbose         Verbose output\
+                        Input. SUMOs trip file
+-v, --verbose         Verbose output
 -p OUT_PREFIX, --out-prefix OUT_PREFIX
-                        Output. prefix for O/D generated files\
+                        Output. prefix for O/D generated files
 -O OUT_DIR, --out-dir OUT_DIR
-                        Output. Directory for generated files\
--A, --out-all         Output. Generate all the O/D matrices\
--I, --out-edge-ids    Output. Generate O/D matrix with edge ids\
--T, --out-edge-types  Output. Generate O/D matrix with edge types\
+                        Output. Directory for generated files
+-A, --out-all         Output. Generate all the O/D matrices
+-I, --out-edge-ids    Output. Generate O/D matrix with edge ids
+-T, --out-edge-types  Output. Generate O/D matrix with edge types
 -P, --out-edge-priorities
-                        Output. Generate O/D matrix with edge priorities\
+                        Output. Generate O/D matrix with edge priorities
 -W, --out-fftt        Output. Generate O/D matrix with edge weights as FREE-
-                        FLOW TRAVEL TIMES\
--L, --out-lengths     Output. Generate O/D matrix with edge lengths\
--S, --out-speeds      Output. Generate O/D matrix with edge speeds\
+                        FLOW TRAVEL TIMES
+-L, --out-lengths     Output. Generate O/D matrix with edge lengths
+-S, --out-speeds      Output. Generate O/D matrix with edge speeds
 -C, --out-trip-counters
                         Output. Generate O/D matrix with timeless trip
-                        counters. Requires -d option enabled\
+                        counters. Requires -d option enabled
 -G, --out-group-trip-counters
                         Output. Generate O/D matrix with timeless GROUPED trip
-                        counters. Requires -d option enabled\
--N, --out-names       Output. Generate O/D matrix with street names\
+                        counters. Requires -d option enabled
+-N, --out-names       Output. Generate O/D matrix with street names
 -W2, --out-edge-weights
-                        Output. Dump default edge weights\
--X, --out-nodes       Output. Dump CSV nodes listing with GPS coordinates\
+                        Output. Dump default edge weights
+-X, --out-nodes       Output. Dump CSV nodes listing with GPS coordinates
 -fti FILTER_TIME_INI, --filter-time-ini FILTER_TIME_INI
-                        Filter. Dump trips from specified time\
+                        Filter. Dump trips from specified time
 -fte FILTER_TIME_END, --filter-time-end FILTER_TIME_END
-                        Filter. Dump trips up to specified time\
+                        Filter. Dump trips up to specified time
 ```
 
 ## Examples
