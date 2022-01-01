@@ -40,11 +40,11 @@ Mandatory arguments:
                         Input. SUMOs XML net description file
 ```
 
-optional arguments:
--h, --help            show this help message and exit
+optional arguments:\
+-h, --help            show this help message and exit\
 -n IN_NET, --in-net IN_NET
-                        Input. SUMOs XML net description file
--x IN_NODES, --in-nodes IN_NODES
+                        Input. SUMOs XML net description file\
+-x IN_NODES, --in-nodes IN_NODES\
                         Input. SUMOs XML nodes description file
 -d IN_DEMAND, --in-demand IN_DEMAND
                         Input. SUMOs trip file
