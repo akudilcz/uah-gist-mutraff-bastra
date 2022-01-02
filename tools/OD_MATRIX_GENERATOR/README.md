@@ -85,6 +85,10 @@ Examples:
 ```
 > python mutraff_odgen.py -n alcalahenares.net.xml -d alcalahenares_L_Bastra_uni1x8_timeALL_fulltraffic_logit50.trip.xml -A
 ```
+* Generate network weights map to be used in Matlab:
+```
+>  python mutraff_odgen.py -n alcalahenares.net.xml -x alcalahenares.nod.xml -W 
+```
 * Generate time-filtered trip counters:
 ```
 > python mutraff_odgen.py -fti 1 -fte 2 -n alcalahenares.net.xml -C -d alcalahenares_L_Bastra_uni1x8_timeALL_fulltraffic_logit50.trip.xml
