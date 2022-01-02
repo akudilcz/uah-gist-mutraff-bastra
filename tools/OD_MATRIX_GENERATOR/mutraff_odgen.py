@@ -96,7 +96,7 @@ Examples:
     options['out_edge_types'] = True
     options['out_edge_priorities'] = True
     options['out_speeds'] = True
-    options['out_weights'] = True
+    options['out_fftt'] = True
     options['out_lengths'] = True
     options['out_trip_counters'] = True
     options['out_group_trip_counters'] = True
@@ -120,6 +120,7 @@ Examples:
 
   if( options['verbose'] ):
     print(options)
+    
   return options
 
 
@@ -535,52 +536,52 @@ def dumpODmatrices():
     print( "Creating directory "+opts['out_dir'])
     os.makedirs(opts['out_dir'])
 
-  if( opts['out_weights'] ):
+  if( 'out_fftt' in opts) & (opts['out_fftt']) :
     print("Generating od matrix for edge weights")
     df = pd.DataFrame(od_weights).T.fillna(0)
     df.to_csv( opts['out_dir']+'/'+opts['out_prefix']+"_od_weights.csv" )
 
-  if( opts['out_speeds'] ):
+  if( 'out_speeds' in opts) & (opts['out_speeds']) :
     print("Generating od matrix for edge speeds")
     df = pd.DataFrame(od_speeds).T.fillna(0)
     df.to_csv( opts['out_dir']+'/'+opts['out_prefix']+"_od_speeds.csv" )
 
-  if( opts['out_lengths'] ):
+  if( 'out_lengths' in opts) & (opts['out_lengths']) :
     print("Generating od matrix for edge lengths")
     df = pd.DataFrame(od_lengths).T.fillna(0)
     df.to_csv( opts['out_dir']+'/'+opts['out_prefix']+"_od_lengths.csv" )
 
-  if( opts['out_edge_types'] ):
+  if( 'out_edge_types' in opts) & (opts['out_edge_types']) :
     print("Generating od matrix for edge types")
     df = pd.DataFrame(od_types).T.fillna(0)
     df.to_csv( opts['out_dir']+'/'+opts['out_prefix']+"_od_types.csv" )
 
-  if( opts['out_edge_ids'] ):
+  if( 'out_edge_ids' in opts) & (opts['out_edge_ids']) :
     print("Generating od matrix for edge ids")
     df = pd.DataFrame(od_edgeIds).T.fillna(0)
     df.to_csv( opts['out_dir']+'/'+opts['out_prefix']+"_od_edgeids.csv" )
 
-  if( opts['out_names'] ):
+  if( 'out_names' in opts) & (opts['out_names']) :
     print("Generating od matrix for edge names")
     df = pd.DataFrame(od_names).T.fillna(0)
     df.to_csv( opts['out_dir']+'/'+opts['out_prefix']+"_od_names.csv", encoding='utf-8' )
 
-  if( opts['out_edge_priorities'] ):
+  if( 'out_edge_priorities' in opts) & (opts['out_edge_priorities']) :
     print("Generating od matrix for edge priorities")
     df = pd.DataFrame(od_priorities).T.fillna(0)
     df.to_csv( opts['out_dir']+'/'+opts['out_prefix']+"_od_priorities.csv" )
 
-  if( opts['out_trip_counters'] ):
+  if( 'out_trip_counters' in opts) & (opts['out_trip_counters']) :
     print("Generating od matrix for trip counters")
     df = pd.DataFrame(od_trips).T.fillna(0)
     df.to_csv( opts['out_dir']+'/'+opts['out_prefix']+"_od_trips.csv" )
 
-  if( opts['out_group_trip_counters'] ):
+  if( 'out_group_trip_counters' in opts) & (opts['out_group_trip_counters']) :
     print("Generating od matrix for grouped trip counters")
     df = pd.DataFrame(od_grouped_trips).T.fillna(0)
     df.to_csv( opts['out_dir']+'/'+opts['out_prefix']+"_od_group_trips.csv" )
 
-  if( opts['out_nodes'] ):
+  if( 'out_nodes' in opts) & (opts['out_nodes']) :
     print("Generating od matrix for trip counters")
     df = pd.DataFrame(od_nodes).T
     df.to_csv( opts['out_dir']+'/'+opts['out_prefix']+"_od_nodes.csv" )
