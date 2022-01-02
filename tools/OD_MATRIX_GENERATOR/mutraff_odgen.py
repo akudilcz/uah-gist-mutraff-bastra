@@ -582,7 +582,7 @@ def dumpODmatrices():
     df.to_csv( opts['out_dir']+'/'+opts['out_prefix']+"_od_group_trips.csv" )
 
   if( 'out_nodes' in opts) & (opts['out_nodes']) :
-    print("Generating od matrix for trip counters")
+    print("Generating od matrix for nodes")
     df = pd.DataFrame(od_nodes).T
     df.to_csv( opts['out_dir']+'/'+opts['out_prefix']+"_od_nodes.csv" )
 
